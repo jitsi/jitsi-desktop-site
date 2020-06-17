@@ -1,0 +1,612 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> How To Add Key Bindings | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="HowToAddKeyBindings" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.HowToAddKeyBindings' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/HowToAddKeyBindings?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:40px auto;text-align:left' >
+<h1>How To Add Keybindings </h1>
+<p>Adding configurable keybindings to new aspects of the Jitsi&rsquo;s UI isn&rsquo;t terribly difficult but can be tricky if you don&rsquo;t know where to look. The <em>KeybindingsService</em> handles the management and persistence of bindings for use either by <code>InputMap</code>s or <code>KeyListener</code>s (if you&rsquo;re new to Swing&rsquo;s use of keybindings then see <a class='urllink' href='http://java.sun.com/docs/books/tutorial/uiswing/misc/keybinding.html' rel='nofollow'>How to Use Key Bindings</a>). This page exemplifies usage for:
+</p>
+<p class='vspace'><em>net.java.sip.communicator.impl.gui.main.chat.toolBars.EditTextToolBar</em>
+</p>
+<p class='vspace'>which uses shortcuts for the fonts. All new binding sets need the following components:
+</p>
+<div class='vspace'></div><ol><li>Unique string identifier for the component of the UI to which the bindings belong. For instance the identifier for the <code>EditTextToolBar</code> is <em>chatToolbar</em>.
+<div class='vspace'></div></li><li>Strings associated with the actions to be performed. For instance the <code>EditTextToolBar</code> uses <em>bold</em>, <em>italic</em>, and <em>underline</em>. The string identifiers used by your InputMap and ActionMap later will be <em>&lt;component&gt;-&lt;action&gt;</em> (ex. <em>chatToolbar-italic</em>).
+<div class='vspace'></div></li><li>i18n translations that are a reader friendly description of the action for the chooser. As of this writing we only have English and the <code>EditTextToolBar</code> simply uses: &ldquo;Bold&rdquo;, &ldquo;Italic&rdquo;, and &ldquo;Underline&rdquo;.
+<div class='vspace'></div></li><li>Default keybindings. This uses the string values described in <em>getKeyStroke(String)</em> method of <a class='urllink' href='http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/KeyStroke.html#getKeyStrokejava.lang.String' rel='nofollow'>KeyStroke</a>.
+<div class='vspace'></div></li><li>The actions to be fired when key&rsquo;s pressed. This is often easiest via <a class='urllink' href='http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/AbstractAction.html' rel='nofollow'>AbstractAction</a>.
+</li></ol><div id='separator' >
+</div><div >
+<h1>To add in a new keybinding set:</h1>
+<div class='vspace'></div><ul><li>Add the default bindings to <em>resources/config/defaults.properties</em>. This consists of mapping 
+</li></ul><p class='vspace'><em>net.java.sip.communicator.impl.gui.keybindings.&lt;component&gt;.&lt;action&gt;.&lt;field&gt;</em> 
+</p>
+<p class='vspace'>to the appropriate values where the fields are:
+</p><ul><li>index: ordering in which the bindings are presented
+</li><li>shortcut: <code>KeyStroke</code> string for default binding
+</li><li>shortcutAlt: Optional alternative default <code>KeyStroke</code> binding.
+</li></ul><p class='vspace'>For instance the <code>EditTextToolBar</code> contributes the following:
+</p><pre class='escaped'>net.java.sip.communicator.impl.gui.keybindings.chatToolbar.bold.index=0
+net.java.sip.communicator.impl.gui.keybindings.chatToolbar.bold.shortcut=ctrl pressed B
+net.java.sip.communicator.impl.gui.keybindings.chatToolbar.bold.shortcutAlt=ctrl pressed F
+net.java.sip.communicator.impl.gui.keybindings.chatToolbar.italic.index=1
+net.java.sip.communicator.impl.gui.keybindings.chatToolbar.italic.shortcut=ctrl pressed I
+net.java.sip.communicator.impl.gui.keybindings.chatToolbar.italic.shortcutAlt=ctrl pressed K
+net.java.sip.communicator.impl.gui.keybindings.chatToolbar.underline.index=2
+net.java.sip.communicator.impl.gui.keybindings.chatToolbar.underline.shortcut=ctrl pressed U
+</pre>
+<div class='vspace'></div><ul><li>Make your new bindings available for internal use. To do this you&rsquo;ll need to edit
+</li></ul><p class='vspace'><em>net.java.sip.communicator.service.keybindings.KeybindingSet</em>
+</p>
+<p class='vspace'>adding the component to the Category enum. For instance the following was added for the <code>EditTextToolBar</code>:
+<code>CHAT_TOOLBAR(&ldquo;chatToolbar&rdquo;)</code>
+</p>
+<div class='vspace'></div><ul><li>Add the mapping between the internal identifier and the i18n strings for the UI in:
+</li></ul><p class='vspace'><em>resources/languages/resources.properties</em>
+</p>
+<p class='vspace'>under the &ldquo;key binding chooser&rdquo; heading. For instance the following entries were added for the <code>EditTextToolBar</code>:
+</p><pre class='escaped'>bold=Bold
+italic=Italic
+underline=Underline
+</pre>
+</div><div id='separator' >
+</div><div >
+<h1>Changes made in your class:</h1>
+<p>If your class extends <em>net.java.sip.communicator.impl.gui.main.MainFrame</em> then using the bindings is trivial. Simply use the <em>setKeybindingInput(KeybindingSet.Category)</em> and <em>addKeybindingAction(String, Action)</em> methods to associate the bindings with the actions. For instance if the <code>EditTextToolBar</code> extended <code>MainFrame</code> then it would use something like:
+</p><pre class='escaped'>this.setKeybindingInput(KeybindingSet.Category.CHAT_TOOLBAR);
+this.addKeybindingAction("chatToolbar-bold", new BoldAction());
+this.addKeybindingAction("chatToolbar-italic", new ItalicAction());
+this.addKeybindingAction("chatToolbar-underline", new UnderlineAction());
+</pre>
+<p class='vspace'>If not then there&rsquo;s still some work to do.
+</p>
+<div class='vspace'></div><ol><li>Get an instance of the <code>KeybindingService</code> via the <em>getKeybindingService()</em> method of the <code>UIService</code>.
+<div class='vspace'></div></li><li>Snag an instance of your component&rsquo;s KeybindingSet which stores the current bindings the user&rsquo;s selected. You can get it via the <em>getBindings(KeybindingSet.Category)</em> method of the KeybindingService.
+<div class='vspace'></div></li><li>Make your class implement the Observer interface and add it to the KeybindingSet. This will notify your class when the bindings have been changed.
+<div class='vspace'></div></li><li>Create a method for resetting the keybindings. This should simply empty your class&rsquo; InputMap and re-add the bindings provided by your KeybindingSet. Call this method both when you initialize and for the <em>update(Observable, Object)</em> method you implement as an Observer.
+<div class='vspace'></div></li><li>Add an <code>ActionMap</code> associating the <em>&lt;component&gt;-&lt;action&gt;</em> values to the actions they should perform.
+</li></ol><p class='vspace'>For instance:
+</p>
+<div class='vspace'></div><pre class='escaped'>public class YourClass
+    extends JPanel
+    implements Observer
+{
+    private KeybindingSet bindings;
+
+    YourClass(UIService uiService)
+    {
+        KeybindingsService service = uiService.getKeybindingsService();
+        this.bindings = service.getBindings(KeybindingSet.Category.CHAT_TOOLBAR);
+        this.bindings.addObserver(this);
+        resetBindings(); // initializes InputMap
+
+        ActionMap actionMap = getActionMap();
+        actionMap.put("chatToolbar-bold", new BoldAction());
+        actionMap.put("chatToolbar-italic", new ItalicAction());
+        actionMap.put("chatToolbar-underline", new UnderlineAction());
+    }
+
+    // replaces input map entries with new bindings
+    private void resetBindings()
+    {
+        InputMap inputMap = getInputMap();
+        inputMap.clear();
+        HashMap &lt;KeyStroke, String&gt; currentBindings = this.bindings.getBindings();
+        for (KeyStroke shortcut : currentBindings.keySet()) 
+        {
+            inputMap.put(shortcut, currentBindings.get(shortcut));
+        }
+    }
+
+    // Listens for changes in binding sets so they can be reflected in the InputMap
+    public void update(Observable obs, Object arg)
+    {
+        if (obs instanceof KeybindingSet) resetBindings();
+    }
+}
+</pre>
+<p class='vspace'>That&rsquo;s it. Your new bindings should now be included in a new tab under Settings &gt; Keybindings. Changes applied here will be reflected in your class and those changes will be preserved within the user&rsquo;s preferences.
+</p></div></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

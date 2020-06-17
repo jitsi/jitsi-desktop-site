@@ -1,0 +1,871 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Zrtp FAQ | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="ZrtpFAQ" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.ZrtpFAQ' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/ZrtpFAQ?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='selflink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:40px auto;text-align:left' >
+<div id='titleNews' >
+<p>Frequently Asked Questions regarding ZRTP, SRTP and the GNU ZRTP <br clear='all' />implementations
+</p></div>
+<div id='subttl' >
+<p>Rationale
+</p></div>
+<p>The ever growing use of Voice over IP (VoIP) and other media
+applications triggered a more widespread use of the Real-time Transfer
+Protocol (RTP). These protocols is the workhorse for VoIP
+applications. Many VoIP applications send RTP data over the public
+Internet in clear, thus the data is not protected from eavesdropping
+or modification. Therefore most VoIP applications are considered insecure
+today. During the last years several activities started to enhance the
+security of RTP.
+</p><ul><li>The Secure Real-time Transfer Protocol (SRTP) enhances security for RTP and provides integrity and confidentiality for RTP media connections. To use SRTP in an efficient way VoIP applications should be able to negotiate keys and other parameters in an automatic fashion.
+</li><li>ZRTP is a protocol that negotiates the keys and other information required to setup a SRTP audio and video session
+</li></ul><p class='vspace'>While it is important to look at the technology, the protocols and
+alike, it is also important to look at the implications a specific
+technology may have on its implementation, deployment, and
+usability. Usability is of major importance for VoIP peer-to-peer
+applications: these applications are mainly used by non-IT
+persons. Therefore the handling must be simple, easy to use, and shall
+not require special infrastructure or registration.
+</p>
+<div class='vspace'></div><div id='separator' >
+</div><div >
+<h3>Generic FAQ regarding ZRTP, GNU ZRTP:</h3>
+<p><a href='ZrtpFAQ.html#faqFuss'>ZRTP - what&rsquo;s the fuss about it?</a> <br /><a href='ZrtpFAQ.html#faqFeat'>ZRTP features and non-features</a> <br /><a href='ZrtpFAQ.html#faqCommPrg'>ZRTP and communication programs</a> <br /><a href='ZrtpFAQ.html#faqHow'>How does it work?</a> <br /><a href='ZrtpFAQ.html#faqRel'>RTP, SRTP, and ZRTP - what is their relationship?</a> <br /><a href='ZrtpFAQ.html#faqNozrtp'>What happens if the other party&rsquo;s program does not support ZRTP?</a> <br /><a href='ZrtpFAQ.html#faqWhere'>GNU ZRTP - what is it, where to find, what to expect</a> <br /><a href='ZrtpFAQ.html#faqCrypt'>Which cryptographic algoritms are available for secure RTP (SRTP) in GNU ZRTP?</a> <br /><a href='ZrtpFAQ.html#faqKeyAgr'>Which key agreement algoritms are available in GNU ZRTP?</a> <br /><a href='ZrtpFAQ.html#faqAuth'>Which SRTP authentication algorithms does GNU ZRTP implementations support?</a> <br /><a href='ZrtpFAQ.html#faqSignal'>Does ZRTP require SIP, XMPP or other signaling protocols?</a> <br /><a href='ZrtpFAQ.html#faqData'>Does ZRTP store data about me, does it store used keys?</a> <br /><a href='ZrtpFAQ.html#faqNodata'>Can ZRTP work without any data storage?</a> <br /><a href='ZrtpFAQ.html#faqId'>What is the ZRTP identifier?</a> <br /><a href='ZrtpFAQ.html#faqRetained'>What is the Retained shared Secret (RS)?</a> <br /><a href='ZrtpFAQ.html#faqKeyCont'>Does ZRTP support key continuity?</a> <br /><a href='ZrtpFAQ.html#faqMitm'>Can ZRTP detect and report Man-in-the-Middle attacks?</a> <br /><a href='ZrtpFAQ.html#faqSas'>What is the SAS and how to use it?</a> <br /><a href='ZrtpFAQ.html#faqKeyRec'>Can I or somebody else recover a key?</a>  
+</p>
+<p class='vspace'>What happens or what to do if
+</p><ul><li><a href='ZrtpFAQ.html#faqCorr'>the ZRTP cache file was deleted or is corrupt?</a>
+</li><li><a href='ZrtpFAQ.html#faqBad'>the ZRTP cache file was copied by a bad guy?</a>
+</li></ul><div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h3><a name='faqFuss' id='faqFuss'></a>  ZRTP - what&rsquo;s the fuss about it?</h3>
+<p>The inventor of ZRTP, Phil Zimmermann, is a well known person in computer security. He is best
+known for his famous Pretty Good Privacy (PGP) program that brought strong encryption, data security,
+and privacy to the masses. ZRTP, Phil&rsquo;s newest coup, enhances security and privacy when we use the 
+Internet to talk to each other using audio or video, commonly known as Voice-over-IP (VoIP). 
+From an user&rsquo;s point of view ZRTP is very easy to use and it does not require a specific 
+infrastructure once it is implemented in the VoIP programs. You can get the ZRTP specification 
+at Phil&rsquo;s <a class='urllink' href='http://zfoneproject.com/index.html' rel='nofollow'>zfone page</a>.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h3><a name='faqFeat' id='faqFeat'></a>  ZRTP features and non-features</h3>
+<p>ZRTP and the GNU ZRTP implementation provide features to communication programs to
+</p><ul><li>setup of secure audio and video session without additional infrastructure, server programs, registration, and alike.
+</li><li>inform the user of the communication program if a session is secure or not, inform about problems and thier severity
+</li><li>provide an easy-to-use method to detect if <em>bad guys</em> tamper with the session
+</li></ul><p class='vspace'>What ZRTP does not provide:
+</p><ul><li>ZRTP cannot automatically authenticate the end-users, this is task of the users once they can talk to each other
+</li><li>and last but not least  &lsquo;&rsquo;&lsquo;ZRTP is no replacement for common sense: check that you talk to the right person and then check the <a href='ZrtpFAQ.html#faqSas'> SAS</a> 
+</li></ul></div><div id='separator' >
+</div><div >
+<h3><a name='faqCommPrg' id='faqCommPrg'></a> ZRTP and communication programs</h3>
+<p>ZRTP cannot work standalone and provide secure communication. Communication programs
+use the ZRTP implementation together with their RTP stack, the programs offer the
+user interface, and other features required to setup audio/video calls and to provide
+interworking with ZRTP.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h3><a name='faqHow' id='faqHow'></a> How does it work?</h3>
+<p>In principle ZRTP uses three phases to negotiate and setup the SRTP master keys 
+and to switch to SRTP mode.
+</p><ol><li>Discovery phase - detecting if the peers supports ZRTP
+</li><li>Key agreement phase - exchanging the key material
+</li><li>Secure phase - confirm the cryptographic data and switch to SRTP mode
+</li></ol><p class='vspace'>During the first phase both ZRTP peers exchange information about symmetric 
+cryptographic algorithms, key agreement algorithms, and authentications modes they
+support.
+</p>
+<p class='vspace'>During the next phase the peers generate their Diffie-Helman values and
+exchange the public part of the Diffie-Helman key pair. ZRTP requires to generate
+new Diffie-Helman key-pairs for each session. ZRTP does not use <em>long living keys</em>.
+Refer to <a href='ZrtpFAQ.html#faqKeyCont'>key continuity</a> and <a href='ZrtpFAQ.html#faqKeyRec'>key recovery</a> answers for more 
+information regarding these topics.
+</p>
+<p class='vspace'>Together with these values the peers may also exhange additional secrets, such as
+<em>Retained Secrets</em> (<a href='ZrtpFAQ.html#faqRetained'>RS</a>), or a secret like an additional password 
+(depends on the implementation of the communication program). ZRTP uses
+all available secrets and combines them in a clever way to generate
+and derive the SRTP master keys. The combination of several key data
+makes it very hard for an attacker to guess the values.
+</p>
+<p class='vspace'>After ZRTP computed the SRTP key data ZRTP exchanges some confirmation 
+data to check if the key negotiation was successful. In the last step ZRTP sets 
+up the SRTP cryptographic context and switches from standard RTP to SRTP
+mode.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h3><a name='faqRel' id='faqRel'></a>  RTP, SRTP, and ZRTP - and their relationship</h3>
+<p>RTP is the basis protocol to exchange media data such as audio or
+video streams between two peers. RTP data packtes consist of a fixed
+header part, an optional variable header part, an optional variable
+extension header part, and a variable length data part. The RTP
+specification (RFC 3350) and the accompaning RTP profile specifications
+describe how to populate the header and data parts.
+</p>
+<p class='vspace'>A basic RTP session is unidirectional, thus if two peers like to
+exchange data in both directions they must setup two RTP
+sessions. This is an important fact when it comes to security (see
+below).
+</p>
+<p class='vspace'>SRTP is, strictly spoken, not a protocol on its own but a
+specification how to protect and encrypt a RTP packet. SRTP (RFC 3711) 
+defines
+</p><ul><li>which parts of a RTP packet must be encrypted to protect against eavesdropping
+</li><li>which parts shall be authenticated to detect data manipulation
+</li><li>which encryption algorithms and encryption modes to use
+</li><li>how to generate keys, how to refresh keys, and so on
+</li></ul><p class='vspace'>The SRTP specification also defines how to setup and maintain a
+cryptographic context. This context holds all necessary data to
+perform the security operations, for example the SRTP encryption keys,
+the packet sequence counters, authentication keys, and so on. Each
+SRTP session, which is the same as a RTP session, has its own
+context. Thus a bidirectional SRTP communication requires two
+different SRTP cryptographic contexts.
+</p>
+<p class='vspace'>ZRTP is a protocol in its own right that uses the RTP sessions to exchange 
+its data. The sole purpose of ZRTP is to negotiate keys and cryptographic 
+algorithms  between peers and use these keys and algorithms to generate data 
+to setup the SRTP cryptographic context. Thus
+</p>
+<div class='vspace'></div></div><div id='subttl' >
+<p>ZRTP is not a replacment of SRTP but an enabler to use SRTP in an easy way.
+</p></div><div >
+<p class='vspace'>Once the SRTP cryptographic context is setup ZRTP steps out of the way
+and does not require any bandwidth or CPU cycles.
+</p></div><div id='separator' >
+</div><div >
+<div class='vspace'></div><h3><a name='faqNozrtp' id='faqNozrtp'></a> What happens if the other party&rsquo;s program does not support ZRTP?</h3>
+<p>ZRTP will detect this during its <a href='ZrtpFAQ.html#faqHow'>discovery phase</a> and can inform the 
+user about this fact. Obviously ZRTP cannot setup secure RTP session in this case.
+</p>
+<p class='vspace'>Therefore it is safe to have ZRTP enabled all the time. As soon as ZRTP detects
+that the other party&rsquo;s communication program also support ZRTP it automatically
+starts its key negotiation and sets up secure RTP channels.
+</p></div><div id='separator' >
+</div><div >
+<h3><a name='faqWhere' id='faqWhere'></a> GNU ZRTP - what is it, where to find, what to expect</h3>
+<p>GNU ZRTP implements most features of the ZRTP specification. 
+</p>
+<p class='vspace'>GNU ZRTP consists of two main parts: the GNU ZRTP core which is independent of the 
+RTP/SRTP implementation and specific module that links the GNU ZRTP 
+core to the underlying RTP stack and the operating system.
+</p>
+<p class='vspace'>The following GNU ZRTP implementations are available 
+</p><ul><li>a C++ implementation as extension for GNU ccRTP. This implementations extends the standard ccRTP classes and adds specific methods to provide ZRTP support. Applications may use the GNU ZRTP extension in the same way they use the standard ccRTP classes. Only a very few modifications are necessary to secure all RTP sessions. Check <a class='urllink' href='http://ftp.gnu.org/gnu/ccrtp/' rel='nofollow'>this place</a> to download GNU ZRTP C++. The SVN repository is on GNU <a class='urllink' href='https://savannah.gnu.org/projects/ccrtp' rel='nofollow'>savannah</a>.
+</li><li>A C wrapper that provides pure C programms to use the GNU ZRTP C++ implmentation. This wrapper is available at <a class='urllink' href='http://github.com/wernerd/ZRTP4PJ' rel='nofollow'>github</a>.
+</li><li>a Java implementation that already has the glue code to link into Java JMF or the free alternative FMJ. ZRTP4J is also available at GNU <a class='urllink' href='https://savannah.gnu.org/projects/ccrtp' rel='nofollow'>savannah</a>.
+</li></ul><div class='vspace'></div></div><div id='separator' >
+</div><div >
+</div><div id='titleNews' >
+<p><a name='faqCrypt' id='faqCrypt'></a> Which cryptographic algoritms are available for secure RTP (SRTP) in GNU ZRTP?
+</p></div>
+<p class='vspace'>Currently the GNU ZRTP supports the following symmetric cryptographic algorithms:
+</p><ul><li>AES Counter Mode with 128 bit key length
+</li><li>AES Counter Mode with 256 bit key length
+</li><li>Twofish Counter Mode with 128 bit key length
+</li><li>Twofish Counter Mode with 256 bit key length
+</li></ul><div id='separator' >
+</div><div >
+<h3><a name='faqKeyAgr' id='faqKeyAgr'></a> Which key agreement algoritms are available in GNU ZRTP?</h3>
+<p>To exchange the key material ZRTP uses well known  <em>Diffie-Helman</em> key agreement
+algorithms. For these algorithms GNU ZRTP implements several modes that are compliant
+with the ZRTP specification:
+</p><ul><li>2048 bit Diffie-Helman values
+</li><li>3072 bit Diffie-Helman values
+</li><li>256 bit Diffie-Helman elliptic curve
+</li><li>384 bit Diffie-Helman elliptic curve
+</li></ul><p class='vspace'>Elliptic curve algorithms requires less CPU cycles and are more secure than
+a finite field (normal) Diffie-Helman key exchange algorithm.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h3><a name='faqKeyCont' id='faqKeyCont'></a> Does ZRTP support key continuity?</h3>
+<p>Yes. After a first sucessful key negotiation between two users (and devices) 
+ZRTP computes some data <em>(Retained Shared Secrets (RS) )</em> and stores this
+data in a cache file on the users&rsquo; devices. Despite the name this data is not
+really secret but is used to implement key continuity and to simplify validation
+of further key exchanges. If the users call again <em>and</em> use the same
+device then ZRTP detects this and will use the cached RS data to verify the key 
+exchange. If this verifications fails ZRTP reports this and the users shall
+compare their <em>Short Authentication String</em> - refer to <a href='ZrtpFAQ.html#faqMitm'> this answer</a>.
+</p>
+<p class='vspace'>Such a behaviour may happen if the user deleted the ZRTP cache file or the
+the device was broken. Thus it is not a real security problem - just a little
+incovenience.
+</p></div><div id='separator' >
+</div><div >
+<div class='vspace'></div><h3><a name='faqKeyRec' id='faqKeyRec'></a> Can I or somebody else recover a key?</h3>
+<p>There is a simple answer to this: <strong>No</strong> if both users made sure that
+no <em>Man-in-the-Middle (<a href='ZrtpFAQ.html#faqMitm'>MitM</a>)</em> attack took place during the
+ZRTP negotiation phase. Ensuring that there is no attack is a simple procedure:
+just compare the <em>Short Authentication String</em> with your peer - refer to <a href='ZrtpFAQ.html#faqSas'>SAS</a>.
+</p>
+<p class='vspace'>Because ZRTP generates and negotiates the keys on its own nobody knows
+the keys. Thus even the users are not able to tell the keys because
+they do not know them. The GNU ZRTP implementations do not store
+generated keys outside its own internal memory and clears the memory
+as soon as possible if a specific datum is not longer in use.
+</p></div><div id='separator' >
+</div><div >
+</div><div id='titleNews' >
+<p><a name='faqAuth' id='faqAuth'></a> Which SRTP authentication algorithms does GNU ZRTP implementations support?
+</p></div>
+<p class='vspace'>GNU ZRTP supports two authentication algorithms:
+</p><ul><li>HMAC-SHA1 which supports authentication lengths of 32 and 80 bit
+</li><li>Skein MAC which supports authentication lengths of 32 and 64 bit
+</li></ul><p class='vspace'>The Skein MAC is faster and requires much less CPU power and is claimed to be more 
+secure than HMAC-SHA1. Skein is a candiate for the new NIST SHA-3 hash algorithm.
+</p><div id='separator' >
+</div><div >
+<div class='vspace'></div><h3><a name='faqSignal' id='faqSignal'></a> Does ZRTP require SIP, XMPP or other signaling protocols?</h3>
+<p>No. ZRTP uses the RTP session to exchange its data. To setup the RTP session
+communication programs may use any mechansism, including SIP or XMPP, to exchange
+the parties RTP session addresses and other necessary informartion. 
+</p>
+<p class='vspace'>You may even use a small ZRTP enabled communication program that uses simple 
+point-to-point RTP sessions. Of course in this case you need all the 
+necessary adress data of the called party.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h3><a name='faqData' id='faqData'></a> Does ZRTP store data about me, does it store used keys?</h3>
+<p>The ZRTP protocol spcification defines features that require data storage. 
+This data does not contain keys, it not identify a person nor can one use 
+this data to recover keys. The ZRTP data is usually called the ZRTP cache
+file. 
+</p>
+<p class='vspace'>ZRTP stores status information that consists of the <a href='ZrtpFAQ.html#faqId'>ZRTP identifier</a>,
+the <a href='ZrtpFAQ.html#faqSas'>SAS</a> verification status, retained shared secret (<a href='ZrtpFAQ.html#faqRetained'>RS</a>),
+and some more.
+</p>
+<p class='vspace'>The location of this file depends on the implementataion of the communication
+program. 
+</p></div><div id='separator' >
+</div><div >
+<div class='vspace'></div><h3><a name='faqNodata' id='faqNodata'></a> Can ZRTP work without any data storage?</h3>
+<p>Yes. This may be advantageous for devices that cannot store the ZRTP cache file
+or in situations that may require <em>plausible deniability</em> about ZRTP usage. If
+ZRTP is not able to store data then
+</p><ul><li>ZRTP generates a new [[#faqId|ZRTP identfier for each new session. Thus the calling or called party cannot associate any status information on the RTP session.
+</li><li>No Retained shared Secrets (<a href='ZrtpFAQ.html#faqRetained'>RS</a>) are available, thus automatic detection of Man-in-the-middle (<a href='ZrtpFAQ.html#faqMitm'>MitM</a>) attacks is not possible.
+</li><li>The users have to positively identity each other and compare the <a href='ZrtpFAQ.html#faqSas'>SAS</a> on <strong>each call</strong> to guarantee the integrity of ZRTP&rsquo;s key negotiation phase.
+</li></ul><p class='vspace'>If ZRTP runs in cacheless mode the commincation program usually display a warning
+message on every call to remain the user to check the SAS. The warning is usually
+something simliar to:
+</p></div><div id='subttl' >
+<p>No retained shared secrets available - must verify SAS
+</p></div>
+<p class='vspace'>Currently no implementation supports this mode (cacheless mode) but it is on
+the roadmap for the GNU ZRTP implementations. 
+</p>
+<div class='vspace'></div><div id='separator' >
+</div><div >
+<h3><a name='faqId' id='faqId'></a> What is the ZRTP identifier?</h3>
+<p>The <em>ZRTP identifier (ZID)</em> is a random number that identifes the combination of
+the device and the communication program instance. ZRTP uses this identifier to
+identify sessions between the same device/communication program and stores
+status information for these sessions. 
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h3><a name='faqRetained' id='faqRetained'></a>  What is the Retained shared Secret (RS)?</h3>
+<p>At the end of the first ZRTP key negotiation GNU ZRTP is able to
+compute and store <em>Retained Shared Secrets (RS)</em> that enables it to
+detect a MitM attack and other problems (network problems for example) during 
+further sessions. ZRTP uses hash algorithms to compute the RS, thus it
+is not possible to recover keys or other relevant key material by analysing the RS.
+</p>
+<p class='vspace'>ZRTP computes and updates the RS after every key negotiation to enable key 
+continuity and recover from possible errors during key negotiation.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h3><a name='faqMitm' id='faqMitm'></a> Can ZRTP detect and report Man-in-the-Middle attacks?</h3>
+<p>At the very first session to a device/commuincation program no status data is available
+(see also <a href='ZrtpFAQ.html#faqData'>here</a>) and ZRTP is not able to detect a <em>Man-in-the-Middle (MitM)</em> attack. 
+Therefore users should always check the <a href='ZrtpFAQ.html#faqSas'>SAS</a> and verify that the key 
+negotiation was indeed correct. The communication program display a warning message 
+similar to this one:
+</p></div><div id='subttl' >
+<p>No retained shared secrets available - must verify SAS
+</p></div>
+<p>At the end of the first ZRTP key negotiation GNU ZRTP computes and stores Retained Shared 
+Secrets <a href='ZrtpFAQ.html#faqRetained'>(RS)</a> that enables it to detect and warn about a possible MitM attack 
+on further sessions to the same device/communication program. If ZRTP detects a possible MitM 
+it reports this and the communication program usually gives a warning message similar to this
+one:
+</p><div id='subttl' >
+<p>Valid retained shared secrets availabe but no matches found - must verify SAS
+</p></div>
+<div id='separator' >
+</div><div >
+<div class='vspace'></div><h4>Background Info</h4>
+<p>ZRTP uses Diffie-Helman key agreement to exchange key data between the two
+communication programs. The Diffie-Helman key agreement protocol is vulnerable to 
+a so called Man-in-the-Middle (MitM) attack where a bad guy sits between the good
+guys and has control of their communication path. 
+</p>
+<p class='vspace'>To overcome this problem ZRTP defines counter measures to enable
+the users to detect a MitM and to make sure nobody tampered with the ZRTP
+negotiation. ZRTP defines simple, yet powerfull mechanisms:
+</p><ul><li>A Short Authentication String (<a href='ZrtpFAQ.html#faqSas'>SAS</a>)
+</li><li>Retained Shared Secrets <a href='ZrtpFAQ.html#faqRetained'>(RS)</a>
+</li></ul></div><div id='separator' >
+</div><div >
+<h3><a name='faqSas' id='faqSas'></a>  What is the SAS and how to use it?</h3>
+<p>ZRTP uses a <em>Short Authentication String (SAS)</em> as an easy to use mechanism to
+detect if something happend during key negotiation and to enable users to check the
+integrity of the session.
+</p>
+<p class='vspace'>The ZRTP implementations compute the SAS and the communication programs <em>must</em> present 
+it as short textual information to the user (ZRTP defines the length of the mandatory SAS 
+to 4 characters). 
+</p>
+<p class='vspace'>Both users can now read the SAS data and shall compare it over the audio connection. 
+</p>
+<p class='vspace'>A good way to check the SAS is that the caller reads the first two characters
+of the SAS, the callee the second two characters. If the values match then nobody
+tampered with the ZRTP key negotiation session. Comparing the values should be done at
+the beginning of the call and during normal conversation.
+</p>
+<p class='vspace'>After verifying the SAS data the both users may set the SAS status to
+<code>verified</code>. If <em>both</em> users set SAS to <code>verified</code> the ZRTP implementations 
+store this information and use it in further ZRTP sessions.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h3><a name='faqCorr' id='faqCorr'></a> The ZRTP cache file was deleted or is corrupt?</h3>
+<p>Actually, this is not a big problem. GNU ZRTP creates a new empty cache file and
+with a new ZRTP identification (ZID) for this device/communication combination. Then
+place calls as usual. Of course all information about verified SAS is not longer
+available and should be re-established (see <a href='ZrtpFAQ.html#faqSas'>SAS</a>).
+</p>
+<p class='vspace'>If you start with a new ZRTP cache file or call a partner for the first time then
+GNU ZRTP reports the following warning:
+</p></div><div id='subttl' >
+<p>No retained shared secrets available - must verify SAS
+</p></div>
+<div class='vspace'></div><div id='separator' >
+</div><div >
+<h3><a name='faqBad' id='faqBad'></a> The ZRTP cache file was copied by a bad guy?</h3>
+<p>Well, this may be a bigger issue, but it is not real dangerous.
+GNU ZRTP generates different retained shared secrets even if two callers use the same
+ZRTP cache file - in this case you and the bad guy who copied the file. This is
+possible because ZRTP uses the random key data to compute the retained shared secrets.
+</p>
+<p class='vspace'>Therefore the two ZRTP cache files go out of synchronization and this causes warning
+messages at the called parties because ZRTP sees different retained secrets from the
+same ZRTP identification. If you see such a message then make sure to verfiy the
+SAS <strong>and</strong> to identify your communication partner.
+</p>
+<p class='vspace'>GNU ZRTP reports this error if the ZRTP cache file are out of synchronization:
+</p></div><div id='subttl' >
+<p>Valid retained shared secrets availabe but no matches found - must verify SAS
+</p></div>
+<p class='vspace'><span class='stickynote'>test: Werner Dittmann</span>
+</p></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

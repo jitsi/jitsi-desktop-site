@@ -1,0 +1,916 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Implementing a Protocol - Operation Set Persistent Presence | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+/* GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter) */
+.java  {font-family: monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #7F0055; font-weight: bold}
+.java .kw2 {color: #7F0055; font-weight: bold;}
+.java .kw3 {color: #aaaadd; font-weight: bold;}
+.java .kw4 {color: #993333;}
+.java .co1 {color: #3F7F5F; font-style: italic;}
+.java .co2 {color: #a1a100;}
+.java .coMULTI {color: #3F7F5F; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #666;}
+.java .st0 {color: #2A00FF;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #666;}
+.java .me2 {color: #666;}
+
+.sourceblocklink {
+  text-align: right;
+  font-size: smaller;
+}
+.sourceblocktext {
+  padding: 0.5em;
+  border: 1px solid #808080;
+  background-color: #f1f0ed;
+}
+.sourceblocktext div {
+  font-family: monospace;
+  font-size: small;
+  line-height: 1;
+  height: 1%;
+}
+.sourceblocktext div.head,
+.sourceblocktext div.foot {
+  font: italic medium serif;
+  padding: 0.5em;
+}
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="Implementing a Protocol - Operation Set Persistent Presence" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.HowToImplementProtocols6' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/HowToImplementProtocols6?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<p><a class='wikilink' href='HowToImplementProtocols5.html'>previous</a> | <a class='wikilink' href='HowToImplementProtocols.html'>TOC</a> | <a class='wikilink' href='HowToImplementProtocols7.html'>next</a>
+</p><div style='width:960px; margin:40px auto;text-align:left' >
+<div id='separator' >
+</div><div >
+<h1>Implementing a Protocol</h1>
+</div><div id='subttl' >
+<p>OperationSetPersistentPresence.
+</p></div>
+<p class='vspace'>Let&rsquo;s first remind what an operation set is. Different protocols support different functionalities. Operation sets are our way to address this diversity. We could pick and implement any subset of all existing operation sets according to what our protocol or protocol stack supports and what we feel like working on now.
+</p>
+<p class='vspace'>The presence and persistent presence operation sets are the once that follow and update the status of your buddies. They are the ones that would fire <em>PresenceStatusChangeEvent</em>-s when one of your buddies changes its status. Other bundles subscribe to these notifications by adding buddies in the contact list, using the subscribe() methods. 
+</p>
+<p class='vspace'>The difference between the persistent and non-persistent presence operation sets is that a persistent presence operation set would store your contact list on the server. In other words once you create a subscription it would remain there even if you restart the application and will not be cancel until you manually remove it (hence the name). Protocol implementing persistent presence are ICQ, MSN, Jabber, Yahoo! Messenger and vitrually all of the most popular IM protocols. 
+</p>
+<p class='vspace'>Non persistent presence operation sets, however would require you to re-subscribe to all your contacts every time you start Jitsi. SIP/SIMPLE for example is a protocol that only supports non persistent presence.  
+</p>
+<p class='vspace'>Since implementing persistent presence is the same as implementing non-persistent presence but with some extra server stored contact list management, we would only go through a persistent presence operation set implementation in this tutorial. 
+</p>
+<p class='vspace'>Before diving into the implementation of the operation set however, we will first implement two other interfaces necessary for it to work - a <em>Contact</em> and a <em>ContactGroup</em>.
+</p><div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>Contact-s
+</p></div><div >
+<p class='vspace'>A <em>Contact</em> is the immediate result of a subscription. When you call the <em>subscribe()</em> method for a certain contact address, the presence operation set would create a new contact and notify interested parties through a <em>SUBSCRIPTION_CREATED SubscriptionEvent</em> delivered through a <em>SubscriptionListener</em>. A <em>Contact</em> instance contains basic details for the person that it represents, such as a display name, the subscription address (contact identifier) and others. Implementations of a <em>Contact</em> are quite trivial and they often come down to an almost 1:1 encapsulation of the corresponding protocol stack object. And since in <em>Gibberish</em> we don&rsquo;t have a protocol stack it will be even simpler than that. I will therefore not go through explanations of all the methods as they are quite straightforward and will only explain those that are slightly more obscure.The complete implementation of the gibberish contact is avalable here:  <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/gibberish/ContactGibberishImpl.java' rel='nofollow'>ContactGibberishImpl</a>.
+</p>
+<p class='vspace'>One of the concepts that I find kind of hard to grasp in a contact implementation is those that accompany the methods:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols6&amp;ref=1.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="coMULTI">/**<br />
+&nbsp;* Determines whether or not this contact is being stored by the server.<br />
+&nbsp;* Non persistent contacts are common in the case of simple, non-persistent<br />
+&nbsp;* presence operation sets. They could however also be seen in persistent<br />
+&nbsp;* presence operation sets when for example we have received an event<br />
+&nbsp;* from someone not on our contact list. Non persistent contacts are<br />
+&nbsp;* volatile even when coming from a persistent presence op. set. They would<br />
+&nbsp;* only exist until the application is closed and will not be there next<br />
+&nbsp;* time it is loaded.<br />
+&nbsp;* <br />
+&nbsp;* @return true if the contact is persistent and false otherwise.<br />
+&nbsp;*/</span><br />
+<span class="kw2">public</span> <span class="kw4">boolean</span> isPersistent<span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="kw2">return</span> isPersistent;<br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>The javadoc kind of says it all. In your experience as an IM user you may have already noticed  that when you receive messages from an unknown person, a new contact corresponding to that person would appear in your contact list. Some clients would put this new contact in a special group that is often called something like &ldquo;Not In Contact List&rdquo; and would only keep it there until you restart the application. That&rsquo;s something we do too. When we receive messages in Jitsi coming from people not on our list, we don&rsquo;t automatically add them there (guess there&rsquo;s no need to explain the reasons as they are quite obvious). To actually add them to the contact list, a user has to manually move them to one of the other groups. Such contacts, as well as the special &ldquo;NotInContactList&rdquo; group, are called non-persistent or volatile as they don&rsquo;t exist on the server  and won&rsquo;t be in your contact list after you restart.
+</p>
+<p class='vspace'>Another concept that is somewhat tricky to grasp here is that of a contact being resolved or not.
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols6&amp;ref=2.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="coMULTI">/**<br />
+&nbsp;* Determines whether or not this contact has been resolved against the<br />
+&nbsp;* server. Unresolved contacts are used when initially loading a contact<br />
+&nbsp;* list that has been stored in a local file until the presence operation<br />
+&nbsp;* set has managed to retrieve all the contact list from the server and has<br />
+&nbsp;* properly mapped contacts to their on-line buddies.<br />
+&nbsp;*<br />
+&nbsp;* @return true if the contact has been resolved (mapped against a buddy)<br />
+&nbsp;* and false otherwise.<br />
+&nbsp;*/</span><br />
+<span class="kw2">public</span> <span class="kw4">boolean</span> isResolved<span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="kw2">return</span> isResolved;<br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>Explaining this would require explaining another important service we use in Jitsi - the <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/service/contactlist/MetaContactListService.java' rel='nofollow'><em>MetaContactListService</em></a>.  It manages all protocol contact lists so that other bundles such as the user interface would only have to handle a single contact list. It also allows you to merge separate protocol contacts in meta contacts. The meta contact lists needs to store its content locally in order to save the way you have merged separate contacts or any other preferences that you may have specified such as custom display names or user info.
+</p>
+<p class='vspace'>Another reason to store meta contact list content is that this gives us the possibility to show the contact list to the user even if they are not online and this is often very helpful. However, since the meta contact list encapsulates real proto contacts, it has to retrieve references to <em>Contact</em> objects that it could wrap in meta contacts. Furthermore, it has to do have a mechanism of doing so without the protocol being online. That&rsquo;s where unresolved contacts come in. A presence operation set allows the creation of such contacts even if it is not currently logged in. 
+</p>
+<p class='vspace'>Think of this as a buffer mechanism. The protocol provider is accepting creation of unresolved contacts without any limitation. Once logged in, it will retrieve the contact list from the server and compare it to the list of unresolved contacts that have been already created. It would then fire <em>CONTACT_RESOLVED</em> events for those that match and <em>SUBSCRIPTION_REMOVED</em> events for those that haven&rsquo;t been found and have apparently been removed since the previous run of Jitsi.
+</p></div><div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>ContactGroup-s
+</p></div><div >
+<p class='vspace'><em>ContactGroup</em>-s are even simpler than contacts. They don&rsquo;t change their status, they don&rsquo;t have a picture and lots of other complicating details that exist with contacts. The <em>isPersistent()</em> and <em>isResolved</em> notions that we saw in <em>Contact</em>-s however also exist with <em>ContactGroup</em>-s. 
+</p>
+<p class='vspace'>The most particular thing about a <em>ContactGroup</em> is of course the fact that it stores contacts. In our <em>Gibberish</em> contact group implementation ( you could have a look at it here: <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/gibberish/ContactGroupGibberishImpl.java' rel='nofollow'>ContactGroupGibberishImpl</a>) we use a vector to store all member contacts. We also use a second vector to store subgroups if they esist. The class also offers methods for retrieving and searching through contacts but I am not going to go through all of them since they are quite trivial and you could study them in detail by looking at <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/gibberish/ContactGroupGibberishImpl.java' rel='nofollow'>ContactGroupGibberishImpl</a>.
+</p></div><div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>The operation set
+</p></div>
+<p class='vspace'>So here we are, we have an implementation for <em>Contact</em>, another one for <em>ContactGroup</em> and all that&rsquo;s left now is writing the <em>Gibberish</em> implementation of the persistent presence operation set. Let&rsquo;s with trivial stuff such as initialization:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols6&amp;ref=3.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">public</span> OperationSetPersistentPresenceGibberishImpl<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; ProtocolProviderServiceGibberishImpl&nbsp; &nbsp; &nbsp; &nbsp; provider<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="kw2">this</span>.<span class="me1">parentProvider</span> = provider;<br />
+&nbsp; &nbsp; contactListRoot = <span class="kw2">new</span> ContactGroupGibberishImpl<span class="br0">&#40;</span><span class="st0">&quot;RootGroup&quot;</span>, provider<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="co1">//add our unregistration listener</span><br />
+&nbsp; &nbsp; parentProvider.<span class="me1">addRegistrationStateChangeListener</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">new</span> UnregistrationListener<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;<br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>Our constructor registers a reference to the creating provider, and adds a registration listener so that it would notify us if we disconnect. We also create our root gibberish group where we will be adding contacts.
+</p>
+<p class='vspace'>Next we need to define add, remove and fire methods for all the events that this operation set would have to handle. They all look alike so I am only going to paste one of them here - the contact presence status listenr:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols6&amp;ref=4.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="coMULTI">/** ... javadocs */</span><br />
+<span class="kw2">public</span> <span class="kw4">void</span> addContactPresenceStatusListener<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ContactPresenceStatusListener listener<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="kw2">synchronized</span><span class="br0">&#40;</span>contactPresenceStatusListeners<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>!contactPresenceStatusListeners.<span class="me1">contains</span><span class="br0">&#40;</span>listener<span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; contactPresenceStatusListeners.<span class="me1">add</span><span class="br0">&#40;</span>listener<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<span class="br0">&#125;</span><br />
+<br />
+<span class="coMULTI">/** ... javadocs */</span><br />
+<span class="kw2">public</span> <span class="kw4">void</span> removeContactPresenceStatusListener<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; ContactPresenceStatusListener listener<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="kw2">synchronized</span><span class="br0">&#40;</span>contactPresenceStatusListeners<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; contactPresenceStatusListeners.<span class="me1">remove</span><span class="br0">&#40;</span>listener<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<span class="br0">&#125;</span><br />
+<br />
+<span class="coMULTI">/** ... javadocs */</span><br />
+<span class="kw2">public</span> <span class="kw4">void</span> fireContactPresenceStatusChangeEvent<span class="br0">&#40;</span>ContactGibberishImpl&nbsp; source,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ContactGroup parentGroup,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PresenceStatus oldValue<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; ContactPresenceStatusChangeEvent evt<br />
+&nbsp; &nbsp; &nbsp; &nbsp; = <span class="kw2">new</span> ContactPresenceStatusChangeEvent<span class="br0">&#40;</span>source, parentProvider<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , parentGroup, oldValue, source.<span class="me1">getPresenceStatus</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AIterator+java.sun.com&amp;bntl=1"><span class="kw3">Iterator</span></a> listeners = <span class="kw2">null</span>;<br />
+&nbsp; &nbsp; <span class="kw2">synchronized</span><span class="br0">&#40;</span>contactPresenceStatusListeners<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; listeners = <span class="kw2">new</span> <a href="http://www.google.com/search?q=allinurl%3AArrayList+java.sun.com&amp;bntl=1"><span class="kw3">ArrayList</span></a><span class="br0">&#40;</span>contactPresenceStatusListeners<span class="br0">&#41;</span>.<span class="me1">iterator</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<br />
+<br />
+&nbsp; &nbsp; <span class="kw1">while</span><span class="br0">&#40;</span>listeners.<span class="me1">hasNext</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; ContactPresenceStatusListener listener<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = <span class="br0">&#40;</span>ContactPresenceStatusListener<span class="br0">&#41;</span>listeners.<span class="me1">next</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; listener.<span class="me1">contactPresenceStatusChanged</span><span class="br0">&#40;</span>evt<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>The above example shows you how to add listeners and a fire method for <em>ContactPresenceStatusEvent</em>-s - the event&rsquo;s that are dispatched when contacts in our contact list change their status.  We&rsquo;d have to do pretty much the same for 
+</p>
+<div class='vspace'></div><ul><li><em>ProviderPresenceStatusChangeEvent</em>-s - those would be delivered if we change our own status
+<div class='vspace'></div></li><li><em>ServerStoredGroupChangeEvent</em>-s - notifying listeners of changes in a server stored <em>ContactGroup</em>.
+<div class='vspace'></div></li><li><em>SubscriptionEvent</em>-s - that would notify listeners when a <em>Contact</em> has been added or removed from our contact list or moved to another server stored group.
+</li></ul><p class='vspace'>Apart from that, don&rsquo;t hesitate to look for inspiration in our own <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/gibberish/OperationSetPersistentPresenceGibberishImpl.java' rel='nofollow'>OperationSetPersistentPresenceGibberishImpl</a>  if you need help finalizing it on your own.
+</p><div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>Subscriptions and authorizations.
+</p></div>
+<p class='vspace'>Handling subscriptions in <em>Gibberish</em> would have been quite straightforward if it weren&rsquo;t for that feature that we talked about in the beginning. We said that we would like multiple instances (accounts) of a <em>Gibberish</em> ProtocolProviderService to be able to communicate with each other as they would for a real world protocol. In other words, when change our status we&rsquo;d like other instances of the <em>Gibberish</em> protocol provider service to see that we did so. And to make it look completely realistic we&rsquo;d also like both providers to request authorizations from each other before actually adding each other to their contact lists.
+</p>
+<p class='vspace'>Before I show you how we&rsquo;ve implemented this, I&rsquo;d like to explain how we generally handle authorizations (you know these annoying messages that you see when someone wants to add you to their contact list and when you add contacts to yours). We have an interface that&rsquo;s called an <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/service/protocol/AuthorizationHandler.java' rel='nofollow'><em>AuthorizationHandler</em></a>  and that is generally implemented by the user interface. The implementation (pretty much like that of the <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/service/protocol/SecurityAuthority.java' rel='nofollow'><em>SecurityAuthority</em></a>) comes down to simply showing a dialog box to the user when an authorization request arrives and returning an authorization response with the answer given by the user.
+</p>
+<p class='vspace'>So, obviously we&rsquo;d need to add management for these authorizations in our <em>Gibberish</em> <em>subscribe()</em> method. 
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols6&amp;ref=5.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">public</span> <span class="kw4">void</span> subscribe<span class="br0">&#40;</span>ContactGroup parent, <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a> contactIdentifier<span class="br0">&#41;</span> <span class="kw2">throws</span><br />
+&nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AIllegalArgumentException+java.sun.com&amp;bntl=1"><span class="kw3">IllegalArgumentException</span></a>, <a href="http://www.google.com/search?q=allinurl%3AIllegalStateException+java.sun.com&amp;bntl=1"><span class="kw3">IllegalStateException</span></a>,<br />
+&nbsp; &nbsp; OperationFailedException<br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; ContactGibberishImpl contact = <span class="kw2">new</span> ContactGibberishImpl<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; contactIdentifier<br />
+&nbsp; &nbsp; &nbsp; &nbsp; , parentProvider<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>authorizationHandler != <span class="kw2">null</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//we require authorizations in gibberish</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; AuthorizationRequest request<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = authorizationHandler.<span class="me1">createAuthorizationRequest</span><span class="br0">&#40;</span>contact<span class="br0">&#41;</span>;<br />
+<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//and finally pretend that the remote contact has granted us</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//authorization</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; AuthorizationResponse response<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = deliverAuthorizationRequest<span class="br0">&#40;</span>request, contact<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; authorizationHandler.<span class="me1">processAuthorizationResponse</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; response, contact<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//if the request was not accepted - return the contact.</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>response.<span class="me1">getResponseCode</span><span class="br0">&#40;</span><span class="br0">&#41;</span> == AuthorizationResponse.<span class="me1">REJECT</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">return</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+&nbsp; &nbsp; <span class="br0">&#40;</span><span class="br0">&#40;</span>ContactGroupGibberishImpl<span class="br0">&#41;</span>parent<span class="br0">&#41;</span>.<span class="me1">addContact</span><span class="br0">&#40;</span>contact<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; fireSubscriptionEvent<span class="br0">&#40;</span>contact,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; parent,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SubscriptionEvent.<span class="me1">SUBSCRIPTION_CREATED</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="co1">//if the newly added contact corresponds to another provider - set their</span><br />
+&nbsp; &nbsp; <span class="co1">//status accordingly</span><br />
+&nbsp; &nbsp; ProtocolProviderServiceGibberishImpl gibProvider<br />
+&nbsp; &nbsp; &nbsp; &nbsp; = findProviderForGibberishUserID<span class="br0">&#40;</span>contactIdentifier<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="kw1">if</span><span class="br0">&#40;</span>gibProvider != <span class="kw2">null</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; OperationSetPersistentPresence opSetPresence<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = <span class="br0">&#40;</span>OperationSetPersistentPresence<span class="br0">&#41;</span>gibProvider.<span class="me1">getOperationSet</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; OperationSetPersistentPresence.<span class="kw2">class</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; changePresenceStatusForContact<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; contact<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , <span class="br0">&#40;</span>GibberishStatusEnum<span class="br0">&#41;</span>opSetPresence.<span class="me1">getPresenceStatus</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+&nbsp; &nbsp; <span class="kw1">else</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//otherwise - since we are not a real protocol, we set the contact</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//presence status ourselves</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; changePresenceStatusForContact<span class="br0">&#40;</span>contact, getPresenceStatus<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<br />
+&nbsp; &nbsp; <span class="co1">//notify presence listeners for the status change.</span><br />
+&nbsp; &nbsp; fireContactPresenceStatusChangeEvent<span class="br0">&#40;</span>contact<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;, parent<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;, GibberishStatusEnum.<span class="me1">OFFLINE</span><span class="br0">&#41;</span>;<br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>All we do here is request an authorization through <em>deliverAuthorizationRequest()</em>, create an instance of <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/gibberish/ContactGibberishImpl.java' rel='nofollow'><em>ContactGibberishImpl</em></a> and add it to the corresponding group. We also change its status to match our own since that&rsquo;s how we&rsquo;d like it to behave. All the fun stuff with the authorizations is actually hidden inside the <em>deliverAuthorizationRequest()</em> method:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols6&amp;ref=6.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">private</span> AuthorizationResponse deliverAuthorizationRequest<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AuthorizationRequest request,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Contact contact<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a> userID = contact.<span class="me1">getAddress</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="co1">//if the user id is our own id, then this request is being routed to us</span><br />
+&nbsp; &nbsp; <span class="co1">//from another instance of the gibberish provider.</span><br />
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>userID.<span class="me1">equals</span><span class="br0">&#40;</span><span class="kw2">this</span>.<span class="me1">parentProvider</span>.<span class="me1">getAccountID</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">getUserID</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//check who is the provider sending the message</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a> sourceUserID = contact.<span class="me1">getProtocolProvider</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span class="me1">getAccountID</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">getUserID</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//check whether they are in our contact list</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; Contact from = findContactByID<span class="br0">&#40;</span>sourceUserID<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//and if not - add them there as volatile.</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>from == <span class="kw2">null</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; from = createVolatileContact<span class="br0">&#40;</span>sourceUserID<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//and now handle the request.</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">return</span> authorizationHandler.<span class="me1">processAuthorisationRequest</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; request, from<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+&nbsp; &nbsp; <span class="kw1">else</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//if userID is not our own, try a check whether another provider</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//has that id and if yes - deliver the request to them.</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; ProtocolProviderServiceGibberishImpl gibberishProvider<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = <span class="kw2">this</span>.<span class="me1">findProviderForGibberishUserID</span><span class="br0">&#40;</span>userID<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>gibberishProvider != <span class="kw2">null</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; OperationSetPersistentPresenceGibberishImpl opSetPersPresence<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = <span class="br0">&#40;</span>OperationSetPersistentPresenceGibberishImpl<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; gibberishProvider.<span class="me1">getOperationSet</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; OperationSetPersistentPresence.<span class="kw2">class</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">return</span> opSetPersPresence<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span class="me1">deliverAuthorizationRequest</span><span class="br0">&#40;</span>request, contact<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//if we got here then &quot;to&quot; is simply someone in our contact</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//list so let's just simulate a reciproce request and generate</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//a response accordingly.</span><br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//pretend that the remote contact is asking for authorization</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; authorizationHandler.<span class="me1">processAuthorisationRequest</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; request, contact<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//and now pretend that the remote contact has granted us</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//authorization</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">return</span> <span class="kw2">new</span> AuthorizationResponse<span class="br0">&#40;</span>AuthorizationResponse.<span class="me1">ACCEPT</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , <span class="st0">&quot;You are welcome!&quot;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>We have three cases in here:
+</p>
+<div class='vspace'></div><ol><li>Another protocol provider would like to add us to their contact list - in this case we check whether we have them in our contact list and if not we add them as a non-persistent contact, then we ask the user to act on the authorization request and we return their response.
+<div class='vspace'></div></li><li>The second case is actually the opposite of the first one. The user id being added to the contact list is not our own so we try to find whether another provider has that id, if they do, then we call their <em>deliverAuthorizationRequest()</em> method and it would execute its case 1
+<div class='vspace'></div></li><li>The third case actually treats all the bogus contacts that a user can add in the <em>Gibberish</em> protocol and it simply simulates an authorization request response exchange by actually echo-ing the actions of the user. 
+</li></ol><p class='vspace'>Once a contact has been added to our contact list, it would either always have the same status as us (if it represents a bogus contact) or, in case it corresponds to another <em>Gibberish</em> account, it would have the status of its corresponding prtocol provider. In all cases status changes only come from one place - the <em>publishPresenceStatus()</em> method:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols6&amp;ref=7.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">public</span> <span class="kw4">void</span> publishPresenceStatus<span class="br0">&#40;</span>PresenceStatus status,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a> statusMessage<span class="br0">&#41;</span> <span class="kw2">throws</span><br />
+&nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AIllegalArgumentException+java.sun.com&amp;bntl=1"><span class="kw3">IllegalArgumentException</span></a>, <a href="http://www.google.com/search?q=allinurl%3AIllegalStateException+java.sun.com&amp;bntl=1"><span class="kw3">IllegalStateException</span></a>,<br />
+&nbsp; &nbsp; OperationFailedException<br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; PresenceStatus oldPresenceStatus = <span class="kw2">this</span>.<span class="me1">presenceStatus</span>;<br />
+&nbsp; &nbsp; <span class="kw2">this</span>.<span class="me1">presenceStatus</span> = status;<br />
+&nbsp; &nbsp; <span class="kw2">this</span>.<span class="me1">statusMessage</span> = statusMessage;<br />
+<br />
+&nbsp; &nbsp; <span class="kw2">this</span>.<span class="me1">fireProviderStatusChangeEvent</span><span class="br0">&#40;</span>oldPresenceStatus<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="co1">//since we are not a real protocol, we set the contact presence status</span><br />
+&nbsp; &nbsp; <span class="co1">//ourselves and make them have the same status as ours.</span><br />
+&nbsp; &nbsp; changePresenceStatusForAllContacts<span class="br0">&#40;</span> getServerStoredContactListRoot<span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , getPresenceStatus<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="co1">//now check whether we are in someone else's contact list and modify</span><br />
+&nbsp; &nbsp; <span class="co1">//our status there</span><br />
+&nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AList+java.sun.com&amp;bntl=1"><span class="kw3">List</span></a> contacts = findContactsPointingToUs<span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AIterator+java.sun.com&amp;bntl=1"><span class="kw3">Iterator</span></a> contactsIter = contacts.<span class="me1">iterator</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="kw1">while</span> <span class="br0">&#40;</span>contactsIter.<span class="me1">hasNext</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; ContactGibberishImpl contact<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = <span class="br0">&#40;</span>ContactGibberishImpl<span class="br0">&#41;</span> contactsIter.<span class="me1">next</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; PresenceStatus oldStatus = contact.<span class="me1">getPresenceStatus</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; contact.<span class="me1">setPresenceStatus</span><span class="br0">&#40;</span>status<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; contact.<span class="me1">getParentPresenceOperationSet</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span class="me1">fireContactPresenceStatusChangeEvent</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; contact<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , contact.<span class="me1">getParentContactGroup</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , oldStatus<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>Every time this method is called, we do 2 things: first we go through all the bogus contacts and change their status to match ours and then we look for all the providers that have us in their contact list and we change the status of the contact that represents us there. 
+</p>
+<p class='vspace'>And that&rsquo;s pretty much it &hellip;
+</p><div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>Unresolved contacts 
+</p></div>
+<p class='vspace'>As I mentioned unresolved contacts are created by the meta contact list when it loads its locally stored contact list. Since we have no server in <em>Gibberish</em>, we will trust the MetaContactList and assume that if it creates an unresolved contact it is because the contact had previously existed and we would immediately resolve it. Here&rsquo;s what this gives us for the <em>createUnresolvedContact()</em> method:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols6&amp;ref=8.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">public</span> Contact createUnresolvedContact<span class="br0">&#40;</span><a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a> address,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a> persistentData,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ContactGroup parent<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; ContactGibberishImpl contact = <span class="kw2">new</span> ContactGibberishImpl<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; address<br />
+&nbsp; &nbsp; &nbsp; &nbsp; , parentProvider<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; contact.<span class="me1">setResolved</span><span class="br0">&#40;</span><span class="kw2">false</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="br0">&#40;</span> <span class="br0">&#40;</span>ContactGroupGibberishImpl<span class="br0">&#41;</span> parent<span class="br0">&#41;</span>.<span class="me1">addContact</span><span class="br0">&#40;</span>contact<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; fireSubscriptionEvent<span class="br0">&#40;</span>contact,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; parent,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SubscriptionEvent.<span class="me1">SUBSCRIPTION_CREATED</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="co1">//since we don't have any server, we'll simply resolve the contact</span><br />
+&nbsp; &nbsp; <span class="co1">//ourselves as if we've just received an event from the server telling</span><br />
+&nbsp; &nbsp; <span class="co1">//us that it has been resolved.</span><br />
+&nbsp; &nbsp; fireSubscriptionEvent<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; contact, parent, SubscriptionEvent.<span class="me1">SUBSCRIPTION_RESOLVED</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="co1">//since we are not a real protocol, we set the contact presence status</span><br />
+&nbsp; &nbsp; <span class="co1">//ourselves</span><br />
+&nbsp; &nbsp; changePresenceStatusForContact<span class="br0">&#40;</span> contact, getPresenceStatus<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="kw2">return</span> contact;<br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>Simple isn&rsquo;t it?!
+</p>
+<div class='vspace'></div><div id='separator' >
+</div><div >
+</div></div>
+<p><a class='wikilink' href='HowToImplementProtocols5.html'>previous</a> | <a class='wikilink' href='HowToImplementProtocols.html'>TOC</a> | <a class='wikilink' href='HowToImplementProtocols7.html'>next</a>
+</p>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

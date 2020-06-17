@@ -1,0 +1,792 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> ZRTP 4 J Message Codes | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="ZRTP4JMessageCodes" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.ZRTP4JMessageCodes' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/ZRTP4JMessageCodes?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:40px auto;text-align:left' >
+<p>The ZRTP implementation issues information messages to inform the
+user about ongoing processing, unusual behavior, or alerts in case of
+severe problems. Each main severity code has a number of sub-codes
+that specify the exact nature of the problem.
+</p>
+<p class='vspace'>An application gets message severity codes and the associated
+sub-codes via ZrtpUserCallback methods, for example the
+&lsquo;showMessage(&hellip;)&rsquo; method.
+</p>
+<p class='vspace'>After the description of the severity codes and the sub-codes a short
+description of relevant ZrtpUserCallback methods follow.
+</p>
+<div class='vspace'></div><div id='separator' >
+</div>
+<div class='vspace'></div><h2>Main severity levels</h2>
+<p class='vspace'>Info
+</p><pre>    keeps the user or client informed about ongoing processing and
+    security setup. The enumeration InfoCodes defines the subcodes.
+</pre><p class='vspace'>Warning
+</p><pre>    is an information about some security issues, e.g. if
+    a retained shared secret is corrupted. ZRTP will establish a secure 
+    session (SRTP) but the user shall always check the SAS with its the
+    other party.
+</pre><p class='vspace'>Severe
+</p><pre>    is used if an error occured during ZRTP protocol usage.
+    In case of *Severe* ZRTP will *not* establish a secure session.
+</pre><p class='vspace'>ZrtpError
+</p><pre>    shows a ZRTP security problem. GNU ZRTP of course will *not* 
+    establish a secure session.
+</pre><div id='separator' >
+</div>
+<div class='vspace'></div><h2>Sub codes for the severity level &lsquo;Info&rsquo;</h2>
+<p>InfoHelloReceived
+</p><pre>    A Hello packet was received. This show that the other party
+    (client) also supports ZRTP. The ZRTP implementation continues
+    with ZRTP handshake. No special action required. The client may
+    use this subcode to signal the start of the ZRTP handshake to the
+    user, for example via the UI
+</pre><p class='vspace'>InfoCommitDHGenerated
+</p><pre>    Generated a public DH key during preparation of the Commit
+    packet. Pure information, no action required, may be included
+    into log files.
+</pre><p class='vspace'>InfoRespCommitReceived
+</p><pre>    The ZRTP Responder received a Commit packet and prepares the
+    DHPart1 packet. Pure information, no action required, may be included
+    into log files.
+</pre><p class='vspace'>InfoDH1DHGenerated
+</p><pre>    The ZRTP Responder generated a public DH key during preparation
+    of its DH1Part packet. Pure information, no action required, may
+    be included into log files.
+</pre><p class='vspace'>InfoInitDH1Received
+</p><pre>    The ZRTP Initiator received a DHPart1 packet and prepares the
+    DHPart2 packet. Pure information, no action required, may
+    be included into log files.
+</pre><p class='vspace'>InfoRespDH2Received
+</p><pre>    The ZRTP Responder received a DHPart2 packet and prepares the
+    Confirm1 packet. Pure information, no action required, may
+    be included into log files.
+</pre><p class='vspace'>InfoInitConf1Received
+</p><pre>    The ZRTP Initiator received a Confirm1 packet and prepares the
+    Confirm2 packet. Pure information, no action required, may
+    be included into log files.
+</pre><p class='vspace'>InfoRespConf2Received
+</p><pre>    The ZRTP Responder received a Confirm2 packet and prepares the
+    Conf2Ack packet. Pure information, no action required, may
+    be included into log files.
+</pre><p class='vspace'>InfoRSMatchFound
+</p><pre>    This informs the client/user that one of the retained secrets
+    matches and key continuity is ok. See warning code
+    &lsquo;WarningNoExpectedRSMatch&rsquo; in case of problems. Pure
+    information, no action required, may be included into log
+    files.
+</pre><p class='vspace'>InfoSecureStateOn
+</p><pre>    ZRTP entered secure state. Only after the client receives this
+    subcode the ZRTP state engine has entered secure state. Other
+    information send before (see the methods &lsquo;secureOn(&hellip;)&rsquo; ans
+    showSAS(&hellip;)) inform the client about the used cipher for SRTP
+    or the SAS. The client may now switch on the &ldquo;secure call&rdquo; flags
+    if not already done before. After the client got this subcode
+    the client may create a new ZRTP session using multi-stream mode.
+</pre><p class='vspace'>InfoSecureStateOff
+</p><pre>    No more security for this session and ZRTP left secure state. The
+    client must switch off all security indicators.
+</pre><div class='vspace'></div><div id='separator' >
+</div>
+<h2>Sub-codes for severity level &lsquo;Warning&rsquo;</h2>
+<p>WarningDHAESmismatch
+</p><pre>    Not used. May be used later if new algorithms a introduced.
+</pre><p class='vspace'>WarningGoClearReceived
+</p><pre>    Not yet used because &lsquo;goClear&rsquo; handling is not implemented.
+</pre><p class='vspace'>WarningDHShort
+</p><pre>    Not used. May be used later if new algorithms a introduced.
+</pre><p class='vspace'>WarningNoRSMatch
+</p><pre>    No retained shared secrets available. The user shall must
+    verify SAS with the other party. The UI shall display this
+    information.
+</pre><p class='vspace'>WarningCRCmismatch
+</p><pre>    Internal ZRTP packet checksum mismatch. The packet was
+    dropped. If this happens often this may indicate a bad
+    connection that corrupts data during transmisson. In rare cases
+    and if it happens regularly this could also signal a
+    denial-of-serice attack. The UI may display this
+    information, must be included in log file. Maybe the UI
+    implements a counter for this subcode and displays a warning
+    after the counter reaches a specific threshold.
+</pre><p class='vspace'>WarningSRTPauthError
+</p><pre>    Dropping packet because SRTP authentication failed. The packet
+    was dropped. This may happen if the data was corrupted during
+    transmission or during the very first packets after switching to
+    secure mode. In rare cases and if this happens later during a
+    secure session this could also signal a denial-of-serice
+    attack. The UI may display this information, must be included in
+    log file. Maybe the UI implements a counter for this subcode and
+    displays a warning after the counter reaches a specific
+    threshold.
+</pre><p class='vspace'>WarningSRTPreplayError
+</p><pre>    Dropping packet because SRTP replay check failed. The packet was
+    dropped. A duplicate SRTP packet was detected. This may happen if
+    the data was corrupted during transmission. In rare cases and if
+    this happens later during a secure session this could also signal
+    a denial-of-serice attack. The UI may display this information,
+    must be included in log file. Maybe the UI implements a counter
+    for this subcode and displays a warning after the counter reaches
+    a specific threshold.
+</pre><p class='vspace'>WarningNoExpectedRSMatch
+</p><pre>    During previous sessions with the other party&rsquo;s client ZRTP
+    stored some data as &lsquo;retained shared secret&rsquo; to enable key
+    continuity. During this session the other party&rsquo;s client did not
+    offer valid identifiers for the stored retained shared
+    secrets. This can happen if the other party uses another client
+    software or lost its stored shared secrets. In rare case this
+    could also signal a Man-In-The-Middle (MITM) attack. Therefore
+    the user shall must verify the SAS with the other party to prove
+    the correct exchange ZRTP data. 
+
+    ATTENTION: In case the SAS of both parties do not match the user
+    shall drop the call immediately.
+</pre><div class='vspace'></div><div id='separator' >
+</div>
+<h2>Sub-codes for severity level &lsquo;Severe&rsquo;</h2>
+<p>The &lsquo;Severe&rsquo; subcode always signals a severe problem, in most cases problems that lead to wrong security data (SRTP keys). The ZRTP implementation stops further actions and does not negotiate SRTP keys and does not start a SRTP session. The communication continues using standard, insecure RTP. The UI must inform the user.
+</p>
+<p class='vspace'>The following four subcodes signal that HMAC checks failed. Thus the data in the ZRTP packets are incorrect or inconsistent. This may be due to a Denial-of-Service attack.
+</p>
+<p class='vspace'>SevereHelloHMACFailed
+</p><pre>   Hash HMAC check of Hello failed
+</pre><p class='vspace'>SevereCommitHMACFailed
+</p><pre>   Hash HMAC check of Commit failed
+</pre><p class='vspace'>SevereDH1HMACFailed
+</p><pre>   Hash HMAC check of DHPart1 failed
+</pre><p class='vspace'>SevereDH2HMACFailed
+</p><pre>   Hash HMAC check of DHPart2 failed
+</pre><p class='vspace'>The next codes usually signal software problems or lack of resources.
+</p>
+<p class='vspace'>SevereCannotSend
+</p><pre>   Cannot send data - Internet data connection or peer is down.
+</pre><p class='vspace'>SevereProtocolError
+</p><pre>   Internal protocol error occured. Usually some sort of software
+   problem. Shall not happen :-) .
+</pre><p class='vspace'>SevereNoTimer
+</p><pre>   Cannot start a timer - some internal timer resources exhausted
+</pre><p class='vspace'>SevereTooMuchRetries
+</p><pre>   Too much retries during ZRTP negotiation. This may happen if the
+   other party stops to proceed the ZRTP handshake. Usually if
+   Internet connection is lost or the peer has some problems.
+</pre><p class='vspace'>SevereSecurityException
+</p><pre>   Java throwed a security exception. This is an internal Java
+   security problem. Shall not happen.
+</pre><div class='vspace'></div><div id='separator' >
+</div>
+<h2>ZRTP error subcodes according to the ZRTP specification chapter 6.9</h2>
+<p>This error codes signal incompatibilities or problems during ZRTP handshake. Similar to the handling of &lsquo;Severe&rsquo; sub-code the ZRTP implementation stops further actions and does not negotiate SRTP keys and does not start a SRTP session. The communication continues using standard, insecure RTP. The UI must inform the user. 
+</p>
+<p class='vspace'>The next nine codes show compatibility or software problems. The user should be informed, the message shall go into a log file.
+</p>
+<p class='vspace'>MalformedPacket
+</p><pre>   Malformed packet (CRC OK, but wrong structure), usually a
+   compatibility problem.
+</pre><p class='vspace'>CriticalSWError
+</p><pre>   Critical software error
+</pre><p class='vspace'>UnsuppZRTPVersion
+</p><pre>   Unsupported ZRTP version, a compatibility problem.
+</pre><p class='vspace'>HelloCompMismatch
+</p><pre>   Hello components mismatch. Hello packet does not contain all
+   necessary components.
+</pre><p class='vspace'>UnsuppHashType
+</p><pre>   Hash type not supported, a compatibility problem.
+</pre><p class='vspace'>UnsuppCiphertype
+</p><pre>   Cipher type not supported, a compatibility problem.
+</pre><p class='vspace'>UnsuppPKExchange
+</p><pre>   Public key exchange not supported, a compatibility problem.
+</pre><p class='vspace'>UnsuppSRTPAuthTag
+</p><pre>   SRTP auth. tag not supported, a compatibility problem.
+</pre><p class='vspace'>UnsuppSASScheme
+</p><pre>   SAS scheme not supported, a compatibility problem.
+</pre><p class='vspace'>The next error code may occur if ZRTP preshared mode is implemented and used. GNU ZRTP and GNU ZRTP4J do not implement this mode.
+</p>
+<p class='vspace'>NoSharedSecret
+</p><pre>   No shared secret available, DH mode required. Pre-shared mode can
+   be used only it at least one retained shared secret is
+   available. Only Diffie-Helman mode generates and stores retained
+   shared secrets.
+
+   The next two error codes indicate wrong or modified data during
+   Diffie-Helman key exchange. In rare case this may indicate a
+   MITM. 
+</pre><p class='vspace'>DHErrorWrongPV
+</p><pre>   Diffie-Helman error: bad public DH value, not usable to compute
+   the shared key.
+</pre><p class='vspace'>DHErrorWrongHVI
+</p><pre>   Diffie-Helman exchange error: the internally computed hash-values
+   do not match the received values. Indicates data inconsistency in
+   the exchange of ZRTP messages
+</pre><p class='vspace'>The next error code may occur if the ZRTP PBX trusted MiTM relay feature is used. GNU ZRTP and GNU ZRTP4J do not implement this feature.
+</p>
+<p class='vspace'>SASuntrustedMiTM
+</p><pre>   Received relayed SAS from untrusted MiTM.
+</pre><p class='vspace'>The next two error codes indicate some problems during SRTP key validation or key generation.
+</p>
+<p class='vspace'>ConfirmHMACWrong
+</p><pre>   Key Authentication Error: The Confirm packet has a wrong HMAC. The
+   HMAC uses a specific negotiated datum as key to validate SRTP key
+   negotiation. If this check fails the SRTP keys of both parties do
+   not match.
+</pre><p class='vspace'>NonceReused
+</p><pre>   To generate the SRTP keys in multi-stream mode ZRTP exchanges some
+   &lsquo;Nonce&rsquo; data. Multi-stream session that use data of the same DH
+   session must not be use the same nonce.
+</pre><p class='vspace'>EqualZIDHello
+</p><pre>   Equal ZIDs in Hello - this can happen if two clients generated the
+   same ZID (ZRTP Identifier). This is an extremly rare case thus
+   this error may indicate a sort of replay attack.
+</pre><p class='vspace'>GoClearNotAllowed
+</p><pre>   GoClear packet received, but not allowed
+</pre><div id='separator' >
+</div>
+<div class='vspace'></div><h2>Callback methods</h2>
+<p>secureOn(String cipher)
+</p><pre>   ZRTP calls this method to inform the client which cipher algorithm
+   it will use for SRTP. This call indicates that most of the
+   handshake is done and SRTP is engaged, at least in parts. Which
+   parts of SRTP is ready depends if the client is ZRTP Initiator or
+   ZRTP Responder.
+
+   Full secure state is indicated by the information sub-code
+   &lsquo;InfoSecureStateOn&rsquo;.
+</pre><p class='vspace'>secureOff()
+</p><pre>   ZRTP calls this method to inform the client that it switched off
+   SRTP secure mode and returned to normal RTP mode. The information
+   subcode &lsquo;InfoSecureStateOff&rsquo; shows that ZRTP left secure state.
+</pre><p class='vspace'>showSAS(String sas, boolean verified)
+</p><pre>   ZRTP calls this method to enable the UI to display the SAS (Short
+   Authentication String). Currently GNU ZRTP and GNU ZRTP4J
+   implement oly one SAS method that generates 4 characters. The
+   users shall verify these charaters, for example the caller spells
+   the first two characters, the called party the last two
+   characters. Only if all chacaters match on both sides the users
+   can be sure to have a secure session.
+
+   The &lsquo;verified&rsquo; parameter is set to true if both users verified and
+   acknowledged the SAS during a previous session using the same
+   client software or hardware. In this case the UI shall indicate
+   that both users did this, for example adding a checkmark to the
+   text. If not other error messages were shown (see Warning
+   sub-codes above) ZRTP ensures key continuity and the users may
+   omit SAS verification.
+
+   If verified is set to &lsquo;false&rsquo; the users shall verify the SAS.
+
+   In multi-stream mode the SAS is not shown because multi-stream
+   sessions depend on previous DH session.
+</pre><p class='vspace'>zrtpNegotiationFailed(severity, subCode)
+</p><pre>   The ZRTP negotiation failed, usually because of some severe
+   problem. The parameters &lsquo;severity&rsquo; and &lsquo;subCode&rsquo; contain the
+   detailed codes of the problem that caused the failure.
+</pre><p class='vspace'>zrtpNotSuppOther()
+</p><pre>   ZRTP calls this method if the other party did not respond to the
+   ZRTP &lsquo;Hello&rsquo; packets. This could happen if the other party does
+   not support ZRTP at all or the user did not enable ZRTP. After
+   ZRTP called this method it stays in a ZRTP &lsquo;Hello&rsquo; detection state
+   and will respond to ZRTP &lsquo;Hello&rsquo; packets, for example if the other
+   party enables ZRTP during the session. In this case normal ZRTP
+   processing takes place and ZRTP establishes a secure session.
+</pre></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Display Remote User Agent  | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="Display Remote User Agent " style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='GSOC2009.DispMUA' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/GSOC2009/DispMUA?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='../Documentation/UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='../Documentation/DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='../Documentation/FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='../Documentation/ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<p  style='text-align: center;'><big><strong>Tell me what you chat with, I&rsquo;ll tell you who you are!</strong></big>
+</p>
+<p class='vspace'><span  style='color: black;'> GSoC Student: Brett Geren - USA <br /></span><span  style='color: black;'> Primary Mentor: Yana Stamcheva - Bulgaria</span>
+</p>
+<div class='vspace'></div><h2>Project Requirements </h2>
+<p>First term:
+</p><ol><li>Research mechanisms for all supported stacks to determine UA.
+</li><li>Add log entries in every protocol that print UA where possible
+</li><li>Research mechanisms fir all supported protocols to advertise SC as an UA
+</li><li>Implement UA advertising for all protocol whose stacks currently support it
+</li><li>Define an operation set that allows retrieving the user agent for a particular contact (e.g. OperationSetUserAgent)
+</li><li>Implement the above operation set in all protocols (hint: SC agent advertising would probably also best fit there).
+</li><li>Implement Unit Tests for the above operation set in all protocols 
+</li></ol><p class='vspace'>Second term:
+</p><ol><li>Extend the UI Service implementation in a way that would allow us to add images next to the avatars in the chat window
+</li><li>Implement a plugin that adds a generic icon in the chat window, next to the avatar and make sure its tooltip displays the user agent as retrieved from OperationSetUserAgent
+</li><li>Add a configuration option in the General configuration form that allows to enable/disable display of the remote user agent
+</li><li>Instead of displaying a generic icon, display the logo of the user agent where possible.  
+</li></ol><div class='vspace'></div><h2>Project Description:</h2>
+<div class='vspace'></div><div  style='text-align: center;'><img src='http://clarinet.u-strasbg.fr/~sipcommunicator/gsoc2009/CheckChatClient.png' alt='' title='' /></div>
+<p class='vspace'>One day, while looking for interesting stuff on addons.mozilla.org, one of our mentors stumbled upon a Thunderbird extension called <a class='urllink' href='https://addons.mozilla.org/en-US/thunderbird/addon/562' rel='nofollow'> &ldquo;Display Mail User Agent&rdquo;</a>. He found the idea quite nice and decided to try it. He&rsquo;s been using it ever since and keeps explicitly installing it when changing his user environment.
+</p>
+<p class='vspace'>Quite naturally, excited by his new favourite Thunderbird plugin, he decided to suggest a GSoC project for an equivalent SIP Communicator feature. Just as with SMTP, most instant messaging protocols allow applications to sign outgoing messages for debugging, statistics, or publicity purposes. Right now SIP Communicator isn&rsquo;t using this information, and there is not even a way for the User Interface to obtain this information from the protocol implementations (Protocol Providers). 
+</p>
+<p class='vspace'>Your mission, should you choose to accept it, would be to design a set of interfaces in our ProtocolProviderService that would allow other modules, such as the UI, to retrieve the name of the application that was used for sending a particular message. Next, you would have to implement these interfaces for all protocols where this is possible, and finally you would need to handle the graphical part of the plugin. 
+</p>
+<p class='vspace'>Basically, the idea is to make the chat window show the logo of the sending client, so you should be able to get something like this:
+</p>
+<div class='vspace'></div><div  style='text-align: center;'><img src='http://sip-communicator.org/wiki/pub/sip-communicator/screenshots/chat-window-dispmua.png' alt='' title='' /></div>
+<p  style='text-align: center;'>Provisional UI implementation of the SC DispMUA plugin (notice the GTalk icon in the top right corner)
+</p>
+<p class='vspace'>So &hellip; you like it?
+</p>
+<p class='vspace'><strong>References:</strong><br clear='all' />
+The Mozilla Thunderbird &ldquo;Display Mail User Agent&rdquo; Extension <br /><a class='urllink' href='https://addons.mozilla.org/en-US/thunderbird/addon/562' rel='nofollow'>https://addons.mozilla.org/en-US/thunderbird/addon/562</a>
+</p>
+<p class='vspace'>Other Jitsi GSoC Projects <br /><a class='urllink' href='http://gsoc.jitsi.org' rel='nofollow'>http://gsoc.jitsi.org</a>
+</p>
+<p class='vspace'>Jitsi Developer Documentation<br /><a class='urllink' href='http://www.jitsi.org/index.php/Documentation/DeveloperDocumentation' rel='nofollow'>http://www.jitsi.org/index.php/Documentation/DeveloperDocumentation</a>
+</p>
+<p class='vspace'>The official Jitsi website <br /><a class='urllink' href='http://www.jitsi.org' rel='nofollow'>http://www.jitsi.org</a>
+</p>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

@@ -1,0 +1,690 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Message translation | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="Message translation" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Development.Babelfish' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Development/Babelfish?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='../Documentation/UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='../Documentation/DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='../Documentation/FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='../Documentation/ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div class='vspace'></div><h1>Message translation</h1>
+<p>Google&rsquo;s Summer of Code 2008 project.
+</p>
+<div class='vspace'></div><ul><li>Mentor: Lubomir Marinov
+</li><li>Student: Ernesto Rivera <em>rivera.ernesto at gmail.com</em>
+</li></ul><div class='vspace'></div><h2>Project status</h2>
+<div class='vspace'></div><ul><li>18/8: Documentation completed and last commit before SoC&rsquo;s &ldquo;pencils down&rdquo; deadline.
+</li><li>16/8: Version 1.0.0, JavaDoc uploaded
+</li><li>07/8: First working GUI 
+</li><li>12/7: Final GUI proposal for v1 
+</li><li>07/7: Translation module v0.1.5
+</li><li>30/6: Translation module v0.1.0
+</li><li>23/6: Translation module v0.0.1
+</li><li>17/6: Translation to be implemented as and OSGi bundle
+</li><li>11/6: Proposed implementation
+</li><li>22/5: Desisted using XCode, everything working now with IntelliJIDEA 7
+</li><li>19/5: Uploaded GUI prototypes. Experimenting with XCode 3
+</li><li>14/5: First Wiki edit. Experimenting with XCode 3
+</li></ul><div class='vspace'></div><h2>Project&rsquo;s JavaDoc (API)</h2>
+<p><code class='escaped'>http://two.xthost.info/soc/javadoc</code>
+</p>
+<div class='vspace'></div><h2>Project Documentation</h2>
+<h3>Description</h3>
+<p>The translation module:
+</p>
+<div class='vspace'></div><ul><li>Gets the contents of incoming or outgoing messages.
+</li><li>Sends an HTTP request to a web translation service.
+</li><li>Parses the incoming HTML response from the server to retrieve the translation.
+</li><li>Shows the translation in the chat window, or sends a new translated message to the chat contact (incoming and outgoing messages respectively).
+</li></ul><p class='vspace'>Long messages are divided into shorter fragments if required by the server. To ensure the integrity of translations, tags are added at the beginning and the end of text fragments prior to making the HTTP request. Once a server response is received the presence of these tags is verified and translated fragments are put together.
+</p>
+<div class='vspace'></div><h3>GUI</h3>
+<p>The user interface is limited to a menu bar item where users can: quickly enable/disable translations, check the translation service current settings, verify which service has been used for the last translations, and open the translation options&rsquo; dialog.
+</p>
+<div class='vspace'></div><div><img src='../wiki/pub/uploads/Development/menu_final.png' alt='' title='' /></div>
+<p class='vspace'>The options dialog is very simple: it allows to enable/disable translations, choose language pairs as well as specify a preferred translation service.
+</p>
+<p class='vspace'><strong>Note:</strong> The actual translation service may differ from the user&rsquo;s preferred one depending on service availability and/or the ability of the service to translate between a given pair of languages. To confirm the actual translation service users can check the translation menu.
+</p>
+<div class='vspace'></div><div><img src='../wiki/pub/uploads/Development/options_final.png' alt='' title='' /></div>
+<p class='vspace'>Translations are shown inside SC as normal messages preceeded by the <code>Translation:</code> text.
+</p>
+<div class='vspace'></div><div><img src='../wiki/pub/uploads/Development/in_final.png' alt='' title='' /></div>
+<p class='vspace'>As for contact&rsquo;s chat client, only incoming translations are shown.
+</p>
+<div class='vspace'></div><div><img src='../wiki/pub/uploads/Development/out_final.png' alt='' title='' /></div>
+<p class='vspace'>As you can see there are some encoding problems depending on the web translation used, specially as in the case of Google Translate used for the examples above.
+</p>
+<div class='vspace'></div><h3>Services&rsquo; description XML file</h3>
+<p>Web based translation services are regularly subject to changes of address, HTTP request format, resulting page layout and/or available translation languages. Also some new services may become available while others disappear or require authentication or fees. 
+</p>
+<p class='vspace'>For all these reasons a way to easily add and modify services&rsquo; parameters has been designed as a XML file syntax for describing services.
+</p>
+<p class='vspace'>To define a new web translation service only a few parameters are needed, and no compilation is required by the user:
+</p>
+<div class='vspace'></div><ul><li>Service name (description only).
+</li><li>Available language pairs.
+</li><li>A HTTP request template such as <code class='escaped'>http://translate.google.com/translate_t?sl=</code><strong>&lt;source/&gt;</strong><code class='escaped'>&amp;amp;tl=</code><strong>&lt;target/&gt;</strong><code class='escaped'>&amp;amp;text=</code><strong>&lt;text/&gt;</strong>, where tags in bold need to be replaced by the language pair and text to be translated.
+</li><li>HTML response search tags to search the incoming HTML response looking for the translated string.
+</li></ul><p class='vspace'>Other parameters such as server limits (text length or time intervals) and service-specific way of encoding languages (ex. en, eng, english) can be specified.
+</p>
+<p class='vspace'>Description file is read from a default URL address, to ensure users have always up to date XML configuration file. In case of failure a local XML file is read.
+</p>
+<div class='vspace'></div><h3>Preferences</h3>
+<p>Settings are saved on a per contact basis, meaning that users can have different settings for each contact they communicate with through the translation module.
+</p>
+<div class='vspace'></div><h3>Module as a standard OSGi module</h3>
+<p>The service was created first as a standard OSGi module for the first part of the project, trying to keep it as independent as possible from SIP Communicator implementation. However at the time of integrating the module inside SC some modifications were necessary (package names, imports and mor important the functions of the activator class which is now 90% SC-specific code).
+</p>
+<p class='vspace'>It should be however easy to use the module to be used as a OSGi standard module by other open source projects. It will require removing SC-specific code from the activator and ignoring the <code>TranslationGUI</code> and <code>TranslationPreferences</code> classes which are SC-specific.
+</p>
+<div class='vspace'></div><h4>Plugin vs. Service</h4>
+<p>The translation module was implemented as GUI Plug-in instead of a service. 
+However the implementation (<code>plugin/translation</code>) being cleanly separated from the service specification (<code>plugin/translation/service</code>) makes it easy to convert the plugin into a SC service if considered necessary.
+</p>
+<div class='vspace'></div><h2>Development</h2>
+<h3>Final GUI proposal for v1</h3>
+<p>A more precise idea of the way the project will look at the end of the program. Many features from the past proposal have changed or have been removed in order to have a solid and not half-finished version 1 (upon which further development can be cleanly done beyond the scope of SoC). 
+</p>
+<p class='vspace'><em>Also compare to the &ldquo;GUI prototype&rdquo; section below</em>
+</p>
+<div class='vspace'></div><h4>Translated text presentation:</h4>
+<ul><li>Translation will be inline for v1. It is both easier to implement and consistent with outgoing translations as we don&rsquo;t know (neither we can control) the partner client&rsquo;s GUI.
+</li><li>In order to distinguish translated text it could be on italics, a different color, etc. Are those text styles available for SIP supported protocols?
+</li><li>Again as SIP will communicate with other clients and multiple protocols, it maybe wiser to just enclose it with other text, ex.: <em>Autotranslation [&hellip;]</em>
+</li></ul><div><img src='../wiki/pub/uploads/Development/chat_v1.png' alt='' title='' /></div>
+<div class='vspace'></div><h4>Menu bar</h4>
+<ul><li>Instead of using the icons toolbar, I intend to implement an extra menu between &ldquo;Settings&rdquo; and the &ldquo;?&rdquo; menus.
+</li><li>Menu items just before the separators are informative items, as such they will be grayed out and updated during runtime as needed.
+</li></ul><div><img src='../wiki/pub/uploads/Development/menu_v1.png' alt='' title='' /></div>
+<div class='vspace'></div><h4>Translation options</h4>
+<ul><li>Choosing the last option of the translation menu opens this window. It focuses more on what users want (translate text) so there it&rsquo;s not a typical combo box with all available language pairs. I think it is quite clean and minimalist GUI.
+</li><li>The preferred service will be used only if available for the language pair and the service is online, otherwise another service will be used and the status in the menu will be updated to reflect the change (unintrusive to the user).
+</li><li>Settings will depend on the current partner.
+</li></ul><div><img src='../wiki/pub/uploads/Development/options_v1.png' alt='' title='' /></div>
+<div class='vspace'></div><h3>Translation proposed implementation</h3>
+<p>The idea is to implement the service as abstracted and open as possible, independent from a particular translation service while making it easy to add/modify new/existing services.
+</p>
+<p class='vspace'>It will consist of:
+</p>
+<div class='vspace'></div><ul><li>GUI and integration within SIP (described in the next section)
+</li><li><code>TranslatioService</code> interface
+</li><li><code>HTTPTranslationService</code> a particular implementation of said interface
+</li><li><code>&lt;name&gt;TranslationService.XML</code> used by the class above to translate text using a particular service
+</li></ul><div class='vspace'></div><h4><code>TranslatioService</code> interface</h4>
+<p>As of now all surveyed translation services have to been accessed through HTTP requests, while resulting translation will have to be parsed-out from resulting HTML code sent by the service. However this interface will serve as an abstraction layer in order to ensure that other translation mechanism can be added in the future (for instance translation using an offline translation application installed on the same computer).
+</p>
+<p class='vspace'>This interface defines only a very obvious function:
+</p>
+<div class='vspace'></div><ul><li><code>String translateText(String text, sourceLnaguage, targetLanguage)</code>
+</li></ul><div class='vspace'></div><h4><code>HTTPTranslationService</code> class</h4>
+<p>This will be the only actual implementation of the <code>TranslatioService</code> interface. It is a service-independent class that deals with <em>any</em> HTTP-request-based translation service.
+</p>
+<p class='vspace'>The class will discover existing XML description files (described below) to provide SIP with a translation service.
+</p>
+<p class='vspace'>The task of the class is to deal with all actions needed to translate text using such HTTP-request services:
+</p>
+<div class='vspace'></div><ul><li>Cut down long text according to service&rsquo;s lenght limit
+</li><li>Make string coding conversions and escape special characters
+</li><li>Create the HTTP request(s)
+</li><li>Parse results to retrieve translated text
+</li></ul><p class='vspace'>This class will develop into a robust class capable to handle many HTTP limitations, however <em>no hardcoded code will be allowed</em>.
+</p>
+<div class='vspace'></div><h4><code>TranslationService.XML</code> description files</h4>
+<p>One file per translation service. All service-specific information will be described here and nowhere else:
+</p>
+<div class='vspace'></div><ul><li>Request parameters
+<div class='vspace'></div><ul><li>Base URL (ex. <code class='escaped'>http://translate.google.com/translate_t</code>)
+</li><li>Default request method: POST, GET
+</li><li>Language pairs or information about how to get it (ex. combo box name containing such pairs)
+</li><li>Text length limit
+</li><li>Other service-specific parameters (ex. <code>client=SIPComm</code>)
+</li></ul><div class='vspace'></div></li><li>Retrieval parameters
+<div class='vspace'></div><ul><li>Parsing cues
+<ul><li>Code cues (ex. <code>start=&lsquo;&lt;div id=result_box dir=&ldquo;ltr&rdquo;&gt;&rsquo; end=&lsquo;&lt;/div&gt;&rsquo;</code>)
+</li><li>Regular expressions
+</li></ul></li></ul></li></ul><div class='vspace'></div><h3>GUI prototype</h3>
+<p>Before starting with the real thing it would be good to agree on what we expect. So please give your feedback.
+</p>
+<div class='vspace'></div><h4>Displaying translated text</h4>
+<p>Two possible options (more needed?):
+</p>
+<div class='vspace'></div><ol><li>Inline just after the original text<br /><img src='../wiki/pub/uploads/Development/inline.png' alt='' title='' />
+<div class='vspace'></div></li><li>Show only original/translated text, the other one is displayed when hovering mouse over the translation icon<br /><img src='../wiki/pub/uploads/Development/popup.png' alt='' title='' />
+</li></ol><div class='vspace'></div><h4>Translation options</h4>
+<ul><li>Translation menu<br /><img src='../wiki/pub/uploads/Development/optionsmenu.png' alt='' title='' />
+<div class='vspace'></div></li><li>Options panel<br /><img src='../wiki/pub/uploads/Development/options.png' alt='' title='' />
+</li></ul><div class='vspace'></div><h3>Project proposal</h3>
+<p>Create a SIP plug-in to support real time translation of chats, RSS feeds or any other SIP module:
+</p>
+<div class='vspace'></div><ul><li>Create a translation service independent plug-in to make it easy to modify/replace/add/switch between services. In other words crate an abstraction layer between SIP, the translation plug-in and the actual translation services.
+</li><li>Add support for as many translation services as possible during the summer.
+</li><li>Define an interface and document an easy-to-follow guide for adding new services in the future.
+</li></ul><p class='vspace'>As for available services, the most used today are Google Translate and BabelFish. The later one actually based on Systran, the same service that powers the Mac OS X translation widget.
+Those two are not however the  <a class='urllink' href='http://en.wikipedia.org/wiki/Comparison_of_Machine_translation_applications' rel='nofollow'>only candidates</a>.
+</p>
+<p class='vspace'>Features I intend to implement in detail:
+</p>
+<div class='vspace'></div><ul><li>The receiver of messages will be the one who enables/disables translation as:
+<ul><li>He is the one who decides if he needs a translation or not.
+</li><li>He has to choose his preferred target language among available ones.
+</li></ul><div class='vspace'></div></li><li>The plug-in will remember our translation settings for each buddy we have (ex. John: BabelFish Spanish&rarr;English)
+<div class='vspace'></div></li><li>As translations are not perfect, we should provide both the original text and the translated one. Many options for differentiating them:
+<ul><li>Pop-up translation on mouseover.
+</li><li>Highlight translated text (ex. italics) and/or append some text at the end of translation (ex. “translated by Systran”).
+</li><li>Better yet, add a virtual buddy to the chat. For instance a “BabelFish” buddy complete with its cute icon who will translate the chat.
+</li></ul><div class='vspace'></div></li><li>Translation is made either:
+<ul><li>On the fly as messages arrive.
+</li><li>Once clicking a button.
+</li><li>From text selections using contextual menus.
+</li></ul></li></ul><p class='vspace'>We could also try to detect the source text original language, but as users have to choose their target language anyway, maybe automatic source language detection is not worth the hassle.
+</p>
+<div class='vspace'></div><h3>Project schedule</h3>
+<ul><li>Study SIP architecture and code in detail. Code the tutorial. Review translation services’ available APIs (interim period).
+<div class='vspace'></div></li><li>Fully detail plug-in expected behavior. Get feedback and suggestions from the SIP community (1-2 week).
+<div class='vspace'></div></li><li>Create abstraction layer using a mock translation service (2-3 weeks).
+<div class='vspace'></div></li><li>Implement at least two translation services (1 week each).
+<div class='vspace'></div></li><li>Create unit tests, clean and debug (1-2 week).
+<div class='vspace'></div></li><li>Document and crate a detailed guide for adding new services (1-2 weeks).
+</li></ul><p class='vspace'>Optional tasks (time allowing):
+</p>
+<div class='vspace'></div><ul><li>Add as many services as possible.
+</li></ul><div class='vspace'></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

@@ -1,0 +1,600 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> How to configure Netbeans to compile and debug Jitsi | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="How to configure Netbeans to compile and debug Jitsi" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.ConfigureNetbeansNew' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/ConfigureNetbeansNew?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:40px auto;text-align:left' >
+<h2>How to configure Netbeans to compile and debug Jitsi </h2>
+<div class='tocfloat'><p><a name='toc' id='toc'></a><b>On this page&hellip;</b> (<a id="tocidtog" href="javascript:toggle('tocid');">hide</a>)</p><ul class='toc' id='tocid'><li><a href='ConfigureNetbeansNew.html#toc1'>Download the latest Jitsi source from java.net</a></li><li><a href='ConfigureNetbeansNew.html#toc2'>Define your new SVN sandbox as a Netbeans Project</a></li><li><a href='ConfigureNetbeansNew.html#toc3'>Clean and Build the project</a></li><li><a href='ConfigureNetbeansNew.html#toc4'>Test the project</a></li><li><a href='ConfigureNetbeansNew.html#toc5'>Running individual tests</a></li><li><a href='ConfigureNetbeansNew.html#toc6'>Debugging the application under Netbeans</a></li><li><a href='ConfigureNetbeansNew.html#toc7'>Debugging unit tests under Netbeans</a></li><li><a href='ConfigureNetbeansNew.html#toc8'>Resetting a Jitsi Configuration</a></li><li><a href='ConfigureNetbeansNew.html#toc9'>Good luck!</a></li></ul></div>
+<p class='vspace'>Netbeans is a <em>pure java</em> open source project that should (in principle) run on any platform that has a supported java SDK. It is a feature-rich IDE that has been undergone an impressive series of changes during recent years, so you should not contemplate running anything older than the latest stable release. You can get the latest version from <a class='urllink' href='http://www.netbeans.org' rel='nofollow'>http://www.netbeans.org</a>.
+</p>
+<p class='vspace'>Note: This procedure is applicable to NetBeans 6.0, which was released in late 2007 and includes support for SVN. Most of the procedure is also valid for the previous release, version 5.5.
+</p>
+<div class='vspace'></div><div id='separator' >
+</div><div >
+</div><div id='titleNews' >
+<p>Install and test the Anagrams Sample Project
+</p></div>
+<p>NetBeans uses Ant to perform many of its own IDE functions and is tightly integrated with it. We strongly recommend that you install, build, test and debug the sample Anagrams project before starting to work with Jitsi. This will prove that you have successfully configured your IDE before you begin work on our complex project. Jitsi has its own complex build.xml file, while Anagrams allows NetBeans to create a boiler-plate project. Most of your work will be associated with the integration of the Jitsi build.xml and the NetBeans IDE configuration.
+</p><div id='separator' >
+</div><div >
+</div><div id='titleNews' >
+<h2><a name='toc1' id='toc1'></a> Download the latest Jitsi source from java.net</h2>
+</div>
+<p class='vspace'>Note: It is currently (April 2008) not possible to checkout the project under NetBeans. This is because the SSL server certificate is not issued by a trusted certificate authority AND NetBeans does not handle the SSL alert condition gracefully. Therefore, you should perform the SVN checkout from a command prompt as described in <a class='wikilink' href='RetrievingAndBuildingTheSources.html'>RetrievingAndBuildingTheSources</a>. (You will be able to use NetBeans for all subsequent SVN operations once you have completed these procedures).
+</p>
+<p class='vspace'>From the NetBeans <em>Versioning</em> menu, select <em>Subversion</em> and then <em>Check Out</em> from the submenu. The Subversion <em>Check Out</em> Options window will open. Enter the <em>Repository URL</em> of:- 
+</p>
+<p class='vspace'>https://sip-communicator.dev.java.net/svn/sip-communicator/trunk
+</p>
+<p class='vspace'>Enter your own project userid and password - our SVN repository does not provide anonymous access. If you check the box, your credentials will be saved in your sandbox for future use.
+</p>
+<p class='vspace'>Click the <em>Next</em> button and a progress bar will appear while NetBeans connects to the repository. If the operation ends with both <em>Next</em> and <em>Back</em> buttons greyed-out, check the NetBeans log&hellip; you should see a message about the reason for the failure. If the connection was successfuly, you will have moved onto the second stage, where you specify the project to checkout and where to create your sandbox. We recommend that you choose a location outside the netbeans installation directory to make upgrades simpler. The default will be the value of your HOME environment variable. (n.b. you are specifying the root where your sip-communicator sandbox will be created, not the sandbox itself).
+</p>
+<p class='vspace'>Note: If you already use Netbeans to maintain CVS or SVN Sandboxes for projects NOT resident at dev.java.net, we strongly advise you to setup a NEW sandbox. NetBeans works well with multiple folders holding multiple project sandboxes, so maintaining and switching between projects is much simpler if you adopt this structure. For example, I have three directories off my HOME directory: netbeans (for the ide itself), SandBox (for my own projects) and sandBoxJavaNet (for Jitsi).
+</p><div id='separator' >
+</div><div >
+<h2><a name='toc2' id='toc2'></a> Define your new SVN sandbox as a Netbeans Project</h2>
+<p>The SVN repository includes the files you need to identify your new sandbox as a NetBeans project. However, we need to make provision for you to customise your own configuration if necessary, so SVN properties have been defined to ignore any changes that you will make to the <strong>./nbproject/</strong> subdirectory in your sandbox.
+</p>
+<p class='vspace'>Make sure you do not already have the <em>Jitsi</em> project open on your NetBeans workbench. Use your favourite operating system tool to create a <strong>./nbproject/</strong> directory if one does not already exist. Then copy ONLY the  <strong>./nbproject/project.xml</strong> and <strong>./nbproject/ide-targets.xml</strong> files to the <strong>./nbproject/</strong> directory. <strong><em>Danger!</em></strong> You should NOT copy the entire <strong>./nbproject/</strong> directory. (It will contain a subdirectory called <strong>.svn/</strong>, which might contain history information that will confuse your subversion client if it is found in the wrong place. On Unix operating systems this directory will be hidden from standard views. It will also contain a directory called <strong>private</strong> that holds project data created by your own netbeans workbench.)
+</p>
+<p class='vspace'>You can safely customise <strong>./nbproject/project.xml</strong> (i.e. your own copy!) if necessary, but it should already be suitably preconfigured to work in your new sandbox. (Windows users might find the classpath lines towards the bottom of the file need to be changed if the unix syntax is not accepted.)
+</p>
+<p class='vspace'>Go to the NetBeans workbench and open an existing project. Browse your file system to open the new sandbox and then select the <strong>sip-communicator</strong> project, which should appear as a folder called <strong>trunk</strong> in your sandbox. The project should open successfully because NetBeans will find your <em>project.xml</em> and <em>ide-targets.xml</em> files, as well as the associated <strong>ant</strong> <em>build.xml</em> control file. If you look at <strong>./nbproject/project.xml</strong> from the <em>Files</em> view, you should see that its name is greyed-out, which means the repository will be protected from any local changes in the case where you inadvertently perform a project-wide commit.
+</p></div><div id='separator' >
+</div><div >
+<h2><a name='toc3' id='toc3'></a> Clean and Build the project</h2>
+<p>Right-click the sip-communicator project object (from the Projects tabbed pane) and then choose the <strong>&lsquo;Clean and Build Project</strong>&rsquo; sub-option from the pop-up menu (this ide-action will run the <em>paranoid</em> <strong>clean</strong> and <strong>make</strong> ant targets). Focus should switch to the Output pane on the bottom part of the workbench and you should see the Ant build messages as they are produced. The build should complete successfully after creating all the &ldquo;bundle&rdquo; jar files.
+</p>
+<p class='vspace'>Note: the <em>Projects</em> view might show a red exclamation mark icon on the <em>test</em> source folder after a clean and build. This seems to be a bug in NetBeans where the contents of the <em>src</em> and <em>test</em> folders are compiled by the IDE, but some references cannot be resolved. The only way to get them recompiled is to open each source file in each package, then close them individually once their red exclamation marks disappear! Once you have done this, they do not seem to re-appear.
+</p>
+<div class='vspace'></div><h2><a name='toc4' id='toc4'></a> Test the project</h2>
+<p>Before you can run the full set of unit tests, you must create a properties file that defines your own testing account credentials for the various protocols. This process is described in <a class='wikilink' href='TestingProperties.html'>TestingProperties</a>.
+</p>
+<p class='vspace'>Right-click the sip-communicator project object (from the Projects tabbed pane) and then choose the <strong>&lsquo;Test Project</strong>&rsquo; sub-option from the pop-up menu (this ide-action will run the <em>test</em> and its pre-requisite ant targets). Focus should switch to the Output pane on the bottom part of the workbench and you should see the Ant build messages as they are produced.
+</p>
+<p class='vspace'>You can also restrict the test run to a subset of the suites if, for example, you are interested in a specific protocol and do not have test accounts for some of the other protocols. The process is described in <a class='wikilink' href='TestSelection.html'>TestSelection</a>.
+</p>
+<p class='vspace'>The build should complete successfully and all unit tests should run without error. You can examine the results of individual tests or suites by opening a web browser page on the newly created file <strong>&lsquo;./test-reports/html/index.html</strong>&rsquo; in your sandbox and exploring the various reports.
+</p>
+<p class='vspace'>Note: If your tests fail the first time after you create the project, you should check the FAQ for known problems.
+</p>
+<div class='vspace'></div><h2><a name='toc5' id='toc5'></a> Running individual tests</h2>
+<p>The build.xml file for Jitsi includes some targets that are particularly useful when working with Netbeans (they can be used outside the IDE
+provided you manually set the Ant test.name property). These targets are automatically <em>wired up</em> to the project settings when you installed the project.xml file from CVS. (For background information, refer to Editing The Netbeans Project File).
+</p>
+<p class='vspace'>You can execute an individual test class under Netbeans by selecting a source file (e.g. ConfigurationServiceLick.java), right-click it and choose the Run File ide action.
+</p></div><div id='separator' >
+</div><div >
+<h2><a name='toc6' id='toc6'></a> Debugging the application under Netbeans</h2>
+<p>The ide-targets.xml file for Jitsi includes an Ant target that is used to debug the project under Netbeans. This target is already <em>&ldquo;wired up&rdquo;</em> to Netbeans in the project.xml file that you copied from SVN.
+</p>
+<p class='vspace'>To check that debugging is properly configured, open the SipCommunicator.java source file (in the src/net.java.sip.communicator.launcher package). You should be able to confirm there are NO compilation errors (indicated by red underlining and red marks in the scroll margin). If you see any unresolved import statements, you should shut down Netbeans with the source file still open, then restart it. The classpaths will be re-scanned and the errors should be resolved. (If any imports are still unresolved, please report the problem - it is probably because we have missed a new jar file from the project.xml file).
+</p>
+<p class='vspace'>Note: You can still successfully debug code that shows these errors in the source display window. However, you will not be able to step into any of the methods associated with a red-underlined import statement - if you try, Netbeans will simply step over the method instead.
+</p>
+<p class='vspace'>Set a breakpoint by single-clicking the first statement in the main() method - it should then be highlighted in pink, with a small pink blob in the left margin. Next, click on the <em>Jitsi</em> project and choose the <strong>Debug Application</strong> action. Ant will start running, and then the debug windows should open on the bottom section of the screen. Execution should halt at your breakpoint, and be highlighted in green. You should be able to step into other source files within the project and display objects and fields, as well as the call stack.
+</p></div><div id='separator' >
+</div><div >
+<h2><a name='toc7' id='toc7'></a> Debugging unit tests under Netbeans</h2>
+<p>The build.xml file for Jitsi includes an Ant target that is used to debug the project under Netbeans. This target is already <em>&ldquo;wired up&rdquo;</em> to Netbeans by the project.xml that you copied from CVS. (For more details, see Editing The Netbeans Project File).
+</p>
+<p class='vspace'>To check that debugging is properly configured, open the TestConfigurationService.java source file (in the test/net.java.sip.communicator.slick.configuration package). You should be able to confirm there are NO compilation errors (indicated by red underlining and red marks in the scroll margin). If you see any unresolved import statements, you should shut down Netbeans with the source file still open, then restart it. The classpaths will be re-scanned and the errors should be resolved. (If any imports are still unresolved, please report the problem - it is probably because we have missed a new jar file from the project.xml file).
+</p>
+<p class='vspace'>Note: You can still successfully debug code that shows these errors in the source display window. However, you will not be able to step into any of the methods associated with a red-underlined import statement - if you try, Netbeans will simply step over the method instead.
+</p>
+<p class='vspace'>Set a breakpoint by single-clicking the first statement in the testSetGetProperty() method - it should then be highlighted in pink, with a small pink blob in the left margin. Next, click on the ConfigurationServiceLick source file and choose the Debug File action. Ant will start running, and then the debug windows should open on the bottom section of the screen. Execution should halt at your breakpoint, and be highlighted in green. You should be able to step into other source files within the project and display objects and fields, as well as the call stack.
+</p></div><div id='separator' >
+</div><div >
+<h2><a name='toc8' id='toc8'></a> Resetting a Jitsi Configuration</h2>
+<p>Whenever you change something related to your sip-communicator environment, e.g. using an accelerated JMF or the all-java implementation, you must make sure Jitsi goes through the process of detecting the change. See Resetting the Jitsi Configuration for details.
+</p></div><div id='separator' >
+</div><div >
+<h2><a name='toc9' id='toc9'></a> Good luck!</h2>
+<p>Note: This procedure uses the Ant tool to compile the source files. This means you can also run Ant from an external command line prompt. For more information, you can read more here - Use Ant to build (and test) the project.
+</p>
+<p class='vspace'><span class='stickynote'>Author: Brian Burch</span>
+</p></div></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

@@ -1,0 +1,2402 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> News | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="News" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Main.News' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Main/News?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='HomePage.html'>Home</a>
+</li><li><a class='selflink' href='News.html'>News</a>
+</li><li><a class='wikilink' href='Download.html'>Download</a>
+</li><li><a class='wikilink' href='Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='Features.html'>Features</a>
+</li><li><a class='wikilink' href='About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='../Documentation/UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='../Documentation/DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='../Documentation/FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='../Documentation/ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:0 auto;text-align:left' >
+<div class='vspace'></div><h2>Jitsi News</h2>
+<p><a name='begin-frontinclude' id='begin-frontinclude'></a>
+</p>
+<div class='vspace'></div><table border='0' align='justify' width='960px' height='100%' style='margin:0px auto;margin-bottom:20px;' >
+<div class='vspace'></div><tr ><td style='padding:0px;hegiht:100%;'  valign='top' >
+</td><td align='justify' width='50%' height='100%' style='padding:0;padding-right:10px; vertical-align:top;text-align:left'  valign='top' >
+<table height='310px' >
+<tr ><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:left'  valign='top' >
+<div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='n1-title' id='n1-title'></a>
+<a name='meet-mobile' id='meet-mobile'></a> <a class='urllink' href='https://jitsi.org/meet-mobile' rel='nofollow'>Jitsi Meet now on Mobile!!!</a>
+</p></div>
+<div id='dateNews' >
+<p><a name='n1-date' id='n1-date'></a> 
+2017.03.08
+</p></div>
+<p><a name='n1-text' id='n1-text'></a> 
+Yes! Jitsi Meet is now available for <a class='urllink' href='https://goo.gl/N4yG15' rel='nofollow'>Android</a> and <a class='urllink' href='https://goo.gl/nknTf1' rel='nofollow'>iOS</a>!!! Join your Jitsi Meetings from your phone!
+</p></td><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:right;'  valign='top' > 
+<p><a name='n1-img' id='n1-img'></a>  
+</p><div> <a class='urllink' href='https://jitsi.org/meet-mobile' rel='nofollow'><img class='circular' src='../wiki/pub/playstore-square-216.png' alt='' /></a> </div>
+<div class='vspace'></div></td></tr></table>
+<p><a name='end1' id='end1'></a>
+</p>
+<div class='vspace'></div></td><td align='justify' width='50%' height='100%' style='padding:0;padding-left:10px; vertical-align:top;text-align:left'  valign='top' >
+<table height='310px' >
+<tr ><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:left'  valign='top' >
+<div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='n2-title' id='n2-title'></a>
+<a name='gsoc17' id='gsoc17'></a> <a class='urllink' href='https://jitsi.org/gsoc' rel='nofollow'>Google Summer of Code &lsquo;17 is on!</a>
+</p></div>
+<div id='dateNews' >
+<p><a name='n2-date' id='n2-date'></a> 
+2017.03.03
+</p></div>
+<p><a name='n2-text' id='n2-text'></a> 
+After a break of a couple of years, Jitsi is once again proudly participating in Google Summer of Code! Check out our <a class='urllink' href='https://jitsi.org/gsoc' rel='nofollow'> project ideas</a> and let&rsquo;s have fun together this summer (while you are getting paid to do it! ;) )
+</p></td><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:right;'  valign='top' >
+<p><a name='n2-img' id='n2-img'></a>  
+</p><div> <a class='urllink' href='https://jtisi.org/gsoc' rel='nofollow'><img class='circular' src='../wiki/pub/gsoc2017-216x216.png' alt='' /></a> </div>
+</td></tr></table>
+<div class='vspace'></div></td></tr><tr ><td style='padding:0px;hegiht:100%;'  valign='top' >
+</td><td align='justify' width='50%' height='100%' style='padding:0;padding-right:10px; vertical-align:top;text-align:left'  valign='top' >
+<table height='310px' >
+<tr ><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:left'  valign='top' >
+<div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='n3-title' id='n3-title'></a>
+<a name='saghul-fosdem' id='saghul-fosdem'></a> <a class='urllink' href='https://goo.gl/sIEVsK' rel='nofollow'>Jitsi State of the Union</a>
+</p></div>
+<div id='dateNews' >
+<p><a name='n3-date' id='n3-date'></a> 
+2017.02.01
+</p></div>
+<p><a name='n3-text' id='n3-text'></a> 
+Check out what&rsquo;s in and what&rsquo;s coming for Jitsi in @saghul&rsquo;s <a class='urllink' href='https://goo.gl/sIEVsK' rel='nofollow'> FOSDEM presentation&#8194;</a>
+</p></td><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:right;'  valign='top' >
+<p><a name='n3-img' id='n3-img'></a> 
+</p><div> <a class='urllink' href='https://goo.gl/sIEVsK' rel='nofollow'><img class='circular' src='../wiki/pub/fosdem17.png' alt='' /></a> </div>
+</td></tr></table>
+<div class='vspace'></div></td><td align='justify' width='50%' height='100%' style='padding:0;padding-left:10px; vertical-align:top;text-align:left'  valign='top' >
+<table height='310px' >
+<tr ><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:left'  valign='top' >
+<div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='n4-title' id='n4-title'></a>
+<a name='kranky-react' id='kranky-react'></a> <a class='urllink' href='https://youtu.be/OT6kwzsQeVc' rel='nofollow'>Mobile WebRTC with React Native</a>
+</p></div>
+<div id='dateNews' >
+<p><a name='n4-date' id='n4-date'></a> 
+2016.11.21
+</p></div>
+<p><a name='n4-text' id='n4-text'></a> 
+<a class='urllink' href='https://youtu.be/OT6kwzsQeVc' rel='nofollow'>In their Kranky/Geek video</a> Emil and Lyubo share Jitsi’s experience building a WebRTC app, for mobile with React Native.
+</p></td><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:right;'  valign='top' >
+<p><a name='n4-img' id='n4-img'></a> 
+</p><div> <a class='urllink' href='https://youtu.be/OT6kwzsQeVc' rel='nofollow'><img class='circular' src='../wiki/pub/krankyemil.png' alt='' /></a> </div>
+</td></tr></table>
+<div class='vspace'></div></td></tr><tr ><td style='padding:0px;hegiht:100%;'  valign='top' >
+</td><td align='justify' width='50%' height='100%' style='padding:0;padding-right:10px; vertical-align:top;text-align:left'  valign='top' >
+<table height='310px' >
+<tr ><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:left'  valign='top' >
+<div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='n5-title' id='n5-title'></a>
+<a name='meet-jit-si-gui' id='meet-jit-si-gui'></a> <a class='urllink' href='https://goo.gl/Py0x0S' rel='nofollow'> Live Streaming with Jitsi and YouTube</a>
+</p></div>
+<div id='dateNews' >
+<p><a name='n5-date' id='n5-date'></a> 
+2016.05.10
+</p></div>
+<p><a name='n5-text' id='n5-text'></a> 
+Checkout the new <a class='urllink' href='https://goo.gl/Py0x0S' rel='nofollow'>YouTube Live Streaming</a> support on <a class='urllink' href='https://meet.jit.si' rel='nofollow'>meet.jit.si</a> and invite unlimited numbers of viewers to your conferences.
+</p></td><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:right;'  valign='top' >
+<p><a name='n5-img' id='n5-img'></a> 
+</p><div> <a class='urllink' href='https://goo.gl/Py0x0S' rel='nofollow'><img class='circular' src='../wiki/pub/live-streaming-jitsi.png' alt='' /></a> </div>
+</td></tr></table>
+<div class='vspace'></div></td><td align='justify' width='50%' height='100%' style='padding:0;padding-left:10px; vertical-align:top;text-align:left'  valign='top' >
+<table height='310px' >
+<tr ><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:left'  valign='top' >
+<div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='n6-title' id='n6-title'></a>
+ <a class='urllink' href='https://goo.gl/MgzMRm' rel='nofollow'> Simulcast now in production on meet.jit.si!</a>
+</p></div>
+<div id='dateNews' >
+<p><a name='n6-date' id='n6-date'></a> 
+2016.04.23
+</p></div>
+<p><a name='n6-text' id='n6-text'></a> 
+Tired of having to choose between 1080p and reasonable bandwidth consumption? The new simulcast support on <a class='urllink' href='https://goo.gl/MgzMRm' rel='nofollow'>meet.jit.si</a> should make you happy then!  Also run it yourself by installing <a class='urllink' href='https://goo.gl/jh1vCz' rel='nofollow'> Jitsi Meet</a> and <a class='urllink' href='https://goo.gl/MKP3xb' rel='nofollow'> Jitsi Videobridge</a>
+</p></td><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:right;'  valign='top' >
+<p><a name='n6-img' id='n6-img'></a> 
+</p><div> <a class='urllink' href='https://goo.gl/MgzMRm' rel='nofollow'><img class='circular' src='../wiki/pub/simulcast.png' alt='' /></a> </div>
+</td></tr></table>
+<div class='vspace'></div></td></tr><tr ><td style='padding:0px;hegiht:100%;'  valign='top' >
+</td><td align='justify' width='50%' height='100%' style='padding:0;padding-right:10px; vertical-align:top;text-align:left'  valign='top' >
+<table height='310px' >
+<tr ><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:left'  valign='top' >
+<div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='n7-title' id='n7-title'></a>
+ <a class='urllink' href='https://goo.gl/9nMbgx' rel='nofollow'> Co-watch YouTube videos on the new meet.jit.si</a>
+</p></div>
+<div id='dateNews' >
+<p><a name='n7-date' id='n7-date'></a> 
+2016.04.06
+</p></div>
+<p><a name='n7-text' id='n7-text'></a> 
+Want to share YouTube videos and watch them together with friends? Try the new <a class='urllink' href='https://goo.gl/9nMbgx' rel='nofollow'>meet.jit.si</a>! 
+</p></td><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:right;'  valign='top' >
+<p><a name='n7-img' id='n7-img'></a> 
+</p><div> <a class='urllink' href='https://goo.gl/9nMbgx' rel='nofollow'><img class='circular' src='../wiki/pub/meet.jit.si.png' alt='' /></a> </div>
+</td></tr></table>
+<div class='vspace'></div></td><td align='justify' width='50%' height='100%' style='padding:0;padding-left:10px; vertical-align:top;text-align:left'  valign='top' >
+<table height='310px' >
+<tr ><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:left'  valign='top' >
+<div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='n8-title' id='n8-title'></a>
+<a name='jvb-perf' id='jvb-perf'></a> <a class='urllink' href='https://goo.gl/ROOgdm' rel='nofollow'> WebRTC Beyond P2P</a>
+</p></div>
+<div id='dateNews' >
+<p><a name='n8-date' id='n8-date'></a> 
+2015.10.11
+</p></div>
+<p><a name='n8-text' id='n8-text'></a> 
+Interested in what video routers (SFUs) bring to your table? Check out <a class='urllink' href='https://goo.gl/ROOgdm' rel='nofollow'> Emil&rsquo;s presentation</a> from the Kranky/Geek event and also learn what simulcast and SVC are.
+</p></td><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:right;'  valign='top' >
+<p><a name='n8-img' id='n8-img'></a> 
+</p><div> <a class='urllink' href='https://goo.gl/ROOgdm' rel='nofollow'><img class='circular' src='../wiki/pub/krankygeek.png' alt='' /></a> </div>
+</td></tr></table>
+<div class='vspace'></div></td></tr><tr ><td style='padding:0px;hegiht:100%;'  valign='top' >
+</td><td align='justify' width='50%' height='100%' style='padding:0;padding-right:10px; vertical-align:top;text-align:left'  valign='top' >
+<table height='310px' >
+<tr ><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:left'  valign='top' >
+<div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='n9-title' id='n9-title'></a>
+Temasys contributes Safari/IE plugin to <a class='urllink' href='https://meet.jit.si' rel='nofollow'>meet.jit.si</a>
+</p></div>
+<div id='dateNews' >
+<p><a name='n9-date' id='n9-date'></a> 
+2015.10.07
+</p></div>
+<p><a name='n9-text' id='n9-text'></a> 
+Following a <a class='urllink' href='https://goo.gl/6OHLpH' rel='nofollow'>contribution</a> from Temasys, it is now possible to join <a class='urllink' href='https://meet.jit.si' rel='nofollow'>meet.jit.si</a> conferences through Safari and IE.
+</p></td><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:right;'  valign='top' >
+<p><a name='n9-img' id='n9-img'></a> 
+</p><div> <a class='urllink' href='https://goo.gl/6OHLpH' rel='nofollow'><img class='circular' src='../wiki/pub/temasys.png' alt='' /></a> </div>
+</td></tr></table>
+<div class='vspace'></div></td><td align='justify' width='50%' height='100%' style='padding:0;padding-left:10px; vertical-align:top;text-align:left'  valign='top' >
+<table height='310px' >
+<tr ><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:left'  valign='top' >
+<div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='n10-title' id='n10-title'></a>
+Switching to the Apache License
+</p></div>
+<div id='dateNews' >
+<p><a name='n10-date' id='n10-date'></a> 
+2015.06.18
+</p></div>
+<p><a name='n10-text' id='n10-text'></a> 
+We are happy to announce that all projects in the Jitsi community are switching to the Apache License! Enjoy! :) 
+</p></td><td align='justify' width='50%' style='padding:0;vertical-align:top;margin:0px;text-align:right;'  valign='top' >
+<p><a name='n10-img' id='n10-img'></a> 
+</p><div> <a class='urllink' href='http://goo.gl/0DLMHT' rel='nofollow'><img class='circular' src='../wiki/pub/apache-license.png' alt='' /></a> </div>
+</td></tr></table>
+</td></tr></table>
+<div id='separatorNews' >
+</div>
+<p><a name='end-frontinclude' id='end-frontinclude'></a>
+</p>
+<p class='vspace'><a name='oldnews-begin' id='oldnews-begin'></a>
+</p>
+<p class='vspace'><a name='firefox' id='firefox'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Firefox multistream and renegotiation for Jitsi Videobridge
+</p></div>
+<div id='dateNews' >
+<p>2015.06.03   
+</p></div>
+<p>After a few months of hard work by Mozilla and Jitsi developers, both Firefox and Jitsi have added the missing pieces and can now work together! In this <a class='urllink' href='https://goo.gl/f6STR8' rel='nofollow'>Mozilla Hacks post</a> we’ll tell you more about the nitty-gritty details of our collaborative adventure.
+</p><div> <a class='urllink' href='https://goo.gl/f6STR8' rel='nofollow'><img class='circular' src='../wiki/pub/firefox.jpg' alt='' /></a> </div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Research on Last N
+</p></div>
+<div id='dateNews' >
+<p>2015.04.28   
+</p></div>
+<p>We recently published <a class='urllink' href='http://jitsi.org/publications/nossdav2015lastn.pdf' rel='nofollow'> a research paper</a> about our &ldquo;Last N&rdquo; approach to videoconferencing. It describes how it all works and shows our evaluation based on the implementation in Jitsi Meet and Jitsi Videobridge.
+</p><div> <a class='urllink' href='http://jitsi.org/publications/nossdav2015lastn.pdf' rel='nofollow'><img class='circular' src='../wiki/pub/lastn.png' alt='' /></a> </div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='atlassian' id='atlassian'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>BlueJimp joins Atlassian!
+</p></div>
+<div id='dateNews' >
+<p>2015.04.22   
+</p></div>
+<p>The Jitsi Community just got a lot stronger! BlueJimp, founder of Jitsi, is <a class='urllink' href='http://goo.gl/QORThN' rel='nofollow'> now part of Atlasssian</a>! The plan is to keep Jitsi at the cutting edge of innovation by keeping it open and in the hands of those who created it in the first place: the open source community.
+</p><div> <a class='urllink' href='http://goo.gl/QORThN' rel='nofollow'><img class='circular' src='../wiki/pub/hipchat.png' alt='' /></a> </div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='fosdem2015' id='fosdem2015'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b6fcdfc2c5dff6f0f9e5f2f3fb">[email&#160;protected]</a> 2015
+</p></div>
+<div id='dateNews' >
+<p>2015.01.27   
+</p></div>
+<p>As usual, the Jitsi team will be present at <a class='urllink' href='https://fosdem.org/2015/' rel='nofollow'>FOSDEM 2015</a>: Friday through Sunday, Jan 30 to Feb 01 in Brussels. We will have our stand on the 2nd floor in the K-Building, a lightning talk (<a class='urllink' href='https://fosdem.org/2015/schedule/event/jitsi_videobridge/' rel='nofollow'>Scalable Video Conferencing with Jitsi Videobridge</a>) and a Java Dev Talk (<a class='urllink' href='https://fosdem.org/2015/schedule/event/jitsi_crypto/' rel='nofollow'>Jitsi Videobridge in Cryptoland</a>). Looking forward to meeting you all there!
+</p><div> <a class='urllink' href='https://fosdem.org/2015/' rel='nofollow'><img class='circular' src='../wiki/pub/uploads/Main/fosdem2015.png' alt='' /></a> </div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Jitsi Videobridge Performance Evaluation
+</p></div>
+<div id='dateNews' >
+<p>2014.11.26   
+</p></div>
+<p>Think video conferencing with 1000s of streams on a single server is hard? Checkout the results from our brand new performance evaluation for Jitsi Videobridge: 
+</p>
+<div class='vspace'></div><div> <a class='urllink' href='http://goo.gl/w5dReb' rel='nofollow'><img class='circular' src='../wiki/pub/jvb-eval-essentials.png' alt='' /></a> </div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='vuc500' id='vuc500'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>CTO of the FCC, Dr Henning Schulzrinne, at VUC 500 using Jitsi Videobridge 
+</p></div>
+<div id='dateNews' >
+<p>2014.08.04  
+</p></div>
+<p>Dr Henning Schulzrinne, CTO at the Federal Communications Commission (FCC), was the guest of honour for the <a class='urllink' href='http://goo.gl/bcIJTG' rel='nofollow'>500th edition of the VoIP Users Conference (VUC)</a>. The conference was hosted on Jitsi Videobridge and Henning joined using Jitsi Meet!
+</p>
+<div class='vspace'></div><div> <a class='urllink' href='http://goo.gl/bcIJTG' rel='nofollow'><img class='circular' src='../wiki/pub/vuc500.png' alt='' /></a> </div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='comcast' id='comcast'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Comcast funds Jitsi Videobridge!
+</p></div>
+<div id='dateNews' >
+<p>2014.05.30 
+</p></div>
+<p>Comcast will be supporting Jitsi Videobridge and fund WebRTC related work such as video conference recording, a REST API and others. Thanks Comcast!
+</p><div> <a class='urllink' href='http://comcast.com' rel='nofollow'><img class='circular' src='../wiki/pub/logo-comcast-square.png' alt='' /></a> </div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='floss-weekly' id='floss-weekly'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Jitsi on FLOSS Weekly
+</p></div>
+<div id='dateNews' >
+<p>2014.05.04
+</p></div>
+<p>Randal, Guillermo and Emil had a great session about Jitsi Meet and Jitsi Videobridge! Always a pleasure to be on a show as great and informative as FLOSS Weekly! 
+</p><div> <a class='urllink' href='http://goo.gl/Du1VDA' rel='nofollow'><img class='circular' src='../wiki/pub/flossWeekly.png' alt='' /></a></div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='iettf-tools' id='iettf-tools'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Jitsi Meet now officially part of IETF TOOLS!
+</p></div>
+<div id='dateNews' >
+<p>2014.05.04
+</p></div>
+<p><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a> and <a class='urllink' href='https://jitsi.org/videobridge' rel='nofollow'>Jitsi Videobridge</a> have been officially deployed as <a class='urllink' href='http://tools.ietf.org' rel='nofollow'> IETF TOOLS</a>. You can try them out at <a class='urllink' href='https://jitsi.tools.ietf.org' rel='nofollow'>jitsi.tools.ietf.org</a> !
+</p><div> <a class='urllink' href='https://jitsi.tools.ietf.org' rel='nofollow'><img class='circular' src='../wiki/pub/ietf-logo.png' alt='' /></a></div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='jetbrains' id='jetbrains'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Thanks JetBrains!
+</p></div>
+<div id='dateNews' >
+<p>2014.04.13
+</p></div>
+<p><a class='urllink' href='http://www.jetbrains.com/' rel='nofollow'> JetBrains</a> have just contributed free WebStorm licenses to the entire Jitsi team to help with our work on Jitsi Meet. Thanks JetBrains!
+</p><div> <a class='urllink' href='http://www.jetbrains.com/' rel='nofollow'><img class='circular' src='../wiki/pub/webstorm.png' alt='' /></a></div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='vuc482' id='vuc482'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Jitsi Videobridge and Jitsi Meet at the VoIP Users Conference
+</p></div>
+<div id='dateNews' >
+<p>2014.03.30
+</p></div>
+<p>Jitsi made a guest appearance at VoIP Users Conferemce <a class='urllink' href='http://goo.gl/8AQZ9g' rel='nofollow'>episode 482</a> this Friday. This time however, the entire show was running on <a class='urllink' href='http://jitsi.org/meet' rel='nofollow'> Jitsi Meet</a>, <a class='urllink' href='https://jitsi.org/videobridge' rel='nofollow'> Jitsi Videobridge</a> and WebRTC. It was a great show! What&rsquo;s even better is that Jitsi hosted VUC episodes may become a lot more frequent in the near future, so stay tuned!
+</p><div>  <a class='urllink' href='http://goo.gl/8AQZ9g' rel='nofollow'><img class='circular' src='../wiki/pub/jitsi-at-vuc-482.png' alt='' /></a></div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='gsoc-2014-reminder' id='gsoc-2014-reminder'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Three more days to apply for Jitsi&rsquo;s GSoC! <a class='urllink' href='http://goo.gl/61FYfS' rel='nofollow'>Apply Now</a>!
+</p></div>
+<div id='dateNews' >
+<p>2014.03.19
+</p></div>
+<p>The GSoC application deadline is this Friday (March 21). GSoC is an awesome way to spend the summer: writing FLOSS code, working on Jitsi and getting paid $5000 for it all. Students, have a look at our <a class='urllink' href='http://goo.gl/MsYLTe' rel='nofollow'>project ideas</a> and then <a class='urllink' href='http://goo.gl/61FYfS' rel='nofollow'>apply here</a>
+</p><div> <a class='urllink' href='http://goo.gl/MsYLTe' rel='nofollow'><img class='circular' src='../wiki/pub/bannergsoc.png' alt='' /></a></div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='hangoutoutage' id='hangoutoutage'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p><a name='try-jitmeet' id='try-jitmeet'></a>Hangout outage? Try <a class='urllink' href='https://meet.jit.si' rel='nofollow'>Jitsi Meet</a>!
+</p></div>
+<div id='dateNews' >
+<p>2014.03.18
+</p></div> 
+<p>The advice first appeared on <a class='urllink' href='http://planet.ubuntu.com' rel='nofollow'> planet.ubuntu.com</a> which was relaying <a class='urllink' href='http://danielpocock.com/hangouts-outage-try-the-free-and-open-alternative' rel='nofollow'>Daniel Pocock&rsquo;s post</a>. Bottom line is: if you need video conferencing the simplest possible way then just go to <a class='urllink' href='https://meet.jit.si' rel='nofollow'>meet.jit.si</a> using Chromium, Chrome or Opera. Experience the power of Jitsi Videobridge!
+</p><div> <a class='urllink' href='https://meet.jit.si' rel='nofollow'><img class='circular' src='../wiki/pub/jitsimeet.png' alt='' /></a></div>
+<div id='separatorNews' >
+</div>
+<p class='vspace'><a name='gsoc-2014' id='gsoc-2014'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Jitsi in Google Summer of Code 2014! Hello Students!
+</p></div>
+<div id='dateNews' >
+<p>2014.02.27
+</p></div>
+<div> <a class='urllink' href='http://goo.gl/MsYLTe' rel='nofollow'><img class='circular' src='../wiki/pub/bannergsoc.png' alt='' /></a></div>
+<p>We are happy to announce that Jitsi is taking part in <a class='urllink' href='http://goo.gl/1Vsdua' rel='nofollow'>Google Summer of Code 2014</a> ! We are looking forward to an exciting summer with some very cool projects! Students, have a look at all the <a class='urllink' href='http://goo.gl/MsYLTe' rel='nofollow'> project ideas</a> that we have and get paid $5000 to spend the summer working on them! 
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='fosdem-jitmeet' id='fosdem-jitmeet'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Our Jitsi Meet talk at FOSDEM 
+</p></div>
+<div id='dateNews' >
+<p>2014.02.08
+</p></div>
+<div> <a class='urllink' href='http://goo.gl/Aedw3n' rel='nofollow'><img class='circular' src='../wiki/pub/fosdem2014-lt-thumb.png' alt='' /></a></div>
+<p>We gave <a class='urllink' href='http://goo.gl/Aedw3n' rel='nofollow'>a talk on meet.jit.si</a> describing Jitsi Videobridge, Jitsi Meet and the other components that we used to build the service. <a class='urllink' href='http://goo.gl/Aedw3n' rel='nofollow'>Check it out</a> 
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='bloggeek' id='bloggeek'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Learn about Jitsi Videobridge and Jitsi Meet at BlogGeek
+</p></div>
+<div id='dateNews' >
+<p>2014.01.31
+</p></div>
+<div> <a class='urllink' href='http://goo.gl/zYO68J' rel='nofollow'><img class='circular' src='../wiki/pub/bloggeek-me.png' alt='' /></a></div>
+<p><a class='urllink' href='http://goo.gl/zYO68J' rel='nofollow'>BlogGeek.me</a> is one of the most renowned sources of WebRTC news, viewpoints, analysis and debates. This week the site is running an <a class='urllink' href='http://goo.gl/zYO68J' rel='nofollow'> article/interview on Jitsi Videobridge</a>. Have a look! 
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='fosdem2014' id='fosdem2014'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Meet us at FOSDEM 2014!
+</p></div>
+<div id='dateNews' >
+<p>2014.01.27
+</p></div>
+<div> <a class='urllink' href='http://goo.gl/nS1b7H' rel='nofollow'><img class='circular' src='../wiki/pub/fosdem2014.png' alt='' /></a></div>
+<p>As usual, the Jitsi team will be present at <a class='urllink' href='http://fosdem.org' rel='nofollow'>FOSDEM 2014</a>: Friday through Sunday, Jan 31 to Feb 02 in Brussels. We will have our usual stand and one <a class='urllink' href='https://fosdem.org/2014/schedule/event/jitsi/' rel='nofollow'>lightning talk on Jitsi Videobridge and Jitsi Meet</a>. Looking forward to meeting you all there! 
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='webrtc-demo' id='webrtc-demo'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Open Hangouts with WebRTC, Jitsi Videobridge and COLIBRI
+</p></div>
+<div id='dateNews' >
+<p>2014.01.07
+</p></div>
+<p><a class='urllink' href='http://goo.gl/nS1b7H' rel='nofollow'>A sample video</a> demonstrating open video conferencing with <a class='urllink' href='https://jitsi.org/videobridge' rel='nofollow'>Jitsi Videobridge</a> and COLIBRI. The JavaScript application behind <a class='urllink' href='http://goo.gl/nS1b7H' rel='nofollow'> this demo</a> was built by Philipp Hancke from <a class='urllink' href='http://estos.com' rel='nofollow'>Estos</a>. It uses the <a class='urllink' href='https://jitsi.org/colibri' rel='nofollow'>COLIBRI</a> protocol extension and XMPP MUCs for coordinating participants.
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='release2.4' id='release2.4'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Jitsi 2.4 now released!
+</p></div>
+<div id='dateNews' >
+<p>2014.01.06
+</p></div>
+<p>Jitsi 2.4 is now <a class='urllink' href='http://goo.gl/i8LtbL' rel='nofollow'> available for download</a>. It comes with improved security, better audio quality, WebRTC compatibility, greatly improved chat room support and numerous other features and enhancements.
+</p><ul><li>Greatly improves Multi-User Chats with XMPP and makes all of them appear in the contact list.
+</li><li>Adds support for Socialist Millionaire Protocol with OTR, adds OTR support for SIP and fixes a number of other OTR-related issues.
+</li><li>Adds support for DTLS/SRTP (and WebRTC compatibility in libjitsi) through bouncycastle.
+</li><li>Adds Forward Error Correction (FEC) for SILK and Opus and Packet Loss Concealment (PLC) for all codecs.
+</li><li>Fixes a failure to preview the video device on GNU/Linux. 
+</li><li>Adds a mobile indicator icon next contacts when they are detected to be logged in only from a mobile device.
+</li><li>Makes it possible to pre-provision Windows installations through MSI params.
+</li><li>Adds support for XMPP contact resources.
+</li><li>Improves random number generation for ZRTP.
+</li><li>Adds an option when using proxies to forward DNS traffic to an address, useful for Tor users to avoid DNS leaking.
+</li><li>Adds confirmation for video and image previews for security reasons.
+</li><li>Fixes SDES in-call reinitialisation.
+</li><li>Improves stability for the WASAPI audio system and makes it the default on Windows. 
+</li><li>Adds greatly improved native echo cancellation on Windows.
+</li><li>Updates to Opus 1.1
+</li><li>Adds native CoreAudio support on OS X.
+</li><li>Fixes an issue which could cause some participants in merged and cross-protocol calls to not hear others or not be heard by others.
+</li><li>Improves audio mixing performance.
+</li><li>Added translation to Asturian, Czech, Swedish, Scottish Gaelic.
+</li><li>Adds a configuration property editor.
+</li><li>Fixes the “Jitsi crashed” reports that were sometimes experienced on Windows.
+</li><li>Drops Java 1.5 compatibility.
+</li><li>Enables the detection of PulseAudio and Video4Linux2 systems under FreeBSD. Tzanetos Balitsaris.
+</li><li>Numerous other fixes and enhancements.
+</li></ul><p class='vspace'>Best regards from the Jitsi dev team!
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='webrtc-hacks' id='webrtc-hacks'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Trickle ICE at webrtcH4cKS
+</p></div>
+<div id='dateNews' >
+<p>2013.12.05
+</p></div>
+<p>The <a class='urllink' href='http://goo.gl/VTwXm8' rel='nofollow'>webrtcH4cKS</a> blog has just published a handy <a class='urllink' href='http://goo.gl/VTwXm8' rel='nofollow'>Trickle ICE tutorial</a> on NAT traversal and fast session establishment from Jitsi&rsquo;s Emil Ivov.
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='cusax' id='cusax'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>CUSAX is now RFC 7081
+</p></div>
+<div id='dateNews' >
+<p>2013.12.02
+</p></div>
+<p class='vspace'>A couple of years ago St. Peter, Enrico and Emil started putting down on paper what we believe to be the best way of making SIP and XMPP coexist in clients such as Jitsi.
+</p>
+<p class='vspace'>Today this work has reached a relatively final state and is available as <a class='urllink' href='http://tools.ietf.org/html/rfc7081' rel='nofollow'>RFC7081</a>
+</p>
+<p class='vspace'>If you are thinking of giving this a try, <a class='urllink' href='https://jitsi.org/cusax' rel='nofollow'> here&rsquo;s how you can do it with Jitsi</a>
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='webrtc-firstcontact' id='webrtc-firstcontact'></a>
+</p><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Jitsi Videobridge now a WebRTC MCU
+</p></div>
+<div id='dateNews' >
+<p>2013.11.27
+</p></div>
+<div><a class='urllink' href='http://goo.gl/WSgjLd' rel='nofollow'><img width='200px' src='../wiki/pub/webrtc-jitsi-videobridge.png' alt='' /></a> <br clear='all' /></div>
+<p>Jitsi Videobridge is now compatible with WebRTC and can be used as a central relaying point for web video conferences (or web+Jitsi). You can check out shot of a first prototype <a class='urllink' href='http://goo.gl/WSgjLd' rel='nofollow'>here</a>. Kudos to Philipp Hancke (estos.de) and Lyubomir Marinov (jitsi.org) who are the main people behind this!
+</p>
+<p class='vspace'>(Prettier demos and screenshots are on the way :) )
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' style='margin:0px; padding:0px;' >
+<p>Videos from DebConf13 and ClueCon
+</p></div>
+<div id='dateNews' >
+<p>2013.08.27
+</p></div>
+<p class='vspace'>We had a couple of interesting presentations of Jitsi and Jitsi Videobridge during the past two weeks when we attended DebConf 13 (<a class='urllink' href='http://goo.gl/L3GFEP' rel='nofollow'>video</a> | <a class='urllink' href='http://goo.gl/BFnkpy' rel='nofollow'>article</a>) in Switzerland and ClueCon (<a class='urllink' href='http://goo.gl/Yg1e3p' rel='nofollow'>video</a> | <a class='urllink' href='http://goo.gl/P3EsyT' rel='nofollow'>slides</a>) in Chicago. We thought we&rsquo;d share them here for those who&rsquo;d like to check them out. In both of them we go over things such as using Videobridge for quality video conferences, combined use of SIP and XMPP through CUSAX, Jitsi&rsquo;s existing and upcoming features and other interesting topics. Check them out!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Debian accepts Jitsi!
+</p></div>
+<div id='dateNews' >
+<p>2013.08.09
+</p></div>
+<p>The jitsi deb packages are now officially part of the Debian SID <a class='urllink' href='http://goo.gl/Gc7qZs' rel='nofollow'>repositories</a>! The first candidate was uploaded for approval on Dec 10, 2012 and now, after a good 8 months of productive communication with the Debian developers, exchanging comments and feedback and many package candidates, our efforts are finally rewarded. We believe our next stable release will be obtainable through official Debian repositories.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi and Prosody at the Linux Action Show!
+</p></div>
+<div id='dateNews' >
+<p>2013.07.15
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://goo.gl/oQDRC' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/linuxactionshow.png' alt='' /></a></div>
+<p class='vspace'>This week&rsquo;s episode of the <a class='urllink' href='http://www.jupiterbroadcasting.com/tag/linux-action-show/' rel='nofollow'>Linux Action Show</a> ran a <a class='urllink' href='http://goo.gl/3oIZa' rel='nofollow'>nice demo</a> of a home setup for &ldquo;PRISM free&rdquo; chat and video communication with Jitsi and <a class='urllink' href='http://prosody.im/' rel='nofollow'>Prosody</a>.
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='bday10' id='bday10'></a>
+</p><div id='titleNews' >
+<p>Jitsi turns 10 today!
+</p></div>
+<div id='dateNews' >
+<p>2013.06.30
+</p></div>
+<p class='vspace'>On this day exactly ten (10!) years ago we did the initial <a class='urllink' href='http://goo.gl/W8drU' rel='nofollow'>spin off</a> from the NIST SIP project. SIP Communicator was born :). It&rsquo;s been a great ride so far! We&rsquo;ve achieved many, many things and we are only just getting started!
+Thank you all for sharing the fun!
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='release2.2' id='release2.2'></a>
+</p><div id='titleNews' >
+<p>Jitsi 2.2 released!
+</p></div>
+<div id='dateNews' >
+<p>2013.04.30
+</p></div>
+<p class='vspace'>Jitsi 2.2 is now available for <a class='urllink' href='https://download.jitsi.org' rel='nofollow'>download</a> here offering stability improvements and feature enhancements. In this release you will enjoy support for XMPP resources, support for Microsoft’s WASAPI audio system, significantly better audio quality over lossy networks such as Wi-Fi, improved conference call stability with Jitsi Videobridge (still a Work In Progress), better video calls and many other improvements and many sorted out problems of the video calls quality. We also now support &ldquo;push to talk&rdquo;, the ability to set the video bit rate, improved window behavior and more readable history logging.
+Jitsi downloads are available for Mac OS X, Linux and Windows and are completely translated in Bulgarian, English, French, German, Italian, Spanish. Partial translations for 19 more languages are also included.
+</p>
+<p class='vspace'>Following is a list of the most important changes brought by this build:
+</p>
+<div class='vspace'></div><ul><li>Adds an alternative to PortAudio using Windows Audio Session API (WASAPI) (Not yet but soon to become the default audio system on Windows).
+</li><li>Adds the possibility to send message or call a specific contact resource over XMPP.
+</li><li>Allows setting the video bit rate.
+</li><li>Adds presence, avatars and phone types to the &ldquo;Transfer Call&rdquo; dialog.
+</li><li>Fixes duplication of incoming messages and file transfer panels when show history in chats is enabled.
+</li><li>Adds a new Jitter Buffer implementation that greatly improves audio in lossy networks such as Wi-Fi.
+</li><li>Adds support for searching for contacts in Thunderbird address books.
+</li><li>Adds organization name in LDAP and OS X Address Book search results.
+</li><li>Detects video support in XMPP vCard-s (important for CUSAX deployments).
+</li><li>Improves Jitsi Videobridge call stability (Work In Progress).
+</li><li>Fixes false-alerts for chat window closing.
+</li><li>Implements a way for users to disable call waiting via configuration.
+</li><li>Fixes various problems with video calls.
+</li><li>Adds &ldquo;push to talk&rdquo; functionality (quick unmute while pressing Ctrl+Shift+T).
+</li><li>Prevents firewall prompts from popping up every time Jitsi is started on Mac OS X 10.6.
+</li><li>Fixes copying of smileys, links and message headers in the chat history window (which wasn’t previously possible).
+</li><li>Adds TLS client certificate login strategy for XMPP.
+</li><li>Adds a minimal (configurable) duration for RTP DTMF tones.
+</li><li>Adds retransmissions for 180 Ringing SIP responses over unreliable transports.
+</li><li>Fixes NAPTR sorting by preference.
+</li><li>Allows use of distinct (configurable) port ranges for audio and video streams.
+</li><li>Improves incoming call window placement.
+</li><li>Upgrades to latest ice4j version, for better WebRTC compatibility (Work In Progress).
+</li><li>Makes conference related menu items available regardless of the currently active window.
+</li><li>Fixes the event configuration file chooser to remember the last stored file location.
+</li><li>Reverts to use of vanilla bouncy castle libs to address comments received during the Debian submission.
+</li><li>Logs dates in all history files as ISO 8601 with time zone.
+</li><li>Various other fixes and improvements.
+</li></ul><p>See the full commit log here: <a class='urllink' href='http://goo.gl/AfKzq' rel='nofollow'>http://goo.gl/AfKzq</a>
+Best regards from the Jitsi dev team!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi&rsquo;s presentation at Kamailio World Conference
+</p></div>
+<div id='dateNews' >
+<p>2013.04.17 
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://youtu.be/igZDCS5yosU' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/kamailio.png' alt='' /></a></div>
+<p class='vspace'>Here&rsquo;s the recording our friend Randy from VUC has made of the Jitsi&rsquo;s presentation on Kamailio World.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi at Kamailio World next week
+</p></div>
+<div id='dateNews' >
+<p>2013.04.08 
+</p></div>
+<p class='vspace'>Next week (April 17th 2013) we will be at the <a class='urllink' href='http://goo.gl/NZZIb' rel='nofollow'>Kamailio World Conference</a> in Berlin. Other than the many interesting <a class='urllink' href='http://goo.gl/TK8m0' rel='nofollow'>talks and demos</a> there, you&rsquo;ll be able to also see a presentation about Jitsi, CUSAX, libjitsi and Jitsi Videobridge.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Dan York interviews Jitsi project lead Emil
+</p></div>
+<div id='dateNews' >
+<p>2013.03.28 
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://goo.gl/oQDRC' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/emil.png' alt='' /></a></div>
+<p class='vspace'>Dan York interviews Jitsi project lead Emil Ivov about IPv6 and DNSSEC support in Jitsi. As most of you probably know, Jitsi has been supporting both IPv6 and DNSSEC for a long time now. In the following video <a class='urllink' href='http://goo.gl/oQDRC' rel='nofollow'>Emil explains</a> how it all started and what value DNSSEC brings to VoIP.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi Celebration - Recording of the VUC from last Friday
+</p></div>
+<div id='dateNews' >
+<p>2013.03.11
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://www.youtube.com/watch?v=Jh7kGk9knc4&amp;feature=youtu.be' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/VUC.png' alt='' /></a></div>
+<p class='vspace'>Check out Jitsi&rsquo;s participation in the VoIP Users Conference (<a class='urllink' href='http://vuc.me' rel='nofollow'>http://vuc.me</a>)! Learn more about Jitsi Videobridge, Jitsi&rsquo;s codecs and encryption support. Keep in mind that this is a hangout screenshare and audio is also bridged so in reality quality is significantly better with Jitsi! :)
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi at the VUC on Friday, Mar. 8th
+</p></div>
+<div id='dateNews' >
+<p>2013.03.07 
+</p></div>
+<p class='vspace'>Next Friday (March 8th, 2013), 17:00 UTC, Jitsi’s Emil Ivov will be participating at the weekly <a class='urllink' href='http://vuc.me' rel='nofollow'> VoIP Users Conference</a>. Jitsi&rsquo;s new 2.0 release will be discussed together with Jitsi Videobridge, Outlook integration, CUSAX and many other interesting topics, as is always the case with the <a class='urllink' href='http://vuc.me' rel='nofollow'> VUC</a>
+</p><div id='separatorNews' >
+</div>
+<p class='vspace'><a name='release2.0' id='release2.0'></a>
+</p><div id='titleNews' >
+<p>Jitsi 2.0 released!
+</p></div>
+<div id='dateNews' >
+<p>2013.03.06
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='https://jitsi.org/wiki/pub/sip-communicator/screenshots/videobridge.png' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/jitsi2.png' alt='' /></a></div>
+<p class='vspace'>Among the most prominent new features you will find quality multi-party video conferences for XMPP, audio device hot-plugging, support for Outlook presence and calls, an overhauled user interface and support for the Opus and VP8 audio/video codec. You can download the new version at the <a class='urllink' href='http://goo.gl/JHa9q' rel='nofollow'> following location</a>.
+The new multi-party video conference is very bandwidth-friendly and as such allows for any number of participants as long as the clients are powerful enough to decode the incoming video. The quality and the bandwidth efficiency come from the fact that each participant only needs to send its video once to a server using Jitsi-Videobridge, which relays the data to all the other participants. An open XMPP server having Jitsi-Videobridge enabled is available at <a class='urllink' href='http://jit.si' rel='nofollow'>http://jit.si</a>.
+</p>
+<p class='vspace'>Hot-plugging audio-devices in an active call is now possible, for example switching from the integrated audio of a notebook to a headset. The more modern new user interface better fits into all the supported operating systems. New support for the open source audio codec OPUS provides better call quality and the VP8 video-codec an alternative to H.264. Users of Outlook see the presence status of their contacts directly in Outlook and can start calls or chats by hovering over a contact.
+</p>
+<p class='vspace'>Jitsi <a class='urllink' href='https://jitsi.org/Main/Download' rel='nofollow'>downloads</a> are available for Mac OS X, Linux and Windows and are completely translated in Bulgarian, English, French, German, Italian, Spanish. Partial translations for 19 more languages are also included.
+</p>
+<p class='vspace'>Following is a list of the most important changes brought by this build:
+</p>
+<div class='vspace'></div><ul><li>Video conferencing with Jitsi Videobridge.
+</li><li>Presence and call integration with MS Outlook.
+</li><li>Moves to a completely revamped Graphical User Interface.
+</li><li>Support for Opus and VP8.
+</li><li>Support for PulseAudio on Linux.
+</li><li>Fine grained control and duplication of audio notifications over several devices.
+</li><li>Support for Last Message Correction (LMC) with XMPP through the UP arrow.
+</li><li>Implements (native) volume control.
+</li><li>Improves support for audio hotplug, including during calls.
+</li><li>Improves video rendering performance.
+</li><li>Numerous stability fixes for Portaudio.
+</li><li>Support for the Combined Use of SIP and XMPP (CUSAX).
+</li><li>Support for ZID names with ZRTP.
+</li><li>Switches to Libjitsi.
+</li><li>Support for answer/hangup global shortcuts for use with HID compatible headsets.
+</li><li>Support for STUN/TURN server discovery from jingle info.
+</li><li>Adds further details (e.g. ICE processing and video resolutions) to the call info window.
+</li><li>Updates display names when changed at server-side.
+</li><li>Auto accept authorizations if we have initiated adding of a contact.
+</li><li>Fixes support for default &ldquo;auto away&rdquo; values.
+</li><li>Numerous other fixes and improvements!
+</li></ul><p class='vspace'>See the full commit log here: <a class='urllink' href='http://goo.gl/LCLZc' rel='nofollow'>http://goo.gl/LCLZc</a> (in a scary format ;) )
+</p>
+<p class='vspace'>Best regards from the Jitsi dev team!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Join us at FOSDEM 2013!
+</p></div>
+<div id='dateNews' >
+<p>2013.01.10
+</p></div>
+<p class='vspace'>As is now the tradition, most of the Jitsi developers will be attending FOSDEM and looking forward to meeting you.  We&rsquo;ll have a stand in the K building, right next to our friends from <a class='urllink' href='http://xmpp.org' rel='nofollow'> xmpp.org</a>. We&rsquo;ll have Jitsi-related talks on Saturday (<a class='urllink' href='http://goo.gl/taEk0' rel='nofollow'>Jabber/XMPP devroom</a>) and Sunday (<a class='urllink' href='http://goo.gl/TACc0' rel='nofollow'>Telephony devroom</a>) and a <a class='urllink' href='http://goo.gl/cSkow' rel='nofollow'>main track talk</a> on federation. Speaking of which, check out the <a class='urllink' href='http://goo.gl/czP8s' rel='nofollow'> interview with the speakers</a> in the main track talk.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi now supports Opus
+</p></div>
+<div id='dateNews' >
+<p>2012.09.20
+</p></div>
+<p class='vspace'>While walking the last miles toward Jitsi&rsquo;s 2.0 release, we have just completed one of our more important milestones there: adding support for IETF&rsquo;s Opus codec! Interested? Try out the latest <a class='urllink' href='https://jitsi.org/index.php/Main/Download#latestnightly' rel='nofollow'> nightly builds</a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi on Slashdot
+</p></div>
+<div id='dateNews' >
+<p>2012.07.24
+</p></div>
+<p class='vspace'>Microsoft Won&rsquo;t Say If Skype Is Secure Or Not. Time To Change? Read the <a class='urllink' href='http://goo.gl/v1Fxs' rel='nofollow'> Slashdot post</a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>TechRepublic Review of Jitsi
+</p></div>
+<div id='dateNews' >
+<p>2012.07.16
+</p></div>
+<p class='vspace'>TechRepublic publish a rather positive review of Jitsi: &ldquo;Tthe ultimate SIP voice and video client&rdquo;. Read the <a class='urllink' href='http://goo.gl/Xk4pS' rel='nofollow'> TechRepublic post</a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Tor&rsquo;s Jacob Appelbaum recommends using Jitsi instead of Skype
+</p></div>
+<div id='dateNews' >
+<p>2012.04.24
+</p></div>
+<p class='vspace'>In an interview on Democracy Now regarding issues related to security and lawful interception, Tor Project&rsquo;s Jacob Appelbaum <a class='urllink' href='http://goo.gl/0WdKM' rel='nofollow'> recommended using Jitsi instead of Skype</a>. The full show is available <a class='urllink' href='http://goo.gl/xPcsN' rel='nofollow'> here</a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>ISOC: Jitsi Is The First VoIP Softphone To Support DNSSEC
+</p></div>
+<div id='dateNews' >
+<p>2012.04.18
+</p></div>
+<p class='vspace'>A few days ago the Internet Society&rsquo;s <a class='urllink' href='http://goo.gl/aJNVy' rel='nofollow'> Deploy 360 blog</a> acclaimed Jitsi as &ldquo;The First VoIP Softphone To Support DNSSEC&rdquo;.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Stable Jitsi 1.0 (build.3967) now available
+</p></div>
+<div id='dateNews' >
+<p>2012.04.03
+</p></div>
+<p class='vspace'>4 months after our last stable release we are finally ready with Jitsi 1.0! It would be very hard to summarize all changes in a few words, so please have a look at the <a class='selflink' href='News.html'> full change list</a>. Still things like cross-protocol conf calls, auto-answer, inband DTMF and DNSSEC will probably catch everyone&rsquo;s attention. 
+</p>
+<p class='vspace'>As usual, you can just update or <a class='wikilink' href='Download.html'> download here</a>
+</p>
+<p class='vspace'>Following is a list of the most important changes brought by this build:
+</p>
+<div class='vspace'></div><ul><li>Switches from JMF to FMJ.
+</li><li>Adds support for cross-protocol conference calls.
+</li><li>Allow answering incoming calls into an existing conference call.
+</li><li>Allow merging separate calls into a single conference call.
+</li><li>Adds traffic class support for SIP/XMPP/RTP audio/RTP video.
+</li><li>Adds hot plug support for audio devices (new devices can now be plugged and unplugged even during a call)
+</li><li>Adds support for DNSSEC
+</li><li>Adds auto-answer support for SIP and XMPP.
+</li><li>Adds support for inband DTMF tones.
+</li><li>Adds basic support for video conferencing (work in progress)
+</li><li>Shows contact authorization status in contact list (e.g. &ldquo;Waiting authorization&rdquo; and &ldquo;Not authorized&rdquo;). Adds support for re-requesting authorizations
+</li><li>Adds detailed call information to the call dialog (including codecs, ip addresses/ports, loss rates).
+</li><li>Adds a button to remove current picture: replaces the current avatar with the default one.
+</li><li>Implements combined use for SIP and XMPP (CUSAX)
+</li><li>Adds a button in the Call dialog that allows beginning a chat with our call peer.
+</li><li>Makes it possible to start a desktop sharing session or video call even if no audio device is present. 
+</li><li>Updates keepalive implementation to detect uplink drops with XMPP via XEP-0199 XMPP ping.
+</li><li>Adds default values for global shortcuts (answer, hangup, contactlist and mute).
+</li><li>OTR: disable buttons for contacts without fingerprint. Patch by Jonas Lauener, FHNW
+</li><li>Fixes numerous Google Talk compatibility issues.
+</li><li>Updates Felix to 3.2.2
+</li><li>Uses combined IPv4/IPv6 lookup from NetworkUtils
+</li><li>Fixes GoogleContacts support for domain without xmpp-client SRV.
+</li><li>Fixes crashes in the Microsoft Outlook Contacts and Address Book integration.
+</li><li>Refines the garbage collection-related characteristics of AudioMixer.
+</li><li>Renames Jabber to XMPP.
+</li><li>Delivers SystemActivity events in different thread.
+</li><li>Support for incoming DTMF tones.
+</li><li>Fixes bug that prevented users from disabling chat history.
+</li><li>Fixes problem with deleting chars on macosx java 1.5 and handling some special chars in the written text. Fixes subsequent open of chat history urls when trying to focus back on the chat conversation by clicking the mouse on the chat history panel.
+</li><li>Fixes a problem that was causing the contact list window to disappear for no apparent reason.
+</li><li>Adds property which can make provisioning mandatory, and if user cancels application will exit.
+</li><li>Makes the OTR &lt;authenticate buddy&gt; text clickable (Patch by Daniel Perren, FHNW)
+</li><li>Adds printing for provisioning in the logs.
+</li><li>SIP: Allows configuration of enabled SSL/TLS protocols
+</li><li>Retrieves discovery info in separate thread and fires event, avoids blocking initial group creation.
+</li><li>Fixes duplicate file transfer appearance in chat window.
+</li><li>Introduces new configuration form that allows using headset keys as global shortcuts on windows.
+</li><li>Removes advertising byte stream used for jabber file transfers, leaving ibb. Changes provisioning debug printing.
+</li><li>Corrects CC and CSRC fields in RTP header, when the remote Peer sends several SSRC.
+</li><li>Fix F8 crypto mode and change handling of secret SRTP key data. These modifications remove unnecessary copying of SRTP key data and overwrite the key data right after secure state was reached (in ZRTP lib). This makes it harder to extract secret key data in memory dumps.
+</li><li>Makes spellcheck dictionaries available through a jitsi server. 
+</li><li>Fixes a problem with loading when dictionary is not available for download. Fixes double packaging of default dictionaries.
+</li><li>Numerous other fixes and improvements!
+</li></ul><p class='vspace'>Best regards from the Jitsi dev team!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google Summer of Code 2012 is on! Apply Now!
+</p></div>
+<div id='dateNews' >
+<p>2012.03.28
+</p></div>
+<p class='vspace'>This year Jitsi is participating in GSoC under the umbrella of the XMPP Standards Foundation. Thank you XSF! To all students: check our <a class='urllink' href='http://jitsi.org/index.php/Development/GSoC-XMPP' rel='nofollow'> project ideas</a> and <a class='urllink' href='http://www.google-melange.com/gsoc/proposal/submit/google/gsoc2012/xsf' rel='nofollow'>Apply Now!</a>. You can also check the other <a class='urllink' href='http://wiki.xmpp.org/web/index.php?title=Summer_of_Code_2012' rel='nofollow'>cool XMPP projects</a> particpating with the XSF. So, waste no time, deadline is April 6!
+<a name='end' id='end'></a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Check out the Jitsi talks from FOSDEM 2012
+</p></div>
+<div id='dateNews' >
+<p>2012.02.18
+</p></div>
+<p class='vspace'>On February 4 and 5 Jitsi participated in <a class='urllink' href='http://fosdem.org' rel='nofollow'> FOSDEM 2012</a>. We had a stand, a video call between the XMPP devroom and lounge, and Emil Ivov also had a couple of talks that included <a class='urllink' href='http://goo.gl/yCoLp' rel='nofollow'> a presentation of Jingle</a> and the description of an XMPP and SIP base deployment as a <a class='urllink' href='http://goo.gl/6HnJi' rel='nofollow'> a real skype alternative</a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>IRC channel now renamed to #jitsi (was #sip-communicator)
+</p></div>
+<div id='dateNews' >
+<p>2012.02.17
+</p></div>
+<p class='vspace'>The official Jitsi channel on Freenode is now called #jitsi. There is currently a temporary redirect in place but you may also want to update your IRC clients. Looking forward to having you in #jitsi .
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi @ FOSDEM 2012
+</p></div>
+<div id='dateNews' >
+<p>2012.01.17
+</p></div>
+<p class='vspace'>Join us on February 4 and 5 during <a class='urllink' href='http://fosdem.org' rel='nofollow'> FOSDEM 2012</a>. We will be hosting a Jitsi <a class='urllink' href='http://fosdem.org/2012/stands' rel='nofollow'> stand</a> on the first level in building K. You are guaranteed to find Jitsi developers there at all times. We will also be having a couple of talks by Emil Ivov. The first one, &ldquo;Jingle, the Universe and Everything&rdquo; will be on Saturday in the <a class='urllink' href='http://wiki.xmpp.org/web/FOSDEM_2012' rel='nofollow'> XMPP devroom</a>. The second one, &ldquo;A real Skype alternative using standards compliant FLOSS&rdquo; will be on Sunday in <a class='urllink' href='http://fosdem.org/2012/schedule/track/telephony_and_communications_devroom' rel='nofollow'>Telephony and Communications</a>. Looking forward to meeting you there!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Join us for a Jitsi talk on FOSDEM 2012
+</p></div>
+<div id='dateNews' >
+<p>2011.12.26
+</p></div>
+<p class='vspace'>Join us on February 5 in Open Telephony devroom in FOSDEM 2012. We&rsquo;ll talk about FLOSS Skype replacement based on XMPP (and some SIP) that, in addition to Jitsi also uses <a class='urllink' href='http://www.igniterealtime.org/projects/openfire/' rel='nofollow'>Openfire</a>, <a class='urllink' href='http://jinglenodes.org' rel='nofollow'> JingleNodes</a>, <a class='urllink' href='http://freeswitch.org' rel='nofollow'> FreeSWITCH</a>, <a class='urllink' href='http://turnserver.org' rel='nofollow'> TurnServer</a> and others!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Stable Jitsi 1.0-beta1-build.3820 now available
+</p></div>
+<div id='dateNews' >
+<p>2011.12.05
+</p></div>
+<p class='vspace'>Our regular monthly release has just been baked! Among the various
+improvements and fixes you will find cool new features such as the
+possibility to answer video calls as such (rather than answer with audio
+only and only then enable video), global key shortcuts that allow you to
+answer, hangup and mute calls even when Jitsi is not the active
+application, and <a class='selflink' href='News.html'> many others</a>.
+</p>
+<p class='vspace'>As usual, you can just update or <a class='wikilink' href='Download.html'> download here</a>
+</p>
+<p class='vspace'>Following is a list of the most important changes brought by this build:
+</p>
+<div class='vspace'></div><ul><li>Adds support for global shortcuts that allow to answer, hangup and mute calls even when Jitsi is not the currently active application.
+</li><li>Adds the possibility to answer video calls with video (rather than having to answer with audio only and then turn video on).
+</li><li>Fixes a problem that was causing contacts to be shown multiple times in the contact list.
+</li><li>Fixes contact duplication upon reconnection to an XMPP chatroom.
+</li><li>Fixes tooltips and other popups.
+</li><li>Fixes problems with the Windows Live (MSN) login.
+</li><li>Fixes automatic reconnection for XMPP.
+</li><li>Fixes slow loading of some XMPP contact lists.
+</li><li>Fixes a problem that was preventing use of Google contacts for Google Apps accounts with no XMPP SRV records.
+</li><li>Fixes a problem that was sometimes preventing certain configuration forms from loading.
+</li><li>Removes the desktop sharing button from the call dialog in cases where desktop sharing is not supported by the remote peer.
+</li><li>Checks the RTP markers produced by the H.264 packetizer for sanity and enables passing single NAL units for processing.
+</li><li>Fixes local audio levels after removing a peer in a conf call.
+</li><li>Fixes a few connectivity problems for GTalk.
+</li><li>Removes the SMS icon that was wrongly appearing in chatrooms. 
+</li><li>Improves DNS management in a preparation for DNSSEC integration.
+</li><li>Removes architecture warnings during updates of the x86 version on x64 systems.
+</li><li>Adds handling of profile-level-id when negotiating video codecs.
+</li><li>Isolates notification management into a separate module.
+</li><li>Numerous other fixes and improvements.
+</li></ul><p class='vspace'>Best regards from the Jitsi dev team!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Stable Jitsi 1.0-beta1-build.3768 now available
+</p></div>
+<div id='dateNews' >
+<p>2011.11.10
+</p></div>
+<p class='vspace'>After about a month since our last stable release the Jitsi team is proud to bring you its latest one, containing <a class='selflink' href='News.html'> many important improvements and bug fixes</a>!
+</p>
+<p class='vspace'>So, don&rsquo;t waste any more time and go <a class='wikilink' href='Download.html'> get it now</a>
+</p>
+<p class='vspace'>Following is a list of the most important changes brought by this build:
+</p>
+<div class='vspace'></div><ul><li>Fixes a number of issues with video calls with GTalk, Jabber and ICE negotiation.
+</li><li>Adds support for MSI Windows installers for easier administration (in addition to the existing .exe installers)
+</li><li>Adds, in addition to ZRTP, support for encryption of SIP calls with SDES (sometimes referred to as SRTP)
+</li><li>Adds certificate based authentication for SIP
+</li><li>Adds RTCP encryption for SRTP protected RTP streams
+</li><li>Adds support for trusted MitM/PBX-s
+</li><li>Adds support for loading XiVO server stored extension lists.
+</li><li>Makes fonts in chat window persistent
+</li><li>Simplifies security settings
+</li><li>Fixes disproportionate contact list tool tip.
+</li><li>Fixes several issues with conference calls
+</li><li>Fixes full screen support on Windows and improves it on Mac OS X
+</li><li>Makes the Windows x64 setup default to &lsquo;Program Files&rsquo; and not &lsquo;Program Files (x86)&rsquo;
+</li><li>Fixes on-line provisioning DHCP requests by adding the proper src IP address
+</li><li>Fixes disappearing messages in chat window. Fixes chat history navigation.
+</li><li>Adds remote resolution control for XMPP video calls.
+</li><li>Fixes remote resolution control for SIP video calls.
+</li><li>Fixes support for RGB camera devices with V4L2 on Linux
+</li><li>Fixes a few OTR issues
+</li><li>Fixes a few MSN related issues
+</li><li>Removes support for bonjour/zeroconf.
+</li><li>Adds missing dependency to Debian package.
+</li><li>Fixes a problem that was causing Jitsi tooltips to remain visible after moving to other applications
+</li><li>Makes Preferences/Options window resizable
+</li><li>Organizes audio and video configuration into tabbed panes and improves the General form
+</li><li>Adds various other fixes and improvements
+</li></ul><p class='vspace'>Best regards from the Jitsi dev team!
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Stable Jitsi 1.0-beta1-build.3651 now available
+</p></div>
+<div id='dateNews' >
+<p>2011.09.04
+</p></div>
+<p class='vspace'>After a few months of hard work, debugging and a lot of fun, the Jitsi team is proud to bring you our latest stable Jitsi build! Among the most notable changes this build brings we have 
+</p>
+<div class='vspace'></div><ul><li>video calls to GTalk, 
+</li><li>calls to regular numbers via Google Voice, 
+</li><li>support for Skype&rsquo;s SILK wideband codec and <a class='selflink' href='News.html'> many more</a>
+</li></ul><p class='vspace'>So, Don&rsquo;t waste any more time and go <a class='wikilink' href='Download.html'>get it now</a>!
+</p>
+<p class='vspace'>Other important changes that the build includes: 
+</p>
+<div class='vspace'></div><ul><li>Adds support for Audio/Video calls to GoogleTalk users (including calls to Gmail and Android)
+</li><li>Adds support for calls to phone numbers via Google Voice
+</li><li>Adds support for the SILK wideband codec
+</li><li>Adds spell checking for chats
+</li><li>Adds the possibility to log onto SIP servers using certificate rather than a name and a password
+</li><li>Fixes a problem that caused the &ldquo;+&rdquo; sign to be removed from numbers in Outlook, Address Book or Google Contact
+</li><li>Adds a general dial pad in the contact list.
+</li><li>Fixes a number of issues with Windows Live (MSN)
+</li><li>Improves parsing of the provisioning URI
+</li><li>Fixes possible deadlocks in video calls
+</li><li>Adds OS integration for detection of network changes and user inactivity
+</li><li>Makes call history and chats display names rather than addresses and numbers whenever possible
+</li><li>Adds proper handling for the 301/302 SIP responses for call forwarding
+</li><li>Shows avatars for Nimbuzz contacts
+</li><li>Numerous (and we do mean numerous) other fixes and enhancements
+</li></ul><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi at the VUC on Friday Sept. 2nd
+</p></div>
+<div id='dateNews' >
+<p>2011.08.26
+</p></div>
+<p class='vspace'>Next Friday (September 2nd, 2011) Jitsi&rsquo;s Emil Ivov will be participating at the weekly <a class='urllink' href='http://vuc.me' rel='nofollow'> VoIP Users Conference</a>. Join us for an update on our GTalk audio/video support, the progress of our Android implementation and others. Make sure you join at sip:<a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0d3f3d3d343d3c4d61626a64632377647d6975236e6260">[email&#160;protected]</a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Stable build line for Jitsi
+</p></div>
+<div id='dateNews' >
+<p>2011.07.27
+</p></div>
+<p class='vspace'>We have just launched our new stable build line! Anyone can now choose between monthly stable builds or bleeding edge nightlies! <a class='urllink' href='http://download.jitsi.org' rel='nofollow'>http://download.jitsi.org</a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Beta launch for jit.si
+</p></div>
+<div id='dateNews' >
+<p>2011.07.12
+</p></div>
+<p class='vspace'>We have just launched our brand new <a class='urllink' href='http://jit.si' rel='nofollow'>http://jit.si</a> service. The purpose of this service is to provide an easy way for people to make video calls over XMPP using Jingle and a Jingle Nodes relay (Yay! No more NAT traversal issues!). So feel free to get an account now and start talking.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi @ RMLL
+</p></div>
+<div id='dateNews' >
+<p>2011.07.07
+</p></div>
+<p class='vspace'>Come meet the Jitsi dev team at the the 12th edition of the <a class='urllink' href='http://2011.rmll.info/-Village-Associatif-?lang=en' rel='nofollow'>RMLL</a> libre software meeting in Strasbourg, July 11-13. The Libre Software Meeting (RMLL) is a free (as in beer and as in speech) and non-commercial conference with talks, workshops stands, and round tables about Free Software and its uses. Jitsi would be hosting a stand in the RMLL <a class='urllink' href='http://2011.rmll.info/-Village-Associatif-?lang=en' rel='nofollow'>village</a>.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi @ Ars Technica
+</p></div>
+<div id='dateNews' >
+<p>2011.06.29
+</p></div>
+<p class='vspace'>Ars Technica feature Jitsi in their article on VoIP &ldquo;Help! I need VoIP service for my virtual office!&rdquo;.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>New FAQ on ZRTP, SRTP and call security in general
+</p></div>
+<div id='dateNews' >
+<p>2011.06.14
+</p></div>
+<p class='vspace'>Questions about ZRTP, SRTP and VoIP security in general?  Check out our
+new call security <a class='urllink' href='http://jitsi.org/faq/zrtp' rel='nofollow'> FAQ list</a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Work on DNSSEC and SDES for Jitsi in FHNW
+</p></div>
+<div id='dateNews' >
+<p>2011.06.09
+</p></div>
+<p class='vspace'>The <a class='urllink' href='http://www.fhnw.ch/engineering/imvs/research/projects/jitsi/dnssec-for-jitsi' rel='nofollow'>Institute of Mobile and Distributed Systems</a> at the University of Applied Sciences Northwestern Switzerland starts work on DNSSEC and SDES for Jitsi.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>World IPv6 Day
+</p></div>
+<div id='dateNews' >
+<p>2011.06.08
+</p></div>
+<p class='vspace'><a class='urllink' href='http://www.worldipv6day.org/' rel='nofollow'>World IPv6 Day</a> is today. Use Jitsi to connect over IPv6 to your favourite XMPP or SIP provider that support it.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Architecture of Open Source Applications&rdquo; now available &hellip;
+</p></div>
+<div id='dateNews' >
+<p>2011.05.26
+</p></div>
+<p class='vspace'>&hellip; with a chapter on Jitsi. The Architecture of Open Source Applications has just been published.  You can buy the book directly from <a class='urllink' href='http://www.lulu.com/product/paperback/the-architecture-of-open-source-applications/15819207' rel='nofollow'> Lulu</a>, or check it out at <a class='urllink' href='http://www.aosabook.org/en/index.html' rel='nofollow'> aosabook.org</a>.
+</p>
+<p class='vspace'>All royalties are donated to <a class='urllink' href='http://amnesty.org/' rel='nofollow'> Amnesty International</a>  &hellip; unless you get it from Amazon in which case they would be taking most of it ;) &hellip;  
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Greenpeace France moves to Jitsi
+</p></div>
+<div id='dateNews' >
+<p>2011.05.20
+</p></div>
+<p class='vspace'>We just got a note that the Greenpeace&rsquo;s French offices have migrated to Jitsi, which they now use for video calls, chat, and classic telephony. Way to go guys!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Open Discussion Day
+</p></div>
+<div id='dateNews' >
+<p>2011.05.19
+</p></div>
+<p class='vspace'>A reminder from Ludovic Bocquet that today, May 19th, 2011 is <a class='urllink' href='http://opendiscussionday.org/' rel='nofollow'>Open Discussion Day</a>. &ldquo;Since 2006, on May 19th, we celebrate the Open Discussion Day, a day to promote open communication systems and protocols. Imagine an internet where it is only possible to send emails to people who used the same email provider as you, or only view websites that are hosted on your internet provider&rsquo;s servers. Naturally, these barriers go against the principles of the internet, and thankfully those days are long gone. Well&hellip; nearly.
+</p>
+<p class='vspace'>Many people still rely on instant messaging and other networks which lock them in, and prevent them from chatting with their friends on other networks (except where certain &ldquo;business deals&rdquo; are made). This is against the spirit of freedom of choice, and works in favor of the network providers, not you, the user. 
+</p>
+<p class='vspace'>Read more on <a class='urllink' href='http://opendiscussionday.org/' rel='nofollow'> opendiscussionday.org</a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>vuc.me: Jabber, Jitsi, Nimbuzz and XMPP
+</p></div>
+<div id='dateNews' >
+<p>2011.04.27
+</p></div>
+<p class='vspace'>The VoIP Users Conference is running an &ldquo;XMPP, Jitsi and Nimbuzz&rdquo; <a class='urllink' href='http://vuc.me/2011/jabber-jitsi-nimbuzz' rel='nofollow'> session</a> this Friday, April 29. Make sure you join at sip:<a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6b595b5b525b5a2b07040c02054511021b0f1345080406">[email&#160;protected]</a>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Check out the FLOSS weekly Jitsi video!
+</p></div>
+<div id='dateNews' >
+<p>2011.04.22
+</p></div>
+<p class='vspace'>The video from the FLOSS weekly session on Jitsi is now available for download on <a class='urllink' href='http://twit.tv/floss162' rel='nofollow'>http://twit.tv/floss162</a>. You can check out high and low res videos or an audio only recording.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jitsi on FLOSS weekly!
+</p></div>
+<div id='dateNews' >
+<p>2011.04.13 
+</p></div>
+<p class='vspace'>On Wednesday April 20 <a class='urllink' href='http://twit.tv/FLOSS' rel='nofollow'> FLOSS weekly</a> will be running a session dedicated to Jitsi with Emil Ivov as guest speaker. The session will be broadcast in both audio and video so make sure you join!
+</p>
+<p class='vspace'>FLOSS Weekly is a popular weekly podcast about FLOSS.  Past shows are archived at <a class='urllink' href='http://twit.tv/floss' rel='nofollow'>http://twit.tv/floss</a>, and have included people like Tim O&rsquo;Reilly, Kent Beck, Chris DiBona and even Linus Torvalds.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Now supporting Google Contacts and LDAP
+</p></div>
+<div id='dateNews' >
+<p>2011.03.23 
+</p></div>
+<p class='vspace'>Starting from build 3371 Jitsi now supports automatic integration with Google Contacts in addition to LDAP which was added last week. This should be great news to all Android users who store their contacts online as well as everyone whoe would like to call numbers from their enterprise LDAP server.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>GSoC 2011 is on!
+</p></div>
+<div id='dateNews' >
+<p>2011.03.18 
+</p></div>
+<p class='vspace'>Jitsi has just been accepted for participation in GSoC 2011! Thank you Google! Our friends from Kamailio (OpenSER) and SEMS are participating with us again. Check our <a class='urllink' href='http://gsoc.jitsi.org' rel='nofollow'> project ideas</a> and get ready for yet another exciting summer!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP Communicator becomes Jitsi
+</p></div>
+<div id='dateNews' >
+<p>2011.03.11
+</p></div>
+<p class='vspace'>As many of you already know. SIP Communicator is changing its name to Jitsi. There are many reasons for this but above all we did it because the project is now a lot more than a SIP only Communicator. This new site is the first step in a process that we will complete in the following few days
+</p>
+<p class='vspace'>The installers and the name of the application, the executables and the installation packages are going to remain under the sip-communicator name at first until we are ready with our transition update packages so that the name change would happen transparently for users.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Back from Fosdem XI
+</p></div>
+<div id='dateNews' >
+<p>2011.02.12
+</p></div>
+<p class='vspace'>Once again it was wonderful to meet you all at <a class='urllink' href='http://www.fosdem.org/2011/' rel='nofollow'>FOSDEM XI</a>!
+</p>
+<p class='vspace'>For those who weren&rsquo;t able to attend and visit our stand here&rsquo;s a brief summary: We had some wonderful demos such as native video decoding on Linux, video calls and desktop sharing over XMPP/Jingle and a SIP video call with a hardphone. You can check out the photos on our <a class='urllink' href='http://www.facebook.com/group.php?gid=10200786644' rel='nofollow'>Facebook page</a>.
+</p>
+<p class='vspace'>As previously announced we also gave a couple of talks and you can now download our <a class='urllink' href='http://jitsi.org/presentations/2011-02-06-SC@FOSDEM-XI.pdf' rel='nofollow'>Open Source Telephony</a> and <a class='urllink' href='http://jitsi.org/xmpp/xmppconfcalls.pdf' rel='nofollow'>XMPP</a> devroom presentations.  
+</p>
+<p class='vspace'>Thank you all for participating!:)
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Fosdem XI
+</p></div>
+<div id='dateNews' >
+<p>2011.02.01
+</p></div>
+<p class='vspace'>We are very happy to announce that most of the SIP Communicator developers will once again meet during the <a class='urllink' href='http://www.fosdem.org/2011/' rel='nofollow'>FOSDEM 2011</a> meeting on February 4th, 5th and 6th in Brussels. 
+</p>
+<p class='vspace'>As with previous years we will be hosting a stand and give talks in the <a class='urllink' href='http://fosdem.org/2011/schedule/track/open_source_telephony_devroom' rel='nofollow'> Open Source Telephony</a> (Sunday 13:45 to 14:15 in AW1.124) and <a class='urllink' href='http://fosdem.org/2011/schedule/track/jabber_xmpp_devroom' rel='nofollow'> XMPP</a> (Saturday 15:30 in AW1.121) devrooms. 
+</p>
+<p class='vspace'>If you are planning on going, make sure you come see hello (you&rsquo;ll certainly notice us wearing our SIP Communicator jackets &hellip; as always ;) )!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Feature Spotlight
+</p></div>
+<div id='dateNews' >
+<p>2011.01.31
+</p></div>
+<p class='vspace'>It is again that time of the month where we bring your attention to some of the great new features that we have been working on lately. Among the most recent additions is our brand new system address book integration that works with Microsoft Outlook and Apple Address Book. Also, for all you fellow quality geeks, in case you haven&rsquo;t noticed, you can now make calls using the wideband G.722. Speaking of codecs we now also support one more video codec: H.263. Last but not least, let&rsquo;s not forget our Audio/Video calls with Jingle on Windows Mac and Linux.
+</p>
+<p class='vspace'>Want to try all this for yourself? <a class='urllink' href='http://download.jitsi.org' rel='nofollow'> Download now</a>
+</p>
+<p class='vspace'>Don&rsquo;t forget to check out our <a class='wikilink' href='Partners.html'> partners page</a> page and thank all the people that are helping this project live!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SVN Repository and Mailing Lists Temporarily Unavailable!
+</p></div>
+<div id='dateNews' >
+<p>2011.01.21
+</p></div>
+<p class='vspace'>The <a class='urllink' href='http://java.net' rel='nofollow'>java.net</a> site is currently migrating to a new and improved home. As a result there would be no access to SVN and the SIP Communicator mailing lists for the following few days.
+</p>
+<p class='vspace'>The <a class='urllink' href='http://www.jitsi.org/irc/irc.cgi' rel='nofollow'>irc channel</a> and the <a class='urllink' href='http://download.jitsi.org' rel='nofollow'>downloads</a> would continue working as always.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jingle Bells
+</p></div>
+<div id='dateNews' >
+<p>2010.12.20
+</p></div>
+<div class='vspace'></div><div><img src='../wiki/pub/JingleLogo.png' alt='' title='' /></div>
+<p class='vspace'>After many months of hard work SIP Communicator becomes the first open source project to offer support for XMPP Jingle on Windows, Linux, and Mac. This includes ZRTP encrypted video calls, conferences, call transfers, call recording and basically all the features that we&rsquo;ve already had with SIP. So go ahead and start really using that Jabber/GMail account!
+</p>
+<p class='vspace'>The Jingle implementation effort has been funded by the <a class='urllink' href='http://nlnet.nl' rel='nofollow'>NLnet foundation</a> so give them a big Thank you! after you successfully complete your first Jingle calls.
+</p>
+<div class='vspace'></div><div  style='text-align: right;'><a class='urllink' href='http://nlnet.nl/' rel='nofollow'><img src='../wiki/pub/nlnet-small.gif' alt='' /></a></div>
+<div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Loads of new features! (Including early Jingle support)
+</p></div>
+<div id='dateNews' >
+<p>2010.12.03
+</p></div>
+<p class='vspace'>In case you haven&rsquo;t been following SIP Communicator closely, then you might want to know that we&rsquo;ve been keeping busy and have a bunch of new features either freshly integrated or on their way to you. <strong>Wideband G.722</strong> support (in addition to our wideband speex) and <strong>message waiting indications</strong> are two good example.
+</p>
+<p class='vspace'>The absolute champion however, and the one that many of you have been waiting for is our newly added support for <strong>Jingle Audio/Video</strong> calls with XMPP. There might still be a few glitches here and there but it is already safe to try it. We are certainly enjoying it daily! :)
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP Communicator @ VUC
+</p></div>
+<div id='dateNews' >
+<p>2010.10.28
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://www.voipusersconference.org/2010/sip-communicator/' rel='nofollow'><img src='../wiki/pub/vuc.jpg' alt='' /></a></div>
+<p class='vspace'>On Friday, October 29, we will be guest presenting SIP Communicator at the <a class='urllink' href='http://www.voipusersconference.org/2010/sip-communicator/' rel='nofollow'> VoIP Users Conference</a>. VUC is a great place to hear the latest news or chat about VoIP, SIP, Asterisk and all kinds of telephony-related topics. The conference has been running for three years now and is gathering a lot of interest so make sure you are there: <strong>October 29, Friday, 18:00 CET</strong>.
+</p>
+<p class='vspace'>If you&rsquo;d like to get an early glimpse, you can check out one of the 280 sessions available on iTunes or  [[ here &rarr; <a class='urllink' href='http://www.talkshoe.com/talkshoe/web/talkCast.jsp?masterId=22622' rel='nofollow'>http://www.talkshoe.com/talkshoe/web/talkCast.jsp?masterId=22622</a> 
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>You can now record your calls!
+</p></div>
+<div id='dateNews' >
+<p>2010.09.14
+</p></div>
+<div class='vspace'></div><div><img src='../wiki/pub/recording.png' alt='' title='' /></div>
+<p class='vspace'>Conference calls, important negotiations or work discussions &hellip; there are a number of cases where recording a call could prove particularly useful. Thanks to the GSoC work of Dmitri Melnikov and his mentor Lubomir Marinov, you can now do so with SIP Communicator. So, download the latest version and start putting those calls on tape ;). 
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Crystal clear calls with wideband Speex
+</p></div>
+<div id='dateNews' >
+<p>2010.06.15
+</p></div>
+<div class='vspace'></div><div><img src='https://www.speex.org/images/logos/parrot_speex_org-3.png' alt='' title='' /></div>
+<p class='vspace'>Ever wondered why Skype to Skype calls sound so good? Well it&rsquo;s mostly because they use high quality codecs known as <em>wideband</em>. Contrary to regular, narrow band codecs like GSM and G.711, wideband codecs encode and send a bigger portion of the audio spectrum. This results in the remote party getting richer, higher definition audio. 
+</p>
+<p class='vspace'>We have recently spent effort (one of the many aided by the <a class='urllink' href='http://nlnet.nl' rel='nofollow'>NLnet foundation</a>) on modifying our audio capture and playback system so that it would fully support full band audio. We have also added support for one of the currently most popular wideband FOSS codecs: Speex, and we&rsquo;ve also just configured it as the default choice in SIP Communicator initiated calls. Bottom line is you can now enjoy high quality audio with SIP Communicator and have one more reason to drop proprietary solutions.
+</p>
+<p class='vspace'>Oh and by the way, other wideband codecs such as CELT and Skype&rsquo;s SILK are also on the way to getting integrated in SIP Communicator so stay tuned!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Goodies brought to you by the NLnet foundation!
+</p></div>
+<div id='dateNews' >
+<p>2010.05.28
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://nlnet.nl/' rel='nofollow'><img src='../wiki/pub/nlnet-small.gif' alt='' /></a></div>
+<p class='vspace'>During the past months we have added a number of very useful features, that you would definitely love! SIP Communicator&rsquo;s latest builds now come with greatly improved video features. Video capture and rendering is now handled entirely natively on Windows, Linux, and Mac. We have also completely revamped the user interface, added a better call history, missed call notifications, DTMF over RTP, automatic reconnection for all protocols, and many many others, that you simply MUST try so make sure you <a class='urllink' href='http://download.jitsi.org' rel='nofollow'>download</a> our latest version. When you do, make sure you send a mental &ldquo;Thank you!&rdquo; note to the <a class='urllink' href='http://nlnet.nl' rel='nofollow'>NLnet</a> foundation that have been graciously funding SIP Communicator&rsquo;s development.
+</p>
+<p class='vspace'>As a side note. <a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4.org</a> is another project funded by NLnet. ice4j has recently reached a level that allows us to start work on our XMPP Jingle implementation. In other words, stay tuned and you will soon be able to call your Facebook buddies ;).
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google SoC 2010 application results announced!
+</p></div>
+<div id='dateNews' >
+<p>2010.04.27
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/gsoc2010.png' alt='' /></a></div>
+<p class='vspace'>The <a class='urllink' href='http://socghop.appspot.com' rel='nofollow'>Google Summer of Code 2010</a> application results have been announced a few hours ago. SIP Communicator, SEMS and Kamilio will be mentoring 7 very cool projects together. We will be posting more details on our <a class='wikilink' href='../Development/TeamAndContributors.html#gsoc'> Team and Contributors</a> page in the following days and weeks.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>The Applications for Google SoC 2010 are now closed!
+</p></div>
+<div id='dateNews' >
+<p>2010.04.10
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/gsoc2010.png' alt='' /></a></div>
+<p class='vspace'>The <a class='urllink' href='http://socghop.appspot.com' rel='nofollow'>Google Summer of Code 2010</a> application process has closed and we are currently evaluating candidates. The list of accepted students will be published at the <a class='urllink' href='http://socghop.appspot.com' rel='nofollow'>official GSoC site</a> on April 26. 
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>We are now taking Google SoC Applications from Students!
+</p></div>
+<div id='dateNews' >
+<p>2010.03.31
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/gsoc2010.png' alt='' /></a></div>
+<p class='vspace'>The application period for <a class='urllink' href='http://socghop.appspot.com' rel='nofollow'>Google Summer of Code 2010</a> is now open! We will be taking applications until April 9, so if you are interested in working on SIP Communicator, Kamailio (OpenSER), or SEMS, then <a class='urllink' href='http://gsoc.jitsi.org' rel='nofollow'> pick an idea and apply now</a>. 
+</p>
+<p class='vspace'>Once submitted applications can still be reviews after April 9, and you will get questions, so make sure you post before the deadline. Good luck everyone!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Accepted for Google Summer of Code 2010! Yuppieee!
+</p></div>
+<div id='dateNews' >
+<p>2010.03.19
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/gsoc2010.png' alt='' /></a></div>
+<p class='vspace'>Google have just published the list of organizations accepted for participation in <a class='urllink' href='https://developers.google.com/open-source/soc/?hl=bg' rel='nofollow'>Summer of Code 2010</a> and … SIP Communicator is among the lucky ones! :)
+Looks like we&#146;ll once again be having a very exciting summer! If you’d like to join us and work on a SIP Communicator project (rather than working in the local gas station ;) ), have a look at our <a class='urllink' href='https://jitsi.org/Development/GSoC' rel='nofollow'>project ideas</a>. Among the many projects there are also a couple that we will be running in collaboration with the <a class='urllink' href='http://www.kamailio.org/w/' rel='nofollow'>Kamailio (OpenSER)</a> and [[SEMS&rarr;<a class='urllink' href='http://www.iptel.org/sems&gt;' rel='nofollow'>http://www.iptel.org/sems&gt;</a> open source projects.
+Note that students can start applying on March 29th and until April 9th. So, hurry up, and pick a project! Good luck to all students!
+</p>
+<p class='vspace'>If you are not familiar with GSoC, we invite you to consult the <a class='urllink' href='http://socghop.appspot.com/document/show/gsoc_program/google/gsoc2010/faqs' rel='nofollow'>GSoC FAQ</a>.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP with TLS
+</p></div>
+<div id='dateNews' >
+<p>2010.03.17
+</p></div>
+<div class='vspace'></div><div><img src='../wiki/pub/skins/simple/i/news/Stickers-Jitsi.png' alt='' title='' /></div>
+<p class='vspace'>We have recently completed our TLS support which, together with ZRTP, makes SIP calls 100% secure. We also added extended certificate management so users are now notified whenever there&rsquo;s something strange going on with a site&rsquo;s credentials. So make sure you try TLS and <a class='urllink' href="../cdn-cgi/l/email-protection.html#adc9c8dbedc7c4d9dec483c7ccdbcc83c3c8d9" rel='nofollow'>let us know</a> how it works for you!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Fosdem X Chronicles
+</p></div>
+<div id='dateNews' >
+<p>2010.02.12
+</p></div>
+<p class='vspace'>Once again we had a great <a class='urllink' href='http://fosdem.org/2010/' rel='nofollow'>FOSDEM</a> experience. Our stand was running three wonderful demos, Emil has made a great presentation of our new conference call functionality and we were more than fifteen SIP Communicator contributors, who spent a nice geek weekend in Brussels :)
+</p>
+<p class='vspace'>So, we have made three demos this time. The first one, including three computers (two running Debian and one running Windows) connected in a conference call. People were seduced by our new audio level indicators :)
+</p>
+<p class='vspace'>We were also presenting our brand new feature: desktop streaming. The first step in the work on desktop sharing. While in a call a Debian computer was streaming its desktop to a Mac. Debian computer was running a nice video to show the great quality of the streamed image.
+</p>
+<p class='vspace'>And finally, we were also running a video call. Nothing is better than being able to say &ldquo;hiiii&rdquo; and see you on the other side :)
+</p>
+<p class='vspace'>Of course, all this was accompanied with a lot of beer, jokes and belgian french fries :))
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Fosdem X
+</p></div>
+<div id='dateNews' >
+<p>2010.02.03
+</p></div>
+<p class='vspace'>Once again we are very happy to announce that most of the SIP Communicator developers will meet during the <a class='urllink' href='http://www.fosdem.org/2010/' rel='nofollow'>FOSDEM 2010</a> meeting on February 5th, 6th and 7th in Brussels. 
+</p>
+<p class='vspace'>Once again SIP Communicator will be running a stand. This year we will also have a Lightning Talk on Saturday afternoon (16:00) and Emil will present our brand new conferencing features. 
+</p>
+<p class='vspace'>If you are planning on going, make sure you come see hello (you&rsquo;ll certainly notice us wearing our SIP Communicator jackets &hellip; as always ;) )!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>File transfer support in SIP Communicator completed
+</p></div>
+<div id='dateNews' >
+<p>2009.08.28
+</p></div>
+<div class='vspace'></div><div  style='text-align: center;'><a class='urllink' href='http://nlnet.nl/' rel='nofollow'><img width='200px' src='../wiki/pub/nlnet-small.gif' alt='' /></a></div>
+<p class='vspace'>We are proud to announce that our file transfer implementations have now been completed for most protocols supported by SIP Communicator. Starting from build 2002 and in addition to the previously implemented XMPP support, SIP Communicator users would be able to share files via the MSN, Yahoo! Messenger, ICQ and AIM protocols. This implementation  is a part of the effort funded by the <a class='urllink' href='http://nlnet.nl' rel='nofollow'> NLnet foundation</a>. However, early research on the subject started long ago and many have contributed.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP Communicator goodies
+</p></div>
+<div id='dateNews' >
+<p>2009.07.17
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://jitsi.org/index.php/Main/Goodies' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/Stickers-Jitsi.png' alt='' /></a></div>
+<p class='vspace'>Some goodies such as wallpapers, posters or stickers are now available from our <a class='urllink' href='http://jitsi.org/index.php/Main/Goodies' rel='nofollow'>goodies page</a>. Tell us what you think about them, and don&rsquo;t hesitate to send us your own creations!
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>First version of file transfer support in SIP Communicator
+</p></div>
+<div id='dateNews' >
+<p>2009.06.26
+</p></div>
+<div class='vspace'></div><div><a class='wikilink' href='Screenshots.html#FileTransferPreview'><img src='../wiki/pub/sip-communicator/screenshots/preview1.png' alt='' /></a></div>
+<p class='vspace'>We&rsquo;re proud to announce that a first version of file transfer is now available in SIP Communicator! This first version contains support for XMPP,  new history module that allows merging events from our file and message history services and a brand new user interface that visualizes file transfers in the chat and history windows, allows drag and drop, preview for images and some more. This implementation is start of the effort funded by the <a class='urllink' href='http://nlnet.nl' rel='nofollow'> NLnet foundation</a>. However, early research on the subject started long ago and many have contributed.
+</p>
+<p class='vspace'>Anthony Schmitt has done research and a proof of concept implementation during his participation in the 2008 edition of the GSoC program, which really helped us get a quick start. Some other students to mention here are: Nicolas Riegel and Gregory Bande, who participated in the very first attempts of file transfer implementation.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>The NLnet foundation will be funding work on SIP Communicator
+</p></div>
+<div id='dateNews' >
+<p>2009.05.16
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://nlnet.nl/' rel='nofollow'><img src='../wiki/pub/nlnet-small.gif' alt='' /></a></div>
+<p class='vspace'>The <a class='urllink' href='http://nlnet.nl' rel='nofollow'> NLnet foundation</a> have graciously accepted to fund a project proposal on a number of extensions to the SIP Communicator project. The funding would concern completion of the <a class='urllink' href='http://ice4j.org' rel='nofollow'> ice4j</a> stack, Jingle telephony, brand new support for file transfer, and multi-party conference calls for SIP and Jingle/XMPP. The project started on May 1st 2009 and will continue for twelve months. 
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Applications for Google Summer of Code 2009 closed!
+</p></div>
+<div id='dateNews' >
+<p>2009.04.15
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/2009socwithlogo.png' alt='' /></a></div>
+<p class='vspace'>The <a class='urllink' href='http://code.google.com/soc/' rel='nofollow'>Google Summer of Code 2009</a> application process has closed and evaluations completed. The list of accepted students will be published by Google on April 20.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>You can now apply for Google Summer of Code 2009!
+</p></div>
+<div id='dateNews' >
+<p>2009.03.24 
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/2009socwithlogo.png' alt='' /></a></div>
+<p class='vspace'>The <a class='urllink' href='http://code.google.com/soc/' rel='nofollow'>Google Summer of Code 2009</a> application process has opened yesterday (or today for some ;) ).
+</p>
+<p class='vspace'>Students interested in <a class='wikilink' href='../Development/Gsoc2009.html'> our project ideas</a> can therefore pick one.
+</p>
+<p class='vspace'><span  style='color: red;'><strong>Note that the student application period is only open until April 3rd.</strong></span>
+<span  style='color: red;'><em>&lsquo;There will be no extensions this year so if you are planning to apply you should do so now!</em></span>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google Summer of Code 2009: we&rsquo;re in!
+</p></div>
+<div id='dateNews' >
+<p>2009.03.19
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/2009socwithlogo.png' alt='' /></a></div>
+<p class='vspace'>Google have just published the list of organizations accepted for
+participation in <a class='urllink' href='http://code.google.com/soc/' rel='nofollow'>Google Summer of Code 2009</a> and &hellip;. we&rsquo;re in!
+</p>
+<p class='vspace'>If you are interested in participating for SIP Communicator, you will find more information about our projects list on <a class='urllink' href='http://www.sip-communicator.org/index.php/Development/Gsoc2009/' rel='nofollow'>this page</a>. Note that the student application period will begin on March 23rd and ends on April 3rd.
+</p>
+<p class='vspace'>If you are not familiar with GSoC, we invite you to consult the <a class='urllink' href='http://socghop.appspot.com/document/show/program/google/gsoc2009/faqs' rel='nofollow'>GSoC FAQ</a>.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>What are we up to recently?
+</p></div>
+<div id='dateNews' >
+<p>2009.03.12
+</p></div>
+<p class='vspace'>The road to the RC1 release does not keep our minds only on bugfixes. Several improvements have been discussed recently on the developer mailing list and found their way in our <a class='urllink' href='http://www.sip-communicator.org/index.php/Main/Download' rel='nofollow'>nightly builds</a>. 
+</p>
+<p class='vspace'>Thanks to the work of Yana and Werner, the integration of ZRTP-related events in the call panel has been a lot improved since the FOSDEM demonstration in February. The behaviour of the systray menu has also been refined with the help of Damien. Martin A. has recently proposed to improve the maintenance of the translation files. We will further investigate how <a class='urllink' href='http://translate.sourceforge.net/wiki/' rel='nofollow'>Pootle</a> could help us to achieve this. 
+</p>
+<p class='vspace'>Last but not least, Emil and his fellow mentors have been preparing the application for Google Summer of Code 2009. Fingers crossed!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>The FOSDEM chronicles
+</p></div>
+<div id='dateNews' >
+<p>2009.02.16
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://www.sip-communicator.org/index.php/Main/News' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/fosdem2009-team.png' alt='' /></a></div>
+<p class='vspace'>One of the demonstration consisted in showing ZRTP encrypted
+Audio/Video calls with SC. The fact that we were able to present an
+encrypted session was extremely important as it corresponded to 
+<a class='urllink' href='http://www.fsf.org/campaigns/priority.html#skypereplacement' rel='nofollow'>FSF&rsquo;s objective for a Skype replacement</a>. Video calls went uninterrupted 
+throughout the whole day without losing quality or accumulating 
+latency! Therefore many thanks to Damian and Lubomir for all their work
+on the preparation of this demonstration! Many thanks also to Werner for 
+his work on completing ZRTP encryption.
+</p>
+<p class='vspace'>Our second stand demo was a showcase of the work Cristina did on porting
+SIP Communicator to Android. The demo attracted a lot of interest from
+different people so we would hopefully be getting more contributions for
+the sc-android project in the near future. Great job Cristina!
+</p>
+<p class='vspace'>We hope to see you in Brussels next year! In the meatime, you may check 
+the pictures of our correspondent photographers: 
+<a class='urllink' href='http://picasaweb.google.com/martinhrvn/Fosdem09?feat=directlink' rel='nofollow'>a gallery from Martin Harvan is here</a> and 
+<a class='urllink' href='http://gallery.damencho.com/main.php?g2_itemId=90797' rel='nofollow'>Damencho&rsquo;s one is here</a>.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Fosdem&rsquo;09
+</p></div>
+<div id='dateNews' >
+<p>2009.01.04
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://www.fosdem.org/2009/' rel='nofollow'><img src='../wiki/pub/uploads/Main/fosdem2009.jpg' alt='' /></a></div>
+<p class='vspace'>Most of the SIP Communicator developers will meet during the <a class='urllink' href='http://www.fosdem.org/2009/' rel='nofollow'>FOSDEM 2009</a> meeting on February 7th and 8th in Brussels. We are pleased to announce that we&rsquo;ll have a booth this year, so if you happen to go there, don&rsquo;t hesitate to visit us (you&rsquo;ll certainly notice us wearing our SIP Communicator jackets)!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Free Software Foundation High Priority List
+</p></div>
+<div id='dateNews' >
+<p>2008.10.09
+</p></div>
+<p class='vspace'>The <a class='urllink' href='http://www.fsf.org/campaigns/priority.html' rel='nofollow'>FSF high priority list</a> aims at focusing the free software community on the development of particular projects. Especially, SIP Communicator has been cited as a <a class='urllink' href='http://www.fsf.org/campaigns/priority.html#skypereplacement' rel='nofollow'>working alternative to Skype</a>! The recent integration of ZRTP will also certainly help SIP Communicator to be considered as a viable solution for secure telephony.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google SoC Spotlight - Support for Facebook
+</p></div>
+<div id='dateNews' >
+<p>2008.09.23
+</p></div>
+<p class='vspace'>Facebook Chat support is one of our successful 2008 GSoC projects. It makes it possible for SIP Communicator users to chat with their Facebook friends without needing to use the web-based client on the Facebook page. You can also use it to view their profiles, pictures, and so on. The source code is available for review and testing in the <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/sip-communicator/branches/facebook/' rel='nofollow'> Facebook branch</a> until it finds its way into the main stream version.
+</p>
+<p class='vspace'>If you are interested in following this work, you can get regular updates through <a class='urllink' href='http://gsoc.yo2.cn/' rel='nofollow'> Dai Zhiwei&rsquo;s blog</a>.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google SoC Spotlight - Support for MySpace
+</p></div>
+<div id='dateNews' >
+<p>2008.09.23
+</p></div>
+<p class='vspace'>One of our GSoC projects this year consisted in implementing support for the MySpace instant messaging prtocol. Maciej Wiercinski (our student) has made a great job and his work is hopefully going to be integrated soon. If interested, make sure you have a look on the project <a class='urllink' href='http://www.youtube.com/watch?v=Sj72n0vPQvE' rel='nofollow'> screencast</a>, or, even better, try and download his <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/sip-communicator/branches/myspace/provided' rel='nofollow'> branch</a> and be the first to use the MySpace protocol with SIP Communicator.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google SoC Spotlight - Plugin Management
+</p></div>
+<div id='dateNews' >
+<p>2008.08.01
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/code_sm.png' alt='' /></a></div>
+<p class='vspace'>Every week, the plug-in management project is getting closer to completion as the summer flies by. You can see progress as many new feature become available on the <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/sip-communicator/branches/pluginmgmt/' rel='nofollow'>project branch</a>. Users now have full control over their plugin repositories, downloads and updates management via a rich and user-friendly interface. Mathieu has uploaded a <a class='urllink' href='http://www.youtube.com/watch?v=9jSfPhT3jBM' rel='nofollow'>screencast on YouTube</a> so that you can see his work in action.
+</p>
+<p class='vspace'>If you are interested in following this work, you can get regular updates through <a class='urllink' href='http://mplourde.blogspot.com/' rel='nofollow'> Mathieu&rsquo;s blog</a>.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google SoC Spotlight - Profile Manager
+</p></div>
+<div id='dateNews' >
+<p>2008.07.24
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/code_sm.png' alt='' /></a></div>
+<p class='vspace'>The profile manager project that would allow users to launch SIP Communicator with different accounts and contact lists (profiles) is now almost complete. You can now create, use, and manage profiles if you use the profile manager <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/sip-communicator/branches/profilemgr/' rel='nofollow'> branch</a>. Merging this new feature into SIP Communicator is just around the corner so stay tuned!
+</p>
+<p class='vspace'>If you are interested in following this work, you can get regular updates through <a class='urllink' href='http://scprofile.wordpress.com/' rel='nofollow'>Damien&rsquo;s blog</a>.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google Summer of Code 2008 - ZRTP Integration
+</p></div>
+<div id='dateNews' >
+<p>2008.06.24
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/code_sm.png' alt='' /></a></div>
+<p class='vspace'>The ongoing GSoC project on <a class='wikilink' href='../Development/KeySharing.html'>Implementation of encryption key sharing algorithms</a> reached a major step this week with a first successful secured call between two SIP Communicator clients. This was made possible thanks to the close collaboration of our GSoC student, Emanuel Onica, and the author of ZRTP4J, Werner Dittmann. Congratulations to both of them!
+</p>
+<p class='vspace'>If you are interested in following this work, you can get regular updates through <a class='urllink' href='http://sipcommkeysharing.blogspot.com/' rel='nofollow'>Emanuel&rsquo;s blog</a>.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google Summer of Code 2008 - May the Coding Start!
+</p></div>
+<div id='dateNews' >
+<p>2008.05.13
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/code_sm.png' alt='' /></a></div>
+<p class='vspace'>The evaluation process for Google Summer of Code 2008 has completed some time ago and we are very very proud to announce that we have received 15 student stipends from Google! There were more than 180 applications in total for the SIP Communicator project ideas and many of the candidates deserved to get a slot. 
+</p>
+<p class='vspace'>It really broke our hearts to reject many of those that we did, but on the other hand the students that we accepted are all very motivated, experienced and itching to get to work. 
+</p>
+<p class='vspace'>Let&rsquo;s wish them all good luck and happy coding! 
+</p>
+<p class='vspace'>Here&rsquo;s a short list of our GSoC 2008 project, students and mentors: 
+</p>
+<p class='vspace'>Performance profiling and optimizations.
+</p><pre>    by Vladimir Škarupelov, mentored by Benoit Pradelle
+</pre><p>Spell Checking
+</p><pre>    by Damian Johnson, mentored by Yana Stamcheva
+</pre><p>Extending and integrating the FMJ framework in SIP Communicator
+</p><pre>    by Martin Harvan, mentored by Kenneth Arthur Larson
+</pre><p>Support for LDAP
+</p><pre>    by Mazy Sébastien, mentored by Vincent Lucas
+</pre><p>Facebook Support Plugin for SIP Communicator
+</p><pre>    by Dai Zhiwei, mentored by Romain Kuntz
+</pre><p>File Transfer for SIP-communicator
+</p><pre>    by Schmitt Anthony, mentored by Ulrich Norbisrath
+</pre><p>Group chat for MSN, ICQ and Yahoo protocols
+</p><pre>    by Rupert Burchardi, mentored by Yana Stamcheva
+</pre><p>Implementation of encryption key sharing algorithms
+</p><pre>    by Emanuel Onica, mentored by Romain Kuntz
+</pre><p>Profile Manager
+</p><pre>    by ROTH Damien, mentored by Pavel Tankov
+</pre><p>Message translation
+</p><pre>    by Ernesto Rivera, mentored by Lubomir Marinov
+</pre><p>HTTP/SOCKS Proxy Support in SIP Communicator
+</p><pre>    by Atul Aggarwal, mentored by Pavel Tankov
+</pre><p>File transfer protocol for SIP Communicator
+</p><pre>    by Mathieu Plourde, mentored by Cristina Tabacaru
+</pre><p>File Transfer for SIP (Support for MSRP)
+</p><pre>    by João Antunes, mentored by Pavel Tankov
+</pre><p>Implementing NAT traversal with ICE on top of Stun4J
+</p><pre>    by Chaminda Namal Senarathne, mentored by Sébastien VINCENT
+</pre><p>MySpaceIM support
+</p><pre>    by Maciej Wiercinski, mentored by Benoit Pradelle
+</pre><p class='vspace'>A nice little list of very useful and cool features isn&rsquo;t it?
+</p>
+<p class='vspace'>In the following weeks you should all be seeing messages from our GSoC students as they make progress so I&rsquo;d like to ask everyone here to provide them with all the help they might need.
+</p>
+<p class='vspace'>Let&rsquo;s wish them all good luck and happy coding! 
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP Communicator in Google Summer of Code 2008
+</p></div>
+<div id='dateNews' >
+<p>2008.03.20
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc/' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/code_sm.png' alt='' /></a></div>
+<p class='vspace'>SIP Communicator has been accepted for the second year as a mentoring organization for the 2008 edition of Google Summer of Code! So, if you want to write open source this summer, instead of working on the local gas station hurry up and pick up one of our <a class='urllink' href='http://sip-communicator.org/gsoc' rel='nofollow'>summer of code projects</a>. <span  style='color: red;'><strong>Deadline was extended until Monday, April 7, 2008!</strong></span>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Fosdem 2008
+</p></div>
+<div id='dateNews' >
+<p>2008.03.20
+</p></div>
+<p class='vspace'>Thanks to multiple contributors, SIP Communicator now proposes Bulgarian, German, French, and
+Italian translations, in addition to English. We&rsquo;re also working on the Japanese and Romanian ones!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Internationalization
+</p></div>
+<div id='dateNews' >
+<p>2008.02.01
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://www.fosdem.org/2008/' rel='nofollow'><img src='../wiki/pub/uploads/Main/fosdem2008.png' alt='' /></a></div>
+<p class='vspace'>Many of the SIP Communicator developers will meet during the <a class='urllink' href='http://www.fosdem.org/2008/' rel='nofollow'>FOSDEM 2008</a> meeting between February 22nd to 24rd in Brussels. If you happen to go there, you&rsquo;ll certainly notice us wearing our SIP Communicator jackets, so don&rsquo;t hesitate to give us a sign!
+</p>
+<div class='vspace'></div><div><img src='../wiki/pub/sip-communicator/alpha2_banner.png' alt='' title='' /></div>
+<div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP Communicator alpha2 released
+</p></div>
+<div id='dateNews' >
+<p>2007.11.02
+</p></div>
+<p class='vspace'>After almost a year of development the SIP Communicator team is proud to announce that the 1.0-alpha2 release is now <a class='wikilink' href='Download.html'>available for download</a>.
+</p>
+<p class='vspace'>Among other things the alpha2 release adds to SIP Communicator the following features:
+</p><ul><li>Support for new protocols such as SIP (SIMPLE), Yahoo! Messenger, AIM, Bonjour, Jingle, 
+</li><li>Support for IRC and Jabber chat rooms (work in progress)
+</li><li>Support for RSS flows
+</li><li>Systray icon
+</li><li>Support for avatars and contact photos
+</li><li>More reliable configuration and meta contact list files
+</li></ul><p class='vspace'>Many other new features have been added, improved, and stabilized, so go and see for yourself! 
+</p>
+<p class='vspace'>All <a class='wikilink' href='../Development/Roadmap.html'>the target milestones</a> scheduled for the alpha2 release have been reached and <a class='urllink' href='https://sip-communicator.dev.java.net/issues/buglist.cgi?target_milestone=alpha2' rel='nofollow'>the issues</a> closed.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google Summer of Code 2007 - Final Report
+</p></div>
+<div id='dateNews' >
+<p>2007.10.18
+</p></div>
+<p class='vspace'>This year&rsquo;s Google Summer of Code has finished and we are very happy to announce the results for our project.
+</p>
+<p class='vspace'>Above all, thanks to all mentors for their diligence and patience and of course students for their hard work! Thanks also to Google for making all this possible.
+</p>
+<div class='vspace'></div><h3>The success story</h3>
+<p>We have finished this year&rsquo;s GSoC program with 7 (out of 8) successful projects, 80000 lines of code in addition to what we had before GSoC and a doubled mail traffic on our developer mailing list. Our community has already voted and accepted two of the students as fully qualified developers and two others are continuing work on their projects. GSoC has also added a lot of visibility to our project and has even attracted contributors to areas that weren&rsquo;t directly concerned by the student projects.
+</p>
+<p class='vspace'>We are having lots of new features added to the project and approximately 90% of the code that students have written is on its way to being integrated. We have already integrated four of the seven projects - RSS support, SIMPLE support,  AV Mailbox and the SSH protocol, and others would follow shortly.
+</p><h3>Projects in details</h3>
+<ul><li>Support for SIMPLE - Benoit Pradelle (France)
+</li></ul><p class='vspace'>SIMPLE is what allows the SIP protocol to support presence and instant messaging. It is in charge of showing the current status of your SIP contacts and making sure that your messages get through to them.
+</p>
+<p class='vspace'>We have now fully integrated the SIMPLE implementation, a configuration form for our account installation wizard and a bunch of test cases for our unit tests. Great work, Ben!
+</p>
+<p class='vspace'>Benoit has joined our developer community quite early (in the middle of GSoC) and has taken a lot of new challenges after finishing his GSoC project. He has worked on improving the Meta Contact List storage, on the integration of the RSS unit tests (brought to us by Mihai Balan - another GSoC student), and on integrating the SSH support that was developed in another GSoC project by Jindal Shobhit, etc..
+</p>
+<div class='vspace'></div><ul><li>RTP for FMJ (RTP3775 implementation) - Chris Vincenot (France)
+</li></ul><p class='vspace'>SIP Communicator has long been suffering from problems due to the poor support of JMF. We have therefore decided to start working on integrating FMJ. One of the major things that prevented us from doing so at the time was the fact that FMJ did not have a working RTP stack and in other words we wouldn&rsquo;t have been able to stream media with it.
+</p>
+<p class='vspace'>Christian Vincenot has spent his summer on fixing this and he has done a great job! It is now possible to send and receive media over the network using FMJ. What&rsquo;s more, FMJ&rsquo;s RTP implementation is RFC 3550 compatible (compared to the one used in JMF which was build upon the old version of RTP - RFC 1889).
+</p>
+<p class='vspace'>After all the great work that Chris has been doing, he is now accepted as a developer in both the FMJ and SIP Communicator projects.
+</p>
+<p class='vspace'>Up to the alpha3 release of SIP Communicator, we will most probably be using FMJ instead of JMF. (We would also like to express our gratitude to Ken Larson from FMJ, who has helped Chris a lot throughout the program even though he was not officially involved in GSoC)
+</p>
+<div class='vspace'></div><ul><li>Shared Whiteboards - Julien Waechter (France)
+</li></ul><p class='vspace'>A Shared Whiteboard allows two or more people to view and draw on a shared drawing surface even when they&rsquo;re at a distance so that they can work together on a visual problem.
+</p>
+<p class='vspace'>Julien&rsquo;s project consisted in developing such White-boarding plug-in for SIP Communicator, which was involving both UI programming and protocol implementation. We have now a white-board plug-in, containing all needed initial functionalities, working and ready for integration! Bravo Julien!
+</p>
+<div class='vspace'></div><ul><li>Audio/Video Mailbox - Ryan Ricard (USA)
+</li></ul><p class='vspace'>When we originally proposed the project, what we had in mind was a voicemail plugin with video capabilities that would enable SIP Communicator to record incoming messages and allow users to manage (play/delete) them later. We also wanted the possibility to configure usage preferences such as a storage location, max message duration, auto-answer delay, record a new incoming message, etc. As you see, this was quite a big project, in which Ryan has made the first step. Right now we have a plugin that does auto-answer, audio record, and allows basic configurations. Good job, Ryan!
+</p>
+<div class='vspace'></div><ul><li>SSH Support - Shobhit Jindal (India)
+</li></ul><p class='vspace'>The SSH support project consisted in implementing the Protocol Provider Service in a way that allows to see distant host machines in the contact list. By executing an ICMP echo request/reply (ping) the plugin was meant also to allow users to see whether these machines are currently reachable.
+</p>
+<p class='vspace'>Jindal Shobhit has done a wonderful job and his code is on the way of being integrated into the project.
+</p>
+<div class='vspace'></div><ul><li>Implement SRTP (RTP encryption) - Su Bing (China)
+</li></ul><p class='vspace'>The SRTP protocol provides two mechanisms: the authentication and encryption of RTP packets. Su Bing has successfully implemented both, and his contribution will soon be merged in the main branch of SIP Communicator. This will however not be immediately usable as SRTP relies on a separate key management system that has not been implemented yet. This part is planned as a future student project though.
+</p>
+<p class='vspace'>All along the project, Su has demonstrated his ability to implement Internet Standards with a great rigor and autonomy. Great work, Su!
+</p>
+<div class='vspace'></div><ul><li>RSS support - Mihai Balan (Romania)
+</li></ul><p class='vspace'>RSS support is now fully operational in the main branch of SIP Communicator. We could now create an RSS account and add all our favorite feeds as simple contacts. This is really cool!
+</p>
+<p class='vspace'>Mihai has done a lot of good work:
+- Fixed RSS incompatibility coming from the default Java User-Agent header value
+- Added support for Avatars to RSS by using favicons or the RSS default image.
+- Added HTML formatting for RSS messages in ProtocolProviderServiceRssImpl.
+- Together with Vincent (his coach:), fixed formatting of HTML messages in the GUI.
+- Provided item identification mechanism for RSS feeds.
+- Fixed smilies representation for text/html message type in the GUI.
+- Wrote the SLICK tests for RSS.
+</p><h3>Problems and conclusions for mentors</h3>
+<p>After midterm evaluations Emil has done a really good analysis of the problems and challenges we (mentors) have met so far in this year GSoC program. I&rsquo;d try to resume some of the problems he mentioned.
+</p>
+<div class='vspace'></div><ul><li>it&rsquo;s important to keep all communication public. Students need to feel they are a part of the community and the community also gains a lot of vitality this way.
+<div class='vspace'></div></li><li>it&rsquo;s very good if students start coding during the community bonding period. This could give us the possibility to detect errors we may have made during the selection process and switch students while it is still time.
+<div class='vspace'></div></li><li>we need to be present and try to guide students all the time.
+<div class='vspace'></div></li><li>given that mentoring implies relatively hard work, mentors are bound to sometimes discover that they are not up to the challenge or do not feel comfortable with a specific topic. In such cases having a backup mentor helps a lot.
+<div class='vspace'></div></li><li>when common FOSS contributors send patches it is reasonable to expect that they would need to be reviewed and probably returned for corrections once or twice before being accepted. As GSoC mentors we should expect at least the same amount of work from our students.
+<div class='vspace'></div></li><li>failing a student is really tough, but sometimes it&rsquo;s inevitable. We need to be very clear and honest with our students from the very beginning, about what our expectations and requirements are. Students should be aware that if they don&rsquo;t respect the rules they will be out.
+</li></ul><div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>IRC Implementation
+</p></div>
+<div id='dateNews' >
+<p>2007.10.10
+</p></div>
+<p class='vspace'>Thanks to the great contribution from Stephane Remy and Loic Kempf (Louis Pasteur University), SIP Communicator now provides an implementation of the IRC protocol that includes all of the main functionalities. Give it a try! (<a class='urllink' href='http://www.sip-communicator.org/index.php/Main/Download' rel='nofollow'>Download page</a>)
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Moving to a new download location
+</p></div>
+<div id='dateNews' >
+<p>2007.09.11
+</p></div>
+<p class='vspace'><a class='urllink' href='http://osiris.u-strasbg.fr/' rel='nofollow'> Réseau Osiris</a>
+For reasons mentioned <a class='urllink' href='https://sip-communicator.dev.java.net/servlets/BrowseList?list=dev&amp;by=thread&amp;from=885986' rel='nofollow'> here</a> we have for some time now been looking for a new download server. 
+</p>
+<p class='vspace'>We are now pleased to announce that the team from the <a class='urllink' href='http://www-crc.u-strasbg.fr/' rel='nofollow'> Centre Réseau et Communication</a> (Network and Communication Center) at the Louis Pasteur University have graciously accepted to host our downloads. 
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Jingle Support in SIP Communicator
+</p></div>
+<div id='dateNews' >
+<p>2007.08.28
+</p></div>
+<p class='vspace'>Jingle support, a contribution from Symphorien Wanko, has been recently merged into Sip-Communicator. Jingle allows peer-to-peer voice or video-chat sessions (video is coming soon)  between two Jabber/XMPP endpoints.
+</p>
+<p class='vspace'>Symphorien also contributed nice features such as Drag&amp;Drop in the contact list and automatic choose of default telephony account when a telephony contact is selected. In a word: update your Sip-Communicator version! (<a class='urllink' href='http://www.sip-communicator.org/index.php/Main/Download' rel='nofollow'>Download page</a>) 
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>RSS Support in SIP Communicator
+</p></div>
+<div id='dateNews' >
+<p>2007.07.23 
+</p></div>
+<p class='vspace'>Thanks to the great contributions from Mihai Balan, SIP Communicator now supports RSS feeds.
+By creating an RSS account through the account registration menu, you can now add RSS feeds as contacts in your buddy list. Give it a try by using one of our nightly builds for your Operating System! (<a class='wikilink' href='Download.html'>Download page</a>)
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>GSoC Midterm Evaluations
+</p></div>
+<div id='dateNews' >
+<p>2007.07.17
+</p></div>
+<p class='vspace'>We are happy to announce that all of our students working as part of the Google Summer of Code 2007 have successfully passed the midterm evaluations. Congratulations to all of them, they are doing a really great job!
+</p>
+<p class='vspace'>Here&rsquo;s a short list of the students, their projects and assigned mentors: 
+</p>
+<p class='vspace'>Adam Goldstein (USA) - Account and contact details<br clear='all' />
+Mihai Balan (Romania) - RSS support<br clear='all' />
+Benoit Pradelle (France) - Support for SIMPLE<br clear='all' />
+Chris Vincenot  (France) - Use FMJ (RTP3775 implementation)<br clear='all' />
+Julien Waechter (France) - Shared Whiteboards<br clear='all' />
+Ryan Ricard (USA) -  Audio/Video Mailbox<br clear='all' />
+Shobhit Jindal (India) - SSH Support<br clear='all' />
+Su Bing (China) - Implement SRTP (RTP encryption)<br clear='all' />
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Recent features added in SIP Communicator
+</p></div>
+<div id='dateNews' >
+<p>2007.06.20
+</p></div>
+<p class='vspace'>We recently got several major contributions that we have merged in SIP Communicator: ZeroConf, RSS and SIP instant Messaging. Give them a try by using one of our nightly builds for your Operating System! (<a class='urllink' href='http://www.sip-communicator.org/index.php/Main/Download' rel='nofollow'>Download page</a>)
+</p>
+<p class='vspace'>Some details about those contributions:
+</p>
+<p class='vspace'>ZeroConf from Christian Vincenot
+</p><pre>    Bonjour implementation to automatically find and discuss with buddies 
+    located in the same network as you.
+</pre><p>RSS support from Jean-Albert Vescovo
+</p><pre>    RSS flows can be added as contacts to your contact list and new events
+    are displayed as instant messages.
+</pre><p>SIP instant messaging from Benoit Pradelle
+</p><pre>    An implementation of the basic instant messaging operation set.
+</pre><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Google Summer of Code 2007 - May the Fun Begin!
+</p></div>
+<div id='dateNews' >
+<p>2007.04.18
+</p></div>
+<p class='vspace'>The evaluation process for Google Summer of Code 2007 is now over and we have received 8 student stipends from Google! There were 84 applications in total for the SIP Communicator project ideas and many of the candidates deserved to get a slot. 
+</p>
+<p class='vspace'>It really broke our hearts to reject many of those that we did, but on the other hand the students that we accepted are all very motivated, experienced and itching to get to work. 
+</p>
+<p class='vspace'>Let&rsquo;s wish them all good luck and happy coding!  
+</p>
+<p class='vspace'>Here&rsquo;s a short list of the students, their projects and assigned mentors: 
+</p>
+<p class='vspace'>Adam Goldstein (USA) - Account and contact details
+</p><pre>    Mentors: Yana Stamcheva, Martin André
+</pre><p>Aimar Gonzalez (Spain) - Support for JXTA Instant Messaging
+</p><pre>    Mentors: Emil Ivov, Vincent Lucas
+</pre><p>Benoit Pradelle (France) - Support for SIMPLE
+</p><pre>    Mentors: Martin André, Damian Minkov
+</pre><p>Chris Vincenot  (France) - Use FMJ (RTP3775 implementation)
+</p><pre>    Mentors: Emil Ivov, Jean Lorchat
+</pre><p>Julien Waechter (France) - Shared Whiteboards
+</p><pre>    Mentors: Emil Ivov, Guillaume Schreiner
+</pre><p>Ryan Ricard (USA) -  Audio/Video Mailbox 
+</p><pre>    Mentors: Yana Stamcheva, Alex Pelov
+</pre><p>Shobhit Jindal (India) - SSH Support
+</p><pre>    Mentors: Pavel Tankov, Damian Minkov
+</pre><p>Su Bing (China) - Implement SRTP (RTP encryption)
+</p><pre>    Mentors: Romain Kuntz, Jean Lorchat
+</pre><p class='vspace'>A nice little list of very useful and cool features isn&rsquo;t it?
+</p>
+<p class='vspace'>In the following weeks you should all be seeing messages from our GSoC students as they make progress so I&rsquo;d like to ask everyone here to provide them with all the help they might need.
+</p>
+<p class='vspace'>Let&rsquo;s wish them all good luck and happy coding!  
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP Communicator in Google Summer of Code 2007
+</p></div>
+<div id='dateNews' >
+<p>2007.03.15
+</p></div>
+<div class='vspace'></div><div><a class='urllink' href='http://code.google.com/soc' rel='nofollow'><img src='../wiki/pub/skins/simple/i/news/code_sm.png' alt='' /></a></div>
+<p class='vspace'>SIP Communicator has been accepted as a mentoring organization for the 2007 edition of Google Summer of Code! So, if you want to write open source this summer, instead of working on the local gas station hurry up and pick up one of our <a class='urllink' href='http://sip-communicator.org/gsoc' rel='nofollow'>summer of code projects</a>. <span  style='color: red;'><strong>Deadline was extended to March 26, 2007!</strong> </span>
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP Communicator Lightning Talk on FOSDEM 2007
+</p></div>
+<div id='dateNews' >
+<p>2007.02.04
+</p></div>
+<p class='vspace'>Come meet us on FOSDEM 2007 in Brussels. We&rsquo;ll be there all weekend and will be giving a <a class='urllink' href='http://www.fosdem.org/2007/schedule/events/73' rel='nofollow'>SIP Communicator Lightning Talk</a> on Sunday!
+</p>
+<p class='vspace'>Looking forward to meeting you!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP Communicator alpha1 released
+</p></div>
+<div id='dateNews' >
+<p>2006.12.30
+</p></div>
+<p class='vspace'>After more than a year of development the SIP Communicator team is proud to announce that the 1.0-alpha1 release is now <a class='wikilink' href='Download.html'>available for download</a>.
+</p>
+<p class='vspace'>The alpha1 release provides Instant Messaging support for ICQ/AIM, Jabber and MSN protocols and (currently unstable) support for SIP audio calls.
+</p>
+<p class='vspace'>All <a class='wikilink' href='../Development/Roadmap.html'>the target milestones</a> scheduled for the alpha1 release have been reached and <a class='urllink' href='https://sip-communicator.dev.java.net/issues/buglist.cgi?target_milestone=alpha1&amp;component=sip-communicator&amp;issue_status=UNCONFIRMED&amp;issue_status=NEW&amp;issue_status=STARTED&amp;issue_status=REOPENED' rel='nofollow'>the issues</a> closed.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Added support for PCMA
+</p></div>
+<div id='dateNews' >
+<p>2006.12.07 
+</p></div>
+<p class='vspace'>The French internet and telephony operator <a class='urllink' href='http://free.fr' rel='nofollow'>free.fr</a> offer their clients the possibility of registering a SIP client to handle their incoming and make outgoing calls. However SIP Communicator was until recently unable to use this service because it lacked support for G.711 ALAW (PCMA). This problem has been resolved (courtesy of Damencho) and we support PCMA!
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Debug time!
+</p></div>
+<div id='dateNews' >
+<p>2006.11.13
+</p></div>
+<p class='vspace'>The development of SIP Communicator has been going for quite a while and we are very eager to roll a release out. That&rsquo;s why we&rsquo;ve decided to spend a few weeks on debugging only, and refrain from adding new features so that we could finalize the <a class='wikilink' href='../Development/Roadmap.html'> alpha1</a> release of the SIP Communicator.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP Communicator now supports MSN (in addition to Jabber, SIP and ICQ)
+</p></div>
+<div id='dateNews' >
+<p>2006.11.04
+</p></div>
+<p class='vspace'>As of today, the SIP Communicator includes support for MSN using the Java-JML stack. Right now there are still some bugs but nothing serious (I think) and it should be stabilized before the end of next week.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>Current status of the SIP Communicator project (Getting there!)
+</p></div>
+<div id='dateNews' >
+<p>2006.08.19 
+</p></div>
+<p class='vspace'>The SIP Communicator now integrates a very slick user interface for instant messaging and presence, basic ICQ, a meta contact list, message history, native installers for Linux, Windows and Mac OS X, and many other essential base features. We have also started work on the SIP module itself and basic telephony support is expected to be done by the end of September. These and other points concerning the project Status can be found in the <a class='urllink' href='https://sip-communicator.dev.java.net/nonav/servlets/ReadMsg?list=dev&amp;msgNo=763' rel='nofollow'>first edition</a> of our periodic status letter.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>We are among the top 10 projects by membership on java.net
+</p></div>
+<div id='dateNews' >
+<p>2006.05.27 
+</p></div>
+<p class='vspace'>I&rsquo;ve only just noticed that during the month of April 2006, the SIP Communicator was in the top &ldquo;10 by membership&rdquo; list on java.net. You can see that for yourself 
+<a class='urllink' href='http://community.java.net/projects/toparchive.csp?year=2006&amp;month=April' rel='nofollow'>here</a>. I am not really sure whether this is based upon total number of project members or only members that have joined during the month of April but it feels good either way ;)
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>New website dedicated to the development of the SIP Communicator
+</p></div>
+<div id='dateNews' >
+<p>2006.03.06
+</p></div>
+<p class='vspace'>We&rsquo;ve set up a place dedicated to the daily development of the SIP Communicator. Right now the site contains CruiseControl output such as the <a class='urllink' href='http://dev.sip-communicator.org:8080/cruisecontrol/buildresults/sip-communicator-1.0/' rel='nofollow'>build results</a>, the <a class='urllink' href='http://dev.sip-communicator.org/api/' rel='nofollow'>latest Javadoc</a> and the <a class='urllink' href='http://dev.sip-communicator.org/test-reports/' rel='nofollow'>latest JUnit tests reports</a>.
+The content is automatically updated with each CVS commit.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>FOSDEM 2006
+</p></div>
+<div id='dateNews' >
+<p>2005.12.14
+</p></div>
+<p class='vspace'>Some of us will most probably be present at the <dfn title="Free and Open source Software Developers' European Meeting"><a class='urllink' href='http://www.fosdem.org' rel='nofollow'>FOSDEM</a></dfn>, held in Brussels on Feb 25 and 26. This could be a good occasion to meet and chat about the SIP Communicator.
+For those interested, make yourself known on the <a class='wikilink' href='../Development/MailingLists.html#users'>users</a> mailing list.
+</p><div id='separatorNews' >
+</div>
+<div class='vspace'></div><div id='titleNews' >
+<p>SIP Communicator opens up a new web site
+</p></div>
+<div id='dateNews' >
+<p>2005.11.11
+</p></div>
+<p class='vspace'>The new SIP Communicator site, <strong>sip-communicator.org</strong>, representing development of version 1.0, is now open and available to the public. We hope to be able to build and keep a strong and productive community, creating new and original plugins for the communicator, so don&rsquo;t hesitate to send us your comments!
+</p></div>
+<div class='vspace'></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body></html>

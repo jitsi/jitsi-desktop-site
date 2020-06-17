@@ -1,0 +1,659 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Dict Protocol | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="DictProtocol" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.DictProtocol' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/DictProtocol?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:40px auto;text-align:left' >
+<h1>Introduction</h1>
+<p class='vspace'>While exchanging instant-messages, it is frequent to have to look up for a word definition or translation. However, this research is done routinely via a web page or another separated application.
+</p>
+<p class='vspace'>For this reason, we propose to create a dictionary plugin for Jitsi. The solution is to create contacts able to give the definition or the translation of a given word.
+</p><div id='separator' >
+</div>
+<div class='vspace'></div><h2>Protocol&rsquo;s presentation</h2>
+<div id='subttl' >
+<p>General behavior
+</p></div>
+<p class='vspace'>We retain the DICT protocol, which use a TCP transaction based query/response protocol that allows a client to access dictionary definitions from a set of natural language dictionary databases.
+</p>
+<p class='vspace'>Sample queries :
+</p><ul><li>DEFINE : find the definition of a word
+</li><li>MATCH : find the similar words through a strategy
+</li><li>SHOW DB : dictionaries list
+</li><li>SHOW STRAT : list of the available strategies
+</li></ul><div id='subttl' >
+<p>What is a strategy
+</p></div>
+<p>Strategie is use to search similar words,if a translation was not found, thanks to different approaches. For example the Prefix strategies will search words which begin like the word you would translate.
+</p>
+<p class='vspace'>The system use a three digits return code. The first one is for the success (from 1 to 3) or the failure (4 or 5), the second is for the response category, for example : 0 for the syntax, 1 for informations, 2 for connexion, 5 for the dictionaries, &hellip;
+</p>
+<p class='vspace'>We have developed an exception class to handle errors messages and we added new codes to handle the java exception with the same class.
+</p><div id='subttl' >
+<p>Implementation in Jitsi
+</p></div>
+<p class='vspace'>We have created a new chat protocol in which a account is the DICT server and a contact check with a dictionary.
+</p>
+<div class='vspace'></div><div  style='text-align: center;'><img src='../wiki/pub/uploads/Documentation/dict_chat.png' alt='' title='' /></div>
+<div id='separator' >
+</div>
+<h2>Contact wizard plugin</h2>
+<p class='vspace'>We have created two differents interfaces.
+</p>
+<p class='vspace'>The first one is for novice user. We automatically create an account on dict.org and explain to user how to create more account.
+</p>
+<div class='vspace'></div><div  style='text-align: center;'><img src='../wiki/pub/uploads/Documentation/dict_account_new1.png' alt='' title='' /></div>
+<p class='vspace'>The second one is if you want to create another account. In this one we suppose that the user is no more novice, so we ask him to give us a host.
+Afterthat, he was given to choice : choose a strategy if he wishes to or continue (in this case, we choose a strategy for him).
+</p>
+<div class='vspace'></div><div  style='text-align: center;'><img src='../wiki/pub/uploads/Documentation/dict_account_new2.png' alt='' title='' /></div>
+<div id='separator' >
+</div>
+<h2>OperationSetDirectory</h2>
+<div class='vspace'></div><div  style='text-align: center;'><img src='../wiki/pub/uploads/Documentation/dict_addc_old.png' alt='' title='' /></div>
+<p class='vspace'>As we can see in the screenshot, adding a new dictionary isn&rsquo;t user friendly. First we don&rsquo;t know the dictionaries available on the server and the dictionay code isn&rsquo;t very explicit.
+</p>
+<div class='vspace'></div><div  style='text-align: center;'><img src='../wiki/pub/uploads/Documentation/dict_addc_new.png' alt='' title='' /></div>
+<p class='vspace'>Our idea was to use a list box in the add contact wizard filled with dictionaries names. This system may be used by other protocols like SIP (for example : search phone numbers through a LDAP database)
+</p>
+<div class='vspace'></div><div  style='text-align: center;'><img src='../wiki/pub/uploads/Documentation/dict_operation_set_directory.png' alt='' title='' /></div>
+<p class='vspace'>Diagram explaining how the new OperationSetDirectory is working
+</p>
+<div class='vspace'></div><div id='separator' >
+</div>
+<h2>Conclusion and Evolution</h2>
+<p>Working on an open source project was a good experience for us. We manage to understand existing protocol and how to integrate wen protocol on a software.
+</p>
+<p class='vspace'>We would like to thank all people who help us during this project.
+</p>
+<p class='vspace'>Evolution:
+</p><ul><li>Finish implementation of OperationSetDirectory
+</li><li>Handle Status of dictionnary (online,offline )
+</li><li>Formatting the server response with html code
+</li><li>Rename contact (ex : Collaborative Dictionnary of English for gcide)
+</li></ul><div class='vspace'></div><div id='separator' >
+</div>
+<h2>List of all the dictionaries available on dict.org</h2>
+<ul><li>* &ldquo;Search in all the dictionnaries&rdquo;
+</li><li>! &ldquo;Returns the first result of the search&rdquo;
+</li><li>gcide &ldquo;The Collaborative International Dictionary of English v.0.48&Prime;
+</li><li>wn &ldquo;WordNet &reg; 2.0&Prime;
+</li><li>moby-thes &ldquo;Moby Thesaurus II by Grady Ward, 1.0&Prime;
+</li><li>elements &ldquo;Elements database 20001107&Prime;
+</li><li>vera &ldquo;Virtual Entity of Relevant Acronyms (Version 1.9, June 2002)&rdquo;
+</li><li>jargon &ldquo;Jargon File (4.3.1, 29 Jun 2001)&rdquo;
+</li><li>foldoc &ldquo;The Free On-line Dictionary of Computing (27 SEP 03)&rdquo;
+</li><li>easton &ldquo;Easton&rsquo;s 1897 Bible Dictionary&rdquo;
+</li><li>hitchcock &ldquo;Hitchcock&rsquo;s Bible Names Dictionary (late 1800&prime;s)&rdquo;
+</li><li>bouvier &ldquo;Bouvier&rsquo;s Law Dictionary, Revised 6th Ed (1856)&rdquo;
+</li><li>devils &ldquo;THE DEVIL&rsquo;S DICTIONARY (&copy;1911 Released April 15 1993)&rdquo;
+</li><li>world02 &ldquo;CIA World Factbook 2002&Prime;
+</li><li>gazetteer &ldquo;U.S. Gazetteer (1990)&rdquo;
+</li><li>gaz-county &ldquo;U.S. Gazetteer Counties (2000)&rdquo;
+</li><li>gaz-place &ldquo;U.S. Gazetteer Places (2000)&rdquo;
+</li><li>gaz-zip &ldquo;U.S. Gazetteer Zip Code Tabulation Areas (2000)&rdquo;
+</li><li>afr-deu &ldquo;Africaan-German Freedict dictionary&rdquo;
+</li><li>afr-eng &ldquo;Africaan-English Freedict Dictionary&rdquo;
+</li><li>ara-eng &ldquo;English-Arabic Freedict Dictionary&rdquo;
+</li><li>cro-eng &ldquo;Croatian-English Freedict Dictionary&rdquo;
+</li><li>cze-eng &ldquo;Czech-English Freedict dictionary&rdquo;
+</li><li>dan-eng &ldquo;Danish-English Freedict dictionary&rdquo;
+</li><li>deu-eng &ldquo;German-English Freedict dictionary&rdquo;
+</li><li>deu-fra &ldquo;German-French Freedict dictionary&rdquo;
+</li><li>deu-ita &ldquo;German-Italian Freedict dictionary&rdquo;
+</li><li>deu-nld &ldquo;German-Nederland Freedict dictionary&rdquo;
+</li><li>deu-por &ldquo;German-Portugese Freedict dictionary&rdquo;
+</li><li>eng-afr &ldquo;English-Africaan Freedict Dictionary&rdquo;
+</li><li>eng-ara &ldquo;English-Arabic FreeDict Dictionary&rdquo;
+</li><li>eng-cro &ldquo;English-Croatian Freedict Dictionary&rdquo;
+</li><li>eng-cze &ldquo;English-Czech fdicts/FreeDict Dictionary&rdquo;
+</li><li>eng-deu &ldquo;English-German Freedict dictionary&rdquo;
+</li><li>eng-fra &ldquo;English-French Freedict Dictionary&rdquo;
+</li><li>eng-hin &ldquo;English-Hindi Freedict Dictionary&rdquo;
+</li><li>eng-hun &ldquo;English-Hungarian Freedict Dictionary&rdquo;
+</li><li>eng-iri &ldquo;English-Irish Freedict dictionary&rdquo;
+</li><li>eng-ita &ldquo;English-Italian Freedict dictionary&rdquo;
+</li><li>eng-lat &ldquo;English-Latin Freedict dictionary&rdquo;
+</li><li>eng-nld &ldquo;English-Netherlands Freedict dictionary&rdquo;
+</li><li>eng-por &ldquo;English-Portugese Freedict dictionary&rdquo;
+</li><li>eng-rom &ldquo;English-Romanian FreeDict dictionary&rdquo;
+</li><li>eng-rus &ldquo;English-Russian Freedict dictionary&rdquo;
+</li><li>eng-spa &ldquo;English-Spanish Freedict dictionary&rdquo;
+</li><li>eng-swa &ldquo;English-Swahili xFried/FreeDict Dictionary&rdquo;
+</li><li>eng-swe &ldquo;English-Swedish Freedict dictionary&rdquo;
+</li><li>eng-tur &ldquo;English-Turkish FreeDict Dictionary&rdquo;
+</li><li>eng-wel &ldquo;English-Welsh Freedict dictionary&rdquo;
+</li><li>fra-deu &ldquo;French-German Freedict dictionary&rdquo;
+</li><li>fra-eng &ldquo;French-English Freedict dictionary&rdquo;
+</li><li>fra-nld &ldquo;French-Nederlands Freedict dictionary&rdquo;
+</li><li>hin-eng &ldquo;English-Hindi Freedict Dictionary [reverse index]&rdquo;
+</li><li>hun-eng &ldquo;Hungarian-English FreeDict Dictionary&rdquo;
+</li><li>iri-eng &ldquo;Irish-English Freedict dictionary&rdquo;
+</li><li>ita-deu &ldquo;Italian-German Freedict dictionary&rdquo;
+</li><li>jpn-deu &ldquo;Japanese-German Freedict dictionary&rdquo;
+</li><li>kha-deu &ldquo;Khasi-German FreeDict Dictionary&rdquo;
+</li><li>lat-deu &ldquo;Latin-German Freedict dictionary&rdquo;
+</li><li>lat-eng &ldquo;Latin-English Freedict dictionary&rdquo;
+</li><li>nld-deu &ldquo;Nederlands-German Freedict dictionary&rdquo;
+</li><li>nld-eng &ldquo;Nederlands-English Freedict dictionary&rdquo;
+</li><li>nld-fra &ldquo;Nederlands-French Freedict dictionary&rdquo;
+</li><li>por-deu &ldquo;Portugese-German Freedict dictionary&rdquo;
+</li><li>por-eng &ldquo;Portugese-English Freedict dictionary&rdquo;
+</li><li>sco-deu &ldquo;Scottish-German Freedict dictionary&rdquo;
+</li><li>scr-eng &ldquo;Serbo-Croat-English Freedict dictionary&rdquo;
+</li><li>slo-eng &ldquo;Slovenian-English Freedict dictionary&rdquo;
+</li><li>spa-eng &ldquo;Spanish-English Freedict dictionary&rdquo;
+</li><li>swa-eng &ldquo;Swahili-English xFried/FreeDict Dictionary&rdquo;
+</li><li>swe-eng &ldquo;Swedish-English Freedict dictionary&rdquo;
+</li><li>tur-deu &ldquo;Turkish-German Freedict dictionary&rdquo;
+</li><li>tur-eng &ldquo;Turkish-English Freedict dictionary&rdquo;
+</li><li>english &ldquo;English Monolingual Dictionaries&rdquo;
+</li><li>trans &ldquo;Translating Dictionaries&rdquo;
+</li><li>all &ldquo;All Dictionaries (English-Only and Translating)&rdquo;
+</li><li>web1913 &ldquo;Webster&rsquo;s Revised Unabridged Dictionary (1913)&rdquo;
+</li><li>world95 &ldquo;The CIA World Factbook (1995)&rdquo;
+</li></ul><p class='vspace'><span class='stickynote'>LITZELMANN Cédric &amp; ROTH Damien</span>
+</p>
+<div class='vspace'></div></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

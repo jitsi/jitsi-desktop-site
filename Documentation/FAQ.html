@@ -1,0 +1,669 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> FAQ | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="FAQ" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.FAQ' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/FAQ?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='selflink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:40px auto;text-align:left' >
+<div class='toc'><p><a name='toc' id='toc'></a><b>Featured questions</b> (<a id="tocidtog" href="javascript:toggle('tocid');">hide</a>)</p><ul class='toc' id='tocid'><li><a href='FAQ.html#latest'>How do I get the latest Jitsi source code?</a></li><li><a href='FAQ.html#bug-report'>I&rsquo;ve discovered a bug, what can I do?</a></li><li><a href='FAQ.html#jitsi-home'>Where is the user profile directory?</a></li><li><a href='FAQ.html#logs'>Where do I find the log files?</a></li><li><a href='FAQ.html#conf'>Where is the configuration file?</a></li><li><a href='FAQ.html#spelling'>How do you spell Jitsi and what does it mean?</a></li><li><a href='FAQ.html#feature-req'>I&rsquo;d like to see a new feature in Jitsi, can you do that for me?</a></li><li><a href='FAQ.html#ml-subscribe'>How do I subscribe to mailing lists?</a></li><li><a href='FAQ.html#contact-devs'>How do I contact the project developers?</a></li><li><a href='FAQ.html#patch'>How do I send a patch?</a></li><li><a href='FAQ.html#wiki-update'>I would like to update this wiki - what can I do?</a></li><li><a href='FAQ.html#ekiga.net'>Why can&rsquo;t I connect to ekiga.net?</a></li><li><a href='FAQ.html#ice-failed'>Why do I see &ldquo;ICE failed&rdquo; errors when trying to make calls.</a></li><li><a href='FAQ.html#stun'>Does Jitsi support STUN? (and how about TURN, UPnP and Jingle Nodes?)</a></li><li><a href='FAQ.html#zrtp'>I have a few questions regarding ZRTP, SRTP and VoIP security in general. Where can I find some answers?</a></li><li><a href='FAQ.html#fragmentation'>Why does my call stay in the &ldquo;Initiating Call&rdquo; status and I can never connect?</a></li><li><a href='FAQ.html#provisioning'>How does on-line provisioning work?</a></li><li><a href='FAQ.html#otr'>Are my chat sessions protected and if so, how?</a></li><li><a href='FAQ.html#otr-logging'>Should logging be disabled by default when using OTR?</a></li><li><a href='FAQ.html#sip-force-message'>Force SIP Message support.</a></li><li><a href='FAQ.html#property-editor'>How to add/edit configuration properties.</a></li><li><a href='FAQ.html#android'>Is there an an Android version of Jitsi?</a></li><li><a href='FAQ.html#ios'>Is there an iPhone/iPad version of Jitsi?</a></li><li><a href='FAQ.html#cc-buildloop-fail1'>The cc-buildloop target of ant fails with the following error message: &ldquo;Could not create task or type of type: junitreport&rdquo;.</a></li><li><a href='FAQ.html#cc-buildloop-fail2'>The cc-buildloop target of ant fails with the following error message: &ldquo;No test with id=IcqProtocolProviderSlick&rdquo;.</a></li></ul></div>
+<div id='separator' >
+</div>
+<div id='titleNews' >
+<p>General
+</p></div>
+<p class='vspace question'><span class='anchor'><a name='toc1' id='toc1' title='#toc1'>&sect;</a></span> <a name='latest' id='latest'></a> How do I get the latest Jitsi source code?</p>
+<p class='vspace'>You could either clone the Git repository from GitHub (see <a class='wikilink' href='RetrievingAndBuildingTheSources.html'>Retrieving and Building the Sources</a> for details) or use one of the nightly source snapshots (check the <a class='wikilink' href='../Main/Download.html'>Download</a> page).
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc2' id='toc2' title='#toc2'>&sect;</a></span> <a name='bug-report' id='bug-report'></a> I&rsquo;ve discovered a bug, what can I do?</p>
+<p class='vspace'>Please, report it to the developers!<br />Take a look at the <a class='wikilink' href='ReportingBugs.html'>Reporting bugs guidelines</a> page describing the steps to report bugs effectively.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc3' id='toc3' title='#toc3'>&sect;</a></span> <a name='jitsi-home' id='jitsi-home'></a> Where is the user profile directory?</p>
+<p>Jitsi&rsquo;s user profile directory is where Jitsi keeps it&rsquo;s configuration, logs, etc. Its location depends on the operating system.
+</p><ul><li><strong>Windows</strong>: &ldquo;%APPDATA%\Jitsi&rdquo; (or &ldquo;%APPDATA%\SIP Communicator&rdquo;)
+<div class='vspace'></div>On <strong>Windows XP</strong> and earlier, this path translates to &ldquo;C:\Documents and Settings\&lt;Windows login/user name&gt;\Application Data\Jitsi&rdquo; (the folder may also be called SIP Communicator if you first installed Jitsi while it was still called that way).
+<div class='vspace'></div>On <strong>Windows Vista, 7, 8</strong>, it expands to &ldquo;C:\Users\&lt;Windows login/user name&gt;\AppData\Roaming\Jitsi&rdquo; or &ldquo;C:\Users\&lt;Windows login/user name&gt;\AppData\Roaming\SIP Communicator&rdquo;.
+<div class='vspace'></div>Note that these folders are hidden.
+<div class='vspace'></div></li><li><strong>OS X</strong>: ~/Library/Application Support/Jitsi (again, could be SIP Communicator)
+<div class='vspace'></div></li><li><strong>Linux</strong>: ~/.jitsi (or ~/.sip-communicator)
+</li></ul><p class='vspace question'><span class='anchor'><a name='toc4' id='toc4' title='#toc4'>&sect;</a></span> <a name='logs' id='logs'></a> Where do I find the log files?</p>
+<p>The easiest way to get hold of the log files is to save them to a location of your choice using Jitsi&rsquo;s GUI. You can do so by clicking on Tools&rarr;Options (Jitsi&rarr;Preferences on OS X), then selecting the &ldquo;Advanced&rdquo; tab and opening the &ldquo;Logging&rdquo; form. You&rsquo;ll see the &ldquo;Archive Logs&rdquo; button in there. 
+</p>
+<p class='vspace'>Check out the <a class='urllink' href='../wiki/pub/uploads/Documentation/archive-logs-shot.png' rel='nofollow'> screenshot</a> for an even better description.
+</p>
+<p class='vspace'><strong> <em>Important Note:</em> When asked for logs, please make sure that you provide the full set of logs, or better yet, the zip that Jitsi generates when following the above instructions. Please do not send separate files or file snippets as those are likely to be insufficient. If you need to provide the logs for a GitHub issue, send them to <a class='urllink' href="../cdn-cgi/l/email-protection.html#cbafaebd8ba1a2bfb8a2e5a4b9ac" rel='nofollow'>Dev Mailing List</a> and link to the thread in the <a class='urllink' href='https://jitsi.org/Development/MailingLists' rel='nofollow'>archive</a> or create a <a class='urllink' href='https://gist.github.com/' rel='nofollow'>Gist</a> and link to it. Please DO NOT paste the log as a comment.</strong>
+</p>
+<p class='vspace'>Otherwise, if you really want to know, the log files are located in:
+</p><ul><li>Until version 2.2 (and 2.3 nightlies including build 4900)
+<ul><li>inside the &ldquo;log&rdquo; folder in <a href='FAQ.html#jitsi-home'>the user profile directory</a>
+</li></ul></li><li>Version 2.4 and newer
+<ul><li><strong>Windows Vista, 7, 8, 10</strong>: &ldquo;%LOCALAPPDATA%\Jitsi\log&rdquo;
+</li><li><strong>Windows XP</strong>: inside the &ldquo;log&rdquo; folder in <a href='FAQ.html#jitsi-home'>the user profile directory</a>
+</li><li><strong>OS X</strong>: ~/Library/Logs/Jitsi
+</li><li><strong>Linux</strong>: inside the &ldquo;log&rdquo; folder in <a href='FAQ.html#jitsi-home'>the user profile directory</a>
+</li></ul></li></ul><p class='vspace question'><span class='anchor'><a name='toc5' id='toc5' title='#toc5'>&sect;</a></span> <a name='conf' id='conf'></a> Where is the configuration file?</p>
+<p>Jitsi&rsquo;s main configuration file is called sip-communicator.properties and is in <a href='FAQ.html#jitsi-home'>the user profile directory</a>.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc6' id='toc6' title='#toc6'>&sect;</a></span> <a name='spelling' id='spelling'></a> How do you spell Jitsi and what does it mean?</p>
+<p>The correct spelling of the application name is <em>Jitsi</em> (&ldquo;jitsi&rdquo; also works). The origin of the name is Bulgarian (spelled &#1046;&#1080;&#1094;&#1080;). It means wires and the point is that the application allow you to connect to many network and people just as wires do. Of course no one other than Bulgarians is supposed to know what this means and we picked the name mainly because it was short and sounded good.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc7' id='toc7' title='#toc7'>&sect;</a></span> <a name='feature-req' id='feature-req'></a> I&rsquo;d like to see a new feature in Jitsi, can you do that for me?</p>
+<p>Yes, developers take feature requests into account. Send an email to the <a class='wikilink' href='../Development/MailingLists.html#dev'> development list</a> with a <em>detailed</em> description of the requested feature. After we examine its feasibility and decide whether it can be included in the Jitsi distributions you would likely be asked to <a class='wikilink' href='../Development/NewIssue.html'> open a ticket</a> in our <a class='urllink' href='https://trac.jitsi.org/' rel='nofollow'>issue tracker</a>. It is worth mentioning though, that handling feature requests is highly dependent of the developers&rsquo; availability and there is no guarantee that all requests will be satisfied.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc8' id='toc8' title='#toc8'>&sect;</a></span> <a name='ml-subscribe' id='ml-subscribe'></a> How do I subscribe to mailing lists?</p>
+<p>Please visit the <a class='wikilink' href='../Development/MailingLists.html'>Mailing Lists</a> page to learn more about Jitsi&rsquo;s mailing lists.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc9' id='toc9' title='#toc9'>&sect;</a></span> <a name='contact-devs' id='contact-devs'></a> How do I contact the project developers?</p>
+<p>You can ask questions concerning usage of the Jitsi on the <a class='wikilink' href='../Development/MailingLists.html#dev'>dev</a> mailing list (Note that the mailing lists are moderated, so, unless you subscribe to them, there may be a delay before your post shows up). For all urgent queries you could also use IRC at irc.freenode.net, channel #jitsi.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc10' id='toc10' title='#toc10'>&sect;</a></span> <a name='patch' id='patch'></a> How do I send a patch?</p>
+<p>Mail patches to the <a class='wikilink' href='../Development/MailingLists.html#dev'>dev</a> mailing list, with a subject line that contains the word &ldquo;PATCH&rdquo; in all uppercase, for example
+</p><pre> Subject: [PATCH] fix for SDP descriptor in INVITE message
+</pre><p class='vspace'>A patch submission should contain one logical change; please don&rsquo;t mix N unrelated changes in one submission, send N separate emails instead.
+</p>
+<p class='vspace'>The patch itself should be generated from within the project root directory using unified diff format. The following example shows one way to generate it:
+</p><pre> jitsi$ git diff &gt; fix_sdp_in_invite.patch
+</pre><p class='vspace'>You should give your patch files meaningful names. For instance if you fix a socket bug in the foo class do not call your patch file &ldquo;patchfile.txt&rdquo; but instead call it &ldquo;foo-socket.patch&rdquo;.
+</p>
+<p class='vspace'>If the patch implements a new feature, make sure to describe the feature completely in your mail; if the patch fixes a bug, describe the bug in detail and give a reproduction recipe. An exception to these guidelines is when the patch addresses a specific issue in the <a class='wikilink' href='../Development/BugsAndIssues.html'>issues database</a> — in that case, just make sure to refer to the issue number in your log message.
+</p>
+<p class='vspace'>Note that unless you are describing a change rather than posting one, we would probably need you to sign our contributor agreement as either an <a class='urllink' href='https://jitsi.org/icla' rel='nofollow'> individual</a> or a <a class='urllink' href='https://jitsi.org/ccla' rel='nofollow'> corporation</a>
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc11' id='toc11' title='#toc11'>&sect;</a></span> <a name='wiki-update' id='wiki-update'></a> I would like to update this wiki - what can I do?</p>
+<p>Currently, only project developers are permitted to update the wiki. Please send your suggested changes to the <a class='wikilink' href='../Development/MailingLists.html#dev'>dev</a> mailing list.
+</p>
+<p class='vspace'>A wiki page can be updated by appending the string <strong>?action=edit</strong> to the current url and refreshing the page. The page will then be displayed with an extra menu line that includes a <strong>&lsquo;Page Edit</strong>&rsquo; item.
+</p>
+<p class='vspace'>If you click on the <strong>&lsquo;Page Edit</strong>&rsquo; item, you will be redirected to a logon page. Enter your developer username and password and you should be redirected back to the original page. Click on <strong>&lsquo;Page Edit</strong>&rsquo; again to access the source content of the page (a quick reference to wiki markup syntax is also displayed).
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc12' id='toc12' title='#toc12'>&sect;</a></span> <a name='ekiga.net' id='ekiga.net'></a> Why can&rsquo;t I connect to ekiga.net?</p>
+<p><em>NB: the problems described in this section also apply to other providers such as 1und1.de</em>
+</p>
+<p class='vspace'>Short Answer: The ekiga.net SIP servers are configured in a way that prevent Jitsi (and many other SIP user agents for that matter) to register with the service. Please use <a class='urllink' href='http://www.iptel.org/service' rel='nofollow'>iptel.org</a> or <a class='urllink' href='https://www.ippi.fr/index.php?page=sp-offer&amp;lang=44' rel='nofollow'>ippi.com</a> instead.
+</p>
+<p class='vspace'>Slightly Longer Answer: The service at ekiga.net is configured to only accept SIP REGISTER requests that contain a public IP address in their Contact header. This means that registration from Jitsi would fail unless you actually have a public IP address. The Ekiga client circumvents this by using STUN to learn the address and port that have been allocated for the current session. It then uses the pair in the SIP Contact header. This kind of use was common for the first version of the STUN protocol defined in <a class='urllink' href='http://tools.ietf.org/html/rfc3489' rel='nofollow'>RFC 3489</a> which was sometimes referred to as &ldquo;classic STUN&rdquo;. 
+</p>
+<p class='vspace'>The IETF has since significantly reviewed the way STUN should be used. The new version of the protocol is now defined in <a class='urllink' href='http://tools.ietf.org/html/rfc5389' rel='nofollow'>RFC 5389</a> which, among other things, advises against the use of STUN as a standalone NAT traversal utility:
+</p>
+<div class='vspace'></div><pre> However, experience since the publication of RFC 3489 has found 
+ that classic STUN simply does not work sufficiently well to be 
+ a deployable solution.
+</pre><p class='vspace'>Today STUN represents one of the tools used by complete traversal mechanisms such as <a class='urllink' href='http://tools.ietf.org/html/rfc5626' rel='nofollow'>SIP OUTBOUND (RFC 5626)</a> or <a class='urllink' href='http://tools.ietf.org/html/rfc5245' rel='nofollow'>ICE (RFC 5245)</a>. Neither of these includes sending a STUN obtained address in a Contact header.
+</p>
+<p class='vspace'>So, where does Jitsi currently stand on all this? At the time of writing, we support the ICE protocol but only use it with XMPP. Use with SIP is likely to come in the near future. The reason we haven&rsquo;t implemented it yet is that most SIP servers currently open to use over the Internet, use a technique called <a class='urllink' href='http://tools.ietf.org/html/draft-ietf-mmusic-media-path-middleboxes' rel='nofollow'> latching</a>. When such servers detect you are connecting from behind a NAT, they would start acting as a relay, receiving media from your peers and then forwarding it to you (and vice versa). While this is by far the most reliably way of traversing NATs, it does indeed imply some scalability constraints. 
+</p>
+<p class='vspace'>ICE on the other hand would only fall back to relaying if no other way was found to connect the two participants. This is why it is considered as a more optimal solution and why it&rsquo;s also on our roadmap. 
+</p>
+<p class='vspace'>Note however that the constraints on ekiga.net would continue preventing Jitsi from connecting even when we do implement support for ICE.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc13' id='toc13' title='#toc13'>&sect;</a></span> <a name='ice-failed' id='ice-failed'></a> Why do I see &ldquo;ICE failed&rdquo; errors when trying to make calls.</p>
+<p>Jitsi implements a number of NAT traversal methods as described <a href='FAQ.html#stun'>here</a>. In many situations we will be able to setup a call directly between you and other users but in order to be able to reliably establish calls, your XMPP or SIP provider has to provide relaying capabilities such as <a class='urllink' href='http://tools.ietf.org/html/rfc5766' rel='nofollow'>TURN</a>, <a class='urllink' href='http://xmpp.org/extensions/xep-0278.html' rel='nofollow'>Jingle Nodes</a> or . If looking for services that support these you can try <a class='urllink' href='http://jit.si' rel='nofollow'>jit.si</a> or <a class='urllink' href='http://ippi.com' rel='nofollow'>ippi</a>. Also note that both you and your partner need to have unhindered outgoing UDP access to the Internet or at least to your VoIP service provider. You DO NOT however need to map any port numbers on your home router. At best this is going to have no effect.  
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc14' id='toc14' title='#toc14'>&sect;</a></span> <a name='stun' id='stun'></a> Does Jitsi support STUN? (and how about TURN, UPnP and Jingle Nodes?) </p>
+<p>STUN, together with TURN, Jingle Nodes, IPv6 and UPnP, is one of the techniques that Jitsi uses as part of the Interactive Connectivity Establishment (<a class='urllink' href='http://tools.ietf.org/html/rfc5245' rel='nofollow'>ICE</a>) protocol to handle NAT traversal for calls made over XMPP.
+</p>
+<p class='vspace'>For its SIP calls, Jitsi currently relies on servers to relay media (a technique also known as <a class='urllink' href='http://tools.ietf.org/html/draft-ietf-mmusic-latching' rel='nofollow'>Hosted NAT Traversal or latching</a>, which would be the case of the majority of the SIP servers used on the Internet today. Note that in terms of reliability Hosted NAT Traversal gives the same results as use of ICE. It even works better in some ways because the connection is setup immediately and no time is waisted for gathering candidates and making connectivity checks. The only downside of HNT is that it may put a strain on SIP providers requiring more bandwidth. This could become a problem especially in environments with a high number of all IP high quality video calls.
+</p>
+<p class='vspace'>It is likely that ICE support for SIP calls would also be added to Jitsi in 2014 especially since this would also help with WebRTC compatibility.
+</p>
+<p class='vspace'>Standalone support for STUN is NOT going to be part of Jitsi. Check out the <a class='urllink' href='../faq/ekiga.net.html' rel='nofollow'>ekiga</a> entry for more information on the shortcomings of STUN as a standalone NAT traversal utility.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc15' id='toc15' title='#toc15'>&sect;</a></span> <a name='zrtp' id='zrtp'></a> I have a few questions regarding ZRTP, SRTP and VoIP security in general. Where can I find some answers?</p>
+<p>Check out our <a class='wikilink' href='ZrtpFAQ.html'>ZRTP FAQ</a>.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc16' id='toc16' title='#toc16'>&sect;</a></span> <a name='fragmentation' id='fragmentation'></a> Why does my call stay in the &ldquo;Initiating Call&rdquo; status and I can never connect?</p>
+<p>A common reason for providers not to respond to calls is that they simply don&rsquo;t get the INVITE request Jitsi sends to them. This can happen if you are using UDP. The Jitsi INVITE requests may often exceed the maximum allowed packet size (MTU) for your network or that of your server. In such cases packets may be fragmented by your IP stack and fragmentation for UDP does not always work well in certain networks. This is what happens when a client supports multiple features ;). To resolve the issue you can do one of the following:
+</p>
+<div class='vspace'></div><ul><li>Disable codecs that you don&rsquo;t use and keep only those that you know you need. PCMU and G.722 are generally a safe minimum choice for audio and you&rsquo;d better disable all video codecs, at least while testing. Once you manage to successfully connect you may try re-enabling codecs one by one until you reach the upper limit.
+<div class='vspace'></div></li><li>Use TCP or TLS. If your network supports either of these, that would be a far better option.
+</li></ul><p class='vspace question'><span class='anchor'><a name='toc17' id='toc17' title='#toc17'>&sect;</a></span> <a name='provisioning' id='provisioning'></a> How does on-line provisioning work?</p>
+<p>On-line provisioning is the feature that allows Jitsi to connect to an http URI every time it starts and retrieve part or all of its configuration there. On-line provisioning is often used by providers to remotely configure the clients they maintain. It can be used to set any property in Jitsi such as the codecs used, the features that users can manually configure and even protocol accounts.
+</p>
+<p class='vspace'>When requesting its provisioning information Jitsi can transmit any of a number of parameters to the server, like for example: the OS it is running on, user credentials, a unique ID and others. This way the provisioning server can fine-tune the parameters it sends to Jitsi.
+</p>
+<p class='vspace'>For more information, please check our <a class='urllink' href='../provisioning.html' rel='nofollow'> on-line provisioning manual</a>
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc18' id='toc18' title='#toc18'>&sect;</a></span> <a name='otr' id='otr'></a> Are my chat sessions protected and if so, how?</p>
+<p>Jitsi supports the OTR encryption protocol. OTR stands for Off-the-Record Messaging and once you&rsquo;ve set it up (i.e. clicked on that padlock icon in a chat window and verified the identity of your contact) it allows you to make sure that no one other than you two can read your messages, not even your service provider. You can find more on the OTR mechanisms here:
+</p>
+<p class='vspace'><a class='urllink' href='http://en.wikipedia.org/wiki/Off-the-Record_Messaging' rel='nofollow'>http://en.wikipedia.org/wiki/Off-the-Record_Messaging</a> 
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc19' id='toc19' title='#toc19'>&sect;</a></span> <a name='otr-logging' id='otr-logging'></a> Should logging be disabled by default when using OTR?</p>
+<p>By default Jitsi stores all chats so that if you need any information from them it would always be available. If you would like to disable this behavior you can currently do so by opening Jitsi&rsquo;s Options/Preferences, selecting the &ldquo;General&rdquo; pane and then unchecking the &ldquo;Log chat history&rdquo; option near the top. It is also possible to disable chats for specific contacts, to erase their history. An indicator in the chat window makes it aware at all times whether history is on or off while chatting with someone.
+</p>
+<p class='vspace'>OTR protected chats follow the same pattern and some users have expressed concerns that this might be incompatible with their security expectations. Our position on this is that Jitsi&rsquo;s role is to protect your communication. We also strive to offer usability. The current defaults represent these objectives: most people would prefer for their private communication not to be readable by third parties and most of the time people use Jitsi from personal devices where they are in control of the access policy.  
+</p>
+<p class='vspace'>In some cases users may wish for their communications not to be stored locally. This can be the case when using Jitsi on devices that others may also have access to. In such cases users need to be able to easily see whether history is being logged. They would also need to easily turn this off and potentially even erase previous history. 
+</p>
+<p class='vspace'>Note however that this subject is entirely different from the encryption one. They are separate measures meant to protect you against separate attacks or problems. We don&rsquo;t believe that the need for one would necessarily imply the need for the other. We are hence committed to also keeping that separation in the user interface.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc20' id='toc20' title='#toc20'>&sect;</a></span> <a name='sip-force-message' id='sip-force-message'></a> Force SIP Message support.</p>
+<p>Some SIP servers (Asterisk in particular) do not announce the MESSAGE support, despite supporting it. If you <a href='FAQ.html#property-editor'>enable the account property</a> <code>FORCE_MESSAGING</code>, Jitsi will attempt to use MESSAGE for chats, despite your configured SIP server not explicitly announcing this support to connected clients. For example, if your SIP account is <code><a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="563c393e3878253b3f223e16332e373b263a337835393b">[email&#160;protected]</a></code>, go to <a href='FAQ.html#property-editor'>property editor</a> type that in the search field and look for something like
+</p>
+<p class='vspace'><code>net.java.sip.communicator.impl.protocol.sip.acc0123456789.ACCOUNT_UID</code> with the value <code>SIP:<a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="97fdf8fff9b9e4fafee3ffd7f2eff6fae7fbf2b9f4f8fa">[email&#160;protected]</a></code>
+</p>
+<p class='vspace'>The property to add in that case would be:
+</p>
+<p class='vspace'><code>net.java.sip.communicator.impl.protocol.sip.acc0123456789.FORCE_MESSAGING</code> with the value <code>true</code>.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc21' id='toc21' title='#toc21'>&sect;</a></span> <a name='property-editor' id='property-editor'></a> How to add/edit configuration properties.</p>
+<p>You can do so by clicking on Tools&#8594;Options (Jitsi&#8594;Preferences on OS X), then selecting the “Advanced” tab and opening the “Property Editor” form. There you can search edit/delete or create new properties.
+</p>
+<div class='vspace'></div><div id='separator' >
+</div>
+<div id='titleNews' >
+<p>Development topics
+</p></div>
+<p class='vspace question'><span class='anchor'><a name='toc22' id='toc22' title='#toc22'>&sect;</a></span> <a name='android' id='android'></a> Is there an an Android version of Jitsi?</p>
+<p>Yes, but it is still in an early alpha stage and further development has been put on hold until further notice. A lot of the user interface is not yet implemented. You can find the apk on the <a class='wikilink' href='../Main/Download.html'>Download</a> page.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc23' id='toc23' title='#toc23'>&sect;</a></span> <a name='ios' id='ios'></a> Is there an iPhone/iPad version of Jitsi?</p>
+<p>No. Due to the restrictions imposed by the platform it is highly unlikely this answer is going to change.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc24' id='toc24' title='#toc24'>&sect;</a></span> <a name='cc-buildloop-fail1' id='cc-buildloop-fail1'></a> The cc-buildloop target of ant fails with the following error message: &ldquo;Could not create task or type of type: junitreport&rdquo;.</p>
+<p>On some Linux distributions such as Debian, the ant package is actualy subdivided into multiple packages. So when you chose to install junit and ant with the distribution specific package system, don&rsquo;t forget to install ant-optional too.
+</p>
+<p class='vspace question'><span class='anchor'><a name='toc25' id='toc25' title='#toc25'>&sect;</a></span> <a name='cc-buildloop-fail2' id='cc-buildloop-fail2'></a> The cc-buildloop target of ant fails with the following error message: &ldquo;No test with id=IcqProtocolProviderSlick&rdquo;.</p>
+<p>Have you <a class='wikilink' href='TestingProperties.html'>created your own accounts.properties file</a> in the lib directory? You&rsquo;ll need to define two ICQ test accounts at least, and preferably some test accounts for the other supported protocols.
+</p>
+<div class='vspace'></div></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body></html>

@@ -1,0 +1,994 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Team And Contributors | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="TeamAndContributors" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Development.TeamAndContributors' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Development/TeamAndContributors?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='VersionControl.html'>Source Code</a>
+</li><li><a class='selflink' href='TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='../Documentation/UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='../Documentation/DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='../Documentation/FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='../Documentation/ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:0 auto;text-align:left' >
+<div class='tocfloat'><p><a name='toc' id='toc'></a><b>Table of Contents</b> (<a id="tocidtog" href="javascript:toggle('tocid');">hide</a>)</p><ul class='toc' id='tocid'><li><a href='TeamAndContributors.html#toc1'>Project lead:</a></li><li><a href='TeamAndContributors.html#toc2'>Developers (alphabetically):</a></li><li><a href='TeamAndContributors.html#toc3'>Various Contributors (by date of last integrated contribution)</a></li><li><a href='TeamAndContributors.html#Translations'>Translations</a></li><li><a href='TeamAndContributors.html#gsoc'>Google Summer of Code</a></li><li><a href='TeamAndContributors.html#toc4'>Pre 1.0 Contributors</a></li></ul></div>
+<h2><a name='toc1' id='toc1'></a> Project lead: </h2>
+<div id='people' >
+<ul><li><a class='urllink' href='http://www.emcho.com' rel='nofollow'>Emil Ivov</a>
+</li></ul></div>
+<div id='separatorNews' >
+</div>
+<h2><a name='toc2' id='toc2'></a> Developers (alphabetically):</h2>
+<div id='people' >
+<ul><li>Alan Kelly (George Mason University - USA)
+</li><li><a class='urllink' href='http://clarinet.u-strasbg.fr/~pelov/' rel='nofollow'> Alex Pelov</a> (Telecom Bretagne - France)
+</li><li>Benoit Pradelle (Intel - France)
+</li><li>Boris Grozev (BlueJimp - Bulgaria)
+</li><li>Brian Burch (PingToo - UK)
+</li><li><a class='urllink' href='http://oni-baku.blogspot.com/' rel='nofollow'> Chris Vincenot</a> (Kyoto University - Japan)
+</li><li>Damian Minkov a.k.a. Damencho (BlueJimp - Bulgaria)
+</li><li><a class='urllink' href='https://clarinet.u-strasbg.fr/~roth/' rel='nofollow'> Damien Roth</a> (University of Strasbourg - France)
+</li><li>Danny van Heumen (NL)
+</li><li>Egidijus Jankauskas (UK)
+</li><li><a class='urllink' href='http://www.emcho.com' rel='nofollow'> Emil Ivov</a> (BlueJimp)
+</li><li>George Politis (BlueJimp)
+</li><li>Hristo Terezov (BlueJimp - Bulgaria)
+</li><li>Ingo Bauersachs (Switzerland)
+</li><li><a class='urllink' href='http://bg.linkedin.com/in/ivanvergiliev' rel='nofollow'> Ivan Vergiliev</a> (Sofia University - Bulgaria)
+</li><li><a class='urllink' href='http://clarinet.u-strasbg.fr/~lorchat' rel='nofollow'> Jean Lorchat</a> (IIJ - Japan)
+</li><li><a class='urllink' href='http://fmj-sf.net' rel='nofollow'> Ken Larson</a> (Larson Technologies, USA)
+</li><li>Lyubomir Marinov (BlueJimp - Bulgaria)
+</li><li><a class='urllink' href='https://plus.google.com/+MarinDzhigarov/about' rel='nofollow'> Marin Dzhigarov</a> (BlueJimp - Bulgaria)
+</li><li><a class='urllink' href='http://mandre.org' rel='nofollow'> Martin Andre</a> (NICT - Japan)
+</li><li><a class='urllink' href='http://www.ohloh.net/accounts/kpouer' rel='nofollow'> Matthieu Casanova</a> (France)
+</li><li>Michael Koch (Rowa - Germany)
+</li><li>Pawe&#322; Domas (BlueJimp - Poland)
+</li><li><a class='urllink' href='http://www.rkuntz.org' rel='nofollow'> Romain Kuntz</a> (INRIA - France)
+</li><li><a class='urllink' href='http://mazy.eu' rel='nofollow'> Sebastien Mazy</a> (University of Karlshruhe - Germany)
+</li><li>Sebastien Vincent (Euro Information - France)
+</li><li>Svetlana Velichkova a.k.a. Fo (BlueJimp - Bulgaria, Sofia University)
+</li><li><a class='urllink' href='http://www.sympho.fr' rel='nofollow'> Symphorien Wanko</a> (Cameroon)
+</li><li><a class='urllink' href='http://thomas.familie-hofer.net' rel='nofollow'> Thomas Hofer</a> (LIWEST Kabelmedien GmbH - Austria)
+</li><li><a class='urllink' href='http://www.linkedin.com/pub/tom-denham/48/613/661' rel='nofollow'> Tom Denham</a> (Metaswitch - UK)
+</li><li>Valentin Martinet (IRCAD - France)
+</li><li><a class='urllink' href='http://clarinet.u-strasbg.fr/~lucas/?langage=en' rel='nofollow'> Vincent Lucas</a> (BlueJimp - France)
+</li><li>Werner Dittmann (Nokia Siemens Networks, Germany)
+</li><li>Yana Stamcheva (BlueJimp)
+</li></ul></div>
+<div id='separatorNews' >
+</div>
+<h2><a name='toc3' id='toc3'></a> Various Contributors (by date of last integrated contribution)</h2>
+<div id='people' >
+<ul><li>Devin Wilson - Provided a patch to separate the XMPP, UI and RTC modules in Jitsi-Meet. Fixed the Jitsi Meet build. <a class='urllink' href='https://github.com/jitsi/jitsi-meet/pull/366' rel='nofollow'>Improved the Jitsi Meet build so that it pulls all the remaining external dependencies from npm.</a> <a class='urllink' href='https://github.com/jitsi/lib-jitsi-meet/pull/380' rel='nofollow'>Provided fixes for &ldquo;no video device&rdquo; issue in lib-jitsi-meet</a>.
+</li><li>Camilo Aparecido Ferri Moreira - <a class='urllink' href='https://github.com/jitsi/jicofo/commit/8ca85a3daa70509038eafea48aa8c1bf5c019590' rel='nofollow'>Fixed NPE in Jicofo&rsquo;s reservation system.</a>
+</li><li>Saúl Ibarra Corretgé - Clean up desktop sharing options in jitsi-meet and lib-jitsi-meet. Updates in mobile app of jitsi-meet: fix that keeps device screen on, update default speaker device on iOS.
+</li><li>Aaron Ogle (Rocket.Chat) - In the iframe Jitsi Meet API, added the possibility to specify use of ssl. 
+</li><li>Brian Baldino (Highfive) - Added support for RTP header extensions in jitsi-videobridge&rsquo;s REST interface. Added end-to-end messages over SCTP in jitsi-videobridge. Added a complete REST conference setup example to Jitsi Videobridge. 
+</li><li>Etienne Champetier - <a class='urllink' href='https://github.com/jitsi/jicoco/pull/4' rel='nofollow'>Fixed missing &ldquo;from&rdquo; attributed in ping requests.</a>. Fixed inconsistent line endings. <a class='urllink' href='https://github.com/jitsi/libjitsi/pull/152' rel='nofollow'>Fixed an RTT calculation bug</a>. <a class='urllink' href='https://github.com/jitsi/libjitsi/pull/124' rel='nofollow'>Fixed</a> <a class='urllink' href='https://github.com/jitsi/libjitsi/pull/146' rel='nofollow'>multiple</a> <a class='urllink' href='https://github.com/jitsi/libjitsi/pull/142' rel='nofollow'>bugs</a> <a class='urllink' href='https://github.com/jitsi/libjitsi/pull/141' rel='nofollow'>in</a> <a class='urllink' href='https://github.com/jitsi/libjitsi/pull/140' rel='nofollow'>libjitsi</a>. <a class='urllink' href='https://github.com/jitsi/libjitsi/pull/97' rel='nofollow'>Reworked the OpenSSL-based implementation of libjitsi&rsquo;s SRTP layer, reducing the number of JNI calls thus improving performance</a>. <a class='urllink' href='https://github.com/jitsi/libjitsi/pull/109' rel='nofollow'>Implemented caching of the DTLS certificate in libjitsi</a>.
+</li><li>Csaba Varró - Provided a patch for Jitsi Videobridge that adds the capability to read JVM options from an external rc file. <a class='urllink' href='https://github.com/jitsi/jitsi-videobridge/commit/989b7f2671ac9e40c84ab31d57a5e74b5130284b' rel='nofollow'>Provided a patch for jitsi-videobridge which allows the value of TIMEOUT_ON_FRAME_COUNT to be configurable.</a>
+</li><li>Ivan Symchych - Added <a class='urllink' href='https://github.com/jitsi/jitsi-meet/pull/397' rel='nofollow'> human readable user ids</a> for callstats. <a class='urllink' href='https://github.com/jitsi/jitsi-meet/pull/494' rel='nofollow'>Fixed XSS through user nicknames</a>. <a class='urllink' href='https://github.com/jitsi/jitsi-meet/pull/492' rel='nofollow'>Contributed support for switching cameras/microphones</a>. Helped refactoring jitsi-meet to use lib-jitsi-meet. <a class='urllink' href='https://github.com/jitsi/jitsi-meet/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+author%3Aisymchych%20and%20https://github.com/jitsi/lib-jitsi-meet/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+author%3Aisymchych+' rel='nofollow'> Fixed serveral bugs in jitsi-meet and lib-jitsi-meet and more</a>
+</li><li>Aaron van Meerten - <a class='urllink' href='https://github.com/jitsi/jitsi-videobridge/pull/136' rel='nofollow'>Updated</a> collect-dump-logs.sh to properly collected OOM dumps after crash, for both JVB and Jicofo. Maintains meet.jit.si. Contributed Jibri.
+</li><li>Lance Stout - <a class='urllink' href='https://github.com/jitsi/jitsi-videobridge/pull/134' rel='nofollow'>Fixed a NPE in jitsi-videobridge when FID groups are used, but SIM groups are not</a>.
+</li><li>David Lee - Contributed <a class='urllink' href='https://github.com/jitsi/jitsi-videobridge/pull/100' rel='nofollow'>a patch</a> to use exec in jitsi-videobridge&rsquo;s startup scripts.
+</li><li>Viktor Horvath - Provided documentation for the Jidesha extension for Chrome (<a class='urllink' href='https://github.com/jitsi/jidesha/pull/6' rel='nofollow'>https://github.com/jitsi/jidesha/pull/6</a>)
+</li><li>David Ertel - Provided documentation for last-n and statistics for jitsi-videobridge. <a class='urllink' href='https://github.com/jitsi/jitsi-videobridge/pull/120' rel='nofollow'>Additional metrics for New Relic, documentation readability updates.</a>
+</li><li>Alexander Dumaine - Fixed a typo and indentation in jitsi-videobridge&rsquo;s bundle documentation. Contributed additions to the jitsi-videobridge documentation for lastN.
+</li><li>Luke Evans - Made the RTP packet cache configurable.
+</li><li>Jesse Bickel - Provided a patch to optionally disable third-party requests from jitsi-meet.
+</li><li>David Wang (Highfive) - Provided a patch for replacing deprecated MediaStream stop method in jitsi-meet. 
+</li><li>Paul Gregoire - Update of Turnserver against newer ice4j version; fixed unit tests in ice4j; added convenience methods in ice4j; configuration option for the DTLS certificate signing algorithm
+</li><li>Claas Beyersdorf - Fixed FORCE_PROXY_BYPASS when Jitsi is used in HA environments
+</li><li>Gustav Spellauge - Provided a patch to Jitsi-Meet which automatically appends the domain name to the username if the username doesn&rsquo;t contain a domain part.
+</li><li>Devin Wilson - Provided a patch to separate the XMPP, UI and RTC modules in Jitsi-Meet. Fixed the Jitsi Meet build. <a class='urllink' href='https://github.com/jitsi/jitsi-meet/pull/366' rel='nofollow'>Improved the Jitsi Meet build so that it pulls all the remaining external dependencies from npm.</a>
+</li><li>Mark Laporte - Provided various fixes to the Jitsi-Meet and Jigasi documentation. Fixed a typo which prevented the etherpad button to be disabled via interfaceConfig.
+</li><li>Maksym Kulish - bug fix and improvements for dynamic config retrieval in Jitsi-Meet.
+</li><li>Issac Gerges - Refactored the Jitsi Meet toolbar HTML code.
+</li><li>Matt Fredrickson - Fixed a bug with ICE role resolution in ice4j.
+</li><li>Mike Keesey - fixed issue in video stream switching functionality of Jitsi-meet used for desktop sharing
+</li><li>Filip Maciejewski - Close only the active chat window with the window close button
+</li><li>Yasen Pramatarov - Provided ant build procedure to create debian packages for jitsi-videobridge. Provided debian packaging for Jitsi Meet. Provided and fixed issues with jitsi-videobridge init start/stop scripts. Provided debian packaging for jigasi. Provided patch for jitsi-meet debian package to configure ssl certificates. Removed add user dependency from jitsi-videobridge package. Fixes init script to work with bash. Fixes log folder permissions for jitsi-videobridge, jigasi and jicofo. Adds a new config param for jitsi-videobridge address of the xmpp server to connect to.
+</li><li>Manuel Blechschmidt - Fixed building the macosx disctibution of Videobridge and Jicofo with ant 1.7, fixed Jicofo compilation with java8.
+</li><li>Paul Gregoire - Provided patches for Jitsi Videobridge to simplify the code and prevent a possible failure to close a Scanner. Fixed the output timestamp in the VP8 and H264 decoders.
+</li><li>Zoltan Bettenbuk - Added a generic interface for logging metrics from Jitsi Videobridge to a could service.
+</li><li>Mihail Diordiev - Provided a patch for Jitsi Meet that fixes javascript injection issue with the names of the participants. Fixed a broken smiley. Fixed showing of angle brackets and newlines in the Jitsi Meet chat. Fixed another javascript injection. Fixed syntax errors in Jitsi Meet. Fixed message timestamps in Jitsi-Meet (using XEP-0203).
+</li><li>Nicholas Wittstruck - Provided a patch for Jitsi Videobridge to replace the full recording path with just the directory name. Provided a patch to enable SSL support for the Jitsi Meet API.
+</li><li>Roland Nemeth - Fixed a problem with (de)serialization of SCTP connections in Jitsi Videobridge. 
+</li><li>Svetlana Velichkova a.k.a. Fo - Fixed tooltips appearing outside of the browser window in jitsi-meet. Fixed some typos in the jitsi-meet messages. Added a button that hides the filmstrip in jitsi-meet. Fixed an issue with chat and bottom toolbar hide / show animations in jitsi-meet. Added a keyboard shortcuts support for jitsi-meet. Fixed an issue with tooltips being cropped by the chat panel in Jitsi Meet. Fixed an issue with the tooltip of the mute icon that never disappears. Added error message dialogs in jitsi-meet. Changed the default display name of participants in jitsi-meet. Fixed a problem with the bottom toolbar not hiding. Fo is now part of the developer team.
+</li><li>Philipp Hancke a.k.a Fippo (ESTOS) - Started and contributed to jitsi.org the first version of the Jitsi Meet application. Has provided a numerous fixes, improvements, features and suggestions on Jitsi Meet. Fippo became part of the developer team but then decided to withdraw from the project. 
+</li><li>Jossekin Beilharz - Provided a patch to fix the initial segment duration of webm files.
+</li><li>LiShunYang - Provided a patch that prevent libjitsi to start multiple times. Provided a patch for parsing an &ldquo;sctpmap&rdquo; XML element.
+</li><li>Thomas Kuntz - Provided a patch to libjitsi implementing a virtual video device producing images fading from black to white and back. Provided a patch to libjitsi implementing a virtual video device, by reading VP8 frames from an IVF file. Provided a patch to libjitsi implementing a virtual device (audio or video), by reading RTP packets from an rtpdump file.
+</li><li>Markus Kilås - Provided patch adding connection information frame, shows whether TLS is used for connected xmpp accounts and the certificate that is used.
+</li><li>Carl Hasselskog - Patched Ice4j: UPnP potential deadlock, Connector closing, CandidateHarvesterSet thread pool merged. Improved Tcp options handling in PseudoTcp. Submitted PseudoTcp performance improvement patch.
+</li><li>Matthew Duggan - Converted the Jitsi Meet installation instructions to MD format. Fixed a bug in Jitsi Meet desktop sharing extension handling.
+</li><li>Dele Olajide - Provided a patch for toggling fullscreen mode in Jitsi Meet. Provided a patch that was used as a basis for linkification and smilification of chat messages in Jitsi Meet.
+</li><li>Sandeep Raghuraman - Patched Jitsi Android: displays contact details when the avatar is clicked, adds missing string resource. Provided a patch for smack, fixing XMPP address parsing.
+</li><li>Danny van Heumen - Fixed keyword highlighting in the chats, thus preventing a serious formatting error in the chat window. Added argument checks for null value in getExistingChat rooms method in MUC service. Fixed StringIndexOutOfBoundsException in the write panel in the chat room window. Fixed an issue with the autocomplete list of chat participants in chat room write panel that is not updating. Fix to disallow focus on static labels in password dialogs. Added support for IRC. Danny is now part of the developer team.
+</li><li>Marin Dzhigarov - Provided a patch to enable OTR for SIP. Implemented an editor for Jitsi&rsquo;s configuration properties. Fixed a bug in OTR where ScOtrEngineImpl.contactsMap wouldn&rsquo;t get cleaned up. Optimized the search in the properties editor. Adds check for image size and content type for the image replacement of links in the chat window. Adds &ldquo;show preview&rdquo; link next to the image link if the preview of the images is disabled. Provided a patch to integrate the latest otr4j library and expose the Socialist Millionaire Protocol (SMP) functionality in Jitsi. Provided a patch allowing to edit account details. Provided a patch with OTR user interface improvements, including new icons and tooltips. Provided a patch with some additional fixes and improvements regarding the account details plugin. Marin is now part of the developer team.
+</li><li>Carl Hasselskog - Patched Ice4j: UPnP potential deadlock, Connector closing, CandidateHarvesterSet thread pool merged. Improved Tcp options handling in PseudoTcp. Fixed deadlock in PTCP and a bug with invalid time values passed to the stack.
+</li><li>Jakub Adamek - Patched Ice4j: fix for receiving data from a TURN server, fixes PseudoTCP on Android with other improvements, changes the keep-alive interval from 3s to 15s to better align with ICE RFC, allows to switch off keep-alives using system property. Adds a fix that skips unnecessary nomination. Improves log messages. Pseudo TCP deadlock fix plus more ice logging improvement and minor fixes.
+</li><li>Toby Pinder - Provided a patch to allow the use of &ldquo;chromium-browser&rdquo; as browser on linux. Provided a patch fixing smileys pack ordering in the chat popup menu. Added configuration properties allowing to disable all additional in-call features except for hangup and chat. Updated the no-script site version. Added some UI site improvements.
+</li><li>Semen Baranov - patch that fixes creating new jabber account with a custom port.
+</li><li>Timothy Price - Provided a patch for updating call history view on end of calls. Provided a patch to allow automatic gain control (AGC) to be enabled/disabled for Windows Audio Session API (WASAPI).
+</li><li>Tzanetos Balitsaris - Provided a patch to allow the libjnpulseaudio.so and libjnopus.so shared libraries to be compiled for FreeBSD. Modified the targets &lsquo;ffmpeg&rsquo;, &lsquo;libvpx&rsquo;, and &lsquo;video4linux2&prime; in libjitsi to build the libraries for FreeBSD. Enabled the detection of PulseAudio and Video4Linux2 systems under FreeBSD.
+</li><li>Pavel Tankov - Created scripts for generating release and nightly RPM packages. Official Maintainer for RPM packages. Reported numerous bugs with the UI, build.xml and the installers. Contributed an extensive study of allowed message length for Yahoo! and ICQ. Contributed patch for adding creation of artifacts for all of the supported OSes for jitsi-videobridge project. Contributed a patch to allow starting of jitsi-videobridge from an arbitrary directory, and a patch which fixes passing of arguments in the windows startup script of jitsi-videobridge, and patch to create source distribution for jitsi-videobridge and libjitsi.
+</li><li>Jim Radford - Patch to compare OTR fingerprints case insensitively
+</li><li>Markus Kilås - Provided a patch to avoid undesirable technical call info resize and scroll. Provided a patch the fixes chat window keyboard navigation. Provided a patch to tab out of the contact search field. Provided a patch to re-layout the chat invitation dialog. Provided a patch that fixes chat and contact list menu navigation. Provided a patch to show the TLS certificate used for the connection to the server (accessible from the call details window). Provided a patch to fix building with Netbeans.
+</li><li>David Bolton - Contributed a new default ringing tone. Contributed setup documentation for Facebook chat. Created an installation instructions page for Windows. Contributed a jit.si account setup page. Contributed GTalk usage instructions. Contributed instructions for using Thunderbird search. Contributed Windows installation instructions. Added step by step explanation for changing one&rsquo;s XMPP password in XMPP and jit.si
+</li><li>Jan Kaláb - Patch that adds organization name in LDAP search results.
+</li><li>Stefan Sieber - Patch to allow XMPP login with client certificates
+</li><li>Hristo Terezov - Contributed a patch adding the username of the remote party to the recorded call file name. Provided a patch that fills display name when adding contacts from contact sources such as Outlook, Google Contacts or MacOSX Contacts. Fixes copying of images and smilies in the chat window and history window. Provided a fix for copying message headers in the chat window. Added implementation for sip response 180 to be retransmitted 3 times. Provided an implementation for push-to-talk with a global shortcut for all operating systems. Hristo is now part of the developer team.
+</li><li>Pawe&#322; Domas - Contributed a PseudoTCP implementation to ice4j.org. Patched &ldquo;Jitsi System Tray not initialized on Ubuntu 12.04&Prime; reported on the dev mailing list. Contributed a patch fixing multiple notifications icons in the Jitsi android version. Contributed an Android specific implementation of the resource management. Added account presence status and account settings implementations for Android. Fixed a concurrent modification exception during a call hang up. Provided a patch that keeps the hold button enabled when we&rsquo;re remotely on hold (this status is indicated by an icon and a status name). Fixed a NullPointerException in SystrayService accessing. Finished the implementation of call via. Pawel is now part of the developer team.
+</li><li>Pedro Bidarra - Reported a problem with signing dmg and firewall always asking for permission on every start on OS X 10.6, proposed a fix and links of other projects discussing the same problem.
+</li><li>Benoît Laniel - Patched an FFmpeg call fixing the use of Periodic Intra Frame Refresh in the H.264 encoder. Added a property to configure the video bitrate used (and an option to set it through the GUI).
+</li><li>Heikki Lindholm - Reported problem with png images which prevented Jitsi from loading and offered a way to fix it.
+</li><li>Ivan Vergiliev - Contributed last message correction for XMPP (XEP-0308). Provided a patch removing yellow background from chat area when the corrected message will be send as a new message. Added support for proper editing of messages with smilies and newline characters, and a couple of small refactorings in the chat window code. Fixed incorrect HTML rendering in the chat window. Ivan is now part of the dev team.
+</li><li>Tom Denham - Patched up the case where calls were being wrongly accepted and the only mutually supported payload type was telephone-event. Patched a NPE thrown when a schemeless URL is clicked in the chat window. Added a missing resource and fixed an incorrectly set tooltip. Added a property to disable sip messaging. Added option for scheduling updates once a day. Improved Yahoo login to re-ask for credentials on error. Added an option to hide stacktrace from error dialog. Added an option to disable videobridge, and not show call info when no information is available. Contributed patch to support protocols without wizards. Modified the Voicemail notifications GUI so that it would also display the number of urgent voicemail messages. Patch to avoid dialing empty numbers and option to check remember password by default. Tom is now part of the dev team. 
+</li><li>Vieri Di Paola - Provided a patch to pass caller information to the incoming call command notification handler. Provided a patch adding properties to custom the GUI. Provided a patch that prevents the chat window to steal the focus on a new message. Fixed port number validation in the ICE configuration form. Provided a patch that allows for any system or environment property to be specified and retrieved via a provisioning URL. 
+</li><li>Boris Grozev - Patched &ldquo;sound selection file manager will not enter non-empty directories&rdquo; reported on the dev mailing list. Implemented supported for changing passwords from within Jitsi on XMPP servers that support it. Added a password strength meter to XMPP password changes and other various improvements. Fixed the possibility to disable/enable smileys. Fixed the AIM account registration link. Added an empty png for spellcheck languages without a flag and that were appearing with the American one. Fixes an exception that used to occur when an account is enabled through the options window while trace logging is on. Implemented the possibility to configure different codec preferences for every XMPP and SIP account in Jitsi. Added support for the IETF Opus codec. Fixed a problem that prevented Jitsi from using formats that are disabled by default. Boris is now part of the dev team. 
+</li><li>Alexandros Papadopoulos - Reported wrong filter issue for the sound event file dialog. Reported inaccurate messages used in OTR.
+</li><li>Daniel Pocock - Provided various patches to improve Ice4j.
+</li><li>Andreas Granig - Reported provisional response for SIP presence issue.
+</li><li>Daniel Perren (University of Applied Sciences Northwestern Switzerland) - Various little improvements in the OTR plugin
+</li><li>Daniel Zucchetto - Completed the italian translation of Jitsi. Provided a patch to correct checkbox gray background and button rectangular border on linux.
+</li><li>Davide Corda - Reported wrong parameter in HttpUtils.
+</li><li>Jonas Lauener (University of Applied Sciences Northwestern Switzerland) - Various minor fixes to the OTR plugin
+</li><li>Purvesh Sahoo (India) - Fixes some more chat room issues, among which: allows to set nickname for rooms by right clicking the room name, no contact list displayed, not displaying history messages more than once. Updated the spell check implementation and provided some important improvements. Provided group chat improvements and fixes, including the /me command and tab key automatic nickname insert. Provided support for video and photo previews in chat window. Worked on improving the feature.
+</li><li>Chris Maciejewski - Provided a patch that shows SIP contact display name instead of SIP URI in chat windows.
+</li><li>Michael Schliep - Provided a patch fixing the display of multiple lines status messages in the contact list tooltip. Also implemented a patch showing status messages in the contact details window.
+</li><li>Andreas Kuckartz - Improve error messages patch.
+</li><li>Ingo Bauersachs - (University of Applied Sciences Northwestern Switzerland) Provided a patch which closes Call Dialog and fails the call if SDP parsing  throws an error. Patch that improves the reliability of the Parallel DNS Resolver. Patch for easy configuring the Parallel DNS Resolver. Patch updating the CertificateVerificationService to validate and client certificates and some general options. Provided a patch fixing the use of hardcoded values comparison in the message dialog. Provided a patch that requests the focus in authentication windows depending on whether a username is already entered and completes the handling of the lock usage. Ingo is now part of the developer team.
+</li><li>Akash Nawani - Provided patches that fix issue #858: Jabber Account Registration Wizard tabs aren&rsquo;t blue-themed. Provided patches that enable the blue theme for the tabs of various pages in Tools &gt; Options.
+</li><li>Nitish Upreti - Updated and synchronized the outdated spell check branch thus contributing to its integration into the trunk.
+</li><li>Damian Johnson - (Canada) - Contributed key binding plugin that manages all defined application key bindings. Provided a spell check implementation based on jmyspell.
+</li><li>Adam Neto&#269;ný (CircleTech, s.r.o.) - Provided a patch introducing the bases of skin management in SIP Communicator. Introduced realtime refresh user interface mechanism. Provided skin manager user interface. Made chat window interface completely skinnable.
+</li><li>ScopServ International Inc. - Contributed (via BlueJimp) support for on-line provisioning and DHCP discovery for provisioning servers.
+</li><li>Dmitry A. Bakshaev - Reported <a class='urllink' href='https://sip-communicator.dev.java.net/issues/show_bug.cgi?id=856' rel='nofollow'> issue #856: &ldquo;echo cancel&rdquo; chekbox dont work</a> and provided a patch.
+</li><li>Christian Schanes - Reported and fixed a security vulnerability caused by the way caller information was handled in the user interface.
+</li><li>Atul Aggarwal (India) - Proposed a patch for correcting error management when installing a new RSS account. Contributed most of our current proxy support.
+</li><li>Matthieu Casanova - Contributed a patch to fix NullPointerException thrown in the Accounts configuration form and to update the enabled state of its Edit and Delete buttons. Contributed four patches fixing key events and a NullPointException in the contact list. Contributed a patch fixing dialog and frame position in a dual screen mode. Fixed a possible NullPointerException in the about window. Provided a patch to disable the back button in the first page of the add contact wizard. Reported a bug preventing from calling an unknown contact, when having only one telephony provider. Provided a patch fixing incorrect string comparison in some classes. Matthieu is now part of the developer team.
+</li><li>Frédéric Fournier (SOM - Canada) - Reported a problem, and a fix thereof, with the order of consideration for SIP registration expiration intervals returned by registrars.
+</li><li>Richard S. Hall (Sun Microsystems - USA) - Did most of the debugging and provided specific indications for migration during our migration to felix 1.4.0. Reported a formatting problem (and fix thereof) in felix.client.run.properties. Contributed a patch, migrating SIP Communicator to Apache Felix 2.0.2.
+</li><li>Sebastien Vincent - Contributed five patches which fixed thousands of compiler and javadoc warnings. Also contributed a native implementation of the getLocalHost( destAddr ) method on Windows. Fixed three build-time warnings in third-party libraries caused by classpath definitions in their manifest files. Fixed an OutOfMemoryError in build.xml when building the javadocs. Contributed a patch which fixes a documentation comment in a C file and a fallthrough warnings in a Java file. Introduced a utility class to check the exectuing operating system and architecture. Contributed 64-bit Windows binaries and Renderer fixes. Sebastien is now part of the developer team.
+</li><li>Arnaud Roemer (University of Strasbourg - France) - Contributed a patch allowing to close chat tabs with the middle mouse button.
+</li><li>Valentin Martinet (University of Strasbourg - France) - Contributed role support for Jabber group chat. Also contributed all interfaces, corresponding protocol (Msn, Yahoo and Icq) and user interface implementations for the ad-hoc group chat. Contributed a SIP Communicator desktop wallpaper. Valentin is now part of the developer team.
+</li><li>Dilshan Amadoru - Some of his work on sound level indicators during <a class='wikilink' href='GSoC.html'>GSoC</a> has been integrated as part of the ongoing work on conference user interface.
+</li><li>Edgar Poce - Contributed to a patch that set the focus automatically on the text field in the dialog to create groups. Reported a bug and contributed a patch that returns focus to the chat area when trying to send an empty message. Reported an issue and contributed modified files into it to fix broken Facebook Chat protocol implementation.
+</li><li>Matthieu Helleringer - Contributed the basis of support for GMail notifications.
+</li><li>Alain Knaebel - Contributed the basis of support for GMail notifications.
+</li><li>Linus Wallgren (<a class='wikilink' href='GSoC.html'>GSoC</a> student - Sweden) - Contributed a patch that allows other bundles, than the gui, to obtain currently existing chats and a contact for a certain chat. Contributed a patch that allows SC bundles classes to obtain a reference to the system default System.out PrintStream after we override it ScStdOut. Contributed a patch which creates a ShutdownService to abstract the application shutdown procedure and make it available to other bundles.
+</li><li>Egidijus Jankauskas (<a class='wikilink' href='GSoC.html'>GSoC</a> student - UK) - Reported an issue with consecutive message popup notifications and provided a patch that fixes the problem. Proposed a native implementation for Growl. Worked on the update of the Sparkle framework for the MacOSX packages. Egidijus is now part of the developer team.
+</li><li>Romain Philibert - (Lyon - France) - Contributed codec improvements.
+</li><li>Dai Zhiwei - Contributed a patch to fix the throwing of NullPointerException with details on the cause in the Gibberish and Icq ProtocolProviderFactory implementations. Contributed a first version of support for Facebook.
+</li><li>Joan Antunes - Reported a bug and solution for the file transfer implementation.
+</li><li>Anthony Schmitt (University of Strasbourg - France) - Worked on a prototype for file transfer. The prototyped was used in the actual implementation of file transfer in SIP Communicator.
+</li><li>Sebastian Heib (Synyx - Germany) - Added a contact aware call menu in the right button menu of the contact list. Disable sending messages from protocol which doesn&rsquo;t support this.
+</li><li>Javier Mendiara Cañardo - Provided multiple fixes for the call dialpad, which enabled the correct sending of DTMF tones through the GUI. Reported a problem related to DNS resolution when an outbound proxy is defined with an IP address rather than a domain name. Fixed exports for the util manifest.
+</li><li>Martin Harvan (Kosice - Slovakia) - Submitted a patch to fix the nicknames being not fully displayed in chat tabs. Provided a patch to fix not disappearing envelope icons.
+</li><li>Sébastien Mazy (Lyon - France) - Submitted a patch to resize avatars in a way respecting the ratio of the original image. Contributed a patch to fix the typo isDeafult in impl.notification.NotificationServiceImpl. Contributed a patch to fix the typo addSubsciptionListener by replacing it with addSubscriptionListener. Provided a patch enabling the delete button in all editable combo boxes. Contributed a patch fixing the log4j bundle which was previously displayed as an &ldquo;unknown bundle&rdquo; by our plugin manager. Submitted a patch that fixes trackpoint scrolling in the contact list. Contributed a patch that enables parameter passing to exported windows in user interface. Provided an implementation of the exported window parameter pass for the &ldquo;Add Contact Wizard&rdquo;. Submitted a patch that allows SIP Communicator to always use a single instance of the jain-sip stack instead of one instance per account as it was first implemented. Sebastien is now part of the developer team.
+</li><li>Alan Kelly - (George Mason University - USA) - Contributed a patch that fixes adding of plugin components in the main window toolbar. Submitted a fix for the way the Whiteboard access menu item was being registered with the application. Submitted a patch that allows us avoiding DNS queries by the SIP package when using raw IP addresses. Improved code for resolving SIP and XMPP addresses though SRV queries. Made the tabs in the configuration frame scrollable. Changed some important UI strings to improve consistency. Contributed modifications of all application resources to match the new resource convention. Removed the tool tips of the main menu items. Alan is now part of the developer team.
+</li><li>Sergio Carrilho - (University of Tokyo, Japan) - Provided a Portuguese translation.
+</li><li>Rupert Burchardi - (Berlin - Germany) - Provided a full implementation of group chat for the  MSN, ICQ and Yahoo protocols.
+</li><li>Werner Dittmann (Deutsche Telekom Online, Germany) - Contributed improvements to the SRTP implementation. Provided ZRTP4J (see project&rsquo;s contributions below). Fixed build.xml to take into account the architecture that we are running on when constructing LD_LIBRARY_PATH on linux. Committed a patch that removes improper logging. Removed unnecessary casts from ZRTPUserCallback to SCCallback. Provided documentation for the ZRTP4J message codes. Werner is now part of the developer team.
+</li><li>Emanuel Onica - Romania - Provided an early version of the support for &ldquo;no registrar&rdquo; accounts in SIP. Provided the ZRTP implementation as part of <a class='wikilink' href='GSoC.html'>GSoC</a> 2008. Moved SecureEvent and SecureEventListener from the .service.protocol package into the .service.protocol.event package.
+</li><li>Vladimir Škarupelov - Provided the Profiler4J integration work.
+</li><li>Damien Roth (University of Strasbourg - France) - Provided the DICT protocol and wizard implementation and documentation. Improve the DICT protocol with a method which renames automatically DICT new accounts with their descriptions in order of their codes ID. Contributed a patch that sorts the list of plugins shown in the plugin manager. Contributed a patch that fixes some about window and splash screen bugs. Contributed the following improvements to the automatic status change configuration dialog: Set a title; Allow the user to close it with the X button; use dispose() instead of setVisible(false); Update the design to fit with the other dialogs (for the two buttons at the bottom of the dialog); no border and align to the right. Now a part of the developer team.
+</li><li>Cristina Tabacaru - Contributed a Romanian translation. Started the <a class='urllink' href='https://sc-android.dev.java.net' rel='nofollow'> sc-android</a> project on java.net.
+</li><li>Guillaume Schreiner (University of Strasbourg - France) - Provided a set of black&amp;white icons for the MacOSX systray.
+</li><li>Lubomir Marinov (Bulgaria) - Contributed a semi-implementation layer for protocol provider services. Reported unused classes in the plugin hierarchy. Moved isRegistered() method for all protocol providers to AbstractProtocolProviderService. Contributed a customized Jabber wizard for creating Google Talk accounts. Updated icons for the Google Talk account wizard. Fixed a NullPointerException during initialization of SIP accounts. Contributed support for call hold in SIP (based on a patch from Maxime Bourdon &amp; Thomas Meyer ). Contributed code for .sip-communicator directory management on MacOSX and Windows and the creation of the sc-launcher as a bundle. Lubomir is now part of the developer team.
+</li><li>Dan-Cristian Bogos (ITsysCOM - Germany) - Tracked down, and reported a set of bugs with authentication and CSeq numbering in the SIP Protocol Provider. Reported that destination URIs for SIP messages were rejected unless they have a valid AAAA/A record. Reported that display names were not shown for volatile contacts.
+</li><li>Maxime Bourdon &amp; Thomas Meyer (University of Strasbourg - France) - implemented and contributed a plugin for extended and searchable call history. Submitted a first version of support for call hold.
+</li><li>Alexandre Maillard - (Louis Pasteur University - France) - Contributed notification&rsquo;s configuration form.
+</li><li>Przemyslaw Dudek (Nextiraone - Poland) - Submitted a patch to get rid of nasty hand array coping in call session implementation.
+</li><li>Cédric Litzelmann (Louis Pasteur University - France) - Provided the DICT protocol and wizard implementation and documentation.
+</li><li>Keio Kraaner (Estonia) - Contributed a mechanism for filtering incoming instant messages.
+</li><li>Ivo Petrov &amp; Tsvetan Petrov (<a class='urllink' href='http://www.ipa.bg' rel='nofollow'>Ivo Petrov Architects</a>) - Contributed the new SIP Communicator logo for the 1.0 release (used all over this site).
+</li><li>Dave Trollope (Lucent Technologies) - Reported inconsistent build.xml naming, contributed the first piece of user doc.  
+</li><li>Romain Kuntz (Nautilus6 Project - Japan) - Created scripts for generating Mac OS X installers. Created a module that uses growl on Mac OS X for popup notifications. Romain is now part of the developer team.
+</li><li>Jean-Marie Heitz (Louis Pasteur University - France) - improved javadoc comments in some methods of AccountID and WizardPage. Contributed an OperationSet for sending DTMF tones during a call. Reported numerous issues with the protocol implementation tutorial. Contributed an implementation of OperationSetDTMF for SIP, using SIP INFO messages.
+</li><li>Pablo L. (Spain) - Fixed several bugs related to TLS usage with the SIP protocol provider. Contributed a tutorial explaining how to use SIP Communicator with TLS. Reported and fixed a problem with SDP parsing occurring in the absence of a global connection param.
+</li><li>Vincent Lucas (Louis Pasteur University - France) - contributed a javadns based implementation of the NetworkUtils.getSRVRecords() method (previously based on JNDI). The method would now work on systems with IPv6 DNS servers. Added item abstracts (when they exist) for RSS feeds in ProtocolProviderServiceRssImpl. Together with Mihai, fixed formatting of HTML messages in the GUI. Mentored Mihai Balan during <a class='wikilink' href='GSoC.html'>GSoC</a> 2007. Contributed the alpha3 banner. Submitted a patch that allows closing the startup splash screen. Provided an alpha2 news banner. Contributed a French translation. Vincent is now part of the developer team.
+</li><li>Nicolas Chamouard (Louis Pasteur University - France) - contributed extended support for a systray control module with notification tray popups for incoming messages. 
+</li><li>Chris Vincenot (Louis Pasteur University - France) - reported a problem (and fix thereof) with the export of the org.apache.xml.serialize package. Chris is now part of the development team.
+</li><li>Tom Remoleur (Louis Pasteur University - France) - reported numerous bugs and proposed fixes on issues such as: missing method for removing components from the UI Service, a failing config component would cause the whole Config Form display to crash (instead of gracefully removing the failing component), setting a property value in the ConfigurationService would not work if the property has been previously set to null. Reported multiple problems with the nightly source snapshots.
+</li><li>Nicolas Grandclaude (Louis Pasteur University - France) - extended the Jabber account creation wizard with the possibility of registering a new account on one of the servers advertised by  www.jabber.org/servers.xml . Added the possibility of defining a resource name and priority when creating jabber accounts.
+</li><li>Jean-Albert Vescovo (Louis Pasteur University - France) - contributed an RSS implementation of the protocol provider service. RSS flows can now be added as contacts to our contact list and new events are displayed as instant messages. 
+</li><li>Benoit Pradelle (Louis Pasteur University - France) - contributed support for SIP instant messaging (i.e. an implementation of OperationSetBasicInstantMessaging). Ben is now part of the developer team.
+</li><li>Christian Vincenot (Louis Pasteur University - France) - contributed support for Bonjour/Zeroconf. 
+</li><li>Ryan Ricard (University of Texas - USA) - made build.xml usable from outside the project directory. Contributed a first version of an audio video mailbox.
+</li><li>Mihai Balan (Politehnica University of Bucharest - Romania) - Fixed RSS incompatibility coming from the default Java User-Agent header value. Added support for Avatars to RSS by using favicons  or the RSS default image. Added HTML formatting for RSS messages in ProtocolProviderServiceRssImpl. Together with Vincent, fixed formatting of HTML messages in the GUI. Provided item identification mechanism for RSS feeds. Fixed smilies representation for text/html message type in the GUI. Wrote the SLICK tests for RSS.
+</li><li>Symphorien Wanko (Louis Pasteur University - France) - Fixed call start time initialization in the GUI. Reported some other bugs considering the call gui. Submitted a fix for properly shutting down Jabber Protocol Providers on Bundle stop. Fixed recording media processor creators. Fixed warning while compiling with 1.5. Reported and fixed deprecation warnings in ContactRssImpl. Implemented Drag&amp;Drop in the contact list and automatic choose of default telephony account when a telephony contact is selected. Implemented support for Jingle. Sympho is now part of the developer team.
+</li><li>Adam Goldstein (Brandeis University - USA) - Provided a patch that fixed a duplicated group creation problem.
+</li><li>Michael Koch - Provided a patch for registering custom codecs and formats in JMF. Provided i18n improvements (including fixes and comments for the build.xml and the GUI messages.properties). Reported and fixed broken javadoc target on Windows XP. Improved RTP flow statistics in CallSessionImpl. Fixed a memory leak in MediaSessionImpl. Fixed player deallocation in CallSessionImpl. Fixed a memory leak in CallSessionImpl. Suggested patches for synchronizing methods in CallSessionImpl and Operation Set Basic Telephony SipImpl. Submitted graceful handling for duplicate OK responses during call initiation. Submitted a patch that causes ACK-s to be sent earlier and thus helps avoid OK retransmission. Michael is now part of the developer team.
+</li><li>Thomas Hofer - Updated the documentation for Eclipse by adding new information about Eclipse v3.3 and completing the debug configuration manual. Reported an issue with Systray imports and fix thereof. Reported and fixed bugs in the notification system. Reported a bug (and fix thereof) when selecting audio formats in MediaControl. Reported fix in the name of Alaw Packetizer. Provided ulaw Packetizer. Provided localization files in German for the ui and systray bundles. Reported fix for buffer length in MediaControl. Thomas is now part of the developer team.
+</li><li>Jeroen van Bemmel - Fixed issues with SIP authentication and registration request creation.
+</li><li>Alexandros Karypidis - reported some problems in the Eclipse Configuration documentation.
+</li><li>Stephane Remy - provided implementation of the IRC protocol.
+</li><li>Loic Kempf - provided implementation of the IRC protocol.
+</li><li>Ralph Weires - Reported and fixed wrong implementation of charset handling in SIP IM messages. Reported and fixed some issues in SIMPLE preventing it from working with other SIP clients. More generally, helped us in improving the SIMPLE capacities of SC.
+</li><li>Michael (mik) Kraizelman - Advised on caching TCP connections and thus improving support for TCP SIP in SIP Communicator.
+</li><li>Elsa Tai - Reported a bug in the QuickMenu that caused the disappearing of the tool bar when the info button was removed.
+</li><li>Enrico Marocco (Telecom Italia) - Contributed an Italian translation.
+</li><li>NIE PIN (Helsinki University of Technology - Finland) - Contributed a simplified Chinese translation.
+</li><li>Jean-Daniel GIORDANI (Louis Pasteur University - France) - Provided a french translation for the systray module.
+</li><li>Daniel Veljjanoski - Proposed a nice display with html rendering of the error dialog.
+</li></ul><div class='vspace'></div></div>
+<div id='separatorNews' >
+</div>
+<div id='titleNews' >
+<p><a name='libs' id='libs'></a> Jitsi uses binaries or source code from the following projects (alphabetically)
+</p></div>
+<p><br clear='all' /><br clear='all' />
+<a class='urllink' href='http://www.acproductions.de/commercial/aclibico/' rel='nofollow'>AC.lib-ICO</a> - Reads images in MS ICO file format (i.e., favicon.ico) from URL, file, stream, and buffer and converts them into Java Image objects. We are using AC.lib-ICO for avatar support in the RSS protocol provider.<br clear='all' />
+<a class='urllink' href='http://incubator.apache.org/felix' rel='nofollow'>Apache Felix</a> - SIP Communicator is built around an OSGI core that gives us our modularity. Felix is an OSGI implementation by Apache, that we have chosen for its quality and reliability.<br clear='all' />
+<a class='urllink' href='http://www.centerkey.com/java/browser/' rel='nofollow'> BareBonesBrowserLaunch.java</a> - A simple tool that  opens a native web browser from a Java application.<br clear='all' />
+<a class='urllink' href='http://cruisecontrol.sourceforge.net/' rel='nofollow'> CruiseControl</a> - The continuous build system that we use for nightly builds in SIP Communicator.<br clear='all' />
+<a class='urllink' href='http://dict4j.dev.java.net/' rel='nofollow'> dict4j</a> - A java client for the DICT Protocol. Developed by ROTH Damien and Litzelmann Cédric.<br clear='all' />
+<a class='urllink' href='http://ffmpeg.org' rel='nofollow'> FFmpeg</a> - a complete solution to record, convert and stream audio and video.<br clear='all' />
+<a class='urllink' href='http://fmj-sf.net' rel='nofollow'> FMJ</a> - an alternative to Java Media Framework (JMF)<br clear='all' />
+<a class='urllink' href='http://growl.info' rel='nofollow'>growl</a> - A Mac OS X notification daemon.<br clear='all' />
+<a class='urllink' href='http://www.izforge.com/izpack' rel='nofollow'>IzPack</a> - An installer generator for the Java platform. Produces lightweight installers that can be run on any operating system whether a Java virtual machine is available or not.<br clear='all' />
+<a class='urllink' href='https://java.net/projects/jsip' rel='nofollow'>jsip (jain-sip)</a> - Our SIP stack. Developed by Mudumbai (Ranga) Rangnathan and a long list of contributors.<br clear='all' />
+<a class='urllink' href='http://java-jml.sourceforge.net/' rel='nofollow'>java-jml</a> - An implementation of the MSN protocol<br clear='all' />
+<a class='urllink' href='http://stun4j.dev.java.net' rel='nofollow'>JmDNS</a> - A Java implementation of multi-cast DNS that we use for service registration and discovery in local area networks. We use JmDNS for compatibility with the Rendezvous/Bonjour/ZeroConf protocol.<br clear='all' />
+<a class='urllink' href='http://dnsjava.org/' rel='nofollow'>dnsjava</a> - An implementation of DNS for Java, supporting all defined record types (including the DNSSEC types). It also works for custom DNS types.<br clear='all' />
+<a class='urllink' href='http://code.google.com/intl/fr/apis/contacts/docs/3.0/developers_guide_java.html' rel='nofollow'>Google Contacts Data API</a> - Java libraries to access Google Contacts.<br clear='all' />
+<a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a> - A Java implementation of the ICE, STUN and TURN protocols.<br clear='all' />
+<a class='urllink' href='http://kenai.com/projects/jmyspell' rel='nofollow'>jmyspell</a> - A 100% pure-Java implementation of the MySpell spell checker.<br clear='all' />
+<a class='urllink' href='http://joust.kano.net/' rel='nofollow'>joscar</a> - An implementation of the oscar protocol that we use for support of ICQ. The stack is developed by Keith Lea and a list of contributors.<br clear='all' />
+<a class='urllink' href='http://jspeex.sourceforge.net/' rel='nofollow'>jspeex</a> - A java implementation of the speex audio codec.<br clear='all' />
+<a class='urllink' href='http://jymsg9.sourceforge.net' rel='nofollow'>jYMSG</a> -  YMSG Java API - Yahoo Instant Messenger Support for Java.<br clear='all' />
+<a class='urllink' href='https://laf-widget.dev.java.net/' rel='nofollow'>laf-widget</a> - A collection of &ldquo;behavioural traits&rdquo; or &ldquo;widgets&rdquo; for third-party Swing look-and-feels.<br clear='all' />
+<a class='urllink' href='http://lti-civil.org' rel='nofollow'> LTI-CIVIL</a> - a Java library for capturing images from a video source such as a USB camera.<br clear='all' />
+<a class='urllink' href='http://code.google.com/p/macwidgets/' rel='nofollow'>macwidgets</a> - A collection of widgets seen in OS X applications, offered in a Java API.<br clear='all' />
+<a class='urllink' href='http://ymasory.github.com/OrangeExtensions/' rel='nofollow'>OrangeExtensions</a> - A pluggable jar containing stubs for the Apple Java Extensions, updated for Java 5 and 6.<br clear='all' />
+<a class='urllink' href='http://www.portaudio.com/' rel='nofollow'>PortAudio</a> - A free, cross-platform, open-source, audio I/O library.<br clear='all' />
+<a class='urllink' href='http://www.igniterealtime.org/projects/smack/index.jsp' rel='nofollow'>Smack</a> - An Open Source XMPP (Jabber) client library for instant messaging and presence.<br clear='all' />
+<a class='urllink' href='http://sdes4j.imvs.ch' rel='nofollow'>sdes4j</a> - Parsing and generation of SDES SDP-Attributes (<a class='urllink' href='https://tools.ietf.org/html/rfc4568' rel='nofollow'>RFC 4568</a>)<br clear='all' />
+<a class='urllink' href='http://sparkle.andymatuschak.org/' rel='nofollow'>Sparkle</a> - A software update framework for MacOSX.<br clear='all' />
+<a class='urllink' href='http://stun4j.dev.java.net' rel='nofollow'>stun4j</a> - An implementation of the STUN and (hopefully soon) TURN protocols.<br clear='all' />
+<a class='urllink' href='http://savannah.gnu.org/projects/ccrtp' rel='nofollow'>ZRTP4J</a> - An implementation of the ZRTP protocol in Java developed by Werner Dittmann.<br clear='all' />
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<h2><a name='toc4' id='toc4'></a> <a name='Translations' id='Translations'></a> Translations</h2>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/ar/sip_communicator/' rel='nofollow'>Arabic</a> 
+</p></td><td style='text-align:center;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Amer C. , Ahmed Hawk
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/bg/sip_communicator/' rel='nofollow'>Bulgarian</a>
+</p></td><td style='text-align:center;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Emil Ivov , Yana Stamcheva
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/zh_CN/sip_communicator/' rel='nofollow'>Chinese (China)</a>
+</p></td><td style='text-align:center;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Nie Pin
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/cs/sip_communicator/' rel='nofollow'>Czech</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Radek Terber
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/fr/sip_communicator/' rel='nofollow'>French</a>
+</p></td><td style='width:70%;'  valign='top' >
+<p><span class='centre'> Jean Lorchat , Damien Roth , Valentin Martinet , Martin André , Maklerzentrum Schweiz AG</span>
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/de/sip_communicator/' rel='nofollow'>German</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Thomas Hofer , Michelle Konzack , Werner Dittmann , Ingo Bauersachs
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/el/sip_communicator/' rel='nofollow'>Greek</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Nikolaos Paraschou, George Politis
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/id/sip_communicator/' rel='nofollow'>Indonesian</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Adi Gita Saputra
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/lt/sip_communicator/' rel='nofollow'>Lituanian</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Egidijus Jankauskas
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/pl/sip_communicator/' rel='nofollow'>Polish</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Micha&#322; Jasi&#324;ski
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/it/sip_communicator/' rel='nofollow'>Italian</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Enrico Marocco
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/ja/sip_communicator/' rel='nofollow'>Japanese</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Koshiro Mitsuya
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/pt/sip_communicator/' rel='nofollow'>Portuguese</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Sergio Carrilho , Joao Antunes
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/ro/sip_communicator/' rel='nofollow'>Romanian</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Cristina Tabacaru , Alex Fliker , Laura Vasilescu
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/ru/sip_communicator/' rel='nofollow'>Russian</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Shishkovets , Alex Fliker
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/si/sip_communicator/' rel='nofollow'>Sinhala</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Amila Manoj
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/es/sip_communicator/' rel='nofollow'>Spanish</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Javier Mendiara Cañardo , Alejandro Castro , Fernando Cassia
+</p></td></tr><tr ><td colspan='2'  valign='top' >
+<div id='separator1' >
+</div>
+</td></tr></table>
+<table id='jobs' style='margin:0 auto;' border='0' align='justify' width='960px' >
+<tr ><td style='padding-right:20px;width:30%;'  valign='top' >
+<p  style='text-align: left;'> <a class='urllink' href='http://translate.jitsi.org/tr/sip_communicator/' rel='nofollow'>Turkish</a>
+</p></td><td style='padding-right:20px;width:70%;'  valign='top' >
+<p  style='text-align: center;'> Ferhat Elmas
+</p></td></tr></table>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<h2><a name='gsoc' id='gsoc'></a> Google Summer of Code</h2>
+<div id='subttl' >
+<p><a class='wikilink' href='GSoC.html'>GSoC</a> 2014 Students
+</p></div>
+<p><a name='gsoc14' id='gsoc14'></a>
+</p><div id='people' >
+<ul><li>Thomas Kunz<br />
+</li><li>LiShunYang
+<div class='vspace'></div></li><li>Aakash Garg
+</li></ul></div>
+<div class='vspace'></div><div id='subttl' >
+<p><a class='wikilink' href='GSoC.html'>GSoC</a> 2012 Students
+</p></div>
+<p><a name='gsoc11' id='gsoc11'></a>
+<em>Donated by the <a class='urllink' href='http://xmpp.org' rel='nofollow'>XMPP Standards Foundation</a></em>
+</p><div id='people' >
+<ul><li>Pawe&#322; Domas - Jagiellonian University, Krakow (Poland)<br /><a class='wikilink' href='../GSOC/PseudoTCP.html'> Support for Pseudo TCP in ice4j.org</a>
+</li></ul></div>
+<div class='vspace'></div><div id='subttl' >
+<p> <a class='wikilink' href='GSoC.html'>GSoC</a> 2011 Students
+</p></div>
+<div id='people' >
+<ul><li>Andy Gorski - Wroclaw University of Technology (Poland)<br /><a class='wikilink' href='../GSOC2011/KamailioJingle.html'> A SIP to Jingle (XMPP) gateway in Kamailio (OpenSER)</a>
+</li><li>Mariusz Okrój  - Gdansk University of Technology (Poland)<br /><a class='wikilink' href='../GSOC2011/XmppWireshark.html'> Wireshark dissector for XMPP</a>
+<div class='vspace'></div></li><li>Xu Dingxin - Graduate University of the Chinese Academy of Sciences (China) <br /><a class='wikilink' href='../GSOC2011/WidebandCodecs.html'> Support for the SILK and Opus wideband codecs</a>
+<div class='vspace'></div></li><li>Purvesh Sahoo - Kalinga Institute of Industrial Technology (India) <br /><a class='wikilink' href='../GSOC2011/SpellChecker.html'> Spell checking</a> and XMPP Chatrooms
+</li></ul></div>
+<div class='vspace'></div><div id='subttl' >
+<p><a name='gsoc10' id='gsoc10'></a> <a class='wikilink' href='GSoC.html'>GSoC</a> 2010 Students
+</p></div>
+<div class='vspace'></div><div id='people' >
+<ul><li>Dmitri Melnikov - Estonia<br />Passwd storage and Call Recording
+<div class='vspace'></div></li><li>Grigorii Balutsel - Belarus<br />XCAP support for SIP
+<div class='vspace'></div></li><li>Jing Dai - China <br />Support for CELT and SILK
+<div class='vspace'></div></li><li>Marius - Ovidiu Bucur, Romania<br />Conf calls in Kamailio
+<div class='vspace'></div></li><li>Mihaita-Alexandru Leoveanu - Romania<br />Audio levels with SEMS
+<div class='vspace'></div></li><li>Purvesh Sahoo - India <br />Video and photo previews
+<div class='vspace'></div></li><li>Valentin Martinet - France<br />Calls With MSN
+</li></ul></div>
+<div class='vspace'></div><div id='subttl' >
+<p><a name='gsoc09' id='gsoc09'></a> <a class='wikilink' href='GSoC.html'>GSoC</a> 2009 Students
+</p>
+<div class='vspace'></div></div><div id='subttl' >
+<p><a name='gsoc08' id='gsoc08'></a> <a class='wikilink' href='GSoC.html'>GSoC</a> 2008 Students
+</p></div>
+<div class='vspace'></div>
+<div id='people' >
+<ul><li><a class='urllink' href='http://gsoc08-e4.blogspot.com/' rel='nofollow'> Anthony Schmitt</a> - Strasbourg, France
+</li><li><a class='urllink' href='http://atulsip.wordpress.com' rel='nofollow'> Atul Aggarwal</a> - India
+</li><li><a class='createlinktext'> Chaminda Namal Senarathne</a><a class='createlink'>?</a> - India
+</li><li><a class='urllink' href='http://gsoc.yo2.cn' rel='nofollow'> Dai Zhiwei</a> - China
+</li><li><a class='urllink' href='http://www.eecs.wsu.edu/~djohnson/misc/gsocBlog/' rel='nofollow'> Damian Johnson</a>
+</li><li><a class='wikilink' href='ProfileManager.html'> Damien Roth</a> - Strasbourg, France
+</li><li><a class='wikilink' href='KeySharing.html'> Emanuel Onica</a> - Iasi, Romania
+</li><li><a class='wikilink' href='Babelfish.html'> Ernesto Rivera</a> - Tokyo, Japan
+</li><li><a class='createlinktext'> João Antunes</a><a class='createlink'>?</a> - Portugal
+</li><li><a class='createlinktext'> Maciej Wiercinski</a><a class='createlink'>?</a> - UK
+</li><li><a class='urllink' href='http://gsoc.rubycoder.org/' rel='nofollow'> Martin Harvan</a> - Kosice, Slovakia
+</li><li><a class='wikilink' href='FileTransfer.html'> Mathieu Plourde</a> - Montreal, Canada
+</li><li><a class='wikilink' href='LDAP.html'> Mazy Sébastien</a> - Lyon, France
+</li><li><a class='urllink' href='http://gsoc08roop.blogspot.com/' rel='nofollow'> Rupert Burchardi</a> - Berlin, Germany
+</li><li><a class='urllink' href='http://developerscabin.blogspot.com/' rel='nofollow'> Vladimir Škarupelov</a> - Tartu, Estonia
+</li></ul></div>
+<div class='vspace'></div><div id='subttl' >
+<p><a name='gsoc07' id='gsoc07'></a> <a class='wikilink' href='GSoC.html'>GSoC</a> 2007 Students
+</p></div>
+<div id='people' >
+<ul><li><a class='urllink' href='http://sc-avmailbox.blogspot.com/' rel='nofollow'> Ryan Ricard</a> - USA
+</li><li><a class='urllink' href='http://gsoc-simple.blogspot.com/' rel='nofollow'> Benoit Pradelle</a> - France
+</li><li><a class='urllink' href='http://trojan-jindal.blogspot.com/' rel='nofollow'> Shobhit Jindal</a> - India
+</li><li><a class='urllink' href='http://sc-contact-info.blogspot.com/' rel='nofollow'> Adam Goldstein</a> - USA
+</li><li><a class='urllink' href='http://sipcomm-srtp.blogspot.com/' rel='nofollow'> Su Bing</a> (<a class='wikilink' href='RoadmapSuBing.html'>roadmap</a>) - China
+</li><li><a class='urllink' href='http://oni-baku.blogspot.com/' rel='nofollow'> Chris Vincenot</a> - France
+</li><li><a class='urllink' href='http://blog.caotic.fr/' rel='nofollow'> Julien Waechter</a> - France
+</li><li><a class='urllink' href='http://ete-de-code-a-la-chou.blogspot.com/' rel='nofollow'> Mihai Balan</a> - Romania
+</li></ul></div>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><h2><a name='toc5' id='toc5'></a> Pre 1.0 Contributors</h2>
+<ul><li>The SIP Communicator pre 1.0 revisions have received contributions from the following list of people (Most of these contributions have made their way to the current release): 
+</li></ul><p>M. Ranganathan aka Ranga (NIST), Willem Romijn (Lucent Technologies), Luca Bincoletto (Telecom Lab Italia), Lautent Michel (geo12.com), Phelim O&rsquo;Doherty (Sun Microsystems), Iain MacDonnell (Sun Microsystems), Vince Fourcade (geo12.com), Ivo Petrov (Ivo Petrov Architects), Hristian Georgiev (Ivo Petrov Architects), Tsvetan Ivov Petrov (Ivo Petrov Architects), Eero Vaarnas, LynlvL at netscape dot com, Roberto Tealdi, Oleg Shevchenko (MIRATECH), Damian Minkov (COSMOS Software Enterprises), Steven Lass, Zack Angelo (Nostromo), Martin Andre (Louis Pasteur University), Joe Provino (SUN Microsystems), Thomas Ackermann, David Edmondson (SUN Microsystems), Ling Fang-Yu (Chunghwa Telecom Co., Ltd.), Paulo Pizarro (Digitro), Kevin Maltby, Fredrik Wickstrom, Jen-Ruie Peng, Asa Karlsson, John J. Barton (IBM), Christian Fritjof, Dennis Lazreg (Dolphin Software AS Norway), Pierre Floury (ULP).
+</p>
+<p class='vspace'>If you made a contribution and are not in the list - please let us know we&rsquo;ll be more than glad to add you.
+</p></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

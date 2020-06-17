@@ -1,0 +1,722 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Implementing a Protocol - Creating the shell | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+/* GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter) */
+.java  {font-family: monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #7F0055; font-weight: bold}
+.java .kw2 {color: #7F0055; font-weight: bold;}
+.java .kw3 {color: #aaaadd; font-weight: bold;}
+.java .kw4 {color: #993333;}
+.java .co1 {color: #3F7F5F; font-style: italic;}
+.java .co2 {color: #a1a100;}
+.java .coMULTI {color: #3F7F5F; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #666;}
+.java .st0 {color: #2A00FF;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #666;}
+.java .me2 {color: #666;}
+
+.sourceblocklink {
+  text-align: right;
+  font-size: smaller;
+}
+.sourceblocktext {
+  padding: 0.5em;
+  border: 1px solid #808080;
+  background-color: #f1f0ed;
+}
+.sourceblocktext div {
+  font-family: monospace;
+  font-size: small;
+  line-height: 1;
+  height: 1%;
+}
+.sourceblocktext div.head,
+.sourceblocktext div.foot {
+  font: italic medium serif;
+  padding: 0.5em;
+}
+/* GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter) */
+.xml  {font-family: monospace;}
+.xml .imp {font-weight: bold; color: red;}
+.xml .coMULTI {color: #808080; font-style: italic;}
+.xml .es0 {color: #000099; font-weight: bold;}
+.xml .br0 {color: #66cc66;}
+.xml .st0 {color: #ff0000;}
+.xml .nu0 {color: #cc66cc;}
+.xml .sc0 {color: #00bbdd;}
+.xml .sc1 {color: #ddbb00;}
+.xml .sc2 {color: #339933;}
+.xml .sc3 {color: #009900;}
+.xml .re0 {color: #000066;}
+.xml .re1 {font-weight: bold; color: black;}
+.xml .re2 {font-weight: bold; color: black;}
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="Implementing a Protocol - Creating the shell" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.HowToImplementProtocols2' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/HowToImplementProtocols2?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<p><a class='wikilink' href='HowToImplementProtocols1.html'>previous</a> | <a class='wikilink' href='HowToImplementProtocols.html'>TOC</a> | <a class='wikilink' href='HowToImplementProtocols3.html'>next</a>
+</p><div style='width:960px; margin:40px auto;text-align:left' >
+<div id='separator' >
+</div><div >
+<div class='vspace'></div><h1>Implementing a Protocol</h1>
+</div><div id='subttl' >
+<p>Creating the shell
+</p></div>
+<p class='vspace'>Before we start really coding the protocol, we&rsquo;ll have to take care of a few details such as creating our protocol packages, adding a build target in <em>build.xml</em> and creating our bundle manifest and activator class. 
+</p><div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>Java packages
+</p></div>
+<p class='vspace'>In general, you are free to choose the package structure you&rsquo;d like. In this tutorial, however, we&rsquo;ll be using the same conventions that apply to protocol provider implementations maintained by sip-communicator.org. You might won&rsquo;t to follow them yourself, especially if you would like to get your implementation adopted and shipped with Jitsi.
+</p>
+<p class='vspace'>According to Jitsi conventions the package containing the <em>Gibberish</em> protocol implementation should be 
+</p>
+<div class='vspace'></div><pre> net.java.sip.communicator.impl.protocol.gibberish
+</pre><p class='vspace'>and it must be located inside the <em>src</em> source tree. Actually, that&rsquo;s exactly where you&rsquo;ll find it if you download the sip-communicator source code. 
+</p><div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>Bundle activator.
+</p></div>
+<p class='vspace'>The bundle activator is in a way the entry point to our protocol bundle. If you&rsquo;re not familiar enough with OSGi bundles and how they work, you might won&rsquo;t to have a look at the <a class='wikilink' href='CreatingServices.html'>creating OSGi services tutorial</a>. bundle. It&rsquo;s start method is the first method of our package that will be executed. We&rsquo;ll be doing some quite important stuff here but we&rsquo;ll get back to it later. For now we would only make sure that we keep a reference to the currently valid bundle context so that we could have it at hand when necessary and be able to retrieve it through the <em>getBundleContext()</em> method. We&rsquo;ll also add some logging so that we could later check in the log files whether our plugin has been loaded.
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols2&amp;ref=1.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;">package net.<span class="me1">java</span>.<span class="me1">sip</span>.<span class="me1">communicator</span>.<span class="me1">impl</span>.<span class="me1">protocol</span>.<span class="me1">gibberish</span>;<br />
+<br />
+<span class="co2">import org.osgi.framework.*;</span><br />
+<span class="co2">import net.java.sip.communicator.util.*;</span><br />
+<br />
+<span class="kw2">public</span> <span class="kw2">class</span> GibberishActivator<br />
+&nbsp; &nbsp; <span class="kw2">implements</span> BundleActivator<br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw4">static</span> <span class="kw2">final</span> Logger logger<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = Logger.<span class="me1">getLogger</span><span class="br0">&#40;</span>GibberishActivator.<span class="kw2">class</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="coMULTI">/**<br />
+&nbsp; &nbsp; &nbsp;* The currently valid bundle context.<br />
+&nbsp; &nbsp; &nbsp;*/</span><br />
+&nbsp; &nbsp; <span class="kw2">private</span> <span class="kw4">static</span> BundleContext bundleContext = <span class="kw2">null</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="coMULTI">/**<br />
+&nbsp; &nbsp; &nbsp;* ...<br />
+&nbsp; &nbsp; &nbsp;*/</span><br />
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw4">void</span> start<span class="br0">&#40;</span>BundleContext context<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">throws</span> <a href="http://www.google.com/search?q=allinurl%3AException+java.sun.com&amp;bntl=1"><span class="kw3">Exception</span></a><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">this</span>.<span class="me1">bundleContext</span> = context;&nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; &nbsp; &nbsp; logger.<span class="me1">info</span><span class="br0">&#40;</span><span class="st0">&quot;Gibberish protocol implementation [STARTED].&quot;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+&nbsp; &nbsp; <span class="coMULTI">/**<br />
+&nbsp; &nbsp; &nbsp;* ...<br />
+&nbsp; &nbsp; &nbsp;*/</span><br />
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw4">void</span> stop<span class="br0">&#40;</span>BundleContext context<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">throws</span> <a href="http://www.google.com/search?q=allinurl%3AException+java.sun.com&amp;bntl=1"><span class="kw3">Exception</span></a><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; logger.<span class="me1">info</span><span class="br0">&#40;</span><span class="st0">&quot;Gibberish protocol implementation [STOPPED].&quot;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<br />
+&nbsp; &nbsp; <span class="coMULTI">/**<br />
+&nbsp; &nbsp; &nbsp;* ...<br />
+&nbsp; &nbsp; &nbsp;*/</span><br />
+&nbsp; &nbsp; <span class="kw2">public</span> <span class="kw4">static</span> BundleContext getBundleContext<span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">return</span> bundleContext;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>That should be enough for starters. You may notice that the actual <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/gibberish/GibberishActivator.java' rel='nofollow'>GibberishActivator</a> contains one or two extra utility methods that we use to retrieve instances of the currently valid protocol provider factory or other <em>OSGi</em> services.
+</p>
+<p class='vspace'>If you&rsquo;re being curious you may also have a look at existing protocol activators such as the <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/icq/IcqActivator.java' rel='nofollow'>IcqActivator</a> and the <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/sip/SipActivator.java' rel='nofollow'>SipActivator</a>. 
+</p><div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>Manifest file
+</p></div>
+<p class='vspace'>We need this file in order to describe our protocol OSGi bundle to Felix. Jitsi convention states that manifest files are kept in the top level directory of the corresponding bundle. In the case of our <em>Gibberish</em> example this would be:
+</p>
+<div class='vspace'></div><pre> sip-communicator/src/net/java/sip/communicator/impl/protocol/gibberish
+</pre><p class='vspace'>The manifest itself would look like any other OSGi bundle manifest and its name would be <em>gibberish.provider.manifest.mf</em> . It would contain the name of the <em>Gibberish</em> activator and also enumerate the packages used by our bundle. Right now it would look like this: 
+</p>
+<div class='vspace'></div><pre> 
+Bundle-Activator: net.java.sip.communicator.impl.protocol.gibberish.GibberishActivator
+Bundle-Name: Gibberish Protocol Provider
+Bundle-Description: A bundle providing support for the Gibberish protocol.
+Bundle-Vendor: sip-communicator.org
+Bundle-Version: 0.0.1
+Import-Package: org.osgi.framework,
+ net.java.sip.communicator.service.configuration,
+ net.java.sip.communicator.service.configuration.event,
+ net.java.sip.communicator.util,
+ net.java.sip.communicator.service.protocol,
+ net.java.sip.communicator.service.protocol.event
+
+</pre><p class='vspace'><em>Note the spaces in the beginning of each line in the Import-Package section. It is very important not to forget them or your manifest file would not be parsed by the jre.</em>
+</p>
+<p class='vspace'>Here are some other examples of existing manifest files: 
+</p><ul><li><a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/sip/sip.provider.manifest.mf' rel='nofollow'>sip.provider.manifest.mf</a>
+</li><li><a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/icq/icq.provider.manifest.mf' rel='nofollow'>icq.provider.manifest.mf</a>
+</li><li><a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/jabber/jabber.provider.manifest.mf' rel='nofollow'>jabber.provider.manifest.mf</a> 
+</li></ul><div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>Build target.
+</p></div>
+<p class='vspace'>We&rsquo;ve setup our source code directory, now we need to make sure that the <em>Gibberish</em> provider bundle would be properly created every time we build the project. The last part of our build.xml file contains all the targets that build the Jitsi bundles. That&rsquo;s where we need to create the one that would build our new bundle. Off we go:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols2&amp;ref=2.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="xml" style="font-family: monospace;"><span class="sc3"><span class="coMULTI">&lt;!-- BUNDLE-GIBBERISH --&gt;</span></span><br />
+<span class="sc3"><span class="re1">&lt;target</span> <span class="re0">name</span>=<span class="st0">&quot;bundle-gibberish&quot;</span><span class="re2">&gt;</span></span><br />
+&nbsp; &nbsp; <span class="sc3"><span class="coMULTI">&lt;!-- Creates a bundle containing the Gibberish impl of the protocol provider.--&gt;</span></span><br />
+&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;jar</span> <span class="re0">compress</span>=<span class="st0">&quot;false&quot;</span> <span class="re0">destfile</span>=<span class="st0">&quot;${bundles.dest}/protocol-gibberish.jar&quot;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="re0">manifest</span>=<br />
+<span class="st0">&quot;src/net/java/sip/communicator/impl/protocol/gibberish/gibberish.provider.manifest.mf&quot;</span><span class="re2">&gt;</span></span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;zipfileset</span> <span class="re0">dir</span>=<span class="st0">&quot;${dest}/net/java/sip/communicator/impl/protocol/gibberish&quot;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="re0">prefix</span>=<span class="st0">&quot;net/java/sip/communicator/impl/protocol/gibberish&quot;</span><span class="re2">/&gt;</span></span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="sc3"><span class="coMULTI">&lt;!-- zipfileset src=&quot;${lib.noinst}/gibberish_stack.jar&quot; prefix=&quot;&quot;/--&gt;</span></span><br />
+&nbsp; &nbsp; <span class="sc3"><span class="re1">&lt;/jar<span class="re2">&gt;</span></span></span><br />
+<span class="sc3"><span class="re1">&lt;/target<span class="re2">&gt;</span></span></span></div></div></div>
+<p class='vspace'>Note that in a real protocol implementation we&rsquo;d also have to include in the jar the protocol stack so that it is available when Jitsi is being run.That&rsquo;s why I&rsquo;ve left the comment containing what would have been an instruction to add all classes from a gibberish_stack.jar to our bundle jar.
+</p>
+<p class='vspace'>We have one more thing to do here. We have to add our new target to the dependency list of the <em>bundles</em> target so that it gets called when the project is being (re)built:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols2&amp;ref=3.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="xml" style="font-family: monospace;"><span class="sc3"><span class="coMULTI">&lt;!--ALL BUNDLES--&gt;</span></span><br />
+<span class="sc3"><span class="re1">&lt;target</span> <span class="re0">name</span>=<span class="st0">&quot;bundles&quot;</span><br />
+&nbsp; &nbsp; <span class="re0">depends</span>=<span class="st0">&quot;bundle-util,bundle-configuration,bundle-configuration-slick,<br />
+&nbsp; &nbsp; bundle-history,bundle-history-slick,<br />
+&nbsp; &nbsp; ...[snip]...<br />
+&nbsp; &nbsp; bundle-plugin-systray,bundle-gibberish&quot;</span><span class="re2">/&gt;</span></span></div></div></div>
+<div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>Felix run properties
+</p></div>
+<p class='vspace'>Last we need to add our bundle to the list of autostarted bundles in the felix.client.run.properties file. We can put it with the rest of the protocol implementations like for example:
+</p>
+<div class='vspace'></div><pre> 
+felix.auto.start.50= \
+ reference:file:sc-bundles/fileaccess.jar \
+ ...[snip]...
+ reference:file:sc-bundles/protocol-jabber.jar \
+ reference:file:sc-bundles/protocol-gibberish.jar \
+ ...[snip]...
+
+</pre><p class='vspace'>OK, that&rsquo;s it. You are now set and ready to build and run the project. After you execture <em>ant rebuild run</em> you should see somewhere in the logging output the messages that indicate that our module has been loaded. In my case they look like this:
+</p>
+<div class='vspace'></div><pre> 22:29:15.053 INFO: impl.protocol.gibberish.GibberishActivator.start() Gibberish protocol \ 
+ implementation [STARTED].
+</pre><p class='vspace'>and if you were lucky you might have caught a glimpse of the <em>Loading:</em> label in the Jitsi splash screen, momentarily changing its status to <em>Gibberish Protocol Provider</em>.
+</p>
+<p class='vspace'>If you close Jitsi, the log should also contain a line like:
+</p>
+<div class='vspace'></div><pre> 22:31:36.320 INFO: impl.protocol.gibberish.GibberishActivator.stop() Gibberish protocol \ 
+ implementation [STOPPED].
+</pre><p class='vspace'>Now let&rsquo;s get to the real coding &hellip;
+</p><div id='separator' >
+</div><div >
+</div></div>
+<p><a class='wikilink' href='HowToImplementProtocols1.html'>previous</a> | <a class='wikilink' href='HowToImplementProtocols.html'>TOC</a> | <a class='wikilink' href='HowToImplementProtocols3.html'>next</a>
+</p>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> History Service | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+/* GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter) */
+.java  {font-family: monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #7F0055; font-weight: bold}
+.java .kw2 {color: #7F0055; font-weight: bold;}
+.java .kw3 {color: #aaaadd; font-weight: bold;}
+.java .kw4 {color: #993333;}
+.java .co1 {color: #3F7F5F; font-style: italic;}
+.java .co2 {color: #a1a100;}
+.java .coMULTI {color: #3F7F5F; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #666;}
+.java .st0 {color: #2A00FF;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #666;}
+.java .me2 {color: #666;}
+
+.sourceblocklink {
+  text-align: right;
+  font-size: smaller;
+}
+.sourceblocktext {
+  padding: 0.5em;
+  border: 1px solid #808080;
+  background-color: #f1f0ed;
+}
+.sourceblocktext div {
+  font-family: monospace;
+  font-size: small;
+  line-height: 1;
+  height: 1%;
+}
+.sourceblocktext div.head,
+.sourceblocktext div.foot {
+  font: italic medium serif;
+  padding: 0.5em;
+}
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="HistoryService" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.HistoryService' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/HistoryService?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:40px auto;text-align:left' >
+<h2>HistoryService Developer Documentation</h2>
+<h3>In two words</h3>
+<p>The <em>HistoryService</em> may be described as a &ldquo;simple database&rdquo;. However due to the specific requirements it is highly customized. The main design goal was to define a simple, independent programming interface that would allow functionality like message history, call logs or any other feature that requires persistence.
+</p>
+<div class='vspace'></div><div id='separator' >
+</div><div >
+<h3>In four words</h3>
+<p>Data is stored in <em>HistoryRecord</em>s. A <em>HistoryRecord</em> always belongs to a group of records. Such group is simply a <em>History</em>. It is identified by a <em>HistoryID</em>. Each <em>History</em> has a <em>HistoryRecordStructure</em>. You can add records to a <em>History</em> by using a <em>HistoryWriter</em>, or search through the existing records by using a <em>HistoryReader</em>.
+</p>
+<p class='vspace'>The main idea: to be able to simply call addRecord( id, String[] ); or findByStartDate( id, startDate );
+</p>
+<div class='vspace'></div><div class='indent'><strong>Database analogy</strong>
+<div class='vspace'></div></div><div class='indent'>In order to better understand the different entities one can make an analogy with standard databases: A database (<em>HistoryService</em>) consists of tables (<em>History</em>). Each table has a name (<em>HistoryID</em>) and contains records (<em>HistoryRecord</em>). Each table has a fixed structure (<em>HistoryRecordStructure</em>).
+<div class='vspace'></div></div><div class='indent'>Of course there are many differences. A history is considered as &lsquo;append-only&rsquo;. That is - once created, the structure of a history cannot be changed. The same is valid for single records - once added, a record cannot be deleted or changed. Another major difference is that the <em>HistoryRecordStructure</em> can be overriden for individual records.
+<div class='vspace'></div></div><div class='indent'>An important feature is that all <em>HistoryRecord</em>s are timestamped.
+</div><div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h3>In Integer.MAX_VALUE words</h3>
+<p>The <em>HistoryID</em> is a wrapper of a String[], where the elements should contain only letters, numbers or _ (underscore). In order to create one you can use one of the two static functions:
+</p><ul><li><strong>createFromRawID</strong> by providing a String[] whose elements are arbitrary strings
+</li><li><strong>createFromID</strong> by providing a String[] whose elements contain only letters, numbers or _
+</li></ul><p class='vspace'>The <em>HistoryRecordStructure</em> is wrapper of a String[]. Each of its elements is the name in a name-value mapping. A name may appear several times, which corresponds to a one-to-many relationship.
+</p>
+<p class='vspace'>The <em>HistoryRecord</em> is a <em>HistoryRecordStructure</em> AND values for each of the elements in this structure.
+</p>
+<p class='vspace'>After obtaining a <em>HistoryService</em> you can use the following methods:
+</p><ul><li><strong>getExistingIDs</strong>
+</li><li><strong>getHistory</strong> for a given <em>HistoryID</em>
+</li><li>check if <strong>isHistoryExisting</strong> for a given <em>HistoryID</em>
+</li><li><strong>createHistory</strong> with specified <em>HistoryID</em> and <em>HistoryRecordStructure</em>
+</li></ul><p class='vspace'>Then, after creating or obtaining an existing <em>History</em>, you can:
+</p><ul><li><strong>getReader</strong>
+</li><li><strong>getWriter</strong>
+</li><li><strong>getID</strong>
+</li><li><strong>getHistoryRecordsStructure</strong>
+</li></ul><p class='vspace'>If you need to query the existing records, after obtaining a <em>HistoryReader</em>, you can search:
+</p><ul><li><strong>findByStartDate</strong> by providing a start date
+</li><li><strong>findByEndDate</strong> by providing an end date
+</li><li><strong>findByPeriod</strong> by providing a start date and an end date
+</li><li><strong>findByKeyword</strong> by providing a keyword
+</li><li><strong>findByKeywords</strong> by providing a list of keywords
+</li><li><strong>findByText</strong> by providing a start date, an end date and a list of keywords
+</li></ul><p class='vspace'>However if you want to add records, you should obtain a <em>HistoryWriter</em>, and afterwards:
+</p><ul><li><strong>addRecord</strong> by providing a <em>HistoryRecord</em>
+</li><li><strong>addRecord</strong> by providing a String[] corresponding to the <em>HistoryRecordStructure</em>
+</li></ul><div class='vspace'></div><h3>And of course.. the example..</h3>
+<div class='sourceblock'>
+<div class='sourceblocklink'><a href='HistoryService&amp;ref=1.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="co1">// Obtain the service</span><br />
+ServiceReference historyServiceRef = <br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; context.<span class="me1">getServiceReference</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HistoryService.<span class="kw2">class</span>.<span class="me1">getName</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;<br />
+HistoryService historyService = <br />
+&nbsp; &nbsp; <span class="br0">&#40;</span>HistoryService<span class="br0">&#41;</span>context.<span class="me1">getService</span><span class="br0">&#40;</span>historyServiceRef<span class="br0">&#41;</span>;<br />
+<br />
+HistoryID id = HistoryID.<span class="me1">createFromRawID</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">new</span> <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="br0">&#123;</span><span class="st0">&quot;this&quot;</span>, <span class="st0">&quot;is&quot;</span>, <span class="st0">&quot;a simple&quot;</span>, <span class="st0">&quot;id, yeah!!&quot;</span><span class="br0">&#125;</span><span class="br0">&#41;</span>;<br />
+<br />
+<span class="co1">// If there is no such history - create it. </span><br />
+<span class="co1">// Otherwise just get the existing one</span><br />
+History history;<br />
+<span class="kw1">if</span><span class="br0">&#40;</span>!historyService.<span class="me1">isHistoryExisting</span><span class="br0">&#40;</span>id<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; HistoryRecordStructure recordStructure =&nbsp; <br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">new</span> HistoryRecordStructure<span class="br0">&#40;</span><span class="kw2">new</span> <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#123;</span><span class="st0">&quot;name&quot;</span>, <span class="st0">&quot;age&quot;</span>, <span class="st0">&quot;gender&quot;</span><span class="br0">&#125;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; history = historyService.<span class="me1">createHistory</span><span class="br0">&#40;</span>id, recordStructure<span class="br0">&#41;</span>;<br />
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; history = historyService.<span class="me1">getHistory</span><span class="br0">&#40;</span>id<span class="br0">&#41;</span>;<br />
+<span class="br0">&#125;</span><br />
+<br />
+<span class="co1">// Add some records</span><br />
+HistoryWriter writer = <span class="kw2">this</span>.<span class="me1">history</span>.<span class="me1">getWriter</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+writer.<span class="me1">addRecord</span><span class="br0">&#40;</span><span class="kw2">new</span> <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="br0">&#123;</span><span class="st0">&quot;Monica&quot;</span>, <span class="st0">&quot;32&quot;</span>, <span class="st0">&quot;female&quot;</span><span class="br0">&#125;</span><span class="br0">&#41;</span>;<br />
+writer.<span class="me1">addRecord</span><span class="br0">&#40;</span><span class="kw2">new</span> <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="br0">&#123;</span><span class="st0">&quot;John&quot;</span>, <span class="st0">&quot;64&quot;</span>, <span class="st0">&quot;male&quot;</span><span class="br0">&#125;</span><span class="br0">&#41;</span>;<br />
+writer.<span class="me1">addRecord</span><span class="br0">&#40;</span><span class="kw2">new</span> <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="br0">&#123;</span><span class="st0">&quot;Santa Claus&quot;</span>, <span class="st0">&quot;1024&quot;</span>, <span class="st0">&quot;declines to state&quot;</span><span class="br0">&#125;</span><span class="br0">&#41;</span>;<br />
+<br />
+<span class="co1">// Then search through all records and print the results</span><br />
+HistoryReader reader = <span class="kw2">this</span>.<span class="me1">history</span>.<span class="me1">getReader</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+QueryResultSet result = reader.<span class="me1">findByKeyword</span><span class="br0">&#40;</span><span class="st0">&quot;state&quot;</span><span class="br0">&#41;</span>;<br />
+<span class="kw1">while</span><span class="br0">&#40;</span>result.<span class="me1">hasNext</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; HistoryRecord record = result.<span class="me1">nextRecord</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> vals = record.<span class="me1">getPropertyValues</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3ASystem+java.sun.com&amp;bntl=1"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span>&nbsp; &nbsp;<span class="st0">&quot;Found! Name: &quot;</span> + vals<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + <span class="st0">&quot; Age:&quot;</span> + vals<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span> <br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; + <span class="st0">&quot; Gender:&quot;</span> + vals<span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="br0">&#41;</span>;<br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'><span class='stickynote'>Author: Alexander Pelov</span>
+</p></div></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

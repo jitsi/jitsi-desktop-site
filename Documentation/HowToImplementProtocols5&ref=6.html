@@ -1,0 +1,773 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Implementing a Protocol - ProtocolProviderService | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+/* GeSHi (C) 2004 - 2007 Nigel McNie (http://qbnz.com/highlighter) */
+.java  {font-family: monospace;}
+.java .imp {font-weight: bold; color: red;}
+.java .kw1 {color: #7F0055; font-weight: bold}
+.java .kw2 {color: #7F0055; font-weight: bold;}
+.java .kw3 {color: #aaaadd; font-weight: bold;}
+.java .kw4 {color: #993333;}
+.java .co1 {color: #3F7F5F; font-style: italic;}
+.java .co2 {color: #a1a100;}
+.java .coMULTI {color: #3F7F5F; font-style: italic;}
+.java .es0 {color: #000099; font-weight: bold;}
+.java .br0 {color: #666;}
+.java .st0 {color: #2A00FF;}
+.java .nu0 {color: #cc66cc;}
+.java .me1 {color: #666;}
+.java .me2 {color: #666;}
+
+.sourceblocklink {
+  text-align: right;
+  font-size: smaller;
+}
+.sourceblocktext {
+  padding: 0.5em;
+  border: 1px solid #808080;
+  background-color: #f1f0ed;
+}
+.sourceblocktext div {
+  font-family: monospace;
+  font-size: small;
+  line-height: 1;
+  height: 1%;
+}
+.sourceblocktext div.head,
+.sourceblocktext div.foot {
+  font: italic medium serif;
+  padding: 0.5em;
+}
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="Implementing a Protocol - ProtocolProviderService" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.HowToImplementProtocols5' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/HowToImplementProtocols5?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<p><a class='wikilink' href='HowToImplementProtocols4.html'>previous</a> | <a class='wikilink' href='HowToImplementProtocols.html'>TOC</a> | <a class='wikilink' href='HowToImplementProtocols6.html'>next</a>
+</p><div style='width:960px; margin:40px auto;text-align:left' >
+<div id='separator' >
+</div><div >
+<h1>Implementing a Protocol</h1>
+</div><div id='subttl' >
+<p>Implementing the ProtocolProviderService.
+</p></div>
+<p class='vspace'>We are getting close to the essence here. The protocol provider service is the entry point to all protocol functionality. In here we will mainly have to do the following two things:
+</p>
+<div class='vspace'></div><ol><li>Implement methods that manage our protocol connection (i.e. those that put our account online) and those that do the corresponding event dispatching (notify users of the service that the provider has become on/off line). 
+<div class='vspace'></div></li><li>Initialize and manage our operation sets. Different protocols support different functionalities. Operation sets are our way to address this diversity. We could pick and implement any subset of all existing operation sets according to what our protocol or protocol stack supports and what we feel like working on now.
+</li></ol><p class='vspace'>Let&rsquo;s start by implementing the functionality from the above point one. 
+</p>
+<p class='vspace'>First of all we&rsquo;d need to create our protocol provider service class. In conformity with naming conventions (i.e. ServiceName&lt;ProtoName&gt;Impl) our protocol provider service implementation will be called <em>ProtocolProviderServiceGibberishImpl</em>.
+</p>
+<p class='vspace'>We&rsquo;ll start by writing a few methods that would handle listeners and event dispatching. We&rsquo;ll be storing registration listeners in the following <em>Vector</em>:
+</p><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols5&amp;ref=1.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">private</span> <a href="http://www.google.com/search?q=allinurl%3AVector+java.sun.com&amp;bntl=1"><span class="kw3">Vector</span></a> registrationStateListeners = <span class="kw2">new</span> <a href="http://www.google.com/search?q=allinurl%3AVector+java.sun.com&amp;bntl=1"><span class="kw3">Vector</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span>;</div></div></div>
+<p class='vspace'>We&rsquo;ll have <em>add</em> and <em>remove</em> methods that would respectively register and unregister in this vector listeners interested in connection events:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols5&amp;ref=2.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="coMULTI">/**<br />
+&nbsp;* ...<br />
+&nbsp;*/</span><br />
+<span class="kw2">public</span> <span class="kw4">void</span> addRegistrationStateChangeListener<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; RegistrationStateChangeListener listener<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="kw2">synchronized</span><span class="br0">&#40;</span>registrationStateListeners<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>!registrationStateListeners.<span class="me1">contains</span><span class="br0">&#40;</span>listener<span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; registrationStateListeners.<span class="me1">add</span><span class="br0">&#40;</span>listener<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<span class="br0">&#125;</span><br />
+<br />
+<span class="coMULTI">/**<br />
+&nbsp;* ...<br />
+&nbsp;*/</span><br />
+<span class="kw2">public</span> <span class="kw4">void</span> removeRegistrationStateChangeListener<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; RegistrationStateChangeListener listener<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="kw2">synchronized</span><span class="br0">&#40;</span>registrationStateListeners<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; registrationStateListeners.<span class="me1">remove</span><span class="br0">&#40;</span>listener<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>We&rsquo;ll also define a method that would actually traverse the listener list and dispatch registration events when they occur:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols5&amp;ref=3.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">private</span> <span class="kw4">void</span> fireRegistrationStateChanged<span class="br0">&#40;</span> RegistrationState oldState,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;RegistrationState newState,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="kw4">int</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;reasonCode,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; reason<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; RegistrationStateChangeEvent event =<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">new</span> RegistrationStateChangeEvent<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">this</span>, oldState, newState, reasonCode, reason<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; logger.<span class="me1">debug</span><span class="br0">&#40;</span><span class="st0">&quot;Dispatching &quot;</span> + event + <span class="st0">&quot; to &quot;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;+ registrationStateListeners.<span class="me1">size</span><span class="br0">&#40;</span><span class="br0">&#41;</span>+ <span class="st0">&quot; listeners.&quot;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="co1">//create an iterator over a copy of all registration listeners.only use</span><br />
+&nbsp; &nbsp; <span class="co1">//the copy to avoid problems that might occur while traversing the list.</span><br />
+&nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AIterator+java.sun.com&amp;bntl=1"><span class="kw3">Iterator</span></a> listeners = <span class="kw2">null</span>;<br />
+&nbsp; &nbsp; <span class="kw2">synchronized</span> <span class="br0">&#40;</span>registrationStateListeners<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; listeners = <span class="kw2">new</span> <a href="http://www.google.com/search?q=allinurl%3AArrayList+java.sun.com&amp;bntl=1"><span class="kw3">ArrayList</span></a><span class="br0">&#40;</span>registrationStateListeners<span class="br0">&#41;</span>.<span class="me1">iterator</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<br />
+&nbsp; &nbsp; <span class="kw1">while</span> <span class="br0">&#40;</span>listeners.<span class="me1">hasNext</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; RegistrationStateChangeListener listener<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = <span class="br0">&#40;</span>RegistrationStateChangeListener<span class="br0">&#41;</span> listeners.<span class="me1">next</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; listener.<span class="me1">registrationStateChanged</span><span class="br0">&#40;</span>event<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+&nbsp; &nbsp; logger.<span class="me1">trace</span><span class="br0">&#40;</span><span class="st0">&quot;Done.&quot;</span><span class="br0">&#41;</span>;<br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>Now we are ready to add the method that would actually register (or connect) the gibberish protocol, thus making it ready to publish a specific presence status, receive that status for its contact list members, send messages and etc. The method is called (logically) <em>register()</em>. 
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols5&amp;ref=4.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">public</span> <span class="kw4">void</span> register<span class="br0">&#40;</span>SecurityAuthority authority<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="kw2">throws</span> OperationFailedException<br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="co1">//we don't really need a password here since there's no server in</span><br />
+&nbsp; &nbsp; <span class="co1">//Gibberish but nevertheless we'll behave as if we did.</span><br />
+<br />
+&nbsp; &nbsp; <span class="co1">//verify whether a password has already been stored for this account</span><br />
+&nbsp; &nbsp; <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a> password = GibberishActivator.<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="me1">getProtocolProviderFactory</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">loadPassword</span><span class="br0">&#40;</span>getAccountID<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; <span class="co1">//if we don't - retrieve it from the user through the security authority</span><br />
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>password == <span class="kw2">null</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//create a default credentials object</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; UserCredentials credentials = <span class="kw2">new</span> UserCredentials<span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; credentials.<span class="me1">setUserName</span><span class="br0">&#40;</span>getAccountID<span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">getUserID</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//request a password from the user</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; credentials = authority.<span class="me1">obtainCredentials</span><span class="br0">&#40;</span><span class="st0">&quot;Gibberish&quot;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , credentials<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//extract the password the user passed us.</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; char<span class="br0">&#91;</span><span class="br0">&#93;</span> pass = credentials.<span class="me1">getPassword</span><span class="br0">&#40;</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// the user didn't provide us a password (canceled the operation)</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>pass == <span class="kw2">null</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fireRegistrationStateChanged<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; getRegistrationState<span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , RegistrationState.<span class="me1">UNREGISTERED</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , RegistrationStateChangeEvent.<span class="me1">REASON_USER_REQUEST</span>, <span class="st0">&quot;&quot;</span><span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">return</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; password = <span class="kw2">new</span> <a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a><span class="br0">&#40;</span>pass<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//if the user indicated that the password should be saved, we'll ask</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//the proto provider factory to store it for us.</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#40;</span>credentials.<span class="me1">isPasswordPersistent</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; GibberishActivator.<span class="me1">getProtocolProviderFactory</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span class="me1">storePassword</span><span class="br0">&#40;</span>getAccountID<span class="br0">&#40;</span><span class="br0">&#41;</span>, password<span class="br0">&#41;</span>;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="br0">&#125;</span><br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<br />
+&nbsp; &nbsp; RegistrationState oldState = currentRegistrationState;<br />
+&nbsp; &nbsp; currentRegistrationState = RegistrationState.<span class="me1">REGISTERED</span>;<br />
+<br />
+&nbsp; &nbsp; fireRegistrationStateChanged<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; oldState<br />
+&nbsp; &nbsp; &nbsp; &nbsp; , currentRegistrationState<br />
+&nbsp; &nbsp; &nbsp; &nbsp; , RegistrationStateChangeEvent.<span class="me1">REASON_USER_REQUEST</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; , <span class="kw2">null</span><span class="br0">&#41;</span>;<br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>One particular thing about this method is the fact that it needs to retrieve a password before actually connecting to the network. Well, &hellip; <em>Gibberish</em> doesn&rsquo;t really need a specific password but a normal protocol would so we also pretend we do. In Jitsi we retrieve passwords through a callback instance of the <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/service/protocol/SecurityAuthority.java' rel='nofollow'>SecurityAuthority</a> interface. This interface is implemented by the entity/bundle that is calling the register method. This entity is quite often the user interface. The UI would most of implement a security authority <em>requestCredentials()</em> method by showing a dialog and asking the use to enter a password. We will then get the password the user has entered or null if the user canceled the operation, in which case we should also cancel the entire registration process.
+</p>
+<p class='vspace'>Another peculiar thing about the <em>Gibberish</em> protocol provider implementation is the fact that since there is no real protocol stack working behind the scenes, we don&rsquo;t need to wait for a specific confirmation before notifying listeners that the registration has been successful. That&rsquo;s why we fire the registration state chane event before returning from the <em>register()</em> method. Note that you should never do this in a real protocol implementation unless your protocol doesn&rsquo;t require an initial registration and you are really certain this is the way to go. You should normally wait for an event notifying you of successful connection to the protocol server before trumpeting success to the registration listeners.
+</p>
+<p class='vspace'>Since we have a <em>register()</em> method, we would quite naturally also have an <em>unregister()</em> one. Not much to do here apart from notifying listers (again this is not how things would have happened in a real world implementation).
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols5&amp;ref=5.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">public</span> <span class="kw4">void</span> unregister<span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">throws</span> OperationFailedException<br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; RegistrationState oldState = currentRegistrationState;<br />
+&nbsp; &nbsp; currentRegistrationState = RegistrationState.<span class="me1">UNREGISTERED</span>;<br />
+<br />
+&nbsp; &nbsp; fireRegistrationStateChanged<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; oldState<br />
+&nbsp; &nbsp; &nbsp; &nbsp; , currentRegistrationState<br />
+&nbsp; &nbsp; &nbsp; &nbsp; , RegistrationStateChangeEvent.<span class="me1">REASON_USER_REQUEST</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; , <span class="kw2">null</span><span class="br0">&#41;</span>;<br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>I am not going to explain in detail the rest of the methods such as <em>getProtocolName(), getRegistrationState(), getProtocolIcon()</em>, etc. You can simply have a look at the way they are implemented in our own <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/gibberish/ProtocolProviderServiceGibberishImpl.java' rel='nofollow'>ProtocolProviderServiceGibberishImpl</a>
+</p><div id='separator' >
+</div><div >
+</div><div id='subttl' >
+<p>Operation Sets
+</p></div>
+<p class='vspace'>As I mentioned earlier, operation sets are sets of functionalities that may be supported by some
+protocols and/or protocol implementations and not by others. Example operation sets include, chatting, typing notifications, telephony, presence, file transfer and others. A protocol provider without any operation sets is quite useless since it doesn&rsquo;t do anything. 
+</p>
+<p class='vspace'>In <em>Gibberish</em> we currently implement some operation sets and we hope to one day implement all of them cause it would be quite useful for testing. Until then here&rsquo;s how we do it for those that work already:
+</p>
+<p class='vspace'>We instantiate and initialize all existing operation sets in the initialize method of a protocol 
+provider. This <em>initialize()</em> method is call in the protocol provider service constructor, so that the operation sets could be up and running by the time the protocol provider service is registered in the <em>OSGi</em> bundle context. Here&rsquo;s how our <em>initialize()</em> method currently looks:
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols5&amp;ref=6.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">protected</span> <span class="kw4">void</span> initialize<span class="br0">&#40;</span><a href="http://www.google.com/search?q=allinurl%3AString+java.sun.com&amp;bntl=1"><span class="kw3">String</span></a> userID,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AccountID accountID<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="kw2">synchronized</span><span class="br0">&#40;</span>initializationLock<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="br0">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">this</span>.<span class="me1">accountID</span> = accountID;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//initialize the presence operationset</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; OperationSetPersistentPresenceGibberishImpl persistentPresence =<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">new</span> OperationSetPersistentPresenceGibberishImpl<span class="br0">&#40;</span><span class="kw2">this</span><span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; supportedOperationSets.<span class="me1">put</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; OperationSetPersistentPresence.<span class="kw2">class</span>.<span class="me1">getName</span><span class="br0">&#40;</span><span class="br0">&#41;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; persistentPresence<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//register it once again for those that simply need presence and</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//won't be smart enough to check for a persistent presence</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//alternative</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; supportedOperationSets.<span class="me1">put</span><span class="br0">&#40;</span> OperationSetPresence.<span class="kw2">class</span>.<span class="me1">getName</span><span class="br0">&#40;</span><span class="br0">&#41;</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; persistentPresence<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//initialize the IM operation set</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; OperationSetBasicInstantMessagingGibberishImpl basicInstantMessaging<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = <span class="kw2">new</span> OperationSetBasicInstantMessagingGibberishImpl<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">this</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , <span class="br0">&#40;</span>OperationSetPersistentPresenceGibberishImpl<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; persistentPresence<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; supportedOperationSets.<span class="me1">put</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; OperationSetBasicInstantMessaging.<span class="kw2">class</span>.<span class="me1">getName</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , basicInstantMessaging<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">//initialize the typing notifications operation set</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; OperationSetTypingNotifications typingNotifications =<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">new</span> OperationSetTypingNotificationsGibberishImpl<span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">this</span>, persistentPresence<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; supportedOperationSets.<span class="me1">put</span><span class="br0">&#40;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; OperationSetTypingNotifications.<span class="kw2">class</span>.<span class="me1">getName</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; , typingNotifications<span class="br0">&#41;</span>;<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; isInitialized = <span class="kw2">true</span>;<br />
+&nbsp; &nbsp; <span class="br0">&#125;</span><br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>We store initialized methods in a hashtable mapping them against the class name of the abstract operation set that they implement. Bundles that need to use them could retrieve them through the following <em>getOperationSet()</em> method.
+</p>
+<div class='vspace'></div><div class='sourceblock'>
+<div class='sourceblocklink'><a href='HowToImplementProtocols5&amp;ref=7.html' type='text/plain'>[&#036;[Get Code]]</a></div><div class='sourceblocktext'><div class="java" style="font-family: monospace;"><span class="kw2">public</span> OperationSet getOperationSet<span class="br0">&#40;</span><span class="kw2">Class</span> opsetClass<span class="br0">&#41;</span><br />
+<span class="br0">&#123;</span><br />
+&nbsp; &nbsp; <span class="kw2">return</span> <span class="br0">&#40;</span>OperationSet<span class="br0">&#41;</span> getSupportedOperationSets<span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; .<span class="me1">get</span><span class="br0">&#40;</span>opsetClass.<span class="me1">getName</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>;<br />
+<span class="br0">&#125;</span></div></div></div>
+<p class='vspace'>The rest of the <em>Gibberish</em> protocol provider service implementation is available <a class='urllink' href='https://sip-communicator.dev.java.net/source/browse/*checkout*/sip-communicator/trunk/src/net/java/sip/communicator/impl/protocol/gibberish/ProtocolProviderServiceGibberishImpl.java' rel='nofollow'>here</a>.
+</p>
+<p class='vspace'>Now let&rsquo;s have a look at some of the OperationSets.
+</p><div id='separator' >
+</div><div >
+</div></div>
+<p><a class='wikilink' href='HowToImplementProtocols4.html'>previous</a> | <a class='wikilink' href='HowToImplementProtocols.html'>TOC</a> | <a class='wikilink' href='HowToImplementProtocols6.html'>next</a>
+</p>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

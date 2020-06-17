@@ -1,0 +1,595 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Design of the JUnit tests | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="Design of the JUnit tests" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.DesignOfTheJUnitTests' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/DesignOfTheJUnitTests?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:40px auto;text-align:left' >
+<div class='tocfloat'><p><a name='toc' id='toc'></a><b>On this page&hellip;</b> (<a id="tocidtog" href="javascript:toggle('tocid');">hide</a>)</p><ul class='toc' id='tocid'><li><a href='DesignOfTheJUnitTests.html#toc1'>Design of the JUnit tests</a></li><li><a href='DesignOfTheJUnitTests.html#toc2'>What method signatures to test?</a></li><li><a href='DesignOfTheJUnitTests.html#toc3'>What methods to test and what not to test?</a></li><li><a href='DesignOfTheJUnitTests.html#toc4'>How should you test many classes?</a></li><li><a href='DesignOfTheJUnitTests.html#toc5'>How do you get many tests run within a class?</a></li><li><a href='DesignOfTheJUnitTests.html#toc6'>How do you execute all your test classes?</a></li><li><a href='DesignOfTheJUnitTests.html#toc7'>In what order will my tests be executed?</a></li><li><a href='DesignOfTheJUnitTests.html#toc8'>What if JUnit is not available on the build machine?</a></li><li><a href='DesignOfTheJUnitTests.html#toc9'>Summary of JUnit design philosophy</a></li></ul></div>
+<h1><a name='toc1' id='toc1'></a> Design of the JUnit tests </h1>
+<p>JUnit is a framework for testing java classes. It is an open source project that has strong support within Ant. JUnit is an &ldquo;optional task&rdquo; within Ant, so it is not distributed as part of Ant. You can find out more, and download a binary distribution from <a class='urllink' href='http://www.junit.org' rel='nofollow'>http://www.junit.org</a>. The JUnit FAQ is very helpful for beginners (and experts, too).
+</p>
+<p class='vspace'>JUnit is a powerful tool for testing java classes. If used well, it can make two extremely important contributions to the quality of a project:
+</p><ul><li>all available JUnit tests should be executed automatically at the end of the build process. Their successful completion proves that the new source code and distribution continues to fulfill the contract defined by the previous release. Of course, if the test suite is incomplete in any way, then the success of the tests cannot say anything about the untested logic, but what it has to say is still very valuable. It allows a project such as SIP Communicator to retrofit JUnit tests and immediately begin to improve the confidence level of a new release. In effect, the growing set of tests become a <em>definition</em> of the contract.
+</li><li>each single JUnit test is a powerful debugging harness. In practice, the diagnosis of a new bug should begin with writing a new JUnit test that fails <em>because it demonstrates the existence of the bug</em>. Once a test has been written that fails in the predicted manner, it can then be used to debug and fix the defective logic. Once the bug has been fixed, the test remains to prove there is never a case of regression in the remaining life of the project.
+</li></ul><p class='vspace'>Of course, a comprehensive set of JUnit tests can be a source of frustration when you are confronted with the need to change the public signature of a method or constructor. Many tests will be broken by the change, because the &ldquo;contract&rdquo; with the external world has been re-written. Rather than curse JUnit, the developer ought to become more respectful of the consequences of inadequate design in a public API. After all, the pain of rewriting the test suite is likely to be less than the pain experienced by a user of the API who unexpectedly discovers his or her application failing catastrophically when upgrading to a new release of the project distribution! A good set of JUnit tests will immediately show the external developer how to use the refactored API successfully.
+</p>
+<p class='vspace'>Design of a new JUnit test suite involves some subtle issues that need to be understood before it can be used effectively as the &ldquo;policeman&rdquo; of a project.
+</p>
+<div class='vspace'></div><div id='separator' >
+</div><div >
+<div class='vspace'></div><h1><a name='toc2' id='toc2'></a> What method signatures to test?</h1>
+<p>Java methods can be private, public, protected or package-private. Although you would think it best to test all kinds of method signatures, this objective will cause problems. In general, it is better to test <em>only</em> the public methods of a class.
+</p>
+<p class='vspace'>If you are prepared to only test the public methods, you immediately gain two advantages:
+</p><ol><li>your JUnit suite will test the contract between the class and <em>any</em> user of the class. You might think your tests would be &ldquo;more comprehensive&rdquo; if you test other signatures, but it will blur your focus on the important design of your <em>public</em> API. With a stable, well-designed public API, you won&rsquo;t be tempted to exploit &ldquo;back door&rdquo; methods that rely on visibility of the non-public methods and fields of the class. Your class will be more useful, and more stable over the life of the project. Also, if your protected methods are used at all, they will be exercised by public methods in other classes&hellip; provided you have tests for those classes!
+</li><li>your test classes will not need to be part of the packages they are testing. In other words, you can physically separate your working classes from your test classes (source as well as compiled code), and that makes it simpler to distribute a jar that is uncluttered by your tests. For example, the JUnit test for a class called &ldquo;xxx.yyy.zzz&rdquo; should be called &ldquo;test.xxx.yyy.zzz&rdquo;. (It is possible to achieve a test-free jar with the JUnit tests residing in the same package as the worker classes, but the <strong>build.xml</strong> logic becomes considerably more complex).
+</li></ol><p class='vspace'><strong>Note:</strong> the SIP Communicator project has been defined with its initial unit test classes in a separate directory tree, but within the same java package as the main classes. This allows developers to write unit tests for the protected API of a class. At this stage of the project, it was felt that developers would find this less restrictive packaging helpful when debugging their code.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h1><a name='toc3' id='toc3'></a> What methods to test and what not to test?</h1>
+<p>Well, I&rsquo;ll assume I&rsquo;ve convinced you to test only the public methods already! Most JUnit programmers never bother to test simple accessor methods such as setXXX(), getXXX(), isXXX() and hasXXX(). These methods ought to be one-liners that manipulate single protected or (preferably) private fields. If they compile, they ought to be too trivial to be worth testing explicitly.
+</p>
+<p class='vspace'>However, you ought to be using these methods <strong><em>extensively</em></strong> within your other unit tests, so these accessors will be tested to a significant extent in passing. The point is that you ought not to worry about exhaustively testing accessors unless you write deliberately obscure code!
+</p>
+<p class='vspace'>Of course, you ought to be validating the arguments passed to your setXXX() methods. If your validation amounts only to explicitly throwing NullPointerException, ClassCastException, IllegalArgumentException, etc, then you should not exhaustively and explicitly write unit tests for these conditions either.
+</p>
+<p class='vspace'>On the other hand, <em>any</em> method that performs non-trivial validation or processing should be exhaustively tested.
+</p>
+<p class='vspace'>&hellip; and you would never have non-final <em>public fields</em> that can be set from outside your class, so you wouldn&rsquo;t want any tests for those cases either, would you?
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h1><a name='toc4' id='toc4'></a> How should you test many classes?</h1>
+<p>You should write one (or more) test classes for a given worker class. Generally speaking, a single test class will be sufficient, but if you find the list of tests getting too big to view, or the setup/teardown logic has too many decisions, then you should refactor your test class into a &ldquo;basic&rdquo; and a &ldquo;complex&rdquo; test class.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h1><a name='toc5' id='toc5'></a> How do you get many tests run within a class?</h1>
+<p class='vspace'>JUnit has a very useful naming convention. If you put an entire test class into a test suite, JUnit&rsquo;s test runners will assume you want to run <em>every</em> method that starts with the substring &ldquo;test&rdquo;. In other words, it will run a method called &ldquo;testX&rdquo; and ignore one called &ldquo;notestX&rdquo;.
+</p>
+<p class='vspace'>This mechanism should encourage you to write smaller test classes. If a test is bigger than a screen, you ought to consider refactoring it into several smaller tests.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h1><a name='toc6' id='toc6'></a> How do you execute all your test classes?</h1>
+<p>JUnit&rsquo;s test runners allow you to &ldquo;nest&rdquo; several test classes into a test suite. You can also put test suites inside test suites. A commonly-used scheme is to create a special test class called something like &ldquo;AllJUnitTests&rdquo; and explicitly execute it with a JUnit testrunner class. Within an Ant target, you can use the junit task to run this test class.
+</p>
+<p class='vspace'>The &ldquo;AllJUnitTests&rdquo; class should have a suite() method. You can then explicitly add your test classes to the current test suite and they will be executed in turn.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h1><a name='toc7' id='toc7'></a> In what order will my tests be executed?</h1>
+<p class='vspace'>You <em>must</em> assume you have <em>no control</em> over the running order of your tests - either over methods within a class, or even over the running order of the test classes.
+</p>
+<p class='vspace'>If you find you must perform initialization and termination to make each individual test method completely self-contained, then use the setup() and teardown() methods, because these are <em>guaranteed</em> to be invoked around each of your tests.
+</p>
+<p class='vspace'><strong>Note:</strong> be <strong><em>very</em></strong> careful of using static fields within your test classes. You run the risk that different classloaders will lead to different results when you run the same test suites under different environments.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+</div><div id='titleNews' >
+<p>But what about test methods with names such as &ldquo;test10xxx&rdquo; and &ldquo;test11xxx&rdquo;?
+</p></div>
+<p class='vspace'>You should choose method names to help someone unfamiliar with your system to understand the contract of the class under test. By using a numeric order, most IDE&rsquo;s will sort the methods and so you can quickly decide which tests are logically simpler, and also which tests are logically related. The remainder of the name should be as helpful as possible, e.g. test27sortThreeWithDuplicates. Oh, and don&rsquo;t forget your tests could execute in <em>any</em> order&hellip; but if several fail within a class, you would be well advised to start your problem determination with the test containing the smallest index number!
+</p>
+<div class='vspace'></div><div id='separator' >
+</div><div >
+<h1><a name='toc8' id='toc8'></a> What if JUnit is not available on the build machine?</h1>
+<p>Then it is about time you installed it! JUnit ought to be as important to your development environment as Ant (you have got Ant installed, haven&rsquo;t you?) Anyway, the SIP Communicator <strong>build.xml</strong> file includes a conditional test for the JUnit classes. If JUnit is not available, a warning message will be printed and the build will be attempted without running the unit tests.
+</p>
+<p class='vspace'><strong>Note:</strong> if you choose a target that needs to run any tests, be careful to ensure that Ant can find JUnit when it runs. This is because out <strong>build.xml</strong> uses the Ant optional task called <em>junit</em> to run unit tests. Ant has some very subtle requirements because of the way it uses classloaders and you should have the JUnit jar on the classpath when you execute Ant. (It is possible to have the build detect your junit jar, but Ant might not find it!)
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h1><a name='toc9' id='toc9'></a> Summary of JUnit design philosophy</h1>
+<ol><li>ALL public fields should be static final. All mutable fields should be inaccessible to API users (i.e. outside the package), except via accessor methods. This means the fields do not need their own unit tests.
+</li><li>ALL public methods (except trivial accessors) should have unit tests for every single logic path. If a particular method needs more than (say) 6 tests, it should be refactored so that its logic is simpler to understand and consequently needs fewer tests.
+</li><li>ALL non-public methods should not be tested explicitly. This allows flexibility in the implementation of the public api. You can refactor without breaking all your unit tests. Also, if your unit tests suddenly get compilation errors, then you KNOW you have broken your api contract and need to think hard about the consequences, especially to users outside the project.
+</li><li>Most non-public methods will be called by classes that extend the base class. Sooner or later, the non-public methods will become testable via a higher-level classes public methods.
+</li><li>In practice, rule 4 sometimes violates rule 2. When it does, I write a new trivial public method in the base class and flag it &ldquo;for JUnit testing ONLY - use this at your peril!&rdquo;.
+</li></ol><p class='vspace'><span class='stickynote'>Author: Brian Burch</span>
+</p></div></div>
+<div class='vspace'></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

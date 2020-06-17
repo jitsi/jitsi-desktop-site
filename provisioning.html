@@ -1,0 +1,676 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Provisioning | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="Provisioning" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.Provisioning' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/Provisioning?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="index.html">
+				<img  src="wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='Main/News.html'>News</a>
+</li><li><a class='wikilink' href='Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='Documentation/UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='Documentation/DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='Documentation/FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='Documentation/ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:40px auto;text-align:left' >
+<div class='vspace'></div><h2>Intro</h2>
+<p>Provisioning is the feature that allows network and provider administrators to remotely configure Jitsi instances that they are responsible for. 
+</p>
+<p class='vspace'>Jitsi&rsquo;s provisioning module uses <em>http</em>. This means that, based on a few parameters like an IP or a mac layer address, or a user name and a password, a simple script on a web server or an advanced provisioning system like <a class='urllink' href='http://pypi.python.org/pypi/JitsiProvS/' rel='nofollow'> JitsiProvS</a> can feed to a freshly installed Jitsi all the details that it needs in order to start making calls, downloading updates or configure codec preferences. 
+</p>
+<p class='vspace'>Of course, in order for this to work, Jitsi would first need to find out where the provisioning web server is. This can happen either automatically, using discovery protocols like DHCP or mDNS (a.k.a. Bonjour), or by manually entering a provisioning URI in Jitsi&rsquo;s configuration form.
+</p>
+<div class='vspace'></div><div  style='text-align: center;'><img src='wiki/pub/provisioning/provisioning_manual.png' alt='Jitsi&#39;s Configuration Form' title='Jitsi&#39;s Configuration Form' /><br /><strong>Jitsi&rsquo;s Configuration Form</strong></div>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><h2>Provisioning URI and parameters</h2>
+<p>The easiest way to have Jitsi connect to a provisioning server is to configure the provisioning URL in its configuration form. Jitsi also supports automatic provisioning discovery via DHCP and Bonjour both of which are discussed later in this document. To do so, go to options =&gt; advanced =&gt; provisioning and check &ldquo;Enable  provisioning&rdquo; (if not already checked), then select &ldquo;Manually specify provisioning URI&rdquo; and enter a URI.
+</p>
+<p class='vspace'>A provisioning URI is an HTTP or HTTPS URL optionally followed by several parameters. The URI would most often point to a provisioning server-side script (e.g. PHP, CGI, servlet, &hellip;). Please note that we <strong>strongly recommend</strong> you only use HTTPS unless you have very good reasons not to. Provisioning POST requests generally contain sensitive information like passwords and you definitely don&rsquo;t want that being sent in clear text. 
+</p>
+<p class='vspace'>Here is an example of a provisioning URI:
+</p>
+<div class='vspace'></div><pre class='escaped'>https://example.com/provisioning.php?user=${username}&amp;password=${password}
+      &amp;os=${osname}&amp;hw=${hwaddr}&amp;uuid=${uuid}&amp;hostname=${hostname}
+</pre>
+<p class='vspace'>Note that in the above URI the names of the parameters to the left of an equal (=) sign only depend on you and the web script that you are using in your provisioning environment. Those to the right however are parameters supported by Jitsi and they always come surrounded by accolades and prefixed with a dollar sign (e.g. ${param_value} )
+</p>
+<p class='vspace'>Currently, Jitsi supports the following parameters:
+</p><ul><li>username: The name of a user account that you may use to determine the kind of information that you&rsquo;d like to feed to Jitsi. If you use that parameter, Jitsi would prompt the user to manually enter a user name so obviously they need to know what they are being asked for. 
+</li><li>password: A password string that you can use when authenticating the above user name. If you use that parameter, Jitsi would prompt the user to fill in a password field. 
+</li><li>osname: the operating system that Jitsi is currently running on.
+</li><li>ipaddr: The IPv4 or IPv6 address that Jitsi is using to communicate with you (could be helpful if, for some reason you are not receiving the message directly from Jitsi or in case you don&rsquo;t have access to the source address of the incoming messages).
+</li><li>hwaddr: The hardware address of the device that Jitsi is using to communicate with you
+</li><li>build: Jitsi&rsquo;s current build number
+</li><li>uuid: The UUID of the device running Jitsi
+</li><li>arch: The architecture of the device running Jitsi
+</li><li>hostname: The host name of the machine running Jitsi.
+</li><li>home.location: the location of Jitsi&rsquo;s configuration directory on the host machine
+</li><li>home.name - the name of Jitsi&rsquo;s configuration directory
+</li><li>system.&lt;property_name&gt;: Any Java System property where &lt;property_name&gt; is the name of that property. For example ${system.user.name} would be replaced with the value of the &ldquo;user.name&rdquo; property: the user name that Jitsi is executed with.
+</li><li>env.&lt;var_name&gt;: Any environment variable where &lt;var_name&gt; is the name of that variabl. For example ${env.PATH} would be replaced with the value of the &ldquo;PATH&rdquo; environment variable.
+</li></ul><p class='vspace'>See <a class='wikilink' href='Documentation/ConfigureJitsiWithProvisioning.html'>Configure Jitsi With Provisioning</a> for a list of parameters that allow for hiding various menu entries from the UI.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><h2>A sample provisioning script</h2>
+<p>A provisioning script is something that you write and run on your web server. It handles incoming provisioning requests and it serves configuration properties to Jitsi according to the parameters that these requests contain.
+</p>
+<p class='vspace'>A provisioning script MUST always return content formatted as a valid <a class='urllink' href='http://en.wikipedia.org/wiki/.properties' rel='nofollow'> properties file</a>. That&rsquo;s pretty much the only limitation and other than that, you can have almost anything in it. You can certainly use the output to configure absolutely any aspect of Jitsi. 
+</p>
+<p class='vspace'>Quite often, a provisioning script would use the parameters from the provisioning URI to determine the exact properties that it is going to return. A common example is the provisioning of a SIP account that often depends on either the hardware address or the user name and password entered by the user. 
+</p>
+<p class='vspace'>In order to retrieve its configuration properties from the provisioning script, Jitsi would use an HTTP <strong>POST</strong> request. All the parameters that are present in the provisioning URL (e.g. username, password, osname, &hellip;) would then be encoded as parameters of that POST request. This is important to note and may be a bit confusing since the request makes it look as if we would be doing a GET.
+</p>
+<p class='vspace'><a class='urllink' href='http://pypi.python.org/pypi/JitsiProvS/' rel='nofollow'> JitsiProvS</a> is one example of a Jitsi provisioning server written in python. You can use it as is or extend it to fit your needs. You are of course also free to create your own versions. 
+</p>
+<p class='vspace'>Following is a simple PHP provisioning file:
+</p>
+<div class='vspace'></div><pre class='escaped'>&lt;?php
+// remove all properties recursively for this property name
+echo "net.java.sip.communicator.impl.gui.main.MainFrame=\${null}\n";
+
+// ensure that the next properties will have the right prefix otherwise 
+// they will not be added to configuration
+echo "provisioning.ALLOW_PREFIX=net.java|org.ice4j|java.net\n";
+
+// properties for a specific OS (here Linux)
+if($_POST['osname'] == "Linux")
+{
+  echo "net.java.sip.communicator.impl.gui.main.MainFrame.height=250\n";
+}
+else
+{
+  echo "net.java.sip.communicator.impl.gui.main.MainFrame.height=750\n";
+}
+
+echo "net.java.sip.communicator.impl.gui.main.MainFrame.width=520\n";
+echo "net.java.sip.communicator.impl.gui.main.MainFrame.x=800\n";
+echo "net.java.sip.communicator.impl.gui.main.MainFrame.y=20\n";
+
+// check that all properties of the configuration respect the following prefixes
+echo "provisioning.ENFORCE_PREFIX=net.java|org.ice4j|java.net\n";
+?&gt;
+</pre>
+<p class='vspace'>You can use the special property value &ldquo;${null}&rdquo; when you&rsquo;d like to remove (unset) all properties beginning with the specified prefix. Note that properties are processed in the order that the provisioning script returns them. It is therefore possible to use ${null} in the beginning of a provisioning file, have it remove a group of properties like a SIP account for example, and then feed a new SIP account in the same provisioning file.
+</p>
+<p class='vspace'>The property &ldquo;provisioning.ALLOW_PREFIX&rdquo; tells Jitsi that through the rest of the provisioning file, it should ignore any properties that do not match the specified prefixes. The value of the property would hence contain a number of strings separated by the | (pipe) character. 
+</p>
+<p class='vspace'>The &ldquo;provisioning.ENFORCE_PREFIX&rdquo; is somewhat similar to ALLOW_PREFIX. Jitsi would use this property to make sure that your Jitsi&rsquo;s configuration file only contains properties matching the specified prefixes and it would remove all those that don&rsquo;t, regardless of whether they were provisioned through a provisioning script or were set by the user.
+</p>
+<p class='vspace'><strong>Important note: </strong> Your provisioning script should indicate authentication problems (e.g. wrong password) using a 401 HTTP error response. After receiving such a response, Jitsi would prompt the user to enter the credentials again.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><h2>Provisioning with a DHCP server</h2>
+<p>DHCP is one way for Jitsi to discover a provisioning URI without user interaction.
+To make Jitsi use DHCP provisioning, go to options =&gt; advanced =&gt; provisioning, check &ldquo;Enable provisioning&rdquo; and then select the &ldquo;DHCP&rdquo; radio button.
+</p>
+<p class='vspace'>In order to get the provisioning URL via DHCP, somewhere on the network a DHCP server has to be 
+running on <strong>port 6767</strong>. This means that if you already have a DHCP server in your network, you would probably need to install a second one (although this one would be extremely simple to configure so don&rsquo;t worry :) ). 
+</p>
+<p class='vspace'>We expect to find our provisioning URI in option 224 so that&rsquo;s where your server needs to serve it.
+</p>
+<p class='vspace'>Following is a sample dhcpd.conf file that you can use almost as is in your own network. You&rsquo;d probably only need to adjust the subnet and the URI itself:
+</p>
+<div class='vspace'></div><pre class='escaped'># provisioning option definition
+option sc-pserv code 224 = text;
+# some characters like '~' must be encoded, 
+# see http://www.blooberry.com/indexdot/html/topics/urlencoding.htm
+option sc-pserv "https://provisioning.domain.org/provisioning.php?username=${username}&amp;password=${password}&amp;ipaddr=${ipaddr}&amp;hwaddr=${hwaddr}&amp;osname=${osname}&amp;build=${build}&amp;arch=${arch}";
+
+subnet 192.168.0.0 netmask 255.255.255.0 {
+  authoritative;
+}
+</pre>
+<p class='vspace'>Note: the provisioning DHCP server does not need to provide IP addresses to machines. All it does is return the provisioning URI to whoever asks.
+</p>
+<div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><h2>Bonjour provisioning</h2>
+<p>To configure provisioning via Bonjour, go to options =&gt; advanced =&gt; provisioning, check 
+&ldquo;Enable provisioning&rdquo;, and then select &ldquo;Bonjour&rdquo;.
+</p>
+<p class='vspace'>In order to get the provisioning URI via Bonjour, you would need to make sure that an mDNS server is running somewhere on your network and that it is configured to advertise the provisioning URI. 
+</p>
+<p class='vspace'><a class='urllink' href='http://avahi.org/' rel='nofollow'>Avahi</a> is one of the most popular mDNS servers. Here&rsquo;s what you need to do in order to make it provision Jitsi 
+</p>
+<p class='vspace'>On Unix/Linux:
+</p>
+<div class='vspace'></div><ul><li>Install avahi-daemon if not already installed.
+<div class='vspace'></div></li><li>Create a file in /etc/avahi/services/provisioning.service
+</li></ul><div class='vspace'></div><pre class='escaped'>&lt;?xml version="1.0" standalone='no'?&gt;
+&lt;!DOCTYPE service-group SYSTEM "avahi-service.dtd"&gt;
+&lt;service-group&gt;
+  &lt;name&gt;Provisioning URL&lt;/name&gt;
+  &lt;service protocol="any"&gt;
+    &lt;host-name&gt;provisioning.local&lt;/host-name&gt;
+    &lt;type&gt;_https._tcp&lt;/type&gt;
+    &lt;port&gt;443&lt;/port&gt;
+    &lt;txt-record&gt;path=https://www.example.org/provisioning.php&lt;/txt-record&gt;
+    &lt;txt-record&gt;username=${username}&lt;/txt-record&gt;
+    &lt;txt-record&gt;password=${password}&lt;/txt-record&gt;
+    &lt;txt-record&gt;osname=${osname}&lt;/txt-record&gt;
+    &lt;txt-record&gt;build=${build}&lt;/txt-record&gt;
+    &lt;txt-record&gt;ipaddr=${ipaddr}&lt;/txt-record&gt;
+    &lt;txt-record&gt;hwaddr=${hwaddr}&lt;/txt-record&gt;
+    &lt;txt-record&gt;uuid=${uuid}&lt;/txt-record&gt;
+    &lt;txt-record&gt;arch=${arch}&lt;/txt-record&gt;
+  &lt;/service&gt;
+&lt;/service-group&gt;
+</pre>
+<p class='vspace'>Note that name MUST not be changed since Jitsi will look for the service name 
+&ldquo;Provisioning URL&rdquo;. The host-name is not a FQDN and has to be suffixed by &ldquo;.local&rdquo;, next step 
+will tell avahi about the IP address of this host name. The URL parameters is added in this way 
+<code class='escaped'>&lt;txt-record&gt;paramname=$paramname&lt;/txt-record&gt;</code>.
+</p>
+<div class='vspace'></div><ul><li>Add in /etc/avahi/hosts file the IP address of the provisioning server. The server name must 
+</li></ul><p>match the one in &lt;host-name&gt; parameter of provisioning.service file.
+</p>
+<div class='vspace'></div><pre class='escaped'># enter the IP address of the provisioning server
+192.168.0.254 provisioning.local
+</pre>
+<div class='vspace'></div><ul><li>Restart avahi
+</li></ul><div class='vspace'></div><div id='separatorNews' >
+</div>
+<div class='vspace'></div><h2>Miscellaneous </h2>
+<ul><li><a name='proto-passwords' id='proto-passwords'></a> Support for password encryption. Account passwords that come from the provisioning server would need to be in clear text (all the more reason to use HTTPS). They would then be encrypted by the provisioning module since the server doesn&rsquo;t know what encryption key the client is using. Note however that clear text passwords need to be provisioned via the PASSWORD account property. Then would then be stored in the corresponding ENCRYPTED_PASSWORD property. For example 
+</li></ul><div class='vspace'></div><pre> net.java.sip.communicator.impl.protocol.jabber.acc12911123.PASSWORD=mypassword
+</pre><p class='vspace'>would become something like
+</p>
+<div class='vspace'></div><pre> net.java.sip.communicator.impl.protocol.jabber.acc12911123.ENCRYPTED_PASSWORD=x5ElABCKLjzDm
+</pre><div class='vspace'></div><ul><li>Account property identifiers MUST always start with the &ldquo;acc&rdquo; substring. It doesn&rsquo;t matter what you put after the &ldquo;acc&rdquo; as long as it&rsquo;s unique between the accounts and the same across the different properties for the same account. But, again, you do need to start with &ldquo;acc&rdquo;.
+</li></ul></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title> Creating Services for the Jitsi | Jitsi</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <link rel="shortcut icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../wiki/pub/skins/simple/i/favicon.ico" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <!-- link rel='stylesheet' href='https://desktop.jitsi.org/wiki/pub/skins/simple/pmwiki.css' type='text/css' / -->
+  <link rel='stylesheet' href='../wiki/pub/skins/simple/simple.css' type='text/css' />
+  <!--[if IE 6]><link type="text/css" rel="stylesheet" href="css/ie6.css" /><![endif]-->
+  <!--HTMLHeader--><style type='text/css'><!--
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .apprlink { font-size:smaller; }
+span.anchor {
+	float: left;
+	font-size: 10px;
+	margin-left: -10px;
+	width: 10px;
+    position:relative; top:-0.1em;
+	text-align: center;
+}
+span.anchor a { text-decoration: none; }
+span.anchor a:hover { text-decoration: underline; }
+ol.toc { text-indent:-20px; list-style: none; }
+ol.toc ol.toc { text-indent:-40px; }
+div.tocfloat { font-size: smaller; margin-bottom: 10px;
+    border-top: 1px dotted #555555; border-bottom: 1px dotted #555555;
+    padding-top: 5px; padding-bottom: 5px; 
+    width: 38%; float: right; margin-left: 10px; clear: right;
+    margin-right:-13px; padding-right: 13px; padding-left: 13px;
+    background-color: #eeeeee; }
+div.toc { font-size: smaller; 
+    padding: 5px; border: 1px dotted #cccccc;
+    background: #f7f7f7;
+    margin-bottom: 10px; }
+div.toc p { background-color: #f9f6d6;
+    margin-top:-5px;   padding-top: 5px;
+    margin-left:-5px;  padding-left: 5px;
+    margin-right:-5px; padding-right: 5px;
+    padding-bottom: 3px;
+    border-bottom:  1px dotted #cccccc; }
+div.breaklist { text-align: right; }
+div.breaklist strong { background-color: yellow; }
+div.breakpage { text-align: right; }.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  div.faqtoc div.faq * { display:none; }
+  div.faqtoc div.faq p.question 
+    { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+  div.faqtoc div.faq p.question * { display:inline; }
+   
+    .frame 
+      { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+    .lfloat { float:left; margin-right:0.5em; }
+    .rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+--></style><script type="text/javascript">
+function toggle(obj) {
+    var elstyle = document.getElementById(obj).style;
+    var text    = document.getElementById(obj + "tog");
+    if (elstyle.display == 'none') {
+        elstyle.display = 'block';
+        text.innerHTML = "hide";
+    } else {
+        elstyle.display = 'none';
+        text.innerHTML = "show";
+    }
+}
+</script><link rel='stylesheet' href='../wiki/pub/css/markup.css' type='text/css' />
+
+  <link href='../wiki/pub/commentboxplus/commentboxplus.css' rel='stylesheet' type='text/css' />  <meta name='robots' content='index,follow' />
+
+<!-- google analytics tracker -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-319188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- end google analytics tracker -->
+
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+    startList = 
+    	function() 
+        {
+        	if (document.all && document.getElementById) {
+            	navRoot = document.getElementById("menu");
+                for (i = 0; i < navRoot.childNodes.length; i++) {
+                	node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI") {
+                    	node.onmouseover = 
+                        	function() { this.className += " over"; }
+                        node.onmouseout = 
+                        	function() { this.className = this.className.replace(" over", ""); }
+                    }
+                }
+            }
+        }
+	window.onload = startList;
+    //--><!]]>
+</script>
+
+<script language="JavaScript1.1">
+<!--
+	first = 1;
+    last = 5;
+    current = 0;
+    var slideTimerId = 0;
+	var buttonLink = "";
+    var osName="Unknown OS";
+            
+    function nextPicture()
+	{
+	    removeCurrent();
+
+	    // Show next picture, if last, loop back to front
+    	if (current == last) { current = 1; }
+        else { current++ }
+
+		addCurrent();
+		
+		restartTimer();	
+	}
+
+    function previousPicture()
+	{
+		removeCurrent();
+
+        if (current == first) { current = last; }
+        else { current--; }
+        
+		addCurrent();
+
+		restartTimer();	
+	}
+	
+	function goToSlide(index)
+	{         
+		removeCurrent();
+
+        current = index;
+
+        addCurrent();
+
+		restartTimer();	
+	}
+	
+	function removeCurrent()
+	{
+		if (current != 0)
+		{
+	    	// Hide current picture
+    	    object = document.getElementById('slide' + current);
+        	object.style.display = 'none';
+ 
+			fade('slide' + current);
+
+            object = document.getElementById('dot' + current);
+	        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dot.png)";
+		}
+	}
+	
+	function addCurrent()
+	{
+		object = document.getElementById('slide' + current);
+		object.style.opacity = 0;
+        object.style.display = 'block';
+
+        fade('slide' + current);
+
+		object = document.getElementById('dot' + current);
+        object.style.backgroundImage = "url(https://desktop.jitsi.org/wiki/pub/sip-communicator/dotSelected.png)";
+	}
+
+	function restartTimer()
+	{
+		clearTimeout(slideTimerId);
+		slideTimerId = setTimeout("slideit()", slideshowspeed);
+	}
+
+	var TimeToFade = 500.0;
+
+	function fade(eid)
+	{
+	  	var element = document.getElementById(eid);
+  		if(element == null)
+    		return;
+   
+  		if(element.FadeState == null)
+  		{
+    		if(element.style.opacity == '1')
+		    {
+      			element.FadeState = 2;
+    		}
+    		else if (element.style.opacity == null
+					|| element.style.opacity == '0'
+					|| element.style.opacity == '')
+    		{
+      			element.FadeState = -2;
+    		}
+  		}
+    
+  		if(element.FadeState == 1 || element.FadeState == -1)
+  		{
+    		element.FadeState = element.FadeState == 1 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade - element.FadeTimeLeft;
+  		}
+  		else
+  		{
+    		element.FadeState = element.FadeState == 2 ? -1 : 1;
+    		element.FadeTimeLeft = TimeToFade;
+    		setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  		}  
+	}
+
+	function animateFade(lastTick, eid)
+	{  
+  		var curTick = new Date().getTime();
+		var elapsedTicks = curTick - lastTick;
+  
+  		var element = document.getElementById(eid);
+ 
+  		if(element.FadeTimeLeft <= elapsedTicks)
+  		{
+    		element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    		element.style.filter = 'alpha(opacity = ' 
+        		+ (element.FadeState == 1 ? '100' : '0') + ')';
+	    	element.FadeState = element.FadeState == 1 ? 2 : -2;
+		    return;
+  		}
+ 
+	  	element.FadeTimeLeft -= elapsedTicks;
+  		var newOpVal = element.FadeTimeLeft/TimeToFade;
+  		if(element.FadeState == 1)
+	    	newOpVal = 1 - newOpVal;
+
+  		element.style.opacity = newOpVal;
+ 	 	element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+  
+	  	setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+	}
+	
+	function createCORSRequest(method, url)
+	{
+    	var xhr = new XMLHttpRequest();
+	    if ("withCredentials" in xhr)
+		{
+    	    xhr.open(method, url, true);
+	    }
+		else if (typeof XDomainRequest != "undefined")
+		{
+        	xhr = new XDomainRequest();
+        	xhr.open(method, url);
+	    }
+		else
+		{
+        	xhr = null;
+    	}
+    	return xhr;
+	}
+
+	function createDownloadText()
+	{
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			osName="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			osName="Mac OS X";
+		if (navigator.appVersion.indexOf("X11")!=-1)
+			osName="Unix";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			osName="Linux";
+		
+		return "Get Jitsi for " + osName;
+	}
+
+	function getOsName()
+	{
+	    var os = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os="windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os="macosx";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os="linux";
+		
+		return os;
+	}
+
+	function getDownloadURL()
+	{
+	    var url = "";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			url="https://download.jitsi.org/nightly/windows/";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			url="https://download.jitsi.org/nightly/macosx/";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			url="https://download.jitsi.org/nightly/linux/";
+		
+		return url;
+	}
+
+    function createDownloadLink()
+	{
+		var txtFile = createCORSRequest("get", getDownloadURL() + "versionupdate.properties");
+        txtFile.onreadystatechange = function()
+        {
+            if (txtFile.readyState == 4)
+            {  // Makes sure the document is ready to parse.
+				display_all(txtFile.responseText);
+                buttonLink = getDownloadURL() + txtFile.responseText;
+            }
+        }
+        txtFile.send();
+	}
+
+	function display_column(str_line, n)
+	{
+   		document.write("<p>" + str_line.split('\t')[n - 1]);
+	}
+
+	function display_all(data)
+	{
+   		var i, x = data.split('\n');
+	   	for (i = 0; i < data.length; i++)
+		{
+      		display_column(data[i], 1);
+	      	// it's 1 because you only want to display the 1st column..
+      		// unless I misunderstood your question..
+   		}
+	}
+
+	function download()
+	{
+		window.open(buttonLink);
+	}
+//-->
+</script>
+<noscript>
+    <style>
+        #slideshow {display:none;}
+    </style>
+</noscript>
+
+</head>
+<body class="Creating Services for the Jitsi" style="background-image: none">
+<div id="meet-banner" style="background-color: #1d76ba;">
+    <p style="color: #fff; padding: 20px;">
+        If you are looking for Jitsi Meet, the WebRTC compatible video conferencing product click <a href="https://jitsi.org">here</a>.
+    </p>
+</div>
+<!--PageHeaderFmt-->
+  	<div id="wrapper">
+		<div id="header">
+			<!--ul id="headernavigation">
+						<li class="left"><a href="#">Sitemap</a></li>
+						<li><a href="#">Contact</a></li>
+						<li class="search"><form action='https://desktop.jitsi.org' style="padding:0; margin:0"><input type='hidden' name='n' value='Documentation.CreatingServices' /><input type='hidden' name='action' value='search' /><input type="text" name="q" onblur="if(this.value=='')this.value='Search...';" onfocus="if(this.value=='Search...')this.value=''" value="Search..." class="text" /><input type="submit" value="" class="submit"/></form></li>
+			</ul--> 
+	   <div id="menubar" style="display: block;">
+				<div> 
+			      	<span>
+				    	<a href='https://desktop.jitsi.org/Documentation/CreatingServices?action=edit' accesskey='e' style="display: none;">>Edit Page</a>
+		    			
+			        </span>
+				</div> 
+     			<div class="clear"></div>
+
+        </div>
+						
+		<div id="logo">
+			<a href="../index.html">
+				<img  src="../wiki/pub/sip-communicator/logo3.png" />
+			</a>
+		</div>		
+		
+        <div id="menu" style="display: block;">	
+	       
+            <span id="popupmenu" style="float: left;">
+			    <ul id="navigation">
+            		<li class="first" id="Main"><a class="mainmenu"><span>Jitsi</span></a>
+                    	<ul><li><a class='wikilink' href='../Main/HomePage.html'>Home</a>
+</li><li><a class='wikilink' href='../Main/News.html'>News</a>
+</li><li><a class='wikilink' href='../Main/Download.html'>Download</a>
+</li><li><a class='wikilink' href='../Main/Screenshots.html'>Screenshots</a>
+</li><li><a class='wikilink' href='../Main/Features.html'>Features</a>
+</li><li><a class='wikilink' href='../Main/About.html'>About</a>
+</li></ul>
+ 
+                    </li>                     
+	               	<li id="Download"><a class="mainmenu" href="../Main/Download.html"><span>Download</span></a>
+						
+
+					</li>
+                    <li id="Development"><a class="mainmenu"><span>Development</span></a>
+                    	<ul><li><a class='wikilink' href='../Development/CommunityForum.html'>Commmunity Forum</a>
+</li><li><a class='wikilink' href='../Development/VersionControl.html'>Source Code</a>
+</li><li><a class='wikilink' href='../Development/TeamAndContributors.html'>Team and Contributors</a>
+</li><li><a class='urllink' href='https://github.com/jitsi' rel='nofollow'>GitHub project page</a>
+</li><li>Jitsi Family
+</li><li><a class='urllink' href='https://jitsi.org/meet' rel='nofollow'>Jitsi Meet</a>
+</li><li><a class='urllink' href='https://jitsi.org/libjitsi' rel='nofollow'>LibJitsi</a>
+</li><li><a class='urllink' href='http://ice4j.org' rel='nofollow'>ice4j.org</a>
+</li><li><a class='urllink' href='https://jitsi.org/jitsi-videobridge' rel='nofollow'>Jitsi Videobridge</a>
+</li></ul>
+
+					</li>
+					<li id="Documentation"><a class="mainmenu"><span>Documentation</span></a>
+						<ul><li><a class='wikilink' href='UserDocumentation.html'>User Documentation</a>
+</li><li><a class='wikilink' href='DeveloperDocumentation.html'>Developer Documentation</a>
+</li><li><a class='wikilink' href='FAQ.html'>FAQ</a>
+</li><li><a class='wikilink' href='ZrtpFAQ.html'>ZRTP and SRTP FAQ</a>
+</li></ul>
+
+					</li>
+				
+					<!--li class="last" id="Support"><a class="mainmenu"><span>Support</span></a-->
+	                 	<ul><li><a class='wikilink' href='../Commercial/Companies.html'>Support and Custom Development</a>
+</li></ul>
+	 					
+					<!--/li-->
+				</ul>
+			</span>
+			<div class="clear"></div>
+		   </div>
+		
+        </div>
+        
+		<div id="content">
+			 			<!--PageText-->
+<div id='wikitext'>
+<div style='width:960px; margin:40px auto;text-align:left' >
+<div class='vspace'></div><h1>Creating Services for the Jitsi</h1>
+<div class='tocfloat'><p><a name='toc' id='toc'></a><b>On this page&hellip;</b> (<a id="tocidtog" href="javascript:toggle('tocid');">hide</a>)</p><ul class='toc' id='tocid'><li><a href='CreatingServices.html#toc1'>Creating the Source Tree</a></li><li><a href='CreatingServices.html#toc2'>Package: net.java.sip.communicator.service.smile</a></li><li><a href='CreatingServices.html#toc3'>Package: net.java.sip.communicator.impl.smile</a></li><li><a href='CreatingServices.html#toc4'>Package: net.java.sip.communicator.slick.smile</a></li><li><a href='CreatingServices.html#toc5'>Building your service through the project build.xml</a></li><li><a href='CreatingServices.html#toc6'>Updating the OSCAR/Felix configuration</a></li></ul></div>
+<p>SIP Communicator 1.0 and later, are all based on the OSGi architecture and using the Apache Felix implementation (formerly known as Oscar) from Richard Hall. If you are unfamiliar with OSGi you might find the <a class='urllink' href='http://felix.apache.org/site/apache-felix-osgi-tutorial.html' rel='nofollow'>Apache Felix tutorials</a> very handy. 
+</p>
+<p class='vspace'>Since OSGi is a standard, it is also possible to find documentation on writing OSGi bundles from other sources; for example, Sun provides a tutorial for both <a class='urllink' href='http://java.sun.com/j2me/docs/pdf/tutorialwin.pdf' rel='nofollow'>Windows</a> and <a class='urllink' href='http://java.sun.com/j2me/docs/pdf/tutorialsol.pdf' rel='nofollow'>Solaris</a> (they&rsquo;re a bit outdated and were originally written for a discontinued OSGi implementation from SUN, but regardless of that the information in them is still pertinent and very helpful).
+</p>
+<p class='vspace'>The Jitsi comes with a set of services that we call base. The Configuration, ProtocolProvider, Message and Call History, GUI and Media, are among others, such base services. All the base services come with a default implementation and a SLICK (Service Leveraging Implementation Compatibility Kit).  Developers may provide alternative implementations to these or create new services. This section provides a few tips on how to do so.
+</p>
+<div class='vspace'></div><div id='separator' >
+</div><div >
+<h2><a name='toc1' id='toc1'></a> Creating the Source Tree</h2>
+<p class='vspace'>Every service in the Jitsihas at least three associated packages: one for all the service interfaces, a second containing the default implementation and a third for the SLICK - a suite of tests that determine whether a particular implementation of that service could be considered complete and interoperable with plugins using the service (don&rsquo;t worry if that&rsquo;s unclear - I&rsquo;ll explain it later). 
+</p>
+<p class='vspace'>Here&rsquo;s how these packages are situated in the sip-communicator source tree. For a Smile service for example you&rsquo;d have the following three packages:
+</p>
+<div class='vspace'></div><ul><li>net.java.sip.communicator.service.smile - for all service interfaces and classes. The entry point to the service should carry the same name as the package followed by the service suffix. Here that would be: SmileService.
+</li><li>net.java.sip.communicator.impl.smile - for the service implementation. All classes here should carry the same name as the interface they are implementing, followed by the impl suffix. For the entry point interface implementation this is a MUST and in this case we have: SmileServiceImpl.
+</li><li>net.java.sip.communicator.slick.smile - for the service SLICK. The entry point for the SLICK package should have the same name as the main service interface terminated by a Lick suffix (funny name isn&rsquo;t it). For our Smile service this would be: SmileServiceLick.
+</li></ul><p class='vspace'>When designing a new service from the ground up, you&rsquo;ll need to provide content for all three of them.
+</p>
+<p class='vspace'>If you are building up a service, keep in mind that it would be best if you respected this naming convention so that others could easily identify its various modules. 
+</p>
+<p class='vspace'>Here&rsquo;s a bit more on the roles of these packages.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h2><a name='toc2' id='toc2'></a> Package: net.java.sip.communicator.service.smile </h2>
+<p>That&rsquo;s where all service interfaces as well as classes that would remain common for all implementations. Everyone using the smile service will actually be accessing these interfaces and will not (ideally) be touching the actual implementation. That means that you&rsquo;d better keep them as simple and intuitive, and well documented as possible. 
+</p>
+<p class='vspace'>The main interface for a service should always carry the name of the service followed by the Service suffix. For a Smile service the name would be SmileService. 
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h2><a name='toc3' id='toc3'></a> Package: net.java.sip.communicator.impl.smile </h2>
+<p>The impl tree contains classes that implement the interfaces from the service.smile package. A service can have several implementations, one of which is considered &ldquo;default&rdquo; and is officially maintained by sip-communicator.org (us). 
+</p>
+<p class='vspace'>All classes here should carry the same name as the interface they are implementing, followed by the &ldquo;impl&rdquo; suffix. For the entry point interface implementation this is a MUST and in the Smile case we have: SmileServiceImpl.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h2><a name='toc4' id='toc4'></a> Package: net.java.sip.communicator.slick.smile </h2>
+<p>The slick package is what ensures that implementations are compatible and fully implement the respective service. A SLICK to a service is what a TCK is to a JSR&hellip; it&rsquo;s all clear now isn&rsquo;t it? :). Well imagine for example that you&rsquo;d like to provide an implementation to one of the services already available in the sip-communicator. Let&rsquo;s say that you&rsquo;d like to implement the ProtocolProviderService over a protocol that is currently not supported by the Jitsi. Yet you&rsquo;d like other bundles using that interface to continue functioning the same way as they would for any other protocol implementation. The most obvious way to verify that is to simply run SC and try out your implementation. This, however doesn&rsquo;t guarantee that you haven&rsquo;t left something out while testing (and there&rsquo;s generally a lot to test). That&rsquo;s where a SLICK comes in. Running a SLICK over a service implementation guarantees that your implementation has all the necessary features for other bundles to use it transparently. 
+</p>
+<p class='vspace'>SLICKs are also quite helpful for plain unit testing. Regularly running a slick over your service implementation helps keep bugs out and makes you feel confident that it runs the way it supposed to. 
+</p>
+<p class='vspace'>SLICKs in the Jitsi are developed using JUnit and you can find guidelines on using it in the <a class='wikilink' href='DesignOfTheJUnitTests.html'>Design of the JUnit Tests</a> section, written by Brian Burch.
+</p>
+<p class='vspace'>The entry point for the SLICK package should have the same name as the main service interface terminated by a &ldquo;Lick&rdquo; suffix (funny name isn&rsquo;t it). For our Smile service this would be: SmileServiceLick. The reason for not terminating it by Slick is that the S in SLICK stands for Service and this is already a part of the name so there&rsquo;s no point in doubling it (and besides we get that funny name :) )
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h2><a name='toc5' id='toc5'></a> Building your service through the project build.xml</h2>
+<p>Almost there! Once you have your service, implementation and slick, you&rsquo;d have to plug them in the build.xml so that the get built and tested during CruiseControl continuous builds. You would have to build a bundle per SLICK and another one for the service and implementation. Note that if you are implementing a default implementation, you would have to include the service interfaces in the same bundle as the implementation.
+</p>
+<p class='vspace'>You may use other bundles in the section as examples on how to create yours. Here&rsquo;s how I&rsquo;ve done it for the configuration slick:
+</p>
+<div class='vspace'></div><pre class='escaped'>    &lt;!--BUNDLE-CONFIGURATION-SLICK--&gt;
+    &lt;target name="bundle-configuration-slick" depends="rebuild"&gt;
+        &lt;jar compress="false" 
+            destfile="${bundles.dest}/configuration-slick.jar" 
+            manifest="test/net/java/sip/communicator/slick/configuration/
+                      configuration.slick.manifest.mf"&gt;
+            &lt;zipfileset 
+                dir="${dest}/net/java/sip/communicator/slick/configuration"
+                prefix="net/java/sip/communicator/slick/configuration"/&gt;
+        &lt;/jar&gt;
+    &lt;/target&gt;
+</pre>
+<p class='vspace'>In order to get it automatically built up during project builds, add a reference to your target in the depends parameter of &ldquo;sc-bundles&rdquo;.
+</p>
+<p class='vspace'>In order to have your slick automatically executed during automated continuous builds, you need to add its name here among the others specified by the TEST_LIST property in the test target.
+</p>
+<div class='vspace'></div></div><div id='separator' >
+</div><div >
+<h2><a name='toc6' id='toc6'></a> Updating the OSCAR/Felix configuration</h2>
+<p>One last thing left to do. In order for your bundles to get activated you would need to add them in the oscar.unit.test.properties or oscar.client.run.properties depending on whether you want them executed during automated testing or while running the client respectively.
+</p>
+<p class='vspace'><span class='stickynote'>Author: Emil Ivov</span>
+</p></div></div>
+</div>
+	
+			<div id="clear"></div>	
+			
+		</div>
+		<div id="push"></div>
+	</div>	
+		<div id="footer">
+			<div id="footerwrap"> 
+			        
+					<div class="fcleft">
+							
+							Jitsi is distributed under the terms of the Apache License, Version 2.0
+						
+					</div> 
+					<!--div class="fccontact">
+						<b>Contacts</b><br/>
+						mail: contact@bluejimp.com<br/>
+                        sip: bluejimp@ippi.fr <br/>
+						phone France: +33 1 77 62 43 30<br/>
+						phone USA: +1 415 762 0439
+					</div>
+					<div class="fccontact">
+						<b>Head Office - France</b><br/>
+						Strasbourg, France<br/><br/>
+						phone: +33 1 77 62 43 30<br/>
+						fax: +33 1 77 62 47 31
+					</div>
+					<div class="fccontact">
+                        <b>Bulgarian Branch</b><br/>headernavigation
+                        34 Nikolay Haitov Str.<br/>
+                        1172 Sofia, Bulgaria<br/>
+                        phone: +359 2 868 75 74<br/>
+                        phone: +359 2 868 88 49 
+                    </div-->
+					<div class="fcright">
+					   <div style="position:relative;z-index:3;width:367px;text-align:right;">					
+					          Powered by: <a href="http://pmwiki.org" rel="external">pmwiki</a>
+					   </div>	
+					<!--	<div id="logoimage" >	
+						    	  <img  src="https://desktop.jitsi.org/wiki/pub/sip-communicator/footerimage.png" />
+						</div>-->			    					   
+					</div>								
+					</div>
+				
+										
+			</div>
+
+</body></html>
